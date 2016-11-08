@@ -1,0 +1,21 @@
+{
+  "name": "sentimentkit",
+  "version": "1.0.0",
+  "description": "TJ Bot Sentiment Analysis recipe",
+  "main": "sentiment.js",
+  "scripts": {
+    "test": "node sentiment.js",
+    "start": "node sentiment.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:watsonkits/sentimentkit.git"
+  },
+  "author": "Victor Dibia",
+  "license": "",
+  "dependencies": {
+    "rpi-ws281x-native": "^0.8.1",
+    "twitter": "^1.4.0",
+    "watson-developer-cloud": "^2.0.1"
+  }
+}

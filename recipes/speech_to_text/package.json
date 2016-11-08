@@ -1,0 +1,30 @@
+{
+  "name": "sttkit",
+  "version": "1.0.0",
+  "description": "TJ Bot Speech to Text recipe",
+  "main": "app.js",
+  "scripts": {
+    "test": "node stt.js",
+    "start": "node stt.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:watsonkits/sttkit.git"
+  },
+  "keywords": [
+    "Watson",
+    "IBM",
+    "Speech",
+    "To",
+    "Text",
+    "STT",
+    "Raspberry Pi"
+  ],
+  "author": "Victor Dibia",
+  "license": "",
+  "dependencies": {
+    "mic": "^2.1.1",
+    "rpi-ws281x-native": "^0.8.1",
+    "watson-developer-cloud": "^2.0.0"
+  }
+}
