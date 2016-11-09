@@ -1,7 +1,7 @@
 # TJ Bot
 <img src="/images/tjbot.jpg" width="85%">
 
-[IBM Watson Maker Kits](http://ibm.biz/mytjbot) is a collection of DIY open source templates to connect to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun way. [TJ Bot](http://ibm.biz/mytjbot) is the first kit in the collection. You can 3D print the robot or laser cut it, then use one of the available [recipes](recipes) to bring him to life! #TJBot
+[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to connect to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun way. [TJ Bot](http://ibm.biz/mytjbot) is the first kit in the collection. You can 3D print the robot or laser cut it, then use one of the available [recipes](recipes) to bring him to life! #TJBot
 
 Better still, you can create your own custom recipes to bring exciting ideas to life using any combination of Watson's Cognitive API's!
 
@@ -27,7 +27,7 @@ TJ Bot is open source and we'd love to see what you can make with him. Here are 
 
     - Connected robots. You can program multiple TJs to send messages to each other using the Watson IoT platform.
 
-If you have created your own recipe, we would love to include it as a [featured recipe](featured/featured_recipes.md)! Just submit a pull request for your receipe instructions and code and send a link to a demo video to tjbot@us.ibm.com (Vimeo & YouTube preferred). We will review it and if we decide to include it in our repository, you'll be listed as the developer.  Please note that all receipes will be published under the Apache 2.0 License. See [CONTRIBUTING.md](CONTRIBUTING.md).
+If you have created your own recipe, we would love to include it as a [featured recipe](featured/README.md)! Just submit a pull request for your receipe instructions and code and send a link to a demo video to tjbot@us.ibm.com (Vimeo & YouTube preferred). We will review it and if we decide to include it in our repository, you'll be listed as the developer.  Please note that all receipes will be published under the Apache 2.0 License. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 We cannot wait to see what you build with [TJ](http://ibm.biz/mytjbot)!
 

@@ -16,7 +16,7 @@ This module provides Node.js code to get your Raspberry Pi to talk. It uses [Wat
 - The robot talks back the response through using the Alsa tools
 
 ##Hardware
-Follow the instructions in instructable_Link_goes_here to prepare your system ready to run the code.
+Check out [this instructable] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to prepare your system for running the code.
 
 - [Raspberry Pi 3](https://www.amazon.com/dp/B01C6Q2GSY/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1WPZOVL411972)
 - [USB microphone](https://www.amazon.com/dp/B005BRET3G/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1C98I7HIFPNJE)

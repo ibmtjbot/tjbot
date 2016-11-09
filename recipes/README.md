@@ -26,10 +26,10 @@ This module provides Node.js code to control the color of a [NeoPixel RGB led](h
 
 This module provides Node.js code to get your Raspberry Pi to talk. It uses [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html) to parse audio from the microphone, uses [Watson Conversation](https://www.ibm.com/watson/developercloud/conversation.html) to generate a response, and uses [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html) to "read" out this response!
 
-## Fetures Recipes
+## Featured Recipes
 Check out some [featured TJ Bot recipes](../featured/README.md) created by the community. 
 
 ## Contributing Your Own Recipes
-TJ Bot is open source and we'd love to see what you can make with him. If you have created your own recipe, we would love to include it as a [featured recipe](../featured/README.md)! Just submit a pull request for your receipe instructions and code and send a link to a demo video to tjbot@us.ibm.com (Vimeo & YouTube preferred). We will review it and if we decide to include it in our repository, you'll be listed as the developer.  Please note that all receipes will be published under the Apache 2.0 License. See [CONTRIBUTING.md](../CONTRIBUTING.md).
+TJ Bot is open source and we'd love to see what you can make with him. If you have created your own recipe, we would love to include it as a [featured recipe](../featured/README.md)! Just submit a pull request for your recipe instructions and code and send a link to a demo video to tjbot@us.ibm.com (Vimeo & YouTube preferred). We will review it and if we decide to include it in our repository, you'll be listed as the developer.  Please note that all recipes will be published under the Apache 2.0 License. See [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 We cannot wait to see what you build with TJ!

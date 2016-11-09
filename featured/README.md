@@ -4,7 +4,7 @@ Featured recipes are some exciting recipes created by TJ Bot enthusiasts.
 
 
 - **[TJWave](https://github.com/victordibia/tjwave)** : Fun controller recipe for TJ's servo arm.
-- **[SwiftyTJ]()** : This recipe enables TJ Bot’s LED to be controlled from a Swift program.
+- **[SwiftyTJ](https://github.com/jweisz/swifty-tj)** : This recipe enables TJ Bot’s LED to be controlled from a Swift program.
 
 
 

@@ -12,7 +12,7 @@ This module provides Node.js code to control the color of a [NeoPixel RGB led](h
 - Changes the color of the LED based on the emotions found by Watson
 
 ##Hardware
-Follow the instructions in instructable_Link_goes_here to prepare your system ready to run the code.
+Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to prepare your system for running the code.
 
 - [Raspberry Pi 3] (https://www.amazon.com/dp/B01C6Q2GSY/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1WPZOVL411972)
 - [NeoPixel RGB LED] (https://www.adafruit.com/products/1734)
