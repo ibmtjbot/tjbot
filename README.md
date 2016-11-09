@@ -11,6 +11,9 @@ Better still, you can create your own custom recipes to bring exciting ideas to 
 To build out the bot, you can download the design documents and 3D print or laser cut it from [ibm.biz/mytjbot](http://ibm.biz/mytjbot).
 
 # Build TJ Bot
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/bLt3Cf2Ui3o/0.jpg)](https://youtu.be/bLt3Cf2Ui3o)
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/k928MQmD0oc/0.jpg)](https://youtu.be/k928MQmD0oc)
 
 # Bring TJ Bot to life
 [Recipes](recipes) are step by step instructions to help you connect your TJ to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html).
