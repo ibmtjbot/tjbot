@@ -21,7 +21,7 @@
 
  Based on example NeoPixel code by Jeremy Garff (jer@jers.net)
 
- Follow the instructions in XXX to
+ Follow the instructions in http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/ to
  get the system ready to run this code.
 */
 
@@ -66,6 +66,7 @@ function fetchTweets(searchparams){
         });
 
         stream.on('error', function(error) {
+            console.log("\nAn error has occurred while connecting to Twitter. Please check your twitter credentials, and also refer to https://dev.twitter.com/overview/api/response-codes for more on twitter error codes. \n")
             throw error;
         });
     });
