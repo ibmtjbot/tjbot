@@ -38,7 +38,7 @@ var confidencethreshold = 0.5 ; // The program only responds to the sentiments t
 var tweetbuffer = [] ;
 var searchkeyword = config.searchkeyword;    // keyword to use in twitter search
 var searchparams = {q: searchkeyword, count: maxtweets};
-var sentimentinterval = 3000 ; // calculate sentiment every 2 seconds.
+var sentimentinterval = 3000 ; // calculate sentiment every 3 seconds.
 
 var twitterclient = new Twitter({ //Retrieving your Twitter credentials
     consumer_key: config.twittercredentials.consumer_key,
