@@ -19,7 +19,7 @@
  * Must run with root-level protection
  * Sudo node sentiment.js
 
- Based on example NeoPixel code by Jeremy Garff (jer@jers.net)
+ Based on ws281x library created by Jeremy Garff (jer@jers.net)
 
  Follow the instructions in http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/ to
  get the system ready to run this code.
