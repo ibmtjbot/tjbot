@@ -48,7 +48,7 @@ Update the Config file with your Bluemix credentials for all three Watson servic
 
 ## Creating a Conversation Flow
 You need to train your robot with what to say and when to say it. For that, we use [Watson Conversation] (https://www.ibm.com/watson/developercloud/conversation.html). Open a browser and go to [IBM Watson Conversation link](http://www.ibmwatsonconversation.com)
-From the top right corner, select the name of your conversation service and click 'create' to create a new workspace for your robot. You can create intents and dialogs there. [Here](http://XXX) is a step-by-step instructions to create a conversation flow.
+From the top right corner, select the name of your conversation service and click 'create' to create a new workspace for your robot. You can create intents and dialogs there. [Here](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/#step6) is a step-by-step instructions to create a conversation flow.
 
 ##Running
 
