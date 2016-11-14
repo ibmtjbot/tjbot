@@ -1,28 +1,28 @@
 /**
- * Copyright 2016 IBM Corp. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright 2016 IBM Corp. All Rights Reserved.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*      http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 /************************************************************************
- * Control a NeoPixel LED unit connected to a Raspberry Pi pin by analyzing Twitter data using Watson Tone Analyzer
- * Must run with root-level protection
- * Sudo node sentiment.js
+* Control a NeoPixel LED unit connected to a Raspberry Pi pin by analyzing Twitter data using Watson Tone Analyzer
+* Must run with root-level protection
+* Sudo node sentiment.js
 
- Based on ws281x library created by Jeremy Garff (jer@jers.net)
+Based on ws281x library created by Jeremy Garff (jer@jers.net)
 
- Follow the instructions in http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/ to
- get the system ready to run this code.
+Follow the instructions in http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/ to
+get the system ready to run this code.
 */
 
 /************************************************************************
@@ -41,42 +41,42 @@ var searchparams = {q: searchkeyword, count: maxtweets};
 var sentimentinterval = 3000 ; // calculate sentiment every 3 seconds.
 
 var twitterclient = new Twitter({ //Retrieving your Twitter credentials
-    consumer_key: config.twittercredentials.consumer_key,
-    consumer_secret: config.twittercredentials.consumer_secret,
-    access_token_key: config.twittercredentials.access_token_key,
-    access_token_secret:  config.twittercredentials.access_token_secret
+  consumer_key: config.twittercredentials.consumer_key,
+  consumer_secret: config.twittercredentials.consumer_secret,
+  access_token_key: config.twittercredentials.access_token_key,
+  access_token_secret:  config.twittercredentials.access_token_secret
 });
 
 fetchTweets(searchparams)
 function fetchTweets(searchparams){
-    var alltweets = "";
-    console.log("Fetching tweets for keyword " + searchkeyword + ". This may take some time.");
-    twitterclient.stream('statuses/filter', {track: searchkeyword }, function(stream) {
-        stream.on('data', function(event) {
-            if(event && event.text){
-                var tweet = event.text ;
-                tweet = tweet.replace(/[^\x00-\x7F]/g, "") // Remove non-ascii characters e.g chinese, japanese, arabic letters etc
-                tweet = tweet.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ""); // Remove link
-                if(tweetbuffer.length == maxtweets){ // if we have enough tweets, remove one
-                    tweetbuffer.shift() ;
-                }
-                tweetbuffer.push(tweet)
+  var alltweets = "";
+  console.log("Fetching tweets for keyword " + searchkeyword + ". This may take some time.");
+  twitterclient.stream('statuses/filter', {track: searchkeyword }, function(stream) {
+    stream.on('data', function(event) {
+      if(event && event.text){
+        var tweet = event.text ;
+        tweet = tweet.replace(/[^\x00-\x7F]/g, "") // Remove non-ascii characters e.g chinese, japanese, arabic letters etc
+        tweet = tweet.replace(/(?:https?|ftp):\/\/[\n\S]+/g, ""); // Remove link
+        if(tweetbuffer.length == maxtweets){ // if we have enough tweets, remove one
+          tweetbuffer.shift() ;
+        }
+        tweetbuffer.push(tweet)
 
-            }
-        });
-
-        stream.on('error', function(error) {
-            console.log("\nAn error has occurred while connecting to Twitter. Please check your twitter credentials, and also refer to https://dev.twitter.com/overview/api/response-codes for more on twitter error codes. \n")
-            throw error;
-        });
+      }
     });
+
+    stream.on('error', function(error) {
+      console.log("\nAn error has occurred while connecting to Twitter. Please check your twitter credentials, and also refer to https://dev.twitter.com/overview/api/response-codes for more on twitter error codes. \n")
+      throw error;
+    });
+  });
 }
 SampleTweetBuffer();
 function SampleTweetBuffer(){
   setInterval(function() {
     if (tweetbuffer.length > 0){
-        //console.log("sampling .. " + tweetbuffer.length);
-        analyzeTone(); // Analyze the tone of tweets if we have more than one tweet
+      //console.log("sampling .. " + tweetbuffer.length);
+      analyzeTone(); // Analyze the tone of tweets if we have more than one tweet
     }
 
   }, sentimentinterval);
@@ -92,83 +92,83 @@ Emotions identified include things like anger, fear, joy, sadness, and disgust.
 */
 var watson = require('watson-developer-cloud');
 function analyzeTone(){
-    var text = "";
-    tweetbuffer.forEach(function(tweet){
-        text = text + " " + tweet ;  // Combine all texts in the tweetbuffer array into a single text.
-    })
-    //console.log(text + "\n ====== ")
-    var tone_analyzer = watson.tone_analyzer({ //Retrieving your Bluemix credentials
-        username: config.toneanalyzercredentials.username,
-        password: config.toneanalyzercredentials.password,
-        version: config.toneanalyzercredentials.version,
-        version_date: '2016-05-19'
+  var text = "";
+  tweetbuffer.forEach(function(tweet){
+    text = text + " " + tweet ;  // Combine all texts in the tweetbuffer array into a single text.
+  })
+  //console.log(text + "\n ====== ")
+  var tone_analyzer = watson.tone_analyzer({ //Retrieving your Bluemix credentials
+    username: config.toneanalyzercredentials.username,
+    password: config.toneanalyzercredentials.password,
+    version: config.toneanalyzercredentials.version,
+    version_date: '2016-05-19'
+  });
+  tone_analyzer.tone({ text: text },
+    function(err, tone) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        tone.document_tone.tone_categories.forEach(function(tonecategory){
+          if(tonecategory.category_id == "emotion_tone"){
+            //console.log(tonecategory.tones)
+            tonecategory.tones.forEach(function(emotion){
+              if(emotion.score >= confidencethreshold) { // pulse only if the likelihood of an emotion is above the given confidencethreshold
+                processEmotion(emotion)
+              }
+            })
+          }
+        })
+      }
     });
-    tone_analyzer.tone({ text: text },
-        function(err, tone) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                tone.document_tone.tone_categories.forEach(function(tonecategory){
-                    if(tonecategory.category_id == "emotion_tone"){
-                        //console.log(tonecategory.tones)
-                        tonecategory.tones.forEach(function(emotion){
-                            if(emotion.score >= confidencethreshold) { // pulse only if the likelihood of an emotion is above the given confidencethreshold
-                                processEmotion(emotion)
-                            }
-                        })
-                    }
-                })
-            }
-        });
-    }
+  }
 
-/*********************************************************************************************
-* Step #3: Change the color of the LED based on the sentiments of the retrieve tweets
-**********************************************************************************************
-In this step, the program determines the color of the LED based on the analyzed emotion.
-Different colors are associated to different emotions. You can customize your own color!
-Anger = Red
-Joy = Green
-Fear = Blue etc
-*/
+  /*********************************************************************************************
+  * Step #3: Change the color of the LED based on the sentiments of the retrieve tweets
+  **********************************************************************************************
+  In this step, the program determines the color of the LED based on the analyzed emotion.
+  Different colors are associated to different emotions. You can customize your own color!
+  Anger = Red
+  Joy = Green
+  Fear = Blue etc
+  */
 
-var ws281x = require('rpi-ws281x-native');
-var NUM_LEDS = 1;
-ws281x.init(NUM_LEDS);
-var color = new Uint32Array(NUM_LEDS);
+  var ws281x = require('rpi-ws281x-native');
+  var NUM_LEDS = 1;
+  ws281x.init(NUM_LEDS);
+  var color = new Uint32Array(NUM_LEDS);
 
-// ----  reset LED before exit
-process.on('SIGINT', function () {
+  // ----  reset LED before exit
+  process.on('SIGINT', function () {
     ws281x.reset();
     process.nextTick(function () { process.exit(0); });
-});
+  });
 
-var red = 0x00ff00 ;
-var green = 0xff0000 ;
-var blue = 0x0000ff ;
-var yellow = 0xffff00 ;
-var magenta = 0x00ffff ;
+  var red = 0x00ff00 ;
+  var green = 0xff0000 ;
+  var blue = 0x0000ff ;
+  var yellow = 0xffff00 ;
+  var magenta = 0x00ffff ;
 
-// Process emotion returned from Tone Analyzer Above
-// Show a specific color fore each emotion
-function processEmotion(emotion){
-        console.log("Current Emotion Around " + searchkeyword + " is ", emotion.tone_id);
-        if (emotion.tone_id == "anger"){
-            setLED(red);
-        }else if(emotion.tone_id == "joy"){
-            setLED(yellow);
-        }else if(emotion.tone_id == "fear"){
-            setLED(green);
-        }else if(emotion.tone_id == "disgust"){
-            setLED(blue);
-        }else if(emotion.tone_id == "sadness"){
-            setLED(magenta);
-        }
+  // Process emotion returned from Tone Analyzer Above
+  // Show a specific color fore each emotion
+  function processEmotion(emotion){
+    console.log("Current Emotion Around " + searchkeyword + " is ", emotion.tone_id);
+    if (emotion.tone_id == "anger"){
+      setLED(red);
+    }else if(emotion.tone_id == "joy"){
+      setLED(yellow);
+    }else if(emotion.tone_id == "fear"){
+      setLED(green);
+    }else if(emotion.tone_id == "disgust"){
+      setLED(blue);
+    }else if(emotion.tone_id == "sadness"){
+      setLED(magenta);
     }
+  }
 
-// Set the LED to the given color value
-function setLED(colorval){
+  // Set the LED to the given color value
+  function setLED(colorval){
     color[0] = colorval ;
     ws281x.render(color);
-}
+  }
