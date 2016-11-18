@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /************************************************************************
  * Control a NeoPixel LED unit connected to a Raspberry Pi pin through voice commands
  * Must run with root-level protection
@@ -21,7 +21,7 @@
 
  Based on example NeoPixel code by Jeremy Garff (jer@jers.net)
 
- Follow the instructions in XXX to 
+ Follow the instructions in XXX to
  get the system ready to run this code.
 */
 
@@ -94,7 +94,7 @@ textStream.on('data', function(str) {
 });
 
 textStream.on('error', function(err) {
-    console.log(' ===== An Error has occurred ===== \nYou may have exceeded your payload quota.\n ' + err + "\n Press <ctrl>+C to exit.") ; // handle errors
+    console.log(' ===== An Error has occurred ===== \nYou may have exceeded your payload quota.\n ' + JSON.stringify(err) + "\n Press <ctrl>+C to exit.") ; // handle errors
 });
 
 function parseText(str){
@@ -103,7 +103,7 @@ function parseText(str){
     var containsSet = str.indexOf("set") >= 0;
     var containsLight = str.indexOf("the light") >= 0;
     var containsDisco = str.indexOf("disco") >= 0;
-    
+
     if ((containsTurn || containsChange || containsSet) && containsLight) {
         setLED(str);
     } else if (containsDisco) {
