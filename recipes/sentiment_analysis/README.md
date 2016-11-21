@@ -17,7 +17,7 @@ Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-R
 - [Raspberry Pi 3] (https://www.amazon.com/dp/B01C6Q2GSY/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1WPZOVL411972)
 - [NeoPixel RGB LED] (https://www.adafruit.com/products/1734) - Please see the wiring diagram [here] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)
 - [Female/female jumper wires] (https://www.amazon.com/dp/B00N7XX5WW/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I2Z3LX9RWG7EWT&psc=1)
-- [TJ Bot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
+- [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
 
 ##Build
 Get the sample code and go to the application folder.
@@ -48,7 +48,7 @@ Before running the code, you may test your LED setup to make sure the connection
 
 > Note the `sudo` command. Root user access is required to control the NeoPixel LEDs.
 
-If the LED does not light up, you can try moving the power from 3.3 to 5 volts.  If neither the 3.3v or 5v pins work, you will need a 1N4001 diode.  The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
+If the LED does not light up, you can try moving the power from 3.3 to 5 volts. If neither the 3.3v or 5v pins work, you will need a 1N4001 diode.  The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
 
 If you have problems with the setup, please refer to [Adafruit's Neopixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview
 ) to troubleshoot.
@@ -114,11 +114,6 @@ You can change this mapping by editing `sentiment.js` to add your favorite color
 - [Watson Tone Analyzer](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 - Twitter npm package : An asynchronous client library for the Twitter REST and Streaming API's.
 - [rpi-ws281x-native](https://github.com/beyondscreen/node-rpi-ws281x-native) - npm package for controling a ws281x LED.
-
-## License
-
-This library is licensed under Apache 2.0. Full license text is
-available in [LICENSE](../../LICENSE).
 
 ## Contributing
 See [CONTRIBUTING.md](../../CONTRIBUTING.md).

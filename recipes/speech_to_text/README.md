@@ -19,7 +19,7 @@ Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to
 - [USB microphone] (https://www.amazon.com/dp/B005BRET3G/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1C98I7HIFPNJE)
 - [NeoPixel RGB LED] (https://www.adafruit.com/products/1734) - Please see the wiring diagram [here] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)
 - [Female/female jumper wires] (https://www.amazon.com/dp/B00N7XX5WW/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I2Z3LX9RWG7EWT&psc=1)
-- [TJ Bot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
+- [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
 
 ##Build
 Get the sample code and go to the application folder.
@@ -73,24 +73,19 @@ Reboot and confirm no "snd" modules are running by executing the command "lsmod"
     lsmod    
 
 ##Customization
-You can add new colors to your color palette in stt.js. TJ uses a NeoPixel RGB LED, which means it can show any combination of red, green, and blue. 
+You can add new colors to your color palette in stt.js. TJBot uses a NeoPixel RGB LED, which means it can show any combination of red, green, and blue. 
 
 We have hidden a disco party for you. Find the code for disco party in stt.js and uncomment the code. Now you can ask TJ to show you the disco lights by saying "Let's have a disco party"!
 
-Try implementing your own TJ party and share it with us #TJBot! 
+Try implementing your own TJBot party and share it with us #TJBot! 
 
-Once ready to move on, try the next recipe to [make TJ respond to emotions using Watson](../sentiment_analysis).
+Once ready to move on, try the next recipe to [make TJBot respond to emotions using Watson](../sentiment_analysis).
 
 ##Dependencies
 
 - [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html)
 - mic npm package for reading audio input
 - [rpi-ws281x-native](https://github.com/beyondscreen/node-rpi-ws281x-native) npm package to control a ws281x LED.
-
-## License
-
-This library is licensed under Apache 2.0. Full license text is
-available in [LICENSE](../../LICENSE).
 
 ## Contributing
 See [CONTRIBUTING.md](../../CONTRIBUTING.md).

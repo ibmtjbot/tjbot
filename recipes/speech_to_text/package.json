@@ -21,7 +21,6 @@
     "Raspberry Pi"
   ],
   "author": "Victor Dibia",
-  "license": "",
   "dependencies": {
     "mic": "^2.1.1",
     "rpi-ws281x-native": "^0.8.1",
