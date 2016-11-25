@@ -15,7 +15,7 @@ exports.STTPassword = 'xxx-xxx-xxx' ;
 // Credentials for Watson Conversation service
 exports.ConUsername = 'xxx-xxx-xxx' ;
 exports.ConPassword = 'xxx-xxx-xxx' ;
-exports.ConWorkspace = 'xxx-xxx-xxx'
+exports.ConWorkspace = 'xxx-xxx-xxx';
 
 //Credentials for Watson Text to Speech service
 exports.TTSUsername = 'xxx-xxx-xxx' ;
