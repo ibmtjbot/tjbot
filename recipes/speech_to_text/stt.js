@@ -2,8 +2,8 @@
 * Copyright 2016 IBM Corp. All Rights Reserved.
 *
 * Watson Maker Kits
-* 
-* This project is licensed under the Apache License 2.0, see LICENSE.* 
+*
+* This project is licensed under the Apache License 2.0, see LICENSE.*
 *
 ************************************************************************
 *
@@ -86,7 +86,8 @@ textStream.on('data', function(str) {
 });
 
 textStream.on('error', function(err) {
-    console.log(' ===== An Error has occurred ===== \nYou may have exceeded your payload quota.\n ' + JSON.stringify(err) + "\n Press <ctrl>+C to exit.") ; // handle errors
+  console.log(' === Watson Speech to Text : An Error has occurred ===== \nYou may have exceeded your payload quota.') ; // handle errors
+  console.log(err + "\n Press <ctrl>+C to exit.") ;
 });
 
 function parseText(str){
