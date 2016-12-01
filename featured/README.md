@@ -5,6 +5,7 @@ Featured recipes are some exciting recipes created by TJBot enthusiasts.
 
 - **[TJWave](https://github.com/victordibia/tjwave)** : Fun controller recipe for TJBot's servo arm.
 - **[SwiftyTJ](https://github.com/jweisz/swifty-tj)** : This recipe enables TJBot’s LED to be controlled from a Swift program.
+- **[Project Intu](https://github.com/watson-intu/self-sdk#raspberry-pi)** : Project Intu is an experimental service that allows developers to quickly and seamlessly integrate various cognitive services, such as Conversation and Speech-to-Text, with the capabilities of various devices, spaces and physical objects. While not being a recipe, Intu is a middleware that can be installed on TJBot and used to architect more complex interactions for your robot. Learn [more here](http://www.ibm.com/watson/developercloud/project-intu.html).
 
 
 
