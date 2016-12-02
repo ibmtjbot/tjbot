@@ -11,6 +11,8 @@ This module provides a Node.js code to control a [NeoPixel RGB led](https://www.
 - Parses the text to identify the given voice command
 - Switches the LED on/off depending on the given command
 
+[![link to a full video for use voice to control LED](https://img.youtube.com/vi/zfxXvW0HfoA/0.jpg)](https://www.youtube.com/watch?v=zfxXvW0HfoA)
+
 ##Hardware
 
 Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) to prepare your system for running the code.
