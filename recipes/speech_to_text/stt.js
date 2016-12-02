@@ -86,8 +86,9 @@ textStream.on('data', function(str) {
 });
 
 textStream.on('error', function(err) {
-  console.log(' === Watson Speech to Text : An Error has occurred ===== \nYou may have exceeded your payload quota.') ; // handle errors
-  console.log(err + "\n Press <ctrl>+C to exit.") ;
+  console.log(' === Watson Speech to Text : An Error has occurred =====') ; // handle errors
+  console.log(err) ;
+  console.log("Press <ctrl>+C to exit.") ;
 });
 
 function parseText(str){
