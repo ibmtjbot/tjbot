@@ -1,25 +1,29 @@
 # TJBot
 <img src="/images/tjbot.jpg" width="85%">
 
-[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to connect to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun way. [IBM TJBot](http://ibm.biz/mytjbot) is the first kit in the collection. You can 3D print the robot or laser cut it, then use one of the available [recipes](recipes) to bring him to life! #TJBot
+[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to connect to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun way. [IBM TJBot](http://ibm.biz/mytjbot) is the first kit in the collection. You can 3D print or laser cut the robot frame, then use one of the available [recipes](recipes) to bring him to life!
 
 Better still, you can create your own custom recipes to bring exciting ideas to life using any combination of Watson's Cognitive API's!
 
-**TJBot will only run on the Raspberry Pi.**
+**TJBot will only run on Raspberry Pi.**
 
 # Get TJBot
-To build out the bot, you can download the design documents and 3D print or laser cut it from [ibm.biz/mytjbot](http://ibm.biz/mytjbot).
-
-# Build TJBot
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/bLt3Cf2Ui3o/0.jpg)](https://youtu.be/bLt3Cf2Ui3o)
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/k928MQmD0oc/0.jpg)](https://youtu.be/k928MQmD0oc)
+To build out the bot, you can download [the design files](http://ibm.biz/mytjbot) and 3D print or laser cut them. 
+This [instructables](http://www.instructables.com/id/Build-TJ-Bot-Out-of-Cardboard/) helps with the details.
 
 # Bring TJBot to life
 [Recipes](recipes) are step by step instructions to help you connect your TJBot to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html).
 The [recipes](recipes) are designed based on a Raspberry Pi. You can either run one of the available [recipes](recipes) or create your own recipe that brings sweet ideas to life using any combination of [Watson API](https://www.ibm.com/watson/developercloud/services-catalog.html)!
 
-Also, check out some [featured TJBot recipes](featured/README.md) created by the community.
+We have provided three initial [recipes](recipes) for you:
+- Use your voice to control a light with Watson [[instructables](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text)]
+- Make your robot respond to emotions using Watson [[instructables](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis)]
+- Build a talking robot with Watson Conversation [[instructables](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
+
+Here are some of the featured recipes created by TJBot enthusiasts:
+- Fun controller recipe for TJBot's servo arm [[instructables](http://www.instructables.com/id/Build-a-Waving-Robot-Using-Watson-Services/)] [[github](https://github.com/victordibia/tjwave)]
+- SwiftyTJ that enables TJBot’s LED to be controlled from a Swift program [[github](https://github.com/jweisz/swifty-tj)]
+- Project Intu, not a recipe but a middleware that can be installed on TJBot and be used to architect more complex interactions for your robot [[developercloud](http://www.ibm.com/watson/developercloud/project-intu.html)] [[github](https://github.com/watson-intu/self-sdk#raspberry-pi)]
 
 # Contribute to TJBot
 TJBot is open source and we'd love to see what you can make with him. Here are some ideas to get you started.
