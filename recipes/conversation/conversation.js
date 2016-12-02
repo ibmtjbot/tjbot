@@ -73,7 +73,7 @@ micInputStream.on('silence', function() {
   // detect silence.
 });
 micInstance.start();
-console.log("TJ is listening, you may speak now.");
+console.log("TJBot is listening, you may speak now.");
 
 var textStream ;
 
