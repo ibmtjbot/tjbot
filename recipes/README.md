@@ -1,28 +1,26 @@
 
 # Recipes
-<img src="../images/tjbot2.jpg" width="75%">
-
 Recipes are step by step instructions to help you connect your TJBot to [Watson cognitive services](https://www.ibm.com/watson/developercloud/services-catalog.html).
 The recipes are designed to be run on a Raspberry Pi. You can either run one of the available recipes or create your own recipe that brings sweet ideas to life using any combination of [Watson API](https://www.ibm.com/watson/developercloud/services-catalog.html)!
 
 ### [Speech to Text](speech_to_text)
-> Use your voice to control a LED with [Watson](https://www.ibm.com/watson/developercloud/speech-to-text.html)
+> Use your voice to control a LED with Watson [[instructables](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text)]
 
-<img src="../images/stt.png" width="15%"> 
-
+[![link to a full video for use voice to control LED](https://img.youtube.com/vi/zfxXvW0HfoA/0.jpg)](https://www.youtube.com/watch?v=zfxXvW0HfoA)
 
 This module provides a Node.js code to control a [NeoPixel RGB led](https://www.adafruit.com/product/1938) using voice commands. It uses [Watson Speech to Text API](https://www.ibm.com/watson/developercloud/speech-to-text.html).
 
 ###[Sentiment Analysis](sentiment_analysis)
-> Make your bot respond to emotions using [Watson](http://www.ibm.com/watson/developercloud/tone-analyzer.html)
+> Make your bot respond to emotions using Watson [[instructables](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis)]
 
-<img src="../images/sentiment.png" width="15%"> 
+<img src="../images/sentiment.png" width="50%"> 
 
 This module provides Node.js code to control the color of a [NeoPixel RGB led](https://www.adafruit.com/product/1938) based on public perception of a given keyword (e.g. "heart" or "iPhone"). The module connects to Twitter to analyze the public sentiment about the given keyword in real time, and updates the color of the LED to reflect the sentiment. It uses [Watson Tone Analyzer](http://www.ibm.com/watson/developercloud/tone-analyzer.html) and Twitter API.
 
 ###[Conversation](conversation)
-<img src="../images/conversation.png" width="15%"> 
-> Build a talking robot with [Watson](http://www.ibm.com/watson/developercloud/conversation.html)
+> Build a talking robot with Watson [[instructables](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
+
+<img src="../images/conversation.png" width="50%">
 
 This module provides Node.js code to get your Raspberry Pi to talk. It uses [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html) to parse audio from the microphone, uses [Watson Conversation](https://www.ibm.com/watson/developercloud/conversation.html) to generate a response, and uses [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html) to "read" out this response!
 
