@@ -88,7 +88,7 @@ textStream = micInputStream.pipe(speech_to_text.createRecognizeStream({
   content_type: 'audio/l16; rate=44100; channels=2',
   interim_results: true,
   keywords: [attentionWord],
-  smart_formatting: 'true',
+  smart_formatting: true,
   keywords_threshold: 0.5
 }));
 
