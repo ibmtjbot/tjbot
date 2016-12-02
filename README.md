@@ -8,8 +8,8 @@ Better still, you can create your own custom recipes to bring exciting ideas to 
 **TJBot will only run on Raspberry Pi.**
 
 # Get TJBot
-To build out the bot, you can download [the design files](https://ibmtjbot.github.io/#gettj) and 3D print or laser cut them. 
-This [instructables](http://www.instructables.com/id/Build-TJ-Bot-Out-of-Cardboard/) helps with the details.
+You can download [the design files](https://ibmtjbot.github.io/#gettj) and 3D print or laser cut TJBot. 
+Here is an [instructables](http://www.instructables.com/id/Build-TJ-Bot-Out-of-Cardboard/) to help you with the details.
 
 # Bring TJBot to life
 [Recipes](recipes) are step by step instructions to help you connect your TJBot to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html).
