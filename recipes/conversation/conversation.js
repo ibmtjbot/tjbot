@@ -82,15 +82,35 @@ var textStream ;
 ************************************************************************
 In this step, the audio sample is sent (piped) to "Watson Speech to Text" to transcribe.
 The service converts the audio to text and saves the returned text in "textStream"
+You can also set the language model for your speech input.
+The following language models are available
+    ar-AR_BroadbandModel
+    en-UK_BroadbandModel
+    en-UK_NarrowbandModel
+    en-US_BroadbandModel (the default)
+    en-US_NarrowbandModel
+    es-ES_BroadbandModel
+    es-ES_NarrowbandModel
+    fr-FR_BroadbandModel
+    ja-JP_BroadbandModel
+    ja-JP_NarrowbandModel
+    pt-BR_BroadbandModel
+    pt-BR_NarrowbandModel
+    zh-CN_BroadbandModel
+    zh-CN_NarrowbandModel
 */
 
-textStream = micInputStream.pipe(speech_to_text.createRecognizeStream({
+var recognizeparams = {
   content_type: 'audio/l16; rate=44100; channels=2',
   interim_results: true,
   keywords: [attentionWord],
   smart_formatting: true,
-  keywords_threshold: 0.5
-}));
+  keywords_threshold: 0.5,
+  model: 'en-US_BroadbandModel'  // Specify your language model here
+};
+
+
+textStream = micInputStream.pipe(speech_to_text.createRecognizeStream(recognizeparams));
 
 textStream.setEncoding('utf8');
 
