@@ -24,8 +24,8 @@ Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to
 - [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
 
 ##Build
-Get the sample code and go to the application folder.
-    
+Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
+
     cd recipes/speech_to_text
 
 Install ALSA tools (required for recording audio on Raspberry Pi)
@@ -61,7 +61,7 @@ Start the application
 
 > Note the `sudo` command. Root user access is required to control the NeoPixel LEDs.
 
-Now talk to your microphone to change the color of the LED. 
+Now talk to your microphone to change the color of the LED.
 Say  "Turn the light blue" to change the light to blue. You can try other colors: yellow, green, orange, purple, magenta, red, blue, aqua, white). You can either say "Turn the light on" or "Turn the light off"!
 
 Doesn't your Pi show the right color? No worries, we can fix it.
@@ -75,11 +75,11 @@ Reboot and confirm no "snd" modules are running by executing the command "lsmod"
     lsmod    
 
 ##Customization
-You can add new colors to your color palette in stt.js. TJBot uses a NeoPixel RGB LED, which means it can show any combination of red, green, and blue. 
+You can add new colors to your color palette in stt.js. TJBot uses a NeoPixel RGB LED, which means it can show any combination of red, green, and blue.
 
 We have hidden a disco party for you. Find the code for disco party in stt.js and uncomment the code. Now you can ask TJ to show you the disco lights by saying "Let's have a disco party"!
 
-Try implementing your own TJBot party and share it with us #TJBot! 
+Try implementing your own TJBot party and share it with us #TJBot!
 
 Once ready to move on, try the next recipe to [make TJBot respond to emotions using Watson](../sentiment_analysis).
 
@@ -91,4 +91,3 @@ Once ready to move on, try the next recipe to [make TJBot respond to emotions us
 
 ## Contributing
 See [CONTRIBUTING.md](../../CONTRIBUTING.md).
-

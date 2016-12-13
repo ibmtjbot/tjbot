@@ -10,7 +10,7 @@ This module provides Node.js code to get your Raspberry Pi to talk. It uses [Wat
 ## How It Works
 - Listens for voice commands
 - Sends audio from the microphone to the Watson Speech to Text Service - STT to transcribe [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html)
-- Parses the text looking for the attention word 
+- Parses the text looking for the attention word
 - Once the attention word is recognized, the text is sent to [Watson Conversation](https://www.ibm.com/watson/developercloud/conversation.html) to generate the response.
 - The response is sent to [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html) to generate the audio file.
 - The robot talks back the response through using the Alsa tools
@@ -24,7 +24,7 @@ Check out [this instructable] (http://www.instructables.com/id/Build-a-Talking-R
 - [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
 
 ##Build
-Get the sample code and go to the application folder.
+Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
 
     cd recipes/conversation
 
@@ -40,7 +40,7 @@ Set the audio output to your audio jack. For more audio channels, check the [con
 
     amixer cset numid=3 1    
     // This sets the audio output to option 1 which is your Pi's Audio Jack. Option 0 = Auto, Option 2 = HDMI. An alternative is to type sudo raspi-config and change the audio to 3.5mm audio jack.
-    
+
 Update the Config file with your Bluemix credentials for all three Watson services.
 
     edit config.js
@@ -74,7 +74,7 @@ The default voice of TJBot is set to a male voice (`en-US_MichaelVoice`) but you
 	// en-US_AllisonVoice
 	// en-US_LisaVoice
 	// en-US_MichaelVoice (the default)
-	
+
 # Dependencies List
 
 - Watson Developer Cloud - [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html), [Watson Conversation](https://www.ibm.com/watson/developercloud/conversation.html), and [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html).

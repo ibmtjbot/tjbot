@@ -20,8 +20,8 @@ Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-R
 - [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
 
 ##Build
-Get the sample code and go to the application folder.
-    
+Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
+
     cd recipes/sentiment_analysis
 
 Install Dependencies
@@ -32,7 +32,7 @@ Add your Bluemix Tone Analyzer credentials
 
     edit config.js
     enter your Watson Tone Analyzer username, password and version.
-    
+
 Since this module will be sourcing the text from Twitter, you will need valid [Twitter developer credentials](https://apps.twitter.com/) in the form of a set of consumer and access tokens/keys.
 
 Add your Twitter credentials
@@ -56,7 +56,7 @@ If you have problems with the setup, please refer to [Adafruit's Neopixel on Ras
 ##Running
 
 Start the application
-   
+
     sudo node sentiment.js
 
 > Note the sudo command. Root user access is required to control the NeoPixel LEDs.
@@ -69,7 +69,7 @@ Doesn't your Pi show the right color? No worries, we can fix it. The LED library
 Reboot and confirm no "snd" modules are running by executing the command "lsmod".
 
 	lsmod    
-	
+
 ## Customization
 The default sentiment keyword is set to 'happy' but you can change it from config.js:
 
@@ -85,7 +85,7 @@ The default behaviour of the module assigns the following colors to sentiments.
 | Joy | Yellow |
 | Fear | Green |
 | Disgust | Blue |
-| Sadness | Magenta | 
+| Sadness | Magenta |
 
 You can change this mapping by editing `sentiment.js` to add your favorite colors. Note that colors are specified using the hexademical format.
 
@@ -94,7 +94,7 @@ You can change this mapping by editing `sentiment.js` to add your favorite color
 	var blue = 0x0000ff ;
 	var yellow = 0xffff00 ;
 	var magenta = 0x00ffff ;
-	
+
 	function processEmotion(emotion){
 		console.log("Current Emotion Around " + searchkeyword + " is ", emotion.tone_id);
 		if (emotion.tone_id == "anger"){
