@@ -10,15 +10,15 @@ exports.voice = 'en-US_MichaelVoice';
 
 // Credentials for Watson Speech to Text service
 
-exports.STTPassword = 'xxx-xxx-xxx' ;
+exports.STTPassword = 'xxxxxx' ;
 exports.STTUsername = 'xxx-xxx-xxx' ;
 
 
 // Credentials for Watson Conversation service
-exports.ConPassword = 'xxx-xxx-xxx' ;
+exports.ConPassword = 'xxxxxx' ;
 exports.ConUsername = 'xxx-xxx-xxx' ;
 exports.ConWorkspace = 'xxx-xxx-xxx';
 
 //Credentials for Watson Text to Speech service
-exports.TTSPassword = 'xxx-xxx-xxx' ; 
+exports.TTSPassword = 'xxxxxx' ; 
 exports.TTSUsername = 'xxx-xxx-xxx' ;

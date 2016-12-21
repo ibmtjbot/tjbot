@@ -11,7 +11,7 @@ twittercredentials.access_token_secret = "xxx-xxx-xxx";
 // Tone Analyzer Credentials - Update with your Bluemix credentals.
 var toneanalyzercredentials = {}
 
-toneanalyzercredentials.password = 'xxx-xxx-xxx' ;
+toneanalyzercredentials.password = 'xxxxxx' ;
 toneanalyzercredentials.username = 'xxx-xxx-xxx' ;
 toneanalyzercredentials.version = 'v3' ;
 
