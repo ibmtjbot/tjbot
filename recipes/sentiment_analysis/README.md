@@ -12,14 +12,11 @@ This module provides Node.js code to control the color of a [NeoPixel RGB led](h
 - Changes the color of the LED based on the emotions found by Watson
 
 ##Hardware
-Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to prepare your system for running the code.
-
-- [Raspberry Pi 3] (https://www.amazon.com/dp/B01C6Q2GSY/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1WPZOVL411972)
-- [NeoPixel RGB LED] (https://www.adafruit.com/products/1734) - Please see the wiring diagram [here] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)
-- [Female/female jumper wires] (https://www.amazon.com/dp/B00N7XX5WW/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I2Z3LX9RWG7EWT&psc=1)
-- [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
+Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to get the wiring diagram and prepare your system. You will need a Raspberry Pi 3, a [NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot) 
 
 ##Build
+We recommend starting with [our step by step instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to build this recipe.
+
 Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
 
     cd recipes/sentiment_analysis
@@ -41,7 +38,7 @@ Add your Twitter credentials
     enter your Twitter credentials.
 
 ##Testing the LED
-
+The wiring diagram is [here] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/).
 Before running the code, you may test your LED setup to make sure the connections are correct and the library is properly installed. When you run this test module, it should turn on your LED.
 
     sudo node led_test.js
@@ -71,7 +68,7 @@ Reboot and confirm no "snd" modules are running by executing the command "lsmod"
 	lsmod    
 
 ## Customization
-The default sentiment keyword is set to 'happy' but you can change it from config.js:
+The default sentiment keyword is set to 'people' but you can change it from config.js:
 
     edit config.js
     Update searchkeyword
