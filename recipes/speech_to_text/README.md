@@ -5,25 +5,21 @@ This module provides a Node.js code to control a [NeoPixel RGB led](https://www.
 
 **This will only run on the Raspberry Pi.**
 
+[![link to a full video for use voice to control LED](https://img.youtube.com/vi/zfxXvW0HfoA/0.jpg)](https://www.youtube.com/watch?v=zfxXvW0HfoA)
+
 ##How It Works
 - Listens for the voice commands (e.g "turn the light green")
 - Sends audio from the microphone to the [Watson Speech to Text Service - STT](https://www.ibm.com/watson/developercloud/speech-to-text.html) to convert to text
 - Parses the text to identify the given voice command
 - Switches the LED on/off depending on the given command
 
-[![link to a full video for use voice to control LED](https://img.youtube.com/vi/zfxXvW0HfoA/0.jpg)](https://www.youtube.com/watch?v=zfxXvW0HfoA)
-
 ##Hardware
 
-Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) to prepare your system for running the code.
-
-- [Raspberry Pi 3] (https://www.amazon.com/dp/B01C6Q2GSY/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1WPZOVL411972)
-- [USB microphone] (https://www.amazon.com/dp/B005BRET3G/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1C98I7HIFPNJE)
-- [NeoPixel RGB LED] (https://www.adafruit.com/products/1734) - Please see the wiring diagram [here] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)
-- [Female/female jumper wires] (https://www.amazon.com/dp/B00N7XX5WW/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I2Z3LX9RWG7EWT&psc=1)
-- [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
+Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) for wiring diagrams and instructions to prepare your system. You will need a Raspberry Pi 3, a microphone, a [NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot).
 
 ##Build
+> We recommend starting with [our step by step instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) to build this recipe.
+
 Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
 
     cd recipes/speech_to_text
@@ -42,6 +38,7 @@ Add your Bluemix Speech to text service credentials
     enter your watson stt username, password and version.
 
 ##Testing the LED
+The wiring diagram is [here] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/).
 
 Before running the code, you may test your LED setup to make sure the connections are correct and the library is properly installed. When you run this module, it should turn your LED on.
 
