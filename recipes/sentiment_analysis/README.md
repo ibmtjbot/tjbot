@@ -15,7 +15,7 @@ This module provides Node.js code to control the color of a [NeoPixel RGB led](h
 Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to get the wiring diagram and prepare your system. You will need a Raspberry Pi 3, a [NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot) 
 
 ##Build
-We recommend starting with [our step by step instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to build this recipe.
+>We recommend starting with [our step by step instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to build this recipe.
 
 Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
 
