@@ -13,17 +13,14 @@ This module provides Node.js code to get your Raspberry Pi to talk. It uses [Wat
 - Parses the text looking for the attention word
 - Once the attention word is recognized, the text is sent to [Watson Conversation](https://www.ibm.com/watson/developercloud/conversation.html) to generate the response.
 - The response is sent to [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html) to generate the audio file.
-- The robot talks back the response through using the Alsa tools
+- The robot speaks the response via the Alsa audio playback tools
 
 ##Hardware
-Check out [this instructable] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to prepare your system for running the code.
-
-- [Raspberry Pi 3](https://www.amazon.com/dp/B01C6Q2GSY/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1WPZOVL411972)
-- [USB microphone](https://www.amazon.com/dp/B005BRET3G/ref=wl_it_dp_o_pC_nS_ttl?_encoding=UTF8&colid=1BLM6IHU3K1MA&coliid=I1C98I7HIFPNJE)
-- [Speaker with 3.5mm audio jack](https://www.amazon.com/gp/product/B014SOKX1E/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1)
-- [IBM TJBot](http://ibm.biz/mytjbot) - You can 3D print or laser cut the robot
+Check out [this instructable] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to prepare your system. You will need a Raspberry Pi 3, Microphone, Speaker, and [the TJBot cardboard]{https://ibmtjbot.github.io/#gettj}.
 
 ##Build
+We recommend starting with our [step by step instructions] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to build this recipe.
+
 Get the sample code and go to the application folder.  Please see this [instruction on how to clone](https://help.github.com/articles/cloning-a-repository/) a repository.
 
     cd recipes/conversation
