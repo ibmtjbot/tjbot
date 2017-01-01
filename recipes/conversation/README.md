@@ -16,7 +16,7 @@ This module provides Node.js code to get your Raspberry Pi to talk. It uses [Wat
 - The robot speaks the response via the Alsa audio playback tools
 
 ##Hardware
-Check out [this instructable] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to prepare your system. You will need a Raspberry Pi 3, Microphone, Speaker, and [the TJBot cardboard]{https://ibmtjbot.github.io/#gettj}.
+Check out [this instructable] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to prepare your system. You will need a Raspberry Pi 3, Microphone, Speaker, and [the TJBot cardboard](https://ibmtjbot.github.io/#gettj).
 
 ##Build
 We recommend starting with our [step by step instructions] (http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/) to build this recipe.
