@@ -75,7 +75,7 @@ The default sentiment keyword is set to 'happy' but you can change it from confi
 
     edit config.js
     Update searchkeyword
-    searchkeyword = "happy";
+    searchkeyword = "people";
 
 The default behaviour of the module assigns the following colors to sentiments.
 
@@ -83,9 +83,9 @@ The default behaviour of the module assigns the following colors to sentiments.
 | --- | --- |
 | Anger | Red |
 | Joy | Yellow |
-| Fear | Green |
-| Disgust | Blue |
-| Sadness | Magenta |
+| Fear | Purple |
+| Disgust | Green |
+| Sadness | Blue |
 
 You can change this mapping by editing `sentiment.js` to add your favorite colors. Note that colors are specified using the hexademical format.
 
@@ -93,7 +93,7 @@ You can change this mapping by editing `sentiment.js` to add your favorite color
 	var green = 0xff0000 ;
 	var blue = 0x0000ff ;
 	var yellow = 0xffff00 ;
-	var magenta = 0x00ffff ;
+	var purple = 0x00ffff ;
 
 	function processEmotion(emotion){
 		console.log("Current Emotion Around " + searchkeyword + " is ", emotion.tone_id);
@@ -102,11 +102,11 @@ You can change this mapping by editing `sentiment.js` to add your favorite color
 		}else if(emotion.tone_id == "joy"){
 			setLED(yellow);
 		}else if(emotion.tone_id == "fear"){
-			setLED(green);
+			setLED(purple);
 		}else if(emotion.tone_id == "disgust"){
-			setLED(blue);
+			setLED(green);
 		}else if(emotion.tone_id == "sadness"){
-			setLED(magenta);
+			setLED(blue);
 		}
 	}
 
