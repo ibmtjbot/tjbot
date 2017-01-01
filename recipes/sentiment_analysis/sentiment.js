@@ -121,8 +121,8 @@ function analyzeTone(){
   In this step, the program determines the color of the LED based on the analyzed emotion.
   Different colors are associated to different emotions. You can customize your own color!
   Anger = Red
-  Joy = Green
-  Fear = Blue etc
+  Joy = Yellow
+  Fear = Purple etc
   */
 
   var ws281x = require('rpi-ws281x-native');
@@ -140,7 +140,7 @@ function analyzeTone(){
   var green = 0xff0000 ;
   var blue = 0x0000ff ;
   var yellow = 0xffff00 ;
-  var magenta = 0x00ffff ;
+  var purple = 0x00ffff ;
 
   // Process emotion returned from Tone Analyzer Above
   // Show a specific color fore each emotion
@@ -151,11 +151,11 @@ function analyzeTone(){
     }else if(emotion.tone_id == "joy"){
       setLED(yellow);
     }else if(emotion.tone_id == "fear"){
-      setLED(green);
+      setLED(purple);
     }else if(emotion.tone_id == "disgust"){
-      setLED(blue);
+      setLED(green);
     }else if(emotion.tone_id == "sadness"){
-      setLED(magenta);
+      setLED(blue);
     }
   }
 
