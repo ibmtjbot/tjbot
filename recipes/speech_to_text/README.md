@@ -5,7 +5,7 @@ This module provides a Node.js code to control a [NeoPixel RGB led](https://www.
 
 **This will only run on the Raspberry Pi.**
 
-[![link to a full video for use voice to control LED](https://img.youtube.com/vi/zfxXvW0HfoA/0.jpg)](https://www.youtube.com/watch?v=zfxXvW0HfoA)
+[![link to a full video for use voice to control LED](https://img.youtube.com/vi/Wvnh7ie3D6o/0.jpg)](https://www.youtube.com/watch?v=Wvnh7ie3D6o)
 
 ##How It Works
 - Listens for the voice commands (e.g "turn the light green")
