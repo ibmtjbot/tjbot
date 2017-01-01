@@ -6,6 +6,8 @@ This module provides Node.js code to control the color of a [NeoPixel RGB led](h
 
 **This will only run on the Raspberry Pi.**
 
+[![link to a full video for use voice to control LED](https://img.youtube.com/vi/KU8DNzZNdBY/0.jpg)](https://www.youtube.com/watch?v=KU8DNzZNdBY)
+
 ##How It Works
 - Connects to the Twitter Streaming service and listens for tweets related to a given search keyword
 - Sends tweets to the Watson Tone Analyzer service to determine the emotions contained in them
