@@ -2,7 +2,7 @@
 
 > Make your robot respond to emotions using [Watson](http://www.ibm.com/watson/developercloud/tone-analyzer.html)
 
-This module provides Node.js code to control the color of a [NeoPixel RGB led](https://www.adafruit.com/product/1938) based on public perception of a given keyword (e.g. "heart" or "iPhone"). The module connects to Twitter to analyze the public sentiment about the given keyword in real time, and updates the color of the LED to reflect the sentiment.
+This module provides Node.js code to control the color of a [8mm NeoPixel RGB led](https://www.adafruit.com/products/1734) based on public perception of a given keyword (e.g. "heart" or "iPhone"). The module connects to Twitter to analyze the public sentiment about the given keyword in real time, and updates the color of the LED to reflect the sentiment.
 
 **This will only run on the Raspberry Pi.**
 
@@ -14,7 +14,7 @@ This module provides Node.js code to control the color of a [NeoPixel RGB led](h
 - Changes the color of the LED based on the emotions found by Watson
 
 ##Hardware
-Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to get the wiring diagram and prepare your system. You will need a Raspberry Pi 3, a [NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot) 
+Check out [this instructable] (http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to get the wiring diagram and prepare your system. You will need a Raspberry Pi 3, a [8mm NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot) 
 
 ##Build
 >We recommend starting with [our step by step instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/) to build this recipe.
