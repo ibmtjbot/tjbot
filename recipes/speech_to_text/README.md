@@ -1,7 +1,7 @@
 # Speech to Text
 > Use your voice to control a LED with [Watson](https://www.ibm.com/watson/developercloud/speech-to-text.html)
 
-This module provides a Node.js code to control a [NeoPixel RGB led](https://www.adafruit.com/product/1938) using voice commands. For example, you may say "Turn the light green" to change the color of the LED to green.
+This module provides a Node.js code to control a [8mm NeoPixel RGB led](https://www.adafruit.com/products/1734) using voice commands. For example, you may say "Turn the light green" to change the color of the LED to green.
 
 **This will only run on the Raspberry Pi.**
 
@@ -15,7 +15,7 @@ This module provides a Node.js code to control a [NeoPixel RGB led](https://www.
 
 ##Hardware
 
-Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) for wiring diagrams and instructions to prepare your system. You will need a Raspberry Pi 3, a microphone, a [NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot).
+Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) for wiring diagrams and instructions to prepare your system. You will need a Raspberry Pi 3, a microphone, a [8mm NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot).
 
 ##Build
 > We recommend starting with [our step by step instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) to build this recipe.
