@@ -1,7 +1,7 @@
 # IBM TJBot
 <img src="/images/tjbot.jpg" width="85%">
 
-[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to connect to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun way. [IBM TJBot](http://ibm.biz/mytjbot) is the first kit in the collection. You can 3D print or laser cut the robot frame, then use one of the available [recipes](recipes) to bring him to life!
+[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to connect to [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun way. [IBM TJBot](http://ibm.biz/mytjbot) is the first maker kit in the collection. You can 3D print or laser cut the robot frame, then use one of the available [recipes](recipes) to bring him to life!
 
 Better still, you can create your own custom recipes to bring exciting ideas to life using any combination of Watson's Cognitive API's!
 
