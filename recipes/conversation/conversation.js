@@ -138,10 +138,16 @@ textStream.on('data', function(str) {
         console.log('error:', err);
       } else {
         context = response.context ; //update conversation context
-        conversation_response =  response.output.text[0]  ;
-        if (conversation_response != undefined ){
+        
+        if (Array.isArray(response.output.text)) {
+          conversation_response = response.output.text.join(' ').trim();
+        } else {
+          conversation_response = undefined;
+        }
+        
+        if (conversation_response){
           var params = {
-            text: response.output.text[0],
+            text: conversation_response,
             voice: config.voice,
             accept: 'audio/wav'
           };
