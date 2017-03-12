@@ -15,7 +15,7 @@ This module provides a Node.js code to control a [5mm common anode JKD RGB led](
 
 ##Hardware
 
-Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) for wiring diagrams and instructions to prepare your system. You will need a Raspberry Pi 3, a microphone, a a [5mm common anode JKD RGB led](https://www.sparkfun.com/products/10820), 4 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot).
+You will need a Raspberry Pi 3, a microphone, a a [5mm common anode JKD RGB led](https://www.sparkfun.com/products/10820), 4 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot). Wire diagram is provided in next section
 
 ##Build
 > We recommend starting with [our step by step instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) to build this recipe.
