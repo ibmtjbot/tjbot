@@ -1,7 +1,7 @@
 # Speech to Text
 > Use your voice to control a LED with [Watson](https://www.ibm.com/watson/developercloud/speech-to-text.html)
 
-This module provides a Node.js code to control a [8mm NeoPixel RGB led](https://www.adafruit.com/products/1734) using voice commands. For example, you may say "Turn the light green" to change the color of the LED to green.
+This module provides a Node.js code to control a [5mm common anode JKD RGB led](https://www.sparkfun.com/products/10820) using voice commands. For example, you may say "Turn the light green" to change the color of the LED to green.
 
 **This will only run on the Raspberry Pi.**
 
@@ -15,7 +15,7 @@ This module provides a Node.js code to control a [8mm NeoPixel RGB led](https://
 
 ##Hardware
 
-Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) for wiring diagrams and instructions to prepare your system. You will need a Raspberry Pi 3, a microphone, a [8mm NeoPixel RGB LED] (https://www.adafruit.com/products/1734), 3 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot).
+Check out [this instructable] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) for wiring diagrams and instructions to prepare your system. You will need a Raspberry Pi 3, a microphone, a a [5mm common anode JKD RGB led](https://www.sparkfun.com/products/10820), 4 Female/female jumper wires, and [the TJBot cardboard](http://ibm.biz/mytjbot).
 
 ##Build
 > We recommend starting with [our step by step instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/) to build this recipe.
@@ -38,17 +38,9 @@ Add your Bluemix Speech to text service credentials
     enter your watson stt username, password and version.
 
 ##Testing the LED
-The wiring diagram is [here] (http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/).
+The wiring diagram:
 
-Before running the code, you may test your LED setup to make sure the connections are correct and the library is properly installed. When you run this module, it should turn your LED on.
-
-    sudo node led_test.js
-
-> Note the `sudo` command. Root user access is required to control the NeoPixel LEDs.
-
-If the LED does not light up, you can try moving the power from 3.3 to 5 volts.  If neither the 3.3v or 5v pins work, you will need a 1N4001 diode.  The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
-
-If you have problems with the setup, please refer to [Adafruit's NeoPixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview) to troubleshoot.
+![diagram](tts.gpg)
 
 ##Running
 
@@ -61,20 +53,7 @@ Start the application
 Now talk to your microphone to change the color of the LED.
 Say  "Turn the light blue" to change the light to blue. You can try other colors: yellow, green, orange, purple, magenta, red, blue, aqua, white). You can either say "Turn the light on" or "Turn the light off"!
 
-Doesn't your Pi show the right color? No worries, we can fix it.
-The LED library uses the PWM module (GPIO 18) to drive the data line of the LEDs. This conflicts with the built-in audio hardware, which uses the same pin to drive the audio output. Depending on your configuration of Raspbian, the sound drivers may be more aggressive in taking away control of GPIO 18 from other processes. If your LED shows random colors instead of the expected color, use this trick to fix it.
-
-    sudo cp blacklist-rgb-led.conf /etc/modprobe.d/
-    sudo update-initramfs -u
-
-Reboot and confirm no "snd" modules are running by executing the command "lsmod".
-
-    lsmod    
-
 ##Customization
-You can add new colors to your color palette in stt.js. TJBot uses a NeoPixel RGB LED, which means it can show any combination of red, green, and blue.
-
-We have hidden a disco party for you. Find the code for disco party in stt.js and uncomment the code. Now you can ask TJ to show you the disco lights by saying "Let's have a disco party"!
 
 Try implementing your own TJBot party and share it with us #TJBot!
 
@@ -84,7 +63,7 @@ Once ready to move on, try the next recipe to [make TJBot respond to emotions us
 
 - [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html)
 - mic npm package for reading audio input
-- [rpi-ws281x-native](https://github.com/beyondscreen/node-rpi-ws281x-native) npm package to control a ws281x LED.
+- [rpio](https://www.npmjs.com/package/rpio) npm package to work with Raspberry pi pins LED.
 
 ## Contributing
 See [CONTRIBUTING.md](../../CONTRIBUTING.md).
