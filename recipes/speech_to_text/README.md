@@ -40,7 +40,7 @@ Add your Bluemix Speech to text service credentials
 ##Testing the LED
 The wiring diagram:
 
-![diagram](tts.gpg)
+![diagram](tts.png)
 
 ##Running
 
