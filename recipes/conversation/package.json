@@ -11,11 +11,8 @@
     "type": "git",
     "url": "git@github.ibm.com:watsonkits/conversationkit.git"
   },
-  "author": "Mishal Dholakia",
   "dependencies": {
     "mic": "^2.1.1",
     "watson-developer-cloud": "^2.2.0"
   }
 }
-
-

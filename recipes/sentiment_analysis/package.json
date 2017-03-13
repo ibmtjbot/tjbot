@@ -11,7 +11,6 @@
     "type": "git",
     "url": "git@github.ibm.com:watsonkits/sentimentkit.git"
   },
-  "author": "Victor Dibia",
   "dependencies": {
     "rpi-ws281x-native": "^0.8.1",
     "twitter": "^1.4.0",
