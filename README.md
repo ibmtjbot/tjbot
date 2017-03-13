@@ -8,7 +8,7 @@ Better still, you can create your own custom recipes to bring exciting ideas to 
 **TJBot will only run on Raspberry Pi.**
 
 # Get TJBot
-You can download [the design files](https://ibmtjbot.github.io/#gettj) and 3D print or laser cut TJBot. 
+You can download [the design files](https://ibmtjbot.github.io/#gettj) and 3D print or laser cut TJBot.
 [Here is an instructable](http://www.instructables.com/id/Build-TJ-Bot-Out-of-Cardboard/) to help you with the details.
 
 # Bring TJBot to life
@@ -21,7 +21,9 @@ We have provided three initial [recipes](recipes) for you:
 - Build a talking robot with Watson Conversation [[instructions](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
 
 Here are some of the featured recipes created by TJBot enthusiasts:
-- Fun controller recipe for TJBot's servo arm [[instructions](http://www.instructables.com/id/Build-a-Waving-Robot-Using-Watson-Services/)] [[github](https://github.com/victordibia/tjwave)]
+- Tjwave: Fun controller recipe for TJBot's servo arm [[instructions](http://www.instructables.com/id/Build-a-Waving-Robot-Using-Watson-Services/)] [[github](https://github.com/victordibia/tjwave)]
+- Tjdashboard: Web interface to visualize underlying processes on TJBot.  [[github](https://github.com/victordibia/tjdashboard)]
+- Tjvision: Get your TJBot to recognize images using the Watson Visual Recognition API.  [[github](https://github.com/victordibia/tjvision)]
 - SwiftyTJ that enables TJBot’s LED to be controlled from a Swift program [[github](https://github.com/jweisz/swifty-tj)]
 - Build a TJBot that cares [[instructions](https://medium.com/ibm-watson-developer-cloud/build-a-chatbot-that-cares-part-1-d1c273e17a63#.6sg1yfh4w)] [[github](https://github.com/boxcarton/tjbot-raspberrypi-nodejs)]
 - Project Intu, not a recipe but a middleware that can be installed on TJBot and be used to architect more complex interactions for your robot [[developercloud](http://www.ibm.com/watson/developercloud/project-intu.html)] [[github](https://github.com/watson-intu/self-sdk#raspberry-pi)]
