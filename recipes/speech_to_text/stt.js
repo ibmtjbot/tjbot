@@ -25,7 +25,7 @@
 */
 
 var RED_PIN = 11, GREEN_PIN = 13, BLUE_PIN = 15;
-var intervalID = null;
+var intervalIDs = [], intervalID = null;
 var watson = require('watson-developer-cloud');
 var config = require('./config');  // gets our username and passwords from the config.js files
 var speech_to_text = watson.speech_to_text({
@@ -122,10 +122,11 @@ function parseText(str){
     var containsRainbow = str.indexOf("rainbow") >= 0;
 
     if ((containsTurn || containsChange || containsSet ) && containsLight) {
-        if (intervalID) clearInterval(intervalID);
+        stopParty();
         setLED(str);
     } else if (containsDisco || containsRainbow) {
         intervalID = discoParty();
+        intervalIDs.push(intervalID);
     }
 }
 
@@ -195,6 +196,12 @@ function setLED(msg){
    }
     turnLight(color);
     console.log('color = ', color);
+}
+
+var stopParty = function(){
+  for (var i = 0; i < intervalIDs.length; i++){
+    clearInterval(intervalIDs[i]);
+  }
 }
 
 var discoParty = function () {
