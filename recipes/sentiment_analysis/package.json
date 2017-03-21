@@ -1,19 +1,18 @@
 {
-  "name": "sentimentkit",
-  "version": "1.0.0",
-  "description": "TJ Bot Sentiment Analysis recipe",
+  "name": "tjbot-sentiment",
+  "version": "0.0.1",
+  "description": "TJBot sentiment analysis recipe",
   "main": "sentiment.js",
   "scripts": {
-    "test": "node sentiment.js",
-    "start": "node sentiment.js"
+    "start": "node sentiment.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.ibm.com:watsonkits/sentimentkit.git"
+    "url": "git@github.com:ibmtjbot/tjbot.git"
   },
   "dependencies": {
-    "rpi-ws281x-native": "^0.8.1",
-    "twitter": "^1.4.0",
-    "watson-developer-cloud": "^2.0.1"
+    "tjbot": "latest",
+    "twitter": "^1.4.0"
   }
 }

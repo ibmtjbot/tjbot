@@ -1,18 +1,17 @@
 {
-  "name": "conversationkit",
-  "version": "1.0.0",
-  "description": "TJ Bot Conversation recipe",
-  "main": "Conversation.js",
+  "name": "tjbot-conversation",
+  "version": "0.0.1",
+  "description": "TJBot conversation recipe",
+  "main": "conversation.js",
   "scripts": {
     "start": "node conversation.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "repository": {
+  "repository": {
     "type": "git",
-    "url": "git@github.ibm.com:watsonkits/conversationkit.git"
+    "url": "git@github.com:ibmtjbot/tjbot.git"
   },
   "dependencies": {
-    "mic": "^2.1.1",
-    "watson-developer-cloud": "^2.2.0"
+    "tjbot": "latest"
   }
 }

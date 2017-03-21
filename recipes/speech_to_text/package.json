@@ -1,28 +1,17 @@
 {
-  "name": "sttkit",
-  "version": "1.0.0",
-  "description": "TJ Bot Speech to Text recipe",
-  "main": "app.js",
+  "name": "tjbot-stt",
+  "version": "0.0.1",
+  "description": "TJBot speech to text recipe",
+  "main": "stt.js",
   "scripts": {
-    "test": "node stt.js",
-    "start": "node stt.js"
+    "start": "node stt.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.ibm.com:watsonkits/sttkit.git"
+    "url": "git@github.com:ibmtjbot/tjbot.git"
   },
-  "keywords": [
-    "Watson",
-    "IBM",
-    "Speech",
-    "To",
-    "Text",
-    "STT",
-    "Raspberry Pi"
-  ],
   "dependencies": {
-    "mic": "^2.1.1",
-    "rpi-ws281x-native": "^0.8.1",
-    "watson-developer-cloud": "^2.0.0"
+    "tjbot": "latest"
   }
 }
