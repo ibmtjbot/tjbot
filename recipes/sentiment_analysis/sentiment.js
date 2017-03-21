@@ -29,12 +29,20 @@ var SENTIMENT_ANALYSIS_FREQUENCY_MSEC = config.sentiment_analysis_frequency_sec 
 var hardware = ['led'];
 
 // turn on debug logging to the console
-var tjConfig = {
+var config = {
     verboseLogging: true
 };
 
 // instantiate our TJBot!
-var tj = new TJBot(hardware, tjConfig, credentials);
+var tj = new TJBot(hardware, config, credentials);
+
+// instnatiate twitter client
+var twitter = new Twitter({
+    consumer_key: config.credentials.twitter.consumer_key,
+    consumer_secret: config.credentials.twitter.consumer_secret,
+    access_token_key: config.credentials.twitter.access_token_key,
+    access_token_secret: config.credentials.twitter.access_token_secret
+});
 
 console.log("I am monitoring twitter for " + SENTIMENT_KEYWORD);
 
@@ -56,14 +64,6 @@ var CONFIDENCE_THRESHOLD = 0.5;
 function monitorTwitter() {
     // start the pulse to show we are thinking
     tj.pulse('white', 1.5, 2.0);
-    
-    // instnatiate twitter client
-    var twitter = new Twitter({
-        consumer_key: config.credentials.twitter.consumer_key,
-        consumer_secret: config.credentials.twitter.consumer_secret,
-        access_token_key: config.credentials.twitter.access_token_key,
-        access_token_secret: config.credentials.twitter.access_token_secret
-    });
     
     // monitor twitter
     twitter.stream('statuses/filter', {
@@ -105,8 +105,7 @@ function shineFromTweetSentiment() {
     if (TWEETS.length > 5) {
         var text = TWEETS.join(' ');
         console.log("Analyzing tone of " + TWEETS.length + " tweets");
-        tj.analyzeTone(text,
-        function(tone) {
+        tj.analyzeTone(text, function(tone) {
             tone.document_tone.tone_categories.forEach(function(category) {
                 if (category.category_id == "emotion_tone") {
                     // find the emotion with the highest confidence
