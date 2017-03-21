@@ -21,7 +21,6 @@ var config = require('./config');
 var credentials = config.credentials;
 
 // obtain user-specific config
-var VOICE = config.voice;
 var WORKSPACEID = config.conversationWorkspaceId;
 
 // these are the hardware capabilities that TJ needs for this recipe

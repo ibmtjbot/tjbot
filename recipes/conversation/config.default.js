@@ -1,5 +1,4 @@
 // User-specific configuration
-exports.voice = 'en-US_MichaelVoice';
 exports.conversationWorkspaceId = ''; // replace with the workspace identifier of your conversation
 
 // Create the credentials object for export
