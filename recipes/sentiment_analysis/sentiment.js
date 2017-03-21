@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-var TJBot = require('../../tjbot/tjbot');
-var Twitter = require('twitter');
+var TJBot = require('tjbot');
 var config = require('./config');
+var Twitter = require('twitter');
 
 // obtain our credentials from config.js
 var credentials = config.credentials;
@@ -36,7 +36,7 @@ var config = {
 // instantiate our TJBot!
 var tj = new TJBot(hardware, config, credentials);
 
-// instnatiate twitter client
+// create the twitter client
 var twitter = new Twitter({
     consumer_key: config.credentials.twitter.consumer_key,
     consumer_secret: config.credentials.twitter.consumer_secret,
@@ -110,7 +110,7 @@ function shineFromTweetSentiment() {
                 if (category.category_id == "emotion_tone") {
                     // find the emotion with the highest confidence
                     var max = category.tones.reduce(function(a, b) {
-                        return (a.score > b.score) ? a: b;
+                        return (a.score > b.score) ? a : b;
                     });
                     
                     // make sure we really are confident
