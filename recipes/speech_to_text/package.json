@@ -22,8 +22,7 @@
   ],
   "author": "Victor Dibia",
   "dependencies": {
-    "mic": "^2.1.1",
-    "rpi-ws281x-native": "^0.8.1",
+    "mic": "^2.1.1",    
     "rpio": "^0.9.16",
     "watson-developer-cloud": "^2.0.0"
   }
