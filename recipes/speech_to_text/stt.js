@@ -1,30 +1,7 @@
-/************************************************************************
-* Copyright 2016 IBM Corp. All Rights Reserved.
-*
-* Watson Maker Kits
-*
-* This project is licensed under the Apache License 2.0, see LICENSE.*
-*
-************************************************************************
-*
-* Control a NeoPixel LED unit connected to a Raspberry Pi pin through voice commands
-* Must run with root-level protection
-* sudo node stt.js
-
- Based on example NeoPixel code by Jeremy Garff (jer@jers.net)
-
- Follow the instructions in http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/ to
- get the system ready to run this code.
-*/
-
-/************************************************************************
- * Step #1: Configuring your Bluemix Credentials
- ************************************************************************
- In this step, the audio sample (pipe) is sent to "Watson Speech to Text" to transcribe.
- The service converts the audio to text and saves the returned text in "textStream"
-*/
 
 var RED_PIN = 11, GREEN_PIN = 13, BLUE_PIN = 15;
+var LIGHT_PIN = 40;
+var rpio = require('rpio');
 var intervalIDs = [], intervalID = null;
 var watson = require('watson-developer-cloud');
 var config = require('./config');  // gets our username and passwords from the config.js files
@@ -34,13 +11,7 @@ var speech_to_text = watson.speech_to_text({
     version: config.version
 });
 
-/************************************************************************
- * Step #2: Configuring the Microphone
- ************************************************************************
- In this step, we configure your microphone to collect the audio samples as you talk.
- See https://www.npmjs.com/package/mic for more information on
- microphone input events e.g on error, startcomplete, pause, stopcomplete etc.
-*/
+
 
 // Initiate Microphone Instance to Get audio samples
 var mic = require('mic');
@@ -61,28 +32,7 @@ micInputStream.on('silence', function() {
 micInstance.start();
 console.log("TJBot is listening, you may speak now.");
 
-/************************************************************************
- * Step #3: Converting your Speech Commands to Text
- ************************************************************************
- In this step, the audio sample is sent (piped) to "Watson Speech to Text" to transcribe.
- The service converts the audio to text and saves the returned text in "textStream".
- You can also set the language model for your speech input.
- The following language models are available
-     ar-AR_BroadbandModel
-     en-UK_BroadbandModel
-     en-UK_NarrowbandModel
-     en-US_BroadbandModel (the default)
-     en-US_NarrowbandModel
-     es-ES_BroadbandModel
-     es-ES_NarrowbandModel
-     fr-FR_BroadbandModel
-     ja-JP_BroadbandModel
-     ja-JP_NarrowbandModel
-     pt-BR_BroadbandModel
-     pt-BR_NarrowbandModel
-     zh-CN_BroadbandModel
-     zh-CN_NarrowbandModel
-*/
+
 var recognizeparams = {
   content_type: 'audio/l16; rate=44100; channels=2',
   model: 'en-US_BroadbandModel'  // Specify your language model here
@@ -92,14 +42,6 @@ var textStream = micInputStream.pipe(
 );
 
 
-/*********************************************************************
- * Step #4: Parsing the Text
- *********************************************************************
- In this step, we parse the text to look for commands such as "ON" or "OFF".
- You can say any variations of "lights on", "turn the lights on", "turn on the lights", etc.
- You would be able to create your own customized command, such as "good night" to turn the lights off.
- What you need to do is to go to parseText function and modify the text.
-*/
 
 textStream.setEncoding('utf8');
 textStream.on('data', function(str) {
@@ -129,14 +71,6 @@ function parseText(str){
         intervalIDs.push(intervalID);
     }
 }
-
-/*********************************************************************
- * Step #5: Switching the LED light
- *********************************************************************
- Once the command is recognized, the led light gets changed to reflect that.
-*/
-
-var rpio = require('rpio');
 
 var colorPalette = {
     "red": [0,1,1],
@@ -168,10 +102,25 @@ var rpioVal = {
 
 var turnLight = function (colorConfig){
   initPins();
-  rpio.open(RED_PIN,rpio.OUTPUT, rpioVal[colorConfig[0]]);
-  rpio.open(GREEN_PIN,rpio.OUTPUT, rpioVal[colorConfig[1]]);
-  rpio.open(BLUE_PIN,rpio.OUTPUT, rpioVal[colorConfig[2]]);
+  rpio.write(RED_PIN,rpioVal[colorConfig[0]]);
+  rpio.write(GREEN_PIN,rpioVal[colorConfig[1]]);
+  rpio.write(BLUE_PIN,rpioVal[colorConfig[2]]);
 
+}
+
+var switchLight = function(command){
+  rpio.open(LIGHT_PIN,rpio.OUTPUT,rpio.LOW);
+  switch (command) {
+    case 'on':
+      console.log('vao on');
+      rpio.write(LIGHT_PIN,rpio.HIGH);
+      break;
+    case 'off':
+      rpio.write(LIGHT_PIN,rpio.LOW);
+      break;
+    default:
+      rpio.write(LIGHT_PIN,rpio.LOW);
+  }
 }
 // ----  reset LED before exit
 process.on('SIGINT', function () {
@@ -182,20 +131,20 @@ process.on('SIGINT', function () {
 function setLED(msg){
     var words = msg.split(" ");
     var color = [0,0,0]; //red
-/*
-    for (var i = 0; i < words.length; i++){
-      if (['red','green','blue'].indexOf(words[i]) > -1){
-        color = words[i];
-        break;
-      }
-    }*/
+
    for(var i=0; i < words.length; i++){
      if (words[i] in colorPalette){
        color = colorPalette[words[i]];
+       /*inject code to switch lamp*/
+       if (['on','off'].indexOf(words[i]) > -1){
+         console.log(words[i]);
+         switchLight(words[i]);
+       }
+
      }
    }
     turnLight(color);
-    console.log('color = ', color);
+    //console.log('color = ', color);
 }
 
 var stopParty = function(){
