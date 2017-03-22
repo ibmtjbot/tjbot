@@ -1,17 +1,26 @@
 {
-  "name": "tjbot-conversation",
-  "version": "0.0.1",
+  "name": "conversation",
   "description": "TJBot conversation recipe",
-  "main": "conversation.js",
-  "scripts": {
-    "start": "node conversation.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "version": "0.0.1",
+  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
+  "dependencies": {
+    "tjbot": "latest"
+  },
+  "main": "conversation.js",
+  "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation",
+  "keywords": [
+    "tjbot"
+  ],
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:ibmtjbot/tjbot.git"
   },
-  "dependencies": {
-    "tjbot": "latest"
+  "scripts": {
+    "start": "node conversation.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

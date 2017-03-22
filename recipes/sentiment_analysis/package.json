@@ -1,18 +1,27 @@
 {
-  "name": "tjbot-sentiment",
+  "name": "sentiment",
   "version": "0.0.1",
   "description": "TJBot sentiment analysis recipe",
-  "main": "sentiment.js",
-  "scripts": {
-    "start": "node sentiment.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ibmtjbot/tjbot.git"
+  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
     "tjbot": "latest",
     "twitter": "^1.4.0"
+  },
+  "main": "sentiment_analysis.js",
+  "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis",
+  "keywords": [
+    "tjbot"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ibmtjbot/tjbot.git"
+  },
+  "scripts": {
+    "start": "node sentiment_analysis.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
