@@ -8,7 +8,7 @@ exports.credentials = {};
 // https://www.ibm.com/watson/developercloud/text-to-speech.html
 exports.credentials.text_to_speech = {
     password: '',
-    username: '',
+    username: ''
 };
 
 // Watson Tone Analyzer
