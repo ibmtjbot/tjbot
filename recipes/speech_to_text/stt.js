@@ -34,7 +34,7 @@ var tj = new TJBot(hardware, tjConfig, credentials);
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']
 var tjColors = tj.shineColors();
 
-console.log("Hello from TJBot!  I understand lots of colors.  You can tell me to shine my light a different color by saying 'turn the light red' or 'change the light to green' or 'turn the light off'.");
+console.log("I understand lots of colors.  You can tell me to shine my light a different color by saying 'turn the light red' or 'change the light to green' or 'turn the light off'.");
 
 // uncomment to see the full list of colors TJ understands
 // console.log("Here are all the colors I understand:");
