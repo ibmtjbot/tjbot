@@ -82,7 +82,7 @@ function monitorTwitter() {
                 while (TWEETS.length >= MAX_TWEETS) {
                     TWEETS.shift();
                 }
-                TWEETS.push(cleanTweet);
+                TWEETS.push(tweet);
             }
         });
         
