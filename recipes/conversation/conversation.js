@@ -27,12 +27,12 @@ var WORKSPACEID = config.conversationWorkspaceId;
 var hardware = ['microphone', 'speaker'];
 
 // turn on debug logging to the console
-var config = {
+var tjConfig = {
     verboseLogging: false
 };
 
 // instantiate our TJBot!
-var tj = new TJBot(hardware, config, credentials);
+var tj = new TJBot(hardware, tjConfig, credentials);
 
 // listen for utterances with our attentionWord and send the result to
 // the Conversation service

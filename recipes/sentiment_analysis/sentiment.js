@@ -29,12 +29,12 @@ var SENTIMENT_ANALYSIS_FREQUENCY_MSEC = config.sentiment_analysis_frequency_sec 
 var hardware = ['led'];
 
 // turn on debug logging to the console
-var config = {
+var tjConfig = {
     verboseLogging: true
 };
 
 // instantiate our TJBot!
-var tj = new TJBot(hardware, config, credentials);
+var tj = new TJBot(hardware, tjConfig, credentials);
 
 // create the twitter client
 var twitter = new Twitter({

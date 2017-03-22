@@ -24,12 +24,12 @@ var credentials = config.credentials;
 var hardware = ['led', 'microphone', 'speaker'];
 
 // turn on debug logging to the console
-var config = {
+var tjConfig = {
     verboseLogging: true
 };
 
 // instantiate our TJBot!
-var tj = new TJBot(hardware, config, credentials);
+var tj = new TJBot(hardware, tjConfig, credentials);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']
 var tjColors = tj.shineColors();
