@@ -38,10 +38,10 @@ var tj = new TJBot(hardware, config, credentials);
 
 // create the twitter client
 var twitter = new Twitter({
-    consumer_key: config.credentials.twitter.consumer_key,
-    consumer_secret: config.credentials.twitter.consumer_secret,
-    access_token_key: config.credentials.twitter.access_token_key,
-    access_token_secret: config.credentials.twitter.access_token_secret
+    consumer_key: credentials.twitter.consumer_key,
+    consumer_secret: credentials.twitter.consumer_secret,
+    access_token_key: credentials.twitter.access_token_key,
+    access_token_secret: credentials.twitter.access_token_secret
 });
 
 console.log("I am monitoring twitter for " + SENTIMENT_KEYWORD);
