@@ -33,17 +33,22 @@ If you have plugged in your speaker via the headphone jack, you may experience i
 
     rm -rf ~/oldconffiles
 
-5. Install Node.js
+5. Remove unneeded packages and install missing ALSA packages
+
+    sudo apt-get autoremove
+    sudo apt-get install libasound2-dev
+
+6. Install Node.js
 
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     sudo apt-get install -y nodejs
 
-6. Check out the TJBot source code
+7. Check out the TJBot source code
 
     cd Desktop
     git clone https://github.com/ibmtjbot/tjbot
 
-7. Run a recipe
+8. Run a recipe
 
     cd ~/Desktop/tjbot/recipes/intro
     npm install
