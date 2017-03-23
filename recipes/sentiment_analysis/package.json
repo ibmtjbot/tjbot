@@ -1,19 +1,27 @@
 {
-  "name": "sentimentkit",
-  "version": "1.0.0",
-  "description": "TJ Bot Sentiment Analysis recipe",
-  "main": "sentiment.js",
-  "scripts": {
-    "test": "node sentiment.js",
-    "start": "node sentiment.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.ibm.com:watsonkits/sentimentkit.git"
+  "name": "sentiment",
+  "version": "0.0.1",
+  "description": "TJBot sentiment analysis recipe",
+  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "rpi-ws281x-native": "^0.8.1",
-    "twitter": "^1.4.0",
-    "watson-developer-cloud": "^2.0.1"
+    "tjbot": "latest",
+    "twitter": "^1.4.0"
+  },
+  "main": "sentiment.js",
+  "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis",
+  "keywords": [
+    "tjbot"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ibmtjbot/tjbot.git"
+  },
+  "scripts": {
+    "start": "node sentiment.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

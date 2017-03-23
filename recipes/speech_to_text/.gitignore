@@ -1,3 +1,6 @@
+# config file
+config.js
+
 # Logs
 logs
 *.log
@@ -21,6 +24,9 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+# Bower dependency directory (https://bower.io/)
+bower_components
+
 # node-waf configuration
 .lock-wscript
 
@@ -28,8 +34,11 @@ coverage
 build/Release
 
 # Dependency directories
-node_modules
-jspm_packages
+node_modules/
+jspm_packages/
+
+# Typescript v1 declaration files
+typings/
 
 # Optional npm cache directory
 .npm
@@ -42,6 +51,12 @@ jspm_packages
 
 # Output of 'npm pack'
 *.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
 
 # .DS_Store files
 .DS_Store

@@ -1,0 +1,27 @@
+{
+  "name": "tests",
+  "description": "TJBot hardware tests",
+  "version": "1.0.0",
+  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.7",
+    "tjbot": "0.0.10"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/ibmtjbot/tjbot#readme",
+  "keywords": [
+    "TJBot"
+  ],
+  "license": "Apache-2.0",
+  "main": "test.led.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibmtjbot/tjbot.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
