@@ -17,7 +17,6 @@
 'use strict';
 
 const rl = require('readline-sync');
-const assert = require('assert');
 
 const TJBot = require('tjbot');
 
@@ -27,6 +26,8 @@ var colors = ['red', 'green', 'blue', 'orange', 'off'];
 colors.forEach(function(color) {
     tj.shine(color);
     rl.question('Did the LED turn ' + color + '? Y/N > ', (answer) => {
-        assert.equal(answer.toLowerCase(), 'y', 'expected the LED to turn ' + color + ', please check your LED wiring.');
+        if (answer.toLowerCase() != 'y') {
+            throw new Error('expected the LED to turn ' + color + ', please check your LED wiring.');
+        }
     });
 });

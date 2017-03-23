@@ -13,20 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 'use strict';
 
 const fs = require('fs');
-const assert = require('assert');
 
 const TJBot = require('tjbot');
 
 var tj = new TJBot(['camera'], {}, {});
 
 tj._captureImage('picture.jpg').then(function(data) {
-    assert.ok(fs.existsSync('picture.jpg'), "expected picture.jpg to have been created");
+    if (!fs.existsSync('picture.jpg')) {
+        throw new Error("expected picture.jpg to have been created");
+    }
     if (fs.existsSync('picture.jpg')) {
         fs.unlink('picture.jpg');
     }
-    assert.equal(fs.existsSync('picture.jpg'), false, "expected to have deleted picture.jpg");
+    if (fs.existsSync('picture.jpg')) {
+        throw new Error("expected to have deleted picture.jpg");
+    }
 });
