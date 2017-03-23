@@ -30,5 +30,3 @@ colors.forEach(function(color) {
         assert(answer.toLowerCase() == 'y', 'expected the LED to turn ' + color + ', please check your LED wiring.');
     });
 });
-
-tj.shine('off');
