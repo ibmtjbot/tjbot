@@ -16,15 +16,10 @@
 
 'use strict';
 
-const readline = require('readline');
+const rl = require('readline-sync');
 const assert = require('assert');
 
 const TJBot = require('tjbot');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 var tj = new TJBot(['led'], {}, {});
 var colors = ['red', 'green', 'blue', 'orange', 'off'];
@@ -37,4 +32,3 @@ colors.forEach(function(color) {
 });
 
 tj.shine('off');
-rl.close();

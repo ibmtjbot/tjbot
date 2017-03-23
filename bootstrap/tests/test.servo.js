@@ -16,15 +16,10 @@
 
 'use strict';
 
-const readline = require('readline');
+const rl = require('readline-sync');
 const assert = require('assert');
 
 const TJBot = require('tjbot');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 var tj = new TJBot(['servo'], {}, {});
 
@@ -47,5 +42,3 @@ tj.wave();
 rl.question('Did TJBot wave? Y/N > ', (answer) => {
     assert(answer.toLowerCase() == 'y', 'expected tj to wave, please check servo wiring.');
 });
-
-rl.close();

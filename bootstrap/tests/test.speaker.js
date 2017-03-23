@@ -16,15 +16,10 @@
 
 'use strict';
 
-const readline = require('readline');
+const rl = require('readline-sync');
 const assert = require('assert');
 
 const TJBot = require('tjbot');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
 
 var tj = new TJBot(['speaker'], {}, {});
 
@@ -34,5 +29,3 @@ tj.play(sound).then(function() {
         assert(answer.toLowerCase() == 'y', 'expected audio to play, please check that you speaker is plugged in, turned on, and set as the current audio output device.');
     });
 });
-
-rl.close();

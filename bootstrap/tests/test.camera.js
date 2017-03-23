@@ -23,7 +23,7 @@ const TJBot = require('tjbot');
 
 var tj = new TJBot(['camera'], {}, {});
 
-tj._captureImage('picture.jpg', function(data) {
+tj._captureImage('picture.jpg').then(function(data) {
     assert(fs.existsSync('picture.jpg'), "expected picture.jpg to have been created");
     fs.unlink('picture.jpg');
     assert(!fs.existsSync('picture.jpg'), "expected to have deleted picture.jpg");
