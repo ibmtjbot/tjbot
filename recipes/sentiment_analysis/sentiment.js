@@ -45,7 +45,7 @@ var twitter = new Twitter({
     access_token_secret: credentials.twitter.access_token_secret
 });
 
-console.log("I am monitoring twitter for " + SENTIMENT_KEYWORD);
+console.log("I am monitoring twitter for " + SENTIMENT_KEYWORD + ". It may take a few moments to collect enough tweets to analyze.");
 
 // turn the LED off
 tj.shine('off');

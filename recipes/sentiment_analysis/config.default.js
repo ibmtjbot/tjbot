@@ -5,13 +5,6 @@ exports.sentiment_analysis_frequency_sec = 30; // analyze sentiment every N seco
 // Create the credentials object for export
 exports.credentials = {};
 
-// Watson Text to Speech
-// https://www.ibm.com/watson/developercloud/text-to-speech.html
-exports.credentials.text_to_speech = {
-    password: '',
-    username: ''
-};
-
 // Watson Tone Analyzer
 // https://www.ibm.com/watson/developercloud/tone-analyzer.html
 exports.credentials.tone_analyzer = {
