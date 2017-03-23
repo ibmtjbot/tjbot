@@ -7,7 +7,6 @@
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "assert": "^1.4.1",
     "readline-sync": "^1.4.7",
     "tjbot": "0.0.10"
   },
