@@ -23,29 +23,25 @@ const TJBot = require('tjbot');
 var tj = new TJBot(['servo'], {}, {});
 
 tj.armBack();
-rl.question('Is TJBot\'s arm in the BACKWARD position? Y/N > ', (answer) => {
-    if (answer.toLowerCase() != 'y') {
-        throw new Error('expected arm to be in backward position, please check servo wiring.');
-    }
-});
+var answer = rl.question('Is TJBot\'s arm in the BACKWARD position? Y/N > ');
+if (answer.toLowerCase() != 'y') {
+    throw new Error('expected arm to be in backward position, please check servo wiring.');
+}
 
 tj.raiseArm();
-rl.question('Is TJBot\'s arm in the RAISED position? Y/N > ', (answer) => {
-    if (answer.toLowerCase() != 'y') {
-        throw new Error('expected arm to be in raised position, please check servo wiring.');
-    }
-});
+answer = rl.question('Is TJBot\'s arm in the RAISED position? Y/N > ');
+if (answer.toLowerCase() != 'y') {
+    throw new Error('expected arm to be in raised position, please check servo wiring.');
+}
 
 tj.lowerArm();
-rl.question('Is TJBot\'s arm in the LOWERED position? Y/N > ', (answer) => {
-    if (answer.toLowerCase() != 'y') {
-        throw new Error('expected arm to be in lowered position, please check servo wiring.');
-    }
-});
+answer = rl.question('Is TJBot\'s arm in the LOWERED position? Y/N > ');
+if (answer.toLowerCase() != 'y') {
+    throw new Error('expected arm to be in lowered position, please check servo wiring.');
+}
 
 tj.wave();
-rl.question('Did TJBot wave? Y/N > ', (answer) => {
-    if (answer.toLowerCase() != 'y') {
-        throw new Error('expected tj to wave, please check servo wiring.');
-    }
-});
+answer = rl.question('Did TJBot wave? Y/N > ');
+if (answer.toLowerCase() != 'y') {
+    throw new Error('expected tj to wave, please check servo wiring.');
+}

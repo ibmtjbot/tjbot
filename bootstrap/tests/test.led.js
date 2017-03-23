@@ -25,9 +25,8 @@ var colors = ['red', 'green', 'blue', 'orange', 'off'];
 
 colors.forEach(function(color) {
     tj.shine(color);
-    rl.question('Did the LED turn ' + color + '? Y/N > ', (answer) => {
-        if (answer.toLowerCase() != 'y') {
-            throw new Error('expected the LED to turn ' + color + ', please check your LED wiring.');
-        }
-    });
+    var answer = rl.question('Did the LED turn ' + color + '? Y/N > ');
+    if (answer.toLowerCase() != 'y') {
+        throw new Error('expected the LED to turn ' + color + ', please check your LED wiring.');
+    }
 });
