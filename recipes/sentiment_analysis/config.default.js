@@ -1,5 +1,5 @@
 // User-specific configuration
-exports.sentiment_keyword = "happy"; // keyword to monitor in Twitter
+exports.sentiment_keyword = "education";       // keyword to monitor in Twitter
 exports.sentiment_analysis_frequency_sec = 30; // analyze sentiment every N seconds
 
 // Create the credentials object for export
