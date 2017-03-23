@@ -60,6 +60,7 @@ Hardware tests are included with bootstrap to ensure the TJBot hardware is set u
 Tests can be run in the following manner.
 
 ```
+$ npm install
 $ sudo node test/test.camera.js
 $ sudo node test/test.led.js
 $ sudo node test/test.servo.js
