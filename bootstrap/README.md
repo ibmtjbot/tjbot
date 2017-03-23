@@ -53,3 +53,15 @@ If you have plugged in your speaker via the headphone jack, you may experience i
     cd ~/Desktop/tjbot/recipes/intro
     npm install
     sudo node intro.js
+
+## Hardware Tests
+Hardware tests are included with bootstrap to ensure the TJBot hardware is set up correctly. Tests are included for the `camera`, `led`, `servo`, and `speaker`.
+
+Tests can be run in the following manner.
+
+```
+$ sudo node test/test.camera.js
+$ sudo node test/test.led.js
+$ sudo node test/test.servo.js
+$ sudo node test/test.speaker.js
+```
