@@ -36,7 +36,7 @@ If you have plugged in your speaker via the headphone jack, you may experience i
 5. Remove unneeded packages and install missing ALSA packages
 
     sudo apt-get autoremove
-    sudo apt-get install libasound2-dev
+    sudo apt-get install alsa-base alsa-utils libasound2-dev
 
 6. Install Node.js
 
