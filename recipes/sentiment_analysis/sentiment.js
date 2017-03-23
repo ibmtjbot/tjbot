@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-var TJBot = require('tjbot');
+var TJBot = require('../../../tjbotlib/lib/tjbot');
+//var TJBot = require('tjbot');
 var config = require('./config');
 var Twitter = require('twitter');
 
@@ -46,11 +47,7 @@ var twitter = new Twitter({
 
 console.log("I am monitoring twitter for " + SENTIMENT_KEYWORD);
 
-// flash random colors
-for (var i = 0; i < 10; i++) {
-    tj.shine('random');
-    tj.sleep(150);
-}
+// turn the LED off
 tj.shine('off');
 
 monitorTwitter();
