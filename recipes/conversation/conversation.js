@@ -28,7 +28,7 @@ var hardware = ['microphone', 'speaker'];
 
 // turn on debug logging to the console
 var tjConfig = {
-    verboseLogging: false
+    verboseLogging: true
 };
 
 // instantiate our TJBot!
@@ -37,10 +37,10 @@ var tj = new TJBot(hardware, tjConfig, credentials);
 // listen for utterances with our attentionWord and send the result to
 // the Conversation service
 tj.listen(function(msg) {
-    // check for an attention word
-    if (msg.startsWith(tj.configuration.attentionWord)) {
-        // remove the attention word from the message
-        var turn = msg.toLowerCase().replace(tj.configuration.attentionWord.toLowerCase(), "");
+    // check to see if they are talking to TJBot
+    if (msg.startsWith(tj.configuration.robot.name)) {
+        // remove our name from the message
+        var turn = msg.toLowerCase().replace(tj.configuration.robot.name.toLowerCase(), "");
         
         // send to the conversation service
         tj.converse(WORKSPACEID, turn, function(response) {
