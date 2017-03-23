@@ -35,7 +35,7 @@ var tjConfig = {
 var tj = new TJBot(hardware, tjConfig, credentials);
 
 console.log("You can ask me to introduce myself or tell you a joke.");
-console.log("Try saying, \"" + tj.configuration.robot.name = ", please introduce yourself\" or \"" + tj.configuration.robot.name + ", who are you?\"");
+console.log("Try saying, \"" + tj.configuration.robot.name + ", please introduce yourself\" or \"" + tj.configuration.robot.name + ", who are you?\"");
 console.log("You can also say, \"" + tj.configuration.robot.name + ", tell me a joke!\"");
 
 // listen for utterances with our attentionWord and send the result to
