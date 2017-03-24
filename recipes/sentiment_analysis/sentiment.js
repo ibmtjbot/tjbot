@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-var TJBot = require('../../../tjbotlib/lib/tjbot');
-//var TJBot = require('tjbot');
+var TJBot = require('tjbot');
 var config = require('./config');
 var Twitter = require('twitter');
 
