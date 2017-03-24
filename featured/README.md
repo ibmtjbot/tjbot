@@ -5,6 +5,9 @@ Featured recipes are exciting recipes created by members of the TJBot community.
 If you would like your own recipe included here, please [send us email](mailto:tjbot@us.ibm.com) with a link to your repository and a demo video.
 
 - **[TJWave](https://github.com/victordibia/tjwave)**  by [Victor Dibia](https://github.com/victordibia). Fun controller recipe for TJBot's servo arm.
+- **[TJVision](https://github.com/victordibia/tjvision)**  by [Victor Dibia](https://github.com/victordibia). Get your TJBot to recognize (and read out) content of images using the Watson Visual Recognition API.
+- **[TJdashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
+- **[TJdj](https://github.com/victordibia/tjdj)**  by [Victor Dibia](https://github.com/victordibia). Fun speech-based app to get TJBot playing (and dancing to) song snippets using Watson Apis and the Spotify api.
 - **[Build a TJBot That Cares](https://medium.com/ibm-watson-developer-cloud/build-a-chatbot-that-cares-part-1-d1c273e17a63#.vtxwvsydl)**  by [Josh Zheng](https://github.com/boxcarton). This recipe puts a voice interface onto TJBot, then gives it the ability to converse and understand your emotional tones.
 - **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](htts://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [suprbh](https://github.com/suprbh). Use TJBot as a personal weather station.
