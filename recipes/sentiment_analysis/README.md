@@ -37,7 +37,7 @@ At this point, TJBot will begin listening to Twitter for tweets containing the s
 ## Customize
 Change the keyword TJBot monitors by editing `config.js` and changing the line
 
-    exports.sentiment_keyword = "happy"; // keyword to monitor in Twitter
+    exports.sentiment_keyword = "education"; // keyword to monitor in Twitter
 
 You can also change the colors that TJBot shines. The table below shows the colors that TJBot shines for each emotion.
 
