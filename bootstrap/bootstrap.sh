@@ -1,2 +1,12 @@
 #!/bin/sh
-echo "This is a placeholder for the TJBot boostrap script. Until it has been written, please follow the directions in README.md to configure your Raspberry Pi for TJBot."
+
+#update
+sudo apt-get update
+sudo apt-get -y dist-upgrade
+
+#nodejs
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+#alsa
+sudo apt-get install -y alsa-base alsa-utils
