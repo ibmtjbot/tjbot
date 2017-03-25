@@ -6,7 +6,7 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 - **[TJWave](https://github.com/victordibia/tjwave)**  by [Victor Dibia](https://github.com/victordibia). Fun controller recipe for TJBot's servo arm.
 - **[Build a TJBot That Cares](https://medium.com/ibm-watson-developer-cloud/build-a-chatbot-that-cares-part-1-d1c273e17a63#.vtxwvsydl)**  by [Josh Zheng](https://github.com/boxcarton). This recipe puts a voice interface onto TJBot, then gives it the ability to converse and understand your emotional tones.
-- **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](htts://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
+- **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](https://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 - **[Tell the Time](https://github.com/damiancummins/tell_the_time)** by [Damian Cummins](https://github.com/damiancummins). Build a robot that can tell the time in different cities with Watson.
 - **[TJVision](https://github.com/victordibia/tjvision)**  by [Victor Dibia](https://github.com/victordibia). Get your TJBot to recognize (and read out) content of images using the Watson Visual Recognition API.
