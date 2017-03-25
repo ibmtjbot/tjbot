@@ -11,7 +11,7 @@ In addition, you can unleash your own creativity and create new recipes that bri
 You can make your own TJBot in a number of ways.
 
 - **3d Print or Laser Cut**. If you have access to a 3D printer or laser cutter, you can print/cut TJBot yourself. Begin by downloading the [design files](https://ibmtjbot.github.io/#gettj) and firing up your printer/cutter.
-- **TJBot Full Kit**. You can order a full TJBot kit with the laser cut cardboard and all the electronics from [Sparkfun](https://www.sparkfun.com/products/14123).
+- **TJBot Full Kit**. You can order a full TJBot kit with the laser cut cardboard and all the electronics from [Sparkfun](https://www.sparkfun.com/products/14123), [Adafruit](https://www.adafruit.com/product/3462), or [Robotkingdom](http://shop.robotkingdom.com.tw/raspberry-pi/tjbot01.html).
 - **TJBot Cardboard Kit**. You can purchase the TJBot laser cut cardboard from [Texas Laser Creations](http://texlaser.com).
 
 ## Electronics
@@ -46,7 +46,7 @@ We have provided three initial [recipes](recipes) for you:
 - Make Your Robot Respond to Emotions Using Watson [[instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis)]
 - Build a Talking Robot with Watson [[instructions](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
 
-After checking out our sample receipes, we encourage you to take a look at [featured recipes](../featured) created by members of our community.
+After checking out our sample receipes, we encourage you to take a look at [featured recipes](featured) created by members of our community.
 
 # Contribute to TJBot
 TJBot is an open source project designed to make it fun and easy to interact with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html). We’d love to see what you can make with him. Here are some ideas to get you started.
