@@ -18,9 +18,10 @@ if ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf; then
     echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
 fi
 
-#----debian missing locale
-sudo apt-get install language-pack-en
+#----debian missing locale (just to remove warnigs)
 export LC_ALL="en_US.UTF-8"
+echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
+sudo locale-gen en_US.UTF-8
 
 #----update raspberry
 sudo apt-get update
