@@ -28,9 +28,11 @@ var SENTIMENT_ANALYSIS_FREQUENCY_MSEC = config.sentiment_analysis_frequency_sec 
 // these are the hardware capabilities that TJ needs for this recipe
 var hardware = ['led'];
 
-// turn on debug logging to the console
+// set up TJBot's configuration
 var tjConfig = {
-    verboseLogging: true
+    log: {
+        level: 'verbose'
+    }
 };
 
 // instantiate our TJBot!
@@ -60,7 +62,7 @@ var CONFIDENCE_THRESHOLD = 0.5;
 function monitorTwitter() {
     // start the pulse to show we are thinking
     tj.pulse('white', 1.5, 2.0);
-    
+
     // monitor twitter
     twitter.stream('statuses/filter', {
         track: SENTIMENT_KEYWORD
@@ -68,12 +70,12 @@ function monitorTwitter() {
         stream.on('data', function(event) {
             if (event && event.text) {
                 var tweet = event.text;
-                
+
                 // Remove non-ascii characters (e.g chinese, japanese, arabic, etc.) and
                 // remove hyperlinks
                 tweet = tweet.replace(/[^\x00-\x7F]/g, "");
                 tweet = tweet.replace(/(?:https?|ftp):\/\/[\n\S]+/g, "");
-                
+
                 // keep a buffer of MAX_TWEETS tweets for sentiment analysis
                 while (TWEETS.length >= MAX_TWEETS) {
                     TWEETS.shift();
@@ -81,13 +83,13 @@ function monitorTwitter() {
                 TWEETS.push(tweet);
             }
         });
-        
+
         stream.on('error', function(error) {
             console.log("\nAn error has occurred while connecting to Twitter. Please check your twitter credentials, and also refer to https://dev.twitter.com/overview/api/response-codes for more information on Twitter error codes.\n");
             throw error;
         });
     });
-    
+
     // perform sentiment analysis every N seconds
     setInterval(function() {
         console.log("Performing sentiment analysis of the tweets");
@@ -101,7 +103,7 @@ function shineFromTweetSentiment() {
     if (TWEETS.length > 5) {
         var text = TWEETS.join(' ');
         console.log("Analyzing tone of " + TWEETS.length + " tweets");
-        
+
         tj.analyzeTone(text).then(function(tone) {
             tone.document_tone.tone_categories.forEach(function(category) {
                 if (category.category_id == "emotion_tone") {
@@ -109,7 +111,7 @@ function shineFromTweetSentiment() {
                     var max = category.tones.reduce(function(a, b) {
                         return (a.score > b.score) ? a : b;
                     });
-                    
+
                     // make sure we really are confident
                     if (max.score >= CONFIDENCE_THRESHOLD) {
                         // stop pulsing at this point, we are going to change color
@@ -128,7 +130,7 @@ function shineFromTweetSentiment() {
 
 function shineForEmotion(emotion) {
     console.log("Current emotion around " + SENTIMENT_KEYWORD + " is " + emotion);
-    
+
     switch (emotion) {
     case 'anger':
         tj.shine('red');
