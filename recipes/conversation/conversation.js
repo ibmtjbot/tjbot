@@ -26,9 +26,11 @@ var WORKSPACEID = config.conversationWorkspaceId;
 // these are the hardware capabilities that TJ needs for this recipe
 var hardware = ['microphone', 'speaker'];
 
-// turn on debug logging to the console
+// set up TJBot's configuration
 var tjConfig = {
-    verboseLogging: true
+    log: {
+        level: 'verbose'
+    }
 };
 
 // instantiate our TJBot!
@@ -45,7 +47,7 @@ tj.listen(function(msg) {
     if (msg.startsWith(tj.configuration.robot.name)) {
         // remove our name from the message
         var turn = msg.toLowerCase().replace(tj.configuration.robot.name.toLowerCase(), "");
-        
+
         // send to the conversation service
         tj.converse(WORKSPACEID, turn, function(response) {
             // speak the result
