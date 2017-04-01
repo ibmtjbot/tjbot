@@ -20,6 +20,9 @@ If you would like your own recipe included here, please [send us email](mailto:t
 - **[Distance-bot](http://www.spirited-engineering.com/?p=135)** by [Nguyen Van Duy](https://github.com/dnguyenv). Make your TJbot speak up based on distance with objects near by using hc-sr04 sensor and Watson service.
 
 [![Distance-bot Video](https://img.youtube.com/vi/kGMoz_fgO04/0.jpg)](https://www.youtube.com/watch?v=kGMoz_fgO04)
+- **[Control a lamp with TJBot](http://www.spirited-engineering.com/?p=147)** by [Nguyen Van Duy](https://github.com/dnguyenv). This recipe guides you through how to make your TJBot listen to your commands and `turn on`, `turn off` a lamp (yes, a real lamp). 
+
+[![Control a lamp with TJBot](https://img.youtube.com/vi/w4lEJGe1pNU/0.jpg)](https://www.youtube.com/watch?v=w4lEJGe1pNU)
 - **[TJVision](https://github.com/victordibia/tjvision)**  by [Victor Dibia](https://github.com/victordibia). Get your TJBot to recognize (and read out) content of images using the Watson Visual Recognition API.
 - **[VisualTJ](https://github.com/samuelvogelmann/visualtj)** by [Samuel Vogelmann](https://github.com/samuelvogelmann). A Node-RED based application to make your TJbot see and recognize the world.
 - **[Twitter Wave](https://github.com/jweisz/twitter-wave)** by [Justin Weisz](https://github.com/jweisz). This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot. This recipe adds options for TJBot to wave and announce when the sentiment for a topic changes.
