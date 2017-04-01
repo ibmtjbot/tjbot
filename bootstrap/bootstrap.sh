@@ -28,8 +28,20 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 
 #----nodejs install
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 #----alsa install
 sudo apt-get install -y alsa-base alsa-utils
+
+#----git install
+sudo apt-get install -y git
+
+#----tjbot install
+git clone https://github.com/ibmtjbot/tjbotlib.git /home/pi/git/tjbotlib
+npm install /home/pi/git/tjbotlib
+git clone https://github.com/ibmtjbot/tjbot.git /home/pi/git/tjbot
+npm install /home/pi/git/tjbot
+
+cd /home/pi/git/tjbot/recipes
+node conversation.js
