@@ -42,8 +42,19 @@ cd PIGPIO
 make
 sudo make install
 
-#----run conversation (to run it will resolve tjbotlib and dependencies)
+#----install conversation (to install it will resolve tjbotlib and other dependencies)
 cd $TJBOT_FOLDER
 cd recipes/conversation
+
 npm install
-node conversation.js
+
+#----try to run tjbot
+if [ ! -f "${TJBOT_FOLDER}/recipes/conversation/config.js" ]; then
+    echo "------------------------------------";
+    echo "INSTALLATION COMPLETED!!! ;)"
+    echo "If you would like to run Conversation, please first create ${TJBOT_FOLDER}/recipes/conversation/config.js with your Bluemix Credentials."
+    echo "After that try 'node conversation.js'"
+    echo "------------------------------------";
+else
+    node conversation.js
+fi
