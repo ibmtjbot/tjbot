@@ -1,4 +1,5 @@
 #!/bin/sh
+TJBOT_FOLDER=$(dirname "$PWD")
 
 #----validation
 #if $EUID -ne 0; then
@@ -34,14 +35,15 @@ sudo apt-get install -y nodejs
 #----alsa install
 sudo apt-get install -y alsa-base alsa-utils
 
-#----git install
-sudo apt-get install -y git
+#----install pigpio (npm install pigpio will be exec by tjbotlib package.json)
+curl abyz.co.uk/rpi/pigpio/pigpio.zip > pigpio.zip
+unzip -o pigpio.zip
+cd PIGPIO
+make
+sudo make install
 
-#----tjbot install
-git clone https://github.com/ibmtjbot/tjbotlib.git /home/pi/git/tjbotlib
-npm install /home/pi/git/tjbotlib
-git clone https://github.com/ibmtjbot/tjbot.git /home/pi/git/tjbot
-npm install /home/pi/git/tjbot
-
-cd /home/pi/git/tjbot/recipes
+#----run conversation (to run it will resolve tjbotlib and dependencies)
+cd $TJBOT_FOLDER
+cd recipes/conversation
+npm install
 node conversation.js
