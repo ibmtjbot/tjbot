@@ -35,12 +35,9 @@ sudo apt-get install -y nodejs
 #----alsa install
 sudo apt-get install -y alsa-base alsa-utils
 
-#----install pigpio (npm install pigpio will be exec by tjbotlib package.json)
-curl abyz.co.uk/rpi/pigpio/pigpio.zip > pigpio.zip
-unzip -o pigpio.zip
-cd PIGPIO
-make
-sudo make install
+#----install debian pigpio (command npm install pigpio will be exec by package.json)
+sudo apt-get install pigpio
+
 
 #----install conversation (to install it will resolve tjbotlib and other dependencies)
 cd $TJBOT_FOLDER
