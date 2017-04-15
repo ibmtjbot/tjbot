@@ -32,10 +32,10 @@ sudo apt-get -y dist-upgrade
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-#----alsa install
-sudo apt-get install -y alsa-base alsa-utils
+#----install official requirements
+sudo apt-get install -y alsa-base alsa-utils libasound2-dev
 
-#----install debian pigpio (command npm install pigpio will be exec by package.json)
+#----install missing pigpio in Raspbian Lite (the command npm install pigpio will be exec by package.json)
 sudo apt-get install pigpio
 
 #----install git and download tjbot
