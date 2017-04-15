@@ -38,12 +38,20 @@ sudo apt-get install -y alsa-base alsa-utils
 #----install debian pigpio (command npm install pigpio will be exec by package.json)
 sudo apt-get install pigpio
 
+#----install git and download tjbot
+if [ ! -d "${TJBOT_FOLDER}/recipes/conversation" ]; then
+    sudo apt-get install -y git
+
+    rm -Rf /home/pi/git/tjbot
+    git clone https://github.com/ibmtjbot/tjbot.git /home/pi/git/tjbot
+
+    TJBOT_FOLDER='/home/pi/git/tjbot'
+fi
 
 #----install conversation (to install it will resolve tjbotlib and other dependencies)
 cd $TJBOT_FOLDER
 cd recipes/conversation
-
-npm install
+sudo npm install --unsafe-perm -g node-gyp
 
 #----try to run tjbot
 if [ ! -f "${TJBOT_FOLDER}/recipes/conversation/config.js" ]; then

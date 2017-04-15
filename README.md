@@ -39,8 +39,10 @@ For reference, here is the wiring diagram to hook up the LED and servo to your R
 
 # Bring TJBot to Life
 First, make sure you have configured your Raspberry Pi for TJBot.
-
+If you already have TJBot files:
     $ cd tjbot/bootstrap && sudo sh bootstrap.sh
+If it is your first time, just run that command to download and install TJBot:
+    $ curl -sL https://raw.githubusercontent.com/ibmtjbot/tjbot/master/bootstrap/bootstrap.sh | sudo -E bash -
 
 [Recipes](recipes) are step-by-step instructions to bring your TJBot to life with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html).
 
