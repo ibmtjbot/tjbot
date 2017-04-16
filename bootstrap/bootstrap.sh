@@ -51,12 +51,29 @@ fi
 #----install conversation (to install it will resolve tjbotlib and other dependencies)
 cd $TJBOT_FOLDER
 cd recipes/conversation
+echo "path: $PWD"
+
 sudo npm install --unsafe-perm -g node-gyp
+
+#----installation completed
+echo "------------------------------------";
+echo "INSTALLATION COMPLETED!!! ;)"
+echo "------------------------------------";
+
+#----test hardware
+cd $TJBOT_FOLDER
+cd bootstrap/tests
+echo "path: $PWD"
+
+sudo npm install --unsafe-perm -g readline-sync
+sudo node test.camera.js
+sudo node test.led.js
+sudo node test.servo.js
+sudo node test.speaker.js
 
 #----try to run tjbot
 if [ ! -f "${TJBOT_FOLDER}/recipes/conversation/config.js" ]; then
     echo "------------------------------------";
-    echo "INSTALLATION COMPLETED!!! ;)"
     echo "If you would like to run Conversation, please first create ${TJBOT_FOLDER}/recipes/conversation/config.js with your Bluemix Credentials."
     echo "After that try 'node conversation.js'"
     echo "------------------------------------";

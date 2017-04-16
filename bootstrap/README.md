@@ -2,8 +2,14 @@
 
 Perform the following operations to prepare your Raspberry Pi for becoming a TJBot.
 
-**Note: This is coming soon as a shell script. Stay tuned.**
+**BY SCRIPT**
+1. Boot your Pi and connect to Wifi (click the icon in the menu bar)
 
+2. Run the command below:
+
+    $ curl -sL https://raw.githubusercontent.com/ibmtjbot/tjbot/master/bootstrap/bootstrap.sh | sudo -E bash -
+
+**MANUALLY:**
 1. Boot your Pi and connect to Wifi (click the icon in the menu bar)
 
 2. Upgrade your Pi’s OS
@@ -50,9 +56,9 @@ If you have plugged in your speaker via the headphone jack, you may experience i
 
 8. Run a recipe
 
-    cd ~/Desktop/tjbot/recipes/intro
+    cd ~/Desktop/tjbot/recipes/conversation
     npm install
-    sudo node intro.js
+    sudo node conversation.js
 
 ## Hardware Tests
 Hardware tests are included with bootstrap to ensure the TJBot hardware is set up correctly. Tests are included for the `camera`, `led`, `servo`, and `speaker`.
@@ -61,8 +67,8 @@ Tests can be run in the following manner.
 
 ```
 $ npm install
-$ sudo node test/test.camera.js
-$ sudo node test/test.led.js
-$ sudo node test/test.servo.js
-$ sudo node test/test.speaker.js
+$ sudo node tests/test.camera.js
+$ sudo node tests/test.led.js
+$ sudo node tests/test.servo.js
+$ sudo node tests/test.speaker.js
 ```

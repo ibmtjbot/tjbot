@@ -2,13 +2,13 @@
   "name": "tests",
   "description": "TJBot hardware tests",
   "version": "1.0.0",
-  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "author": "TJBot Team",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
     "readline-sync": "^1.4.7",
-    "tjbot": "0.0.10"
+    "tjbot": "latest"
   },
   "devDependencies": {},
   "homepage": "https://github.com/ibmtjbot/tjbot#readme",

@@ -2,7 +2,7 @@
   "name": "sentiment",
   "version": "0.0.1",
   "description": "TJBot sentiment analysis recipe",
-  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "author": "TJBot Team",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
