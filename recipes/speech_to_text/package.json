@@ -2,7 +2,7 @@
   "name": "speech_to_text",
   "version": "0.0.1",
   "description": "TJBot speech to text recipe",
-  "author": "TJBot Team",
+  "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },

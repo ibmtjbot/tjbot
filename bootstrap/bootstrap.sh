@@ -42,10 +42,10 @@ sudo apt-get install pigpio
 if [ ! -d "${TJBOT_FOLDER}/recipes/conversation" ]; then
     sudo apt-get install -y git
 
-    rm -Rf /home/pi/git/tjbot
-    git clone https://github.com/ibmtjbot/tjbot.git /home/pi/git/tjbot
+    rm -Rf /home/pi/tjbot
+    git clone https://github.com/ibmtjbot/tjbot.git /home/pi/tjbot
 
-    TJBOT_FOLDER='/home/pi/git/tjbot'
+    TJBOT_FOLDER='/home/pi/tjbot'
 fi
 
 #----install conversation (to install it will resolve tjbotlib and other dependencies)
