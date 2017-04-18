@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "readline-sync": "^1.4.7",
-    "tjbot": "0.0.10"
+    "tjbot": "latest"
   },
   "devDependencies": {},
   "homepage": "https://github.com/ibmtjbot/tjbot#readme",
