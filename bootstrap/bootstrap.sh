@@ -33,15 +33,13 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 #----install official requirements
-sudo apt-get install -y alsa-base alsa-utils libasound2-dev
+sudo apt-get install -y alsa-base alsa-utils libasound2-dev git
 
 #----install missing pigpio in Raspbian Lite (the command npm install pigpio will be exec by package.json)
 sudo apt-get install pigpio
 
 #----install git and download tjbot
 if [ ! -d "${TJBOT_FOLDER}/recipes/conversation" ]; then
-    sudo apt-get install -y git
-
     rm -Rf /home/pi/tjbot
     git clone https://github.com/ibmtjbot/tjbot.git /home/pi/tjbot
 
