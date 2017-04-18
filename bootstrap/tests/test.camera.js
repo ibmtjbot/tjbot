@@ -20,16 +20,21 @@ const fs = require('fs');
 
 const TJBot = require('tjbot');
 
-var tj = new TJBot(['camera'], {}, {});
+// just need tjbot to think that it is capable of seeing, don't 
+// actually need real Watson credentials for this test
+const dummyWatsonCredentials = {
+    visual_recognition: {
+        api_key: 'abc-def-ghi'
+    }
+};
 
-tj._captureImage('picture.jpg').then(function(data) {
+var tj = new TJBot(['camera'], {log: {level: 'debug'}}, dummyWatsonCredentials);
+tj.takePhoto('picture.jpg').then(function(data) {
     if (!fs.existsSync('picture.jpg')) {
         throw new Error("expected picture.jpg to have been created");
     }
+    console.log("picture taken successfully, removing the file");
     if (fs.existsSync('picture.jpg')) {
         fs.unlink('picture.jpg');
-    }
-    if (fs.existsSync('picture.jpg')) {
-        throw new Error("expected to have deleted picture.jpg");
     }
 });
