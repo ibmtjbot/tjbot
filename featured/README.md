@@ -16,6 +16,9 @@ If you would like your own recipe included here, please [send us email](mailto:t
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 
 [![TJ Weather](https://img.youtube.com/vi/Q7a6UK8U-DM/0.jpg)](https://www.youtube.com/watch?v=Q7a6UK8U-DM)
+- **[weatherbot](https://github.com/dalelane/weatherbot)** by [Dale Lane](https://github.com/dalelane). Making #TJBot into weatherbot. The angle of his arm shows you forecasted tempreture and his head lights up if it will rain!
+
+[![weatherbot](https://c1.staticflickr.com/3/2916/34223524245_f6640b60a2_b.jpg)](https://github.com/dalelane/weatherbot)
 - **[Tell the Time](https://github.com/damiancummins/tell_the_time)** by [Damian Cummins](https://github.com/damiancummins). Build a robot that can tell the time in different cities with Watson.
 
 [![Tell the Time](https://ibmtjbot.github.io/images/newTJBoticon.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
