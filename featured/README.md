@@ -32,4 +32,7 @@ If you would like your own recipe included here, please [send us email](mailto:t
 [![TJBot-Visual](https://img.youtube.com/vi/8CXfi5xxF9w/0.jpg)](https://www.youtube.com/watch?v=8CXfi5xxF9w)
 - **[TJDashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
 - **[TJDJ](https://github.com/victordibia/tjdj)**  by [Victor Dibia](https://github.com/victordibia). Fun speech-based app to get TJBot playing (and dancing to) song snippets using Watson Apis and the Spotify api.
+- **[StockPots](https://github.com/StuartArnell/StockPots)** by [StuartArnell](https://github.com/StuartArnell). A simple TJBot application that recognises, and converses on, different Knorr Stockpots based on Watson Cognitive capabilities.
+
+[![StockPots](https://img.youtube.com/vi/NJo0oMsMUsQ/0.jpg)](https://www.youtube.com/watch?v=8NJo0oMsMUsQ)
 - **[Project Intu](https://github.com/watson-intu/self-sdk#raspberry-pi)** by [Watson Intu](https://github.com/watson-intu). Project Intu is an experimental service that allows developers to quickly and seamlessly integrate various cognitive services, such as Conversation and Speech-to-Text, with the capabilities of various devices, spaces and physical objects. While not being a recipe, Intu is a middleware that can be installed on TJBot and used to architect more complex interactions for your robot. [Learn more](http://www.ibm.com/watson/developercloud/project-intu.html) about Project Intu.
