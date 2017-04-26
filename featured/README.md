@@ -10,8 +10,6 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 [![TJWave](https://img.youtube.com/vi/Wks9-9V7eMY/0.jpg)](https://www.youtube.com/watch?v=Wks9-9V7eMY)
 
-- **[tjbot-striplight](https://github.com/jweisz/tjbot-striplight)** by [Justin Weisz](https://github.com/jweisz). This recipe adds support for a NeoPixel RGB LED strip light to TJBot.
-
 - **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](https://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
 
 - **[TJDashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
@@ -26,7 +24,6 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 - **[Twitter Wave](https://github.com/jweisz/twitter-wave)** by [Justin Weisz](https://github.com/jweisz). This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot. This recipe adds options for TJBot to wave and announce when the sentiment for a topic changes.
 
-- **[twitter-striplight](https://github.com/jweisz/twitter-striplight)** by [Justin Weisz](https://github.com/jweisz). Twitter monitoring recipe for TJBot with strip light support
 
 # Weather Report
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
@@ -42,11 +39,16 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 [![Tell the Time](https://ibmtjbot.github.io/images/newTJBoticon.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
 
-# Additional Sensors
+# Extend TJBot With New Hardware
 
 - **[Distance-bot](http://www.spirited-engineering.com/?p=135)** by [Nguyen Van Duy](https://github.com/dnguyenv). Make your TJbot speak up based on distance with objects near by using hc-sr04 sensor and Watson service.
 
 [![Distance-bot Video](https://img.youtube.com/vi/kGMoz_fgO04/0.jpg)](https://www.youtube.com/watch?v=kGMoz_fgO04)
+
+- **[tjbot-striplight](https://github.com/jweisz/tjbot-striplight)** by [Justin Weisz](https://github.com/jweisz). This recipe adds support for a NeoPixel RGB LED strip light to TJBot.
+
+- **[twitter-striplight](https://github.com/jweisz/twitter-striplight)** by [Justin Weisz](https://github.com/jweisz). Twitter monitoring recipe for TJBot with strip light support
+
 # Controling Objects
 - **[Control a lamp with TJBot](http://www.spirited-engineering.com/?p=147)** by [Nguyen Van Duy](https://github.com/dnguyenv). This recipe guides you through how to make your TJBot listen to your commands and `turn on`, `turn off` a lamp (yes, a real lamp).
 
