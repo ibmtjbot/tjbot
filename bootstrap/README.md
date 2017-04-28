@@ -13,7 +13,7 @@ sudo apt-get update
 sudo apt-get dist-upgrade
 ```
 
-> You’ll need to do `apt-get upgrade` first because that updates the repository cache. Otherwise, `apt-get dist-upgrade` won't do anything because it doesn't know there is a distribution upgrade.
+> You’ll need to do `apt-get update` first because that updates the repository cache. Otherwise, `apt-get dist-upgrade` won't do anything because it doesn't know there is a distribution upgrade.
 
 > During the upgrade, say "Y" when prompted to replace the `lightdm.conf` file with the package maintainers version.
 
