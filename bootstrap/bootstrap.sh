@@ -40,7 +40,7 @@ sudo apt-get install pigpio
 
 #----install git and download tjbot
 if [ ! -d "${TJBOT_FOLDER}/recipes/conversation" ]; then
-    rm -Rf /home/pi/tjbot
+    sudo rm -Rf /home/pi/tjbot
     git clone https://github.com/ibmtjbot/tjbot.git /home/pi/tjbot
 
     TJBOT_FOLDER='/home/pi/tjbot'
@@ -51,7 +51,7 @@ cd $TJBOT_FOLDER
 cd recipes/conversation
 echo "path: $PWD"
 
-sudo npm install --unsafe-perm -g node-gyp
+npm install
 
 #----installation completed
 echo "------------------------------------";
@@ -63,7 +63,8 @@ cd $TJBOT_FOLDER
 cd bootstrap/tests
 echo "path: $PWD"
 
-sudo npm install --unsafe-perm -g readline-sync
+npm install
+
 sudo node test.camera.js
 sudo node test.led.js
 sudo node test.servo.js
