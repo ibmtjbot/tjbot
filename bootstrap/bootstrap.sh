@@ -51,7 +51,7 @@ cd $TJBOT_FOLDER
 cd recipes/conversation
 echo "path: $PWD"
 
-npm install
+npm install > install.log 2>&1
 
 #----installation completed
 echo "------------------------------------";
@@ -63,7 +63,7 @@ cd $TJBOT_FOLDER
 cd bootstrap/tests
 echo "path: $PWD"
 
-npm install
+npm install > install.log 2>&1
 
 sudo node test.camera.js
 sudo node test.led.js

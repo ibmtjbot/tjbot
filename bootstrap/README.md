@@ -7,7 +7,7 @@ Perform the following operations to prepare your Raspberry Pi for becoming a TJB
 
 2. Run the command below:
 
-    $ curl -sL https://raw.githubusercontent.com/ibmtjbot/tjbot/master/bootstrap/bootstrap.sh | sudo -E bash -
+    curl -sL https://raw.githubusercontent.com/ibmtjbot/tjbot/master/bootstrap/bootstrap.sh | sudo -E bash -
 
 **MANUALLY:**
 1. Boot your Pi and connect to Wifi (click the icon in the menu bar)
@@ -66,9 +66,9 @@ Hardware tests are included with bootstrap to ensure the TJBot hardware is set u
 Tests can be run in the following manner.
 
 ```
-$ npm install
-$ sudo node tests/test.camera.js
-$ sudo node tests/test.led.js
-$ sudo node tests/test.servo.js
-$ sudo node tests/test.speaker.js
+npm install
+sudo node tests/test.camera.js
+sudo node tests/test.led.js
+sudo node tests/test.servo.js
+sudo node tests/test.speaker.js
 ```
