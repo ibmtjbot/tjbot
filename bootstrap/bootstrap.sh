@@ -60,8 +60,8 @@ sudo apt-get -y dist-upgrade
 
 #----nodejs install
 node_version=$(node --version 2>&1)
-echo "Checking installed Node version. You have Node version $node_version installed. TJBot requires Node 6.X or higher."
-read -p "Would you liked to install Node 6.X? (Y/N: default): " choice
+echo "Checking installed Node version. You have Node version $node_version installed. TJBot requires Node 6 or higher."
+read -p "Would you liked to install Node 6? (Y/N: default): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
@@ -78,6 +78,30 @@ sudo apt-get install -y alsa-base alsa-utils libasound2-dev git
 #----install missing pigpio in Raspbian Lite (the command npm install pigpio will be exec by package.json)
 echo "Installing missing pigpio in Raspbian Lite"
 sudo apt-get install pigpio
+
+#----enabling camera on raspbery pi
+echo "Checking to enable camera"
+grep "start_x=1" /boot/config.txt
+if grep "start_x=1" /boot/config.txt
+then
+	echo "Camera is alredy enabled."
+else
+	echo "Enabling camera."
+        sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
+	echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+fi
+exit
+
+#----setting audio option 
+read -p "[Optional] If you have plugged in your speaker via USB or Bluetooth, we need to disable the kernel modules for the built-in audio jack. Do you want to disable the kernel modules for the built-in audio jack? (Y/N: default): " choice
+shopt -s nocasematch
+case "$choice" in
+ "y" )
+	echo "Disabling the kernel modules for the built-in audio jack."
+	sudo cp tjbot-blacklist-snd.conf /etc/modprobe.d/ 
+     ;;
+*) ;;
+esac
 
 #----install git and download tjbot
 echo "Downloading TJBot to Desktop/TJBot folder"
@@ -105,51 +129,17 @@ echo "------------------------------------";
 echo "INSTALLATION COMPLETED!!! ;)"
 echo "------------------------------------";
 
-#----test hardware
-read -p "[Optional] Congratulations! Your TJBot installation. Would you like to test TJBot hardwares (Y/N: default): " choice
+#----reboot 
+read -p "We have made lots of changes. We highly recommend rebooting TJBot to ensure everything will work. Do you want to reboot now? (Y/N: default): " choice
 shopt -s nocasematch
 case "$choice" in
- "y" ) 
-	cd $TJBOT_FOLDER
-	cd bootstrap/tests
-	echo "Installing TJBot tests. Please wait until npm install completes. It may take few mintues."
-
-	npm install > install.log 2>&1
-
-	echo "Testing camera hardware"
-	sudo node test.camera.js
-
-	echo "Testing LED hardware"
-	sudo node test.led.js
-
-	echo "Testing servo hardware"
-	sudo node test.servo.js
-
-	echo "Testing speaker hardware"
-	sudo node test.speaker.js
+ "y" )
+	echo "Rebooting TJBot."
+	sudo reboot 
      ;;
-*) ;;
+*)
+ 	echo "Please reboot TJBot before you use it."
+     ;;
 esac
 
 
-#----try to run tjbot
-read -p "[Optional] Do you want to run TJBot conversation service? (Y/N: default): " choice
-shopt -s nocasematch
-case "$choice" in
- "y" ) 
-	if [ ! -f "${TJBOT_FOLDER}/recipes/conversation/config.js" ]; then
-	    echo "------------------------------------";
-	    echo "If you would like to run Conversation, please first create ${TJBOT_FOLDER}/recipes/conversation/config.js with your Bluemix Credentials."
-	    echo "After that try 'node conversation.js'"
-	    echo "------------------------------------";
-	else
-	node conversation.js
-fi
-     ;;
-*) ;;
-esac
-
-#----TJBot
-echo "------------------------------------";
-echo "Your TJBot is ready. Go have fun!"
-echo "------------------------------------";
