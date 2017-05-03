@@ -128,8 +128,9 @@ echo "------------------------------------";
 echo "INSTALLATION COMPLETED!!! ;)"
 echo "------------------------------------";
 
-#----reboot 
-read -p "We have made lots of changes. We highly recommend rebooting TJBot to ensure everything will work. Do you want to reboot now? (Y/N: default): " choice
+#----reboot
+echo "We have made lots of changes. We highly recommend rebooting TJBot to ensure everything will work.";
+read -p "Do you want to reboot now? (Y/N: default): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
