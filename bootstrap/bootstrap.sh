@@ -90,7 +90,6 @@ else
         sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
 	echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
 fi
-exit
 
 #----setting audio option 
 read -p "[Optional] If you have plugged in your speaker via USB or Bluetooth, we need to disable the kernel modules for the built-in audio jack. Do you want to disable the kernel modules for the built-in audio jack? (Y/N: default): " choice
