@@ -1,4 +1,5 @@
 #!/bin/bash
+TJBOT_FOLDER='/home/pi/Desktop/tjbot'
 
 #----test hardware
 read -p "Would you like to test TJBot hardwares (Y/N: default): " choice
