@@ -14,7 +14,7 @@ echo "Error. Name cannot be empty string"
 read -p "Please type in your TJBot's name followed by [ENTER]: " name
 done
 echo "Setting TJBot name and DNS name to $name"
-echo "$name" | sudo tee /etc/hostname
+echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
 
 #----disabling ipv6
 read -p "[Optional] Would you liked to disable ipv6? (Y/N: default): " choice
@@ -96,6 +96,8 @@ cd $TJBOT_FOLDER
 cd recipes/conversation
 echo "path: $PWD"
 
+echo "Performing npm install. Please wait until npm install completes. It may take few minutes."
+
 npm install > install.log 2>&1
 
 #----installation completed
@@ -110,7 +112,7 @@ case "$choice" in
  "y" ) 
 	cd $TJBOT_FOLDER
 	cd bootstrap/tests
-	echo "Installing TJBot tests."
+	echo "Installing TJBot tests. Please wait until npm install completes. It may take few mintues."
 
 	npm install > install.log 2>&1
 
