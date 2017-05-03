@@ -1,38 +1,49 @@
 #!/bin/bash
 
+#----ascii art!
+echo " _   _ _           _     _                 _       _                   "
+echo "| | (_) |         | |   | |               | |     | |                  "
+echo "| |_ _| |__   ___ | |_  | |__   ___   ___ | |_ ___| |_ _ __ __ _ _ __  "
+echo "| __| | '_ \ / _ \| __| | '_ \ / _ \ / _ \| __/ __| __| '__/ _` | '_ \ "
+echo "| |_| | |_) | (_) | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |"
+echo " \__| |_.__/ \___/ \__| |_.__/ \___/ \___/ \__|___/\__|_|  \__,_| .__/ "
+echo "   _/ |                                                         | |    "
+echo "  |__/                                                          |_|    "
+
 #----intro message
-echo "---------------------------------------------"
-echo "Welcome! Let's set up your TJBot"
-echo "---------------------------------------------"
+echo "----------------------------------------------------------------"
+echo "Welcome! Let's set up your Raspberry Pi with the TJBot software."
+echo "----------------------------------------------------------------"
 
 #----setting TJBot name
-echo "Let's name of your TJBot!"
-read -p "Please type in your TJBot's name followed by [ENTER]: " name
+read -p "Please enter a name for your TJBot. This will be used for the hostname of your Raspberry Pi: " name
 while [ -z "${name// }" ]
 do
-echo "Error. Name cannot be empty string"
-read -p "Please type in your TJBot's name followed by [ENTER]: " name
+echo "Error: name cannot be empty"
+read -p "Please enter a name for your TJBot: " name
 done
-echo "Setting TJBot name and DNS name to $name"
+echo "Setting DNS hostname to $name"
 echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
 
 #----disabling ipv6
-read -p "[Optional] Would you liked to disable ipv6? (Y/N: default): " choice
+echo ""
+read -p "In some networking environments, disabling ipv6 may help your Pi get on the network. Disable ipv6? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
      echo "Disabling ipv6"
      echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
-     echo "We just disabled ipv6 due better network compatibility. It will take effect after restart.";;
+     echo "ipv6 has been disabled. It will take effect after rebooting.";;
 *) ;;
 esac
 
 #----setting DNS to Google
-read -p "[Optional] Would you liked to set DNS to Google Server? (Y/N: default): " choice
+echo ""
+read -p "In some networking environments, using Google's nameservers may speed up DNS queries. Enable Google DNS? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
-     echo "Setting Google DNS Server"
+     echo "Adding Google DNS servers to /etc/resolv.conf"
      if ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf; then
     	echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
         echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
@@ -41,11 +52,12 @@ case "$choice" in
 esac
 
 #----setting local to US
-read -p "[Optional] Would you liked to set locale to en-US? (Y/N: default): " choice
+echo ""
+read -p "Force locale to US English (en-US)? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
-     echo "Setting Locale to en-US"
+     echo "Forcing locale to en-US. Please ignore any errors below."
      export LC_ALL="en_US.UTF-8"
      echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
      sudo locale-gen en_US.UTF-8
@@ -54,92 +66,160 @@ case "$choice" in
 esac
 
 #----update raspberry
-echo "Updating Raspberry Pi"
-sudo apt-get update
-sudo apt-get -y dist-upgrade
+echo ""
+echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating system software."
+read -p "Proceed with apt-get dist-upgrade? (Y/n)" choice
+shopt -s nocasematch
+case "$choice" in
+ "n" )
+    echo "Warning: you may encounter problems running TJBot recipes without performing an apt-get dist-upgrade."
+    echo "If you experience these problems, please re-run the bootstrap script and perform this step."
+    ;;
+ *)
+    echo "Updating apt repositories [apt-get update]"
+    sudo apt-get update
+    echo "Upgrading OS distribution [apt-get dist-upgrade]"
+    sudo apt-get -y dist-upgrade
+    ;;
+esac
+
 
 #----nodejs install
 node_version=$(node --version 2>&1)
-echo "Checking installed Node version. You have Node version $node_version installed. TJBot requires Node 6 or higher."
-read -p "Would you liked to install Node 6? (Y/N: default): " choice
+echo ""
+echo "TJBot requires Node.js version 6 or higher. We detected version $node_version is already installed."
+read -p "Install Node 6.x? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
 	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 	sudo apt-get install -y nodejs
-     ;;
-*) ;;
+    ;;
+ *) 
+    echo "Warning: TJBot will encounter problems with versions of Node.js older than 6.x."
+    ;;
 esac
 
-#----install official requirements
-echo "Installing official requirements (alsa, libasound2, git)"
-sudo apt-get install -y alsa-base alsa-utils libasound2-dev git
+#----install additional packages
+echo ""
+echo "Installing additional software packages (alsa, libasound2, git, pigpio)"
+sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
 
-#----install missing pigpio in Raspbian Lite (the command npm install pigpio will be exec by package.json)
-echo "Installing missing pigpio in Raspbian Lite"
-sudo apt-get install pigpio
+#----enable camera on raspbery pi
+echo ""
+read -p "If your Raspberry Pi has a camera installed, TJBot can use it to see. Enable camera? (y/N): " choice
+shopt -s nocasematch
+case "$choice" in
+ "y" )
+    grep "start_x=1" /boot/config.txt
+    if grep "start_x=1" /boot/config.txt
+    then
+        echo "Camera is alredy enabled."
+    else
+        echo "Enabling camera."
+            sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
+        echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+    fi
+    ;;
+ *) ;;
+esac
 
-#----enabling camera on raspbery pi
-echo "Checking to enable camera"
-grep "start_x=1" /boot/config.txt
-if grep "start_x=1" /boot/config.txt
-then
-	echo "Camera is alredy enabled."
-else
-	echo "Enabling camera."
-        sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
-	echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
-fi
-
-#----setting audio option 
-read -p "[Optional] If you have plugged in your speaker via USB or Bluetooth, we need to disable the kernel modules for the built-in audio jack. Do you want to disable the kernel modules for the built-in audio jack? (Y/N: default): " choice
+#----blacklist audio kernel modules
+echo ""
+read -p "In order for the LED to work, we need to disable certain kernel modules to avoid a conflict with the built-in audio jack. If you have plugged in a via HDMI, USB, or Bluetooth, this is a safe operation and you will be able to play sound and use the LED at the same time. If you plan to use the built-in audio jack, we recommend NOT disabling the sound kernel modules. Disable sound kernel modules? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
 	echo "Disabling the kernel modules for the built-in audio jack."
 	sudo cp tjbot-blacklist-snd.conf /etc/modprobe.d/ 
-     ;;
+    ;;
+ "n" )
+    echo "Enabling the kernel modules for the built-in audio jack."
+    sudo rm /etc/modprobe.d/tjbot-blacklist-snd.conf
+    ;;
 *) ;;
 esac
 
-#----install git and download tjbot
-echo "Downloading TJBot to Desktop/TJBot folder"
-TJBOT_FOLDER='/home/pi/Desktop/tjbot'
-
-if [ ! -d "${TJBOT_FOLDER}/recipes/conversation" ]; then
-    sudo rm -Rf /home/pi/Desktop/tjbot
-    git clone https://github.com/ibmtjbot/tjbot.git /home/pi/Desktop/tjbot
-
-    TJBOT_FOLDER='/home/pi/Desktop/tjbot'
+#----clone tjbot
+echo ""
+read -p "We are ready to clone the TJBot project. Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_FOLDER
+if [ -z "${TJBOT_FOLDER// }" ]; then
+    TJBOT_FOLDER = '/home/pi/Desktop/tjbot'
 fi
 
-#----install conversation (to install it will resolve tjbotlib and other dependencies)
-echo "Installing conversation recipe"
-cd $TJBOT_FOLDER
-cd recipes/conversation
-echo "path: $PWD"
+echo "Cloning TJBot project to $TJBOT_FOLDER"
+git clone https://github.com/ibmtjbot/tjbot.git $TJBOT_FOLDER
 
-echo "Performing npm install. Please wait until npm install completes. It may take few minutes."
+#----installation complete
+echo ""
+echo ""
+echo "                                ,#:                                "
+echo "                               +@@@@                               "
+echo "                               @@@@@                               "
+echo "                               @@@@@                               "
+echo "                               .....                               "
+echo " .................................................................."
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@    +@@@@@@@@@@@@@@@@@@@@@@@@    ;@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@      #@@@@@@@@@@@@@@@@@@@@@@      ;@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@.       @@@@@@@@@@@@@@@@@@@@@;       @@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@        @@@@@@@@@@@@@@@@@@@@@,       @@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@;      `@@@@@@@@@@@@@@@@@@@@@#       @@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@      @@@@@@@@@@@@@@@@@@@@@@@.     @@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@'``;@@@@@@@@@@@@@@@@@@@@@@@@@+` :@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "`@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo "                                                                   "
+echo "                                                    ``.,:;''+#@@@@,"
+echo "                               ``.,:;''+#@@@@@@@@@@@@@@@@@@@@@@@@@:"
+echo "          ``.,:;'++##@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@;"
+echo ",@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#"
+echo " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+echo " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##++;;:,.`       "
+echo " @@@@@@@@@@@@@@@@@@@@@@@@@@@@##+';:,,.``                           "
+echo " @@@@@@@##+';:,.```                                                "
+echo ""
+echo "----------------------------------------------------------------"
+echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
+echo "----------------------------------------------------------------"
+echo ""
 
-npm install > install.log 2>&1
-
-#----installation completed
-echo "------------------------------------";
-echo "INSTALLATION COMPLETED!!! ;)"
-echo "------------------------------------";
-
-#----reboot
-echo "We have made lots of changes. We highly recommend rebooting TJBot to ensure everything will work.";
-read -p "Do you want to reboot now? (Y/N: default): " choice
+#----tests
+echo "TJBot includes a set of hardware tests to ensure all of the hardware is functioning properly. If you have made any changes to the camera or sound configuration, we recommend rebooting first before running these tests as they may fail. You can run these tests at anytime by running the runTests.sh script in the tjbot/bootstrap folder."
+read -p "Would you like to run hardware tests at this time? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
-	echo "Rebooting TJBot."
-	sudo reboot 
-     ;;
-*)
- 	echo "Please reboot TJBot before you use it."
-     ;;
+	./runTests.sh
+	;;
+ *) ;;
 esac
 
-
+#----reboot
+read -p "We recommend rebooting for all changes to take effect. Reboot? (Y/n): " choice
+shopt -s nocasematch
+case "$choice" in
+ "y" )
+	echo "Rebooting."
+	sudo reboot 
+    ;;
+*)
+ 	echo "Please reboot your Raspberry Pi for all changes to take effect."
+    ;;
+esac

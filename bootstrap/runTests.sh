@@ -2,7 +2,7 @@
 TJBOT_FOLDER='/home/pi/Desktop/tjbot'
 
 #----test hardware
-read -p "Would you like to test TJBot hardwares (Y/N: default): " choice
+read -p "Would you like to test TJBot hardware (Y/N: default): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
@@ -29,7 +29,7 @@ esac
 
 
 #----try to run tjbot
-read -p "Do you want to run TJBot conversation service? (Y/N: default): " choice
+read -p "Would you like to run the TJBot conversation recipe? (Y/N: default): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
