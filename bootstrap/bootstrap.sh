@@ -9,19 +9,38 @@ echo "| |_| | |_) | (_) | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |"
 echo " \__| |_.__/ \___/ \__| |_.__/ \___/ \___/ \__|___/\__|_|  \__,_| .__/ "
 echo "   _/ |                                                         | |    "
 echo "  |__/                                                          |_|    "
+echo ""
 
 #----intro message
-echo "----------------------------------------------------------------"
+echo "-----------------------------------------------------------------------"
 echo "Welcome! Let's set up your Raspberry Pi with the TJBot software."
-echo "----------------------------------------------------------------"
+echo ""
+echo "Important: This script was designed for setting up a Raspberry Pi after"
+echo "a clean install of Raspbian (Jessie). If you are running this on a"
+echo "Raspberry Pi that you've used for other projects, please take a look at"
+echo "what this script does BEFORE running it to ensure you are comfortable"
+echo "with its actions (e.g. performing an OS update, installing software"
+echo "packages, removing old configuration files, etc.)"
+echo "-----------------------------------------------------------------------"
+
+#----confirm bootstrap
+read -p "Would you like to use this Raspberry Pi for TJBot? Y/n: " choice
+shopt -s nocasematch
+case "$choice" in
+ "n" )
+    echo "OK, TJBot software will not be installed at this time."
+    exit
+    ;;
+ *) ;;
+esac
 
 #----setting TJBot name
-read -p "Please enter a name for your TJBot. This will be used for the hostname of your Raspberry Pi: " name
-while [ -z "${name// }" ]
-do
-echo "Error: name cannot be empty"
-read -p "Please enter a name for your TJBot: " name
-done
+echo "Please enter a name for your TJBot. This will be used for the hostname of your Raspberry Pi"
+read -p "TJBot name (default: raspberrypi): " name
+shopt -s nocasematch
+if [ -z "${name// }" ]; then
+    name = "raspberrypi"
+fi
 echo "Setting DNS hostname to $name"
 echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
 
@@ -44,7 +63,7 @@ shopt -s nocasematch
 case "$choice" in
  "y" ) 
      echo "Adding Google DNS servers to /etc/resolv.conf"
-     if ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf; then
+     if [ ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf ]; then
     	echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
         echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
      fi ;;
@@ -77,17 +96,16 @@ case "$choice" in
     ;;
  *)
     echo "Updating apt repositories [apt-get update]"
-    sudo apt-get update
+    sudo apt-get -y update
     echo "Upgrading OS distribution [apt-get dist-upgrade]"
     sudo apt-get -y dist-upgrade
     ;;
 esac
 
-
 #----nodejs install
 node_version=$(node --version 2>&1)
 echo ""
-echo "TJBot requires Node.js version 6 or higher. We detected version $node_version is already installed."
+echo "TJBot requires Node.js version 6. We detected version $node_version is already installed."
 read -p "Install Node 6.x? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
@@ -97,6 +115,7 @@ case "$choice" in
     ;;
  *) 
     echo "Warning: TJBot will encounter problems with versions of Node.js older than 6.x."
+    echo "TJBot has not been tested with Node.js version 7 or higher."
     ;;
 esac
 
@@ -104,6 +123,16 @@ esac
 echo ""
 echo "Installing additional software packages (alsa, libasound2, git, pigpio)"
 sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
+
+#----remove outdated configuration files and apt packages
+echo ""
+echo "Removing unused software packages [apt-get autoremove]"
+sudo apt-get autoremove
+
+if [ -d ~/oldconffiles ]; then
+    echo "Removing old configuration files from ~/oldconffiles"
+    rm -rf ~/oldconffiles
+fi
 
 #----enable camera on raspbery pi
 echo ""
@@ -117,7 +146,7 @@ case "$choice" in
         echo "Camera is alredy enabled."
     else
         echo "Enabling camera."
-            sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
+        sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
         echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
     fi
     ;;
@@ -137,7 +166,7 @@ case "$choice" in
     echo "Enabling the kernel modules for the built-in audio jack."
     sudo rm /etc/modprobe.d/tjbot-blacklist-snd.conf
     ;;
-*) ;;
+ *) ;;
 esac
 
 #----clone tjbot
@@ -195,12 +224,21 @@ echo " @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@##++;;:,.`       "
 echo " @@@@@@@@@@@@@@@@@@@@@@@@@@@@##+';:,,.``                           "
 echo " @@@@@@@##+';:,.```                                                "
 echo ""
-echo "----------------------------------------------------------------"
+echo "-------------------------------------------------------------------"
 echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
-echo "----------------------------------------------------------------"
+echo "-------------------------------------------------------------------"
 echo ""
 
+#----note about watson credentials
+echo ""
+echo "Notice about Watson services: Before running any recipes, you will need to"
+echo "obtain credentials for the Watson services used by those recipes. Links for"
+echo "how to do this can be found in the README file of each recipe, and detailed"
+echo "instructions can be found on the Instructables page for each recipe. These"
+echo "can be found by searching instructables.com for \"tjbot\". Have fun!"
+
 #----tests
+echo ""
 echo "TJBot includes a set of hardware tests to ensure all of the hardware is functioning properly. If you have made any changes to the camera or sound configuration, we recommend rebooting first before running these tests as they may fail. You can run these tests at anytime by running the runTests.sh script in the tjbot/bootstrap folder."
 read -p "Would you like to run hardware tests at this time? (y/N): " choice
 shopt -s nocasematch
@@ -219,7 +257,7 @@ case "$choice" in
 	echo "Rebooting."
 	sudo reboot 
     ;;
-*)
+ *)
  	echo "Please reboot your Raspberry Pi for all changes to take effect."
     ;;
 esac
