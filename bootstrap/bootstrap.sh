@@ -260,10 +260,17 @@ sleep $sleep_time
 echo "oNMMMMMMMMMMMMMMMMNNNNNNNNMMMMMMNNNNNmmmmmmmmmddhhhhyyyyssss"
 sleep $sleep_time
 echo "+Nmmmddhhhhyyyyssoo++++/////:::---....\`\`\`\`\`\`\`\`        "
+sleep $sleep_time
 echo ""
+sleep $sleep_time
 echo "-------------------------------------------------------------------"
+sleep $sleep_time
 echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
+sleep $sleep_time
 echo "-------------------------------------------------------------------"
+sleep $sleep_time
+sleep $sleep_time
+sleep $sleep_time
 
 #----note about watson credentials
 echo ""
