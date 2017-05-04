@@ -39,7 +39,7 @@ CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 echo ""
 echo "Please enter a name for your TJBot. This will be used for the hostname of"
 echo "your Raspberry Pi."
-read -p "TJBot name (default: $CURRENT_HOSTNAME): " name
+read -p "TJBot name (current: $CURRENT_HOSTNAME): " name
 shopt -s nocasematch
 if [ -z "${name// }" ]; then
     name=CURRENT_HOSTNAME
