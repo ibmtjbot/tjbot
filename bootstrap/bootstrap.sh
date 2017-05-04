@@ -175,13 +175,17 @@ esac
 #----clone tjbot
 echo ""
 echo "We are ready to clone the TJBot project."
-read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_FOLDER
-if [ -z "${TJBOT_FOLDER// }" ]; then
-    TJBOT_FOLDER = '/home/pi/Desktop/tjbot'
+read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_DIR
+if [ -z "${TJBOT_DIR// }" ]; then
+    TJBOT_DIR = '/home/pi/Desktop/tjbot'
 fi
 
-echo "Cloning TJBot project to $TJBOT_FOLDER"
-git clone https://github.com/ibmtjbot/tjbot.git $TJBOT_FOLDER
+if [ ! -d $TJBOT_DIR ]; then
+    echo "Cloning TJBot project to $TJBOT_DIR"
+    git clone https://github.com/ibmtjbot/tjbot.git $TJBOT_DIR
+else
+    echo "TJBot project already exists in $TJBOT_DIR, leaving it alone"
+fi
 
 #----installation complete
 echo ""
