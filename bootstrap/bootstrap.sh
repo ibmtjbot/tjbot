@@ -147,14 +147,23 @@ read -p "Enable camera? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
-    grep "start_x=1" /boot/config.txt
     if grep "start_x=1" /boot/config.txt
     then
         echo "Camera is alredy enabled."
     else
         echo "Enabling camera."
-        sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
-        echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+    	if grep "start_x=0" /boot/config.txt
+	then
+		sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
+	else
+        	echo "start_x=1" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+	fi
+     	if grep "gpu_mem=128" /boot/config.txt
+	then	
+		:	
+	else
+        	echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+	fi
     fi
     ;;
  *) ;;
