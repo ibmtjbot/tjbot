@@ -39,7 +39,7 @@ echo "Please enter a name for your TJBot. This will be used for the hostname of 
 read -p "TJBot name (default: raspberrypi): " name
 shopt -s nocasematch
 if [ -z "${name// }" ]; then
-    name = "raspberrypi"
+    name="raspberrypi"
 fi
 echo "Setting DNS hostname to $name"
 echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
@@ -177,7 +177,7 @@ echo ""
 echo "We are ready to clone the TJBot project."
 read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_DIR
 if [ -z "${TJBOT_DIR// }" ]; then
-    TJBOT_DIR = '/home/pi/Desktop/tjbot'
+    TJBOT_DIR='/home/pi/Desktop/tjbot'
 fi
 
 if [ ! -d $TJBOT_DIR ]; then
