@@ -35,7 +35,7 @@ case "$choice" in
 esac
 
 #----setting TJBot name
-echo "Please enter a name for your TJBot. This will be used for the hostname of your Raspberry Pi"
+echo "Please enter a name for your TJBot. This will be used for the hostname of your Raspberry Pi."
 read -p "TJBot name (default: raspberrypi): " name
 shopt -s nocasematch
 if [ -z "${name// }" ]; then
@@ -96,7 +96,7 @@ case "$choice" in
     ;;
  *)
     echo "Updating apt repositories [apt-get update]"
-    sudo apt-get -y update
+    sudo apt-get update
     echo "Upgrading OS distribution [apt-get dist-upgrade]"
     sudo apt-get -y dist-upgrade
     ;;
