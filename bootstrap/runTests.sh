@@ -1,51 +1,28 @@
 #!/bin/bash
-TJBOT_FOLDER='/home/pi/Desktop/tjbot'
+TJBOT_DIR=$1
+
+if [ -z "${TJBOT_DIR// }" ]; then
+    TJBOT_DIR='/home/pi/Desktop/tjbot'
+fi
 
 #----test hardware
-read -p "Would you like to test TJBot hardware (Y/N: default): " choice
-shopt -s nocasematch
-case "$choice" in
- "y" ) 
-	cd $TJBOT_FOLDER
-	cd bootstrap/tests
-	echo "Installing TJBot tests. Please wait until npm install completes. It may take few mintues."
+cd $TJBOT_DIR/bootstrap/tests
+echo "Installing support libraries for TJBot. This may take few mintues."
 
-	npm install > install.log 2>&1
+npm install > install.log 2>&1
 
-	echo "Testing camera hardware"
-	sudo node test.camera.js
+echo "Running camera test"
+sudo node test.camera.js
 
-	echo "Testing LED hardware"
-	sudo node test.led.js
+echo "Running LED test"
+sudo node test.led.js
 
-	echo "Testing servo hardware"
-	sudo node test.servo.js
+echo "Running servo test"
+sudo node test.servo.js
 
-	echo "Testing speaker hardware"
-	sudo node test.speaker.js
-     ;;
-*) ;;
-esac
+echo "Running speaker test"
+sudo node test.speaker.js
 
-
-#----try to run tjbot
-read -p "Would you like to run the TJBot conversation recipe? (Y/N: default): " choice
-shopt -s nocasematch
-case "$choice" in
- "y" ) 
-	if [ ! -f "${TJBOT_FOLDER}/recipes/conversation/config.js" ]; then
-	    echo "------------------------------------";
-	    echo "If you would like to run Conversation, please first create ${TJBOT_FOLDER}/recipes/conversation/config.js with your Bluemix Credentials."
-	    echo "After that try 'node conversation.js'"
-	    echo "------------------------------------";
-	else
-	node conversation.js
-fi
-     ;;
-*) ;;
-esac
-
-#----TJBot
-echo "------------------------------------";
-echo "Your TJBot is ready. Go have fun!"
-echo "------------------------------------";
+echo "-------------------------------------------------------------------"
+echo "Tests complete. Have fun! ;)"
+echo "-------------------------------------------------------------------"

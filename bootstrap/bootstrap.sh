@@ -292,7 +292,7 @@ read -p "Would you like to run hardware tests at this time? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
-	./runTests.sh
+	./runTests.sh $TJBOT_DIR
 	;;
  *) ;;
 esac
