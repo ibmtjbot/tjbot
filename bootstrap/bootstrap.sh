@@ -46,7 +46,8 @@ echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
 
 #----disabling ipv6
 echo ""
-read -p "In some networking environments, disabling ipv6 may help your Pi get on the network. Disable ipv6? (y/N): " choice
+echo "In some networking environments, disabling ipv6 may help your Pi get on the network."
+read -p "Disable ipv6? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
@@ -58,7 +59,8 @@ esac
 
 #----setting DNS to Google
 echo ""
-read -p "In some networking environments, using Google's nameservers may speed up DNS queries. Enable Google DNS? (y/N): " choice
+echo "In some networking environments, using Google's nameservers may speed up DNS queries."
+read -p "Enable Google DNS? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
@@ -136,7 +138,8 @@ fi
 
 #----enable camera on raspbery pi
 echo ""
-read -p "If your Raspberry Pi has a camera installed, TJBot can use it to see. Enable camera? (y/N): " choice
+echo "If your Raspberry Pi has a camera installed, TJBot can use it to see."
+read -p "Enable camera? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
@@ -155,7 +158,12 @@ esac
 
 #----blacklist audio kernel modules
 echo ""
-read -p "In order for the LED to work, we need to disable certain kernel modules to avoid a conflict with the built-in audio jack. If you have plugged in a via HDMI, USB, or Bluetooth, this is a safe operation and you will be able to play sound and use the LED at the same time. If you plan to use the built-in audio jack, we recommend NOT disabling the sound kernel modules. Disable sound kernel modules? (Y/n): " choice
+echo "In order for the LED to work, we need to disable certain kernel modules to avoid a conflict"
+echo "with the built-in audio jack. If you have plugged in a via HDMI, USB, or Bluetooth, this is"
+echo "a safe operation and you will be able to play sound and use the LED at the same time."
+echo "If you plan to use the built-in audio jack, we recommend NOT disabling the sound kernel"
+echo "modules."
+read -p "Disable sound kernel modules? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
@@ -171,7 +179,8 @@ esac
 
 #----clone tjbot
 echo ""
-read -p "We are ready to clone the TJBot project. Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_FOLDER
+echo "We are ready to clone the TJBot project."
+read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_FOLDER
 if [ -z "${TJBOT_FOLDER// }" ]; then
     TJBOT_FOLDER = '/home/pi/Desktop/tjbot'
 fi
@@ -238,7 +247,10 @@ echo "can be found by searching instructables.com for \"tjbot\". Have fun!"
 
 #----tests
 echo ""
-echo "TJBot includes a set of hardware tests to ensure all of the hardware is functioning properly. If you have made any changes to the camera or sound configuration, we recommend rebooting first before running these tests as they may fail. You can run these tests at anytime by running the runTests.sh script in the tjbot/bootstrap folder."
+echo "TJBot includes a set of hardware tests to ensure all of the hardware is functioning"
+echo "properly. If you have made any changes to the camera or sound configuration, we recommend"
+echo "rebooting first before running these tests as they may fail. You can run these tests at"
+echo "anytime by running the runTests.sh script in the tjbot/bootstrap folder."
 read -p "Would you like to run hardware tests at this time? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
