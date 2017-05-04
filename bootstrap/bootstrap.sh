@@ -42,7 +42,7 @@ echo "your Raspberry Pi."
 read -p "TJBot name (current: $CURRENT_HOSTNAME): " name
 shopt -s nocasematch
 if [ -z "${name// }" ]; then
-    name=CURRENT_HOSTNAME
+    name=$CURRENT_HOSTNAME
 fi
 echo "Setting DNS hostname to $name"
 echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
