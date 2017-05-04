@@ -9,9 +9,9 @@ echo "| |_| | |_) | (_) | |_  | |_) | (_) | (_) | |_\__ \ |_| | | (_| | |_) |"
 echo " \__| |_.__/ \___/ \__| |_.__/ \___/ \___/ \__|___/\__|_|  \__,_| .__/ "
 echo "   _/ |                                                         | |    "
 echo "  |__/                                                          |_|    "
-echo ""
 
 #----intro message
+echo ""
 echo "-----------------------------------------------------------------------"
 echo "Welcome! Let's set up your Raspberry Pi with the TJBot software."
 echo ""
@@ -50,10 +50,10 @@ read -p "In some networking environments, disabling ipv6 may help your Pi get on
 shopt -s nocasematch
 case "$choice" in
  "y" )
-     echo "Disabling ipv6"
-     echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
-     echo "ipv6 has been disabled. It will take effect after rebooting.";;
-*) ;;
+    echo "Disabling ipv6"
+    echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
+    echo "ipv6 has been disabled. It will take effect after rebooting.";;
+ *) ;;
 esac
 
 #----setting DNS to Google
@@ -62,12 +62,12 @@ read -p "In some networking environments, using Google's nameservers may speed u
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
-     echo "Adding Google DNS servers to /etc/resolv.conf"
-     if [ ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf ]; then
-    	echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
+    echo "Adding Google DNS servers to /etc/resolv.conf"
+    if [ ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf ]; then
+        echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
         echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
-     fi ;;
-*) ;;
+    fi ;;
+ *) ;;
 esac
 
 #----setting local to US
@@ -76,12 +76,12 @@ read -p "Force locale to US English (en-US)? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
-     echo "Forcing locale to en-US. Please ignore any errors below."
-     export LC_ALL="en_US.UTF-8"
-     echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
-     sudo locale-gen en_US.UTF-8
-     ;;
-*) ;;
+    echo "Forcing locale to en-US. Please ignore any errors below."
+    export LC_ALL="en_US.UTF-8"
+    echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
+    sudo locale-gen en_US.UTF-8
+    ;;
+ *) ;;
 esac
 
 #----update raspberry
@@ -227,7 +227,6 @@ echo ""
 echo "-------------------------------------------------------------------"
 echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
 echo "-------------------------------------------------------------------"
-echo ""
 
 #----note about watson credentials
 echo ""
