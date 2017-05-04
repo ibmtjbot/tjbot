@@ -127,7 +127,7 @@ sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
 #----remove outdated configuration files and apt packages
 echo ""
 echo "Removing unused software packages [apt-get autoremove]"
-sudo apt-get autoremove
+sudo apt-get -y autoremove
 
 if [ -d ~/oldconffiles ]; then
     echo "Removing old configuration files from ~/oldconffiles"
