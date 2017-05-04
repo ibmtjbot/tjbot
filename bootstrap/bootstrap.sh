@@ -35,20 +35,22 @@ case "$choice" in
 esac
 
 #----setting TJBot name
-echo "Please enter a name for your TJBot. This will be used for the hostname of your Raspberry Pi."
-read -p "TJBot name (default: raspberrypi): " name
+CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
+echo "Please enter a name for your TJBot. This will be used for the hostname of"
+echo "your Raspberry Pi."
+read -p "TJBot name (default: $CURRENT_HOSTNAME): " name
 shopt -s nocasematch
 if [ -z "${name// }" ]; then
-    name="raspberrypi"
+    name=CURRENT_HOSTNAME
 fi
 echo "Setting DNS hostname to $name"
-CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
 sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$name/g" /etc/hosts
 
 #----disabling ipv6
 echo ""
-echo "In some networking environments, disabling ipv6 may help your Pi get on the network."
+echo "In some networking environments, disabling ipv6 may help your Pi get on"
+echo "the network."
 read -p "Disable ipv6? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
@@ -61,7 +63,8 @@ esac
 
 #----setting DNS to Google
 echo ""
-echo "In some networking environments, using Google's nameservers may speed up DNS queries."
+echo "In some networking environments, using Google's nameservers may speed up"
+echo "DNS queries."
 read -p "Enable Google DNS? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
@@ -90,13 +93,15 @@ esac
 
 #----update raspberry
 echo ""
-echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating system software."
+echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating"
+echo "system software."
 read -p "Proceed with apt-get dist-upgrade? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "n" )
-    echo "Warning: you may encounter problems running TJBot recipes without performing an apt-get dist-upgrade."
-    echo "If you experience these problems, please re-run the bootstrap script and perform this step."
+    echo "Warning: you may encounter problems running TJBot recipes without performing"
+    echo "an apt-get dist-upgrade. If you experience these problems, please re-run"
+    echo "the bootstrap script and perform this step."
     ;;
  *)
     echo "Updating apt repositories [apt-get update]"
@@ -109,7 +114,8 @@ esac
 #----nodejs install
 node_version=$(node --version 2>&1)
 echo ""
-echo "TJBot requires Node.js version 6. We detected version $node_version is already installed."
+echo "TJBot requires Node.js version 6. We detected Node.js version $node_version"
+echo "is already installed."
 read -p "Install Node 6.x? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
@@ -155,10 +161,11 @@ esac
 
 #----blacklist audio kernel modules
 echo ""
-echo "In order for the LED to work, we need to disable certain kernel modules to avoid a conflict"
-echo "with the built-in audio jack. If you have plugged in a via HDMI, USB, or Bluetooth, this is"
-echo "a safe operation and you will be able to play sound and use the LED at the same time."
-echo "If you plan to use the built-in audio jack, we recommend NOT disabling the sound kernel"
+echo "In order for the LED to work, we need to disable certain kernel modules to"
+echo "avoid a conflict with the built-in audio jack. If you have plugged in a"
+echo "speaker via HDMI, USB, or Bluetooth, this is a safe operation and you will"
+echo "be able to play sound and use the LED at the same time. If you plan to use"
+echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
 echo "modules."
 read -p "Disable sound kernel modules? (Y/n): " choice
 shopt -s nocasematch
@@ -190,37 +197,67 @@ else
 fi
 
 #----installation complete
+sleep_time=0.1
 echo ""
 echo ""
 echo "                           .yNNs\`                           "
+sleep $sleep_time
 echo "                           :hhhh-                           "
+sleep $sleep_time
 echo "/ssssssssssssssssssssssssssssssssssssssssssssssssssssssssss+"
+sleep $sleep_time
 echo "yNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMNmmmNMMMMMMMMMMMMMMMMMMMMMMNmmmMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMNd/\`\`\`.+NNMMMMMMMMMMMMMMMMNm+.\` \`/dNMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMNo     \`hMMMMMMMMMMMMMMMMMMy\`     oNMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMNm+.\`\`-sNMMMMMMMMMMMMMMMMMNNs-\`\`.+mNMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yMMMMMMMMMMMMMMNmmMMMMMMMMMMMMMMMMMMMMMMMMmmNMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "yNNNNNMMMMMMMMMMMMNNNNNNMMNNNNNNNNNNMMMMMMMMMMMMMMMMMMMNNNMy"
+sleep $sleep_time
 echo "-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-"
+sleep $sleep_time
 echo "                                                            "
+sleep $sleep_time
 echo "                     \`\`\`\`\`\`\`\`....--::::////++++ooossyyhhhhh/"
+sleep $sleep_time
 echo "//++ossssssyyyyhhddmmmmmmmmmmmmNNNNNMMNNNNNNMMMMMMMMMMMMMNNo"
+sleep $sleep_time
 echo "dMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy"
+sleep $sleep_time
 echo "sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd"
+sleep $sleep_time
 echo "oNMMMMMMMMMMMMMMMMNNNNNNNNMMMMMMNNNNNmmmmmmmmmddhhhhyyyyssss"
+sleep $sleep_time
 echo "+Nmmmddhhhhyyyyssoo++++/////:::---....\`\`\`\`\`\`\`\`        "
 echo ""
 echo "-------------------------------------------------------------------"
@@ -253,6 +290,7 @@ case "$choice" in
 esac
 
 #----reboot
+echo ""
 read -p "We recommend rebooting for all changes to take effect. Reboot? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
