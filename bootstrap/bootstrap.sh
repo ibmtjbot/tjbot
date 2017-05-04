@@ -20,7 +20,7 @@ echo "a clean install of Raspbian (Jessie). If you are running this on a"
 echo "Raspberry Pi that you've used for other projects, please take a look at"
 echo "what this script does BEFORE running it to ensure you are comfortable"
 echo "with its actions (e.g. performing an OS update, installing software"
-echo "packages, removing old configuration files, etc.)"
+echo "packages, removing old packages, etc.)"
 echo "-----------------------------------------------------------------------"
 
 #----confirm bootstrap
@@ -126,15 +126,10 @@ echo ""
 echo "Installing additional software packages (alsa, libasound2, git, pigpio)"
 sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
 
-#----remove outdated configuration files and apt packages
+#----remove outdated apt packages
 echo ""
 echo "Removing unused software packages [apt-get autoremove]"
 sudo apt-get -y autoremove
-
-if [ -d ~/oldconffiles ]; then
-    echo "Removing old configuration files from ~/oldconffiles"
-    rm -rf ~/oldconffiles
-fi
 
 #----enable camera on raspbery pi
 echo ""
@@ -239,18 +234,20 @@ echo "-------------------------------------------------------------------"
 
 #----note about watson credentials
 echo ""
-echo "Notice about Watson services: Before running any recipes, you will need to"
-echo "obtain credentials for the Watson services used by those recipes. Links for"
-echo "how to do this can be found in the README file of each recipe, and detailed"
-echo "instructions can be found on the Instructables page for each recipe. These"
-echo "can be found by searching instructables.com for \"tjbot\". Have fun!"
+echo "Notice about Watson services: Before running any recipes, you will need"
+echo "to obtain credentials for the Watson services used by those recipes. Links"
+echo "for how to do this can be found in the README file of each recipe, and"
+echo "detailed instructions can be found on the Instructables page for each"
+echo "recipe. These can be found by searching instructables.com for \"tjbot\"."
+echo "Have fun!"
 
 #----tests
 echo ""
-echo "TJBot includes a set of hardware tests to ensure all of the hardware is functioning"
-echo "properly. If you have made any changes to the camera or sound configuration, we recommend"
-echo "rebooting first before running these tests as they may fail. You can run these tests at"
-echo "anytime by running the runTests.sh script in the tjbot/bootstrap folder."
+echo "TJBot includes a set of hardware tests to ensure all of the hardware is"
+echo "functioning properly. If you have made any changes to the camera or"
+echo "sound configuration, we recommend rebooting first before running these"
+echo "tests as they may fail. You can run these tests at anytime by running"
+echo "the runTests.sh script in the tjbot/bootstrap folder."
 read -p "Would you like to run hardware tests at this time? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
