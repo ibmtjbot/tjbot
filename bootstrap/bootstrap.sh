@@ -42,7 +42,9 @@ if [ -z "${name// }" ]; then
     name="raspberrypi"
 fi
 echo "Setting DNS hostname to $name"
+CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 echo "$name" | sudo tee /etc/hostname >/dev/null 2>&1
+sudo sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$name/g" /etc/hosts
 
 #----disabling ipv6
 echo ""
