@@ -36,6 +36,7 @@ esac
 
 #----setting TJBot name
 CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
+echo ""
 echo "Please enter a name for your TJBot. This will be used for the hostname of"
 echo "your Raspberry Pi."
 read -p "TJBot name (default: $CURRENT_HOSTNAME): " name
