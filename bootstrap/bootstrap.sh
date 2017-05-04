@@ -89,7 +89,7 @@ esac
 #----update raspberry
 echo ""
 echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating system software."
-read -p "Proceed with apt-get dist-upgrade? (Y/n)" choice
+read -p "Proceed with apt-get dist-upgrade? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "n" )
