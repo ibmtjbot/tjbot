@@ -31,19 +31,19 @@ If you would like your own recipe included here, please [send us email](mailto:t
 [![TJ Weather](https://img.youtube.com/vi/Q7a6UK8U-DM/0.jpg)](https://www.youtube.com/watch?v=Q7a6UK8U-DM)
 - **[weatherbot](https://github.com/dalelane/weatherbot)** by [Dale Lane](https://github.com/dalelane). Making #TJBot into weatherbot. The angle of his arm shows you forecasted tempreture and his head lights up if it will rain!
 
-[![weatherbot](https://c1.staticflickr.com/3/2916/34223524245_f6640b60a2_b.jpg)](https://github.com/dalelane/weatherbot)
+[![weatherbot](https://i.imgur.com/ESSpkRq.png)](https://github.com/dalelane/weatherbot)
 
 # Telling time
 
 - **[Tell the Time](https://github.com/damiancummins/tell_the_time)** by [Damian Cummins](https://github.com/damiancummins). Build a robot that can tell the time in different cities with Watson.
 
-[![Tell the Time](https://ibmtjbot.github.io/images/newTJBoticon.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
+[![Tell the Time](https://i.imgur.com/CFgyjDm.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
 
 # Extend TJBot With New Hardware
 
 - **[Distance-bot](http://www.spirited-engineering.com/?p=135)** by [Nguyen Van Duy](https://github.com/dnguyenv). Make your TJbot speak up based on distance with objects near by using hc-sr04 sensor and Watson service.
 
-[![Distance-bot Video](https://img.youtube.com/vi/kGMoz_fgO04/0.jpg)](https://www.youtube.com/watch?v=kGMoz_fgO04)
+[![Distance-bot Video](https://img.youtube.com/vi/kGMoz_fgO04/0.jpg)](https://vimeo.com/215574369)
 
 - **[tjbot-striplight](https://github.com/jweisz/tjbot-striplight)** by [Justin Weisz](https://github.com/jweisz). This recipe adds support for a NeoPixel RGB LED strip light to TJBot.
 
@@ -59,6 +59,9 @@ If you would like your own recipe included here, please [send us email](mailto:t
 [![Run a million volt Tesla coil](https://img.youtube.com/vi/hETqF3yt8NI/0.jpg)](https://www.youtube.com/watch?v=hETqF3yt8NI)
 
 # Vision Recognition
+- **[tjbot-visual-recognition](https://github.com/boxcarton/tjbot-visual-recognition)** by [Josh Zheng](https://github.com/boxcarton). TJBot plays with Sesame Street characters.
+
+[![Sesame Street](https://i.imgur.com/wFryS5L.png)](https://vimeo.com/215574369)
 - **[TJVision](https://github.com/victordibia/tjvision)**  by [Victor Dibia](https://github.com/victordibia). Get your TJBot to recognize (and read out) content of images using the Watson Visual Recognition API.
 - **[VisualTJ](https://github.com/samuelvogelmann/visualtj)** by [Samuel Vogelmann](https://github.com/samuelvogelmann). A Node-RED based application to make your TJbot see and recognize the world.
 - **[TJBot-Visual](https://github.com/Captain-Cheesecake/TJBot-Visual)** by [Gwilym Newton](https://github.com/Captain-Cheesecake). Connecting Conversation to Visual Recognition and make your TJbot see and recognize the world.
