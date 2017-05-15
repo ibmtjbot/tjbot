@@ -2,7 +2,7 @@
   "name": "tests",
   "description": "TJBot hardware tests",
   "version": "1.0.0",
-  "author": "Justin Weisz <jweisz@us.ibm.com>",
+  "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },

@@ -1,4 +1,5 @@
 #!/bin/sh
+TJBOT_FOLDER=$(dirname "$PWD")
 
 #----validation
 #if $EUID -ne 0; then
@@ -28,8 +29,53 @@ sudo apt-get update
 sudo apt-get -y dist-upgrade
 
 #----nodejs install
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-#----alsa install
-sudo apt-get install -y alsa-base alsa-utils
+#----install official requirements
+sudo apt-get install -y alsa-base alsa-utils libasound2-dev git
+
+#----install missing pigpio in Raspbian Lite (the command npm install pigpio will be exec by package.json)
+sudo apt-get install pigpio
+
+#----install git and download tjbot
+if [ ! -d "${TJBOT_FOLDER}/recipes/conversation" ]; then
+    sudo rm -Rf /home/pi/tjbot
+    git clone https://github.com/ibmtjbot/tjbot.git /home/pi/tjbot
+
+    TJBOT_FOLDER='/home/pi/tjbot'
+fi
+
+#----install conversation (to install it will resolve tjbotlib and other dependencies)
+cd $TJBOT_FOLDER
+cd recipes/conversation
+echo "path: $PWD"
+
+npm install > install.log 2>&1
+
+#----installation completed
+echo "------------------------------------";
+echo "INSTALLATION COMPLETED!!! ;)"
+echo "------------------------------------";
+
+#----test hardware
+cd $TJBOT_FOLDER
+cd bootstrap/tests
+echo "path: $PWD"
+
+npm install > install.log 2>&1
+
+sudo node test.camera.js
+sudo node test.led.js
+sudo node test.servo.js
+sudo node test.speaker.js
+
+#----try to run tjbot
+if [ ! -f "${TJBOT_FOLDER}/recipes/conversation/config.js" ]; then
+    echo "------------------------------------";
+    echo "If you would like to run Conversation, please first create ${TJBOT_FOLDER}/recipes/conversation/config.js with your Bluemix Credentials."
+    echo "After that try 'node conversation.js'"
+    echo "------------------------------------";
+else
+    node conversation.js
+fi

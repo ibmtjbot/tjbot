@@ -38,6 +38,10 @@ For reference, here is the wiring diagram to hook up the LED and servo to your R
 > For the servo, note that the red (middle) wire is 5v, the brown wire is ground, and the orange wire is data.
 
 # Bring TJBot to Life
+First, make sure you have configured your Raspberry Pi for TJBot.
+Just run that command to download and install TJBot:
+    $ curl -sL https://raw.githubusercontent.com/ibmtjbot/tjbot/master/bootstrap/bootstrap.sh | sudo -E bash -
+
 [Recipes](recipes) are step-by-step instructions to bring your TJBot to life with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html).
 
 We have provided three initial [recipes](recipes) for you:
