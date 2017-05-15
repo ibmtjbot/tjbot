@@ -20,7 +20,7 @@ const rl = require('readline-sync');
 
 const TJBot = require('tjbot');
 
-var tj = new TJBot(['led'], {}, {});
+var tj = new TJBot(['led'], {log: {level: 'debug'}}, {});
 var colors = ['red', 'green', 'blue', 'orange', 'off'];
 
 colors.forEach(function(color) {

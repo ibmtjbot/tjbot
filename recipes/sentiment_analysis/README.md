@@ -45,9 +45,9 @@ You can also change the colors that TJBot shines. The table below shows the colo
 | --- | --- |
 | Anger | Red |
 | Joy | Yellow |
-| Fear | Green |
-| Disgust | Blue |
-| Sadness | Magenta | 
+| Fear | Magenta |
+| Disgust | Green |
+| Sadness | Blue | 
 
 You can change these colors by editing the `shineForEmotion()` function.
 

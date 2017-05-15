@@ -21,11 +21,13 @@ var config = require('./config');
 var credentials = config.credentials;
 
 // these are the hardware capabilities that our TJ needs for this recipe
-var hardware = ['led', 'microphone', 'speaker'];
+var hardware = ['led', 'microphone'];
 
-// turn on debug logging to the console
+// set up TJBot's configuration
 var tjConfig = {
-    verboseLogging: true
+    log: {
+        level: 'verbose'
+    }
 };
 
 // instantiate our TJBot!

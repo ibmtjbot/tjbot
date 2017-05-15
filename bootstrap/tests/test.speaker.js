@@ -20,7 +20,7 @@ const rl = require('readline-sync');
 
 const TJBot = require('tjbot');
 
-var tj = new TJBot(['speaker'], {}, {});
+var tj = new TJBot(['speaker'], {log: {level: 'debug'}}, {});
 
 var sound = '/usr/share/sounds/alsa/Front_Center.wav';
 tj.play(sound).then(function() {
