@@ -277,9 +277,8 @@ sleep $sleep_time
 echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
 sleep $sleep_time
 echo "-------------------------------------------------------------------"
-sleep $sleep_time
-sleep $sleep_time
-sleep $sleep_time
+echo ""
+read -p "Press enter to continue: " dummy 
 
 #——instructions for watson credentials
 echo "Notice about Watson services: Before running any recipes, you will need"
