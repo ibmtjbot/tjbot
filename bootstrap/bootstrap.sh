@@ -281,13 +281,38 @@ sleep $sleep_time
 sleep $sleep_time
 sleep $sleep_time
 
-#----note about watson credentials
+#——instructions for watson credentials
 echo ""
 echo "Notice about Watson services: Before running any recipes, you will need"
-echo "to obtain credentials for the Watson services used by those recipes. Links"
-echo "for how to do this can be found in the README file of each recipe, and"
-echo "detailed instructions can be found on the Instructables page for each"
-echo "recipe. These can be found by searching instructables.com for \"tjbot\"."
+echo "to obtain credentials for the Watson services used by those recipes."
+echo "You can obtain these credentials as follows:"
+echo ""
+echo "1. Sign up for a free IBM Bluemix account at https://bluemix.net if you do 
+not have one already."
+echo ""
+echo "2. Log in to Bluemix and create an instance of the Watson services you plan
+to use. The Watson services are listed on the Bluemix dashboard, under
+\"Catalog\". The full list of Watson services used by TJBot are:"
+echo ""
+echo "- Conversation"
+echo "- Language Translator"
+echo "- Speech to Text"
+echo "- Text to Speech"
+echo "- Tone Analyzer"
+echo "- Visual Recognition"
+echo ""
+echo "3. For each Watson service, click the \"Create\" button on the bottom right
+of the page to create an instance of the service."
+echo ""
+echo "4. Click \"Service Credentials\" in the left-hand sidebar. Next, click 
+\"View Credentials\" under the Actions menu."
+echo ""
+echo "5. Make note of the credentials for each Watson service. You will need to save
+these in the config.js files for each recipe you wish to run."
+echo ""
+echo "For more detailed guides on setting up service credentials, please see the 
+README file of each recipe, or search instructables.com for \"tjbot\"."
+echo ""
 echo "Have fun!"
 
 #----tests
