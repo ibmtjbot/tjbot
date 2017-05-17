@@ -7,7 +7,7 @@ Perform the following operations to prepare your Raspberry Pi for becoming a TJB
 
 2. Run the command below:
 
-    curl -sL https://raw.githubusercontent.com/ibmtjbot/tjbot/master/bootstrap/bootstrap.sh | sudo -E bash -
+    curl -sL http://ibm.biz/tjbot-bootstrap | bash -
 
 **MANUALLY:**
 1. Boot your Pi and connect to Wifi (click the icon in the menu bar)
