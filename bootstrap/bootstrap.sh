@@ -121,8 +121,8 @@ read -p "Install Node 6.x? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" ) 
-	curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-	sudo apt-get install -y nodejs
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    sudo apt-get install -y nodejs
     ;;
  *) 
     echo "Warning: TJBot will encounter problems with versions of Node.js older than 6.x."
@@ -152,18 +152,18 @@ case "$choice" in
         echo "Camera is alredy enabled."
     else
         echo "Enabling camera."
-    	if grep "start_x=0" /boot/config.txt
-	then
-		sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
-	else
-        	echo "start_x=1" | sudo tee -a /boot/config.txt >/dev/null 2>&1
-	fi
-     	if grep "gpu_mem=128" /boot/config.txt
-	then	
-		:	
-	else
-        	echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
-	fi
+        if grep "start_x=0" /boot/config.txt
+        then
+            sudo sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
+        else
+            echo "start_x=1" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+        fi
+        if grep "gpu_mem=128" /boot/config.txt
+        then    
+            :
+        else
+            echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
+        fi
     fi
     ;;
  *) ;;
@@ -181,8 +181,8 @@ read -p "Disable sound kernel modules? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
-	echo "Disabling the kernel modules for the built-in audio jack."
-	sudo cp tjbot-blacklist-snd.conf /etc/modprobe.d/ 
+    echo "Disabling the kernel modules for the built-in audio jack."
+    sudo cp tjbot-blacklist-snd.conf /etc/modprobe.d/ 
     ;;
  "n" )
     echo "Enabling the kernel modules for the built-in audio jack."
@@ -314,8 +314,8 @@ read -p "Would you like to run hardware tests at this time? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
  "y" )
-	./runTests.sh $TJBOT_DIR
-	;;
+    ./runTests.sh $TJBOT_DIR
+    ;;
  *) ;;
 esac
 
@@ -325,10 +325,10 @@ read -p "We recommend rebooting for all changes to take effect. Reboot? (Y/n): "
 shopt -s nocasematch
 case "$choice" in
  "y" )
-	echo "Rebooting."
-	sudo reboot 
+    echo "Rebooting."
+    sudo reboot 
     ;;
  *)
- 	echo "Please reboot your Raspberry Pi for all changes to take effect."
+     echo "Please reboot your Raspberry Pi for all changes to take effect."
     ;;
 esac
