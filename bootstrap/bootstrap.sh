@@ -69,7 +69,7 @@ echo "DNS queries."
 read -p "Enable Google DNS? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
- "y" ) 
+ "y" )
     echo "Adding Google DNS servers to /etc/resolv.conf"
     if [ ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf ]; then
         echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
@@ -83,7 +83,7 @@ echo ""
 read -p "Force locale to US English (en-US)? (y/N): " choice
 shopt -s nocasematch
 case "$choice" in
- "y" ) 
+ "y" )
     echo "Forcing locale to en-US. Please ignore any errors below."
     export LC_ALL="en_US.UTF-8"
     echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
@@ -120,11 +120,11 @@ echo "is already installed."
 read -p "Install Node 6.x? (Y/n): " choice
 shopt -s nocasematch
 case "$choice" in
- "y" ) 
+ "y" )
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ;;
- *) 
+ *)
     echo "Warning: TJBot will encounter problems with versions of Node.js older than 6.x."
     echo "TJBot has not been tested with Node.js version 7 or higher."
     ;;
@@ -159,34 +159,12 @@ case "$choice" in
             echo "start_x=1" | sudo tee -a /boot/config.txt >/dev/null 2>&1
         fi
         if grep "gpu_mem=128" /boot/config.txt
-        then    
+        then
             :
         else
             echo "gpu_mem=128" | sudo tee -a /boot/config.txt >/dev/null 2>&1
         fi
     fi
-    ;;
- *) ;;
-esac
-
-#----blacklist audio kernel modules
-echo ""
-echo "In order for the LED to work, we need to disable certain kernel modules to"
-echo "avoid a conflict with the built-in audio jack. If you have plugged in a"
-echo "speaker via HDMI, USB, or Bluetooth, this is a safe operation and you will"
-echo "be able to play sound and use the LED at the same time. If you plan to use"
-echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
-echo "modules."
-read -p "Disable sound kernel modules? (Y/n): " choice
-shopt -s nocasematch
-case "$choice" in
- "y" )
-    echo "Disabling the kernel modules for the built-in audio jack."
-    sudo cp tjbot-blacklist-snd.conf /etc/modprobe.d/ 
-    ;;
- "n" )
-    echo "Enabling the kernel modules for the built-in audio jack."
-    sudo rm /etc/modprobe.d/tjbot-blacklist-snd.conf
     ;;
  *) ;;
 esac
@@ -205,6 +183,28 @@ if [ ! -d $TJBOT_DIR ]; then
 else
     echo "TJBot project already exists in $TJBOT_DIR, leaving it alone"
 fi
+
+#----blacklist audio kernel modules
+echo ""
+echo "In order for the LED to work, we need to disable certain kernel modules to"
+echo "avoid a conflict with the built-in audio jack. If you have plugged in a"
+echo "speaker via HDMI, USB, or Bluetooth, this is a safe operation and you will"
+echo "be able to play sound and use the LED at the same time. If you plan to use"
+echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
+echo "modules."
+read -p "Disable sound kernel modules? (Y/n): " choice
+shopt -s nocasematch
+case "$choice" in
+ "y" )
+    echo "Disabling the kernel modules for the built-in audio jack."
+    sudo cp $TJBOT_DIR/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/ 
+    ;;
+ "n" )
+    echo "Enabling the kernel modules for the built-in audio jack."
+    sudo rm /etc/modprobe.d/tjbot-blacklist-snd.conf
+    ;;
+ *) ;;
+esac
 
 #----installation complete
 sleep_time=0.2
@@ -278,14 +278,14 @@ echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
 sleep $sleep_time
 echo "-------------------------------------------------------------------"
 echo ""
-read -p "Press enter to continue: " dummy 
+read -p "Press enter to continue: " dummy
 
 #——instructions for watson credentials
 echo "Notice about Watson services: Before running any recipes, you will need"
 echo "to obtain credentials for the Watson services used by those recipes."
 echo "You can obtain these credentials as follows:"
 echo ""
-echo "1. Sign up for a free IBM Bluemix account at https://bluemix.net if you do 
+echo "1. Sign up for a free IBM Bluemix account at https://bluemix.net if you do
 not have one already."
 echo "2. Log in to Bluemix and create an instance of the Watson services you plan
 to use. The Watson services are listed on the Bluemix dashboard, under
@@ -294,14 +294,14 @@ echo "Conversation, Language Translator, Speech to Text, Text to Speech,"
 echo "Tone Analyzer, and Visual Recognition"
 echo "3. For each Watson service, click the \"Create\" button on the bottom right
 of the page to create an instance of the service."
-echo "4. Click \"Service Credentials\" in the left-hand sidebar. Next, click 
+echo "4. Click \"Service Credentials\" in the left-hand sidebar. Next, click
 \"View Credentials\" under the Actions menu."
 echo "5. Make note of the credentials for each Watson service. You will need to save
 these in the config.js files for each recipe you wish to run."
-echo "For more detailed guides on setting up service credentials, please see the 
+echo "For more detailed guides on setting up service credentials, please see the
 README file of each recipe, or search instructables.com for \"tjbot\"."
 echo ""
-read -p "Press enter to continue: " dummy 
+read -p "Press enter to continue: " dummy
 
 #----tests
 echo ""
@@ -326,7 +326,7 @@ shopt -s nocasematch
 case "$choice" in
  "y" )
     echo "Rebooting."
-    sudo reboot 
+    sudo reboot
     ;;
  *)
      echo "Please reboot your Raspberry Pi for all changes to take effect."
