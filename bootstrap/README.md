@@ -37,7 +37,6 @@ hostname <enter your hostname here>
 4. _Optional_. Disable ipv6. In some networking environments, disabling ipv6 may help your Pi get on the network.
 
 ```
-echo "Disabling ipv6"
 echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
 ```
 
