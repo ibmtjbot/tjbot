@@ -84,12 +84,18 @@ git clone https://github.com/ibmtjbot/tjbot
 ## Hardware Tests
 Hardware tests are included with bootstrap to ensure the TJBot hardware is set up correctly. Tests are included for the `camera`, `led`, `servo`, and `speaker` in the `tjbot/bootstrap/tests` folder.
 
+Navigate to the tests folder and install its dependecies
+
+```
+cd tests
+npm install
+```
+
 Tests can be run in the following manner.
 
 ```
-npm install
-sudo node tests/test.camera.js
-sudo node tests/test.led.js
-sudo node tests/test.servo.js
-sudo node tests/test.speaker.js
+sudo node test.camera.js
+sudo node test.led.js
+sudo node test.servo.js
+sudo node test.speaker.js
 ```
