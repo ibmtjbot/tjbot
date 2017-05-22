@@ -59,9 +59,9 @@ If you would like your own recipe included here, please [send us email](mailto:t
 [![Run a million volt Tesla coil](https://img.youtube.com/vi/hETqF3yt8NI/0.jpg)](https://www.youtube.com/watch?v=hETqF3yt8NI)
 
 # Vision Recognition
-- **[tjbot-visual-recognition](https://github.com/boxcarton/tjbot-visual-recognition)** by [Josh Zheng](https://github.com/boxcarton). TJBot plays with Sesame Street characters.
+- **[tjbot-visual-recognition](https://github.com/boxcarton/tjbot-visual-recognition)** by [Joshua Zheng](https://github.com/boxcarton). #TJBot socializing with classic monsters.
 
-[![Sesame Street](https://i.imgur.com/wFryS5L.png)](https://vimeo.com/215574369)
+[![Sesame Street](https://cdn-images-1.medium.com/max/2000/1*8nsKAndmTpSJDdDb4kfDLg.jpeg)](https://youtu.be/s0SPWIfDqng)
 - **[TJVision](https://github.com/victordibia/tjvision)**  by [Victor Dibia](https://github.com/victordibia). Get your TJBot to recognize (and read out) content of images using the Watson Visual Recognition API.
 - **[VisualTJ](https://github.com/samuelvogelmann/visualtj)** by [Samuel Vogelmann](https://github.com/samuelvogelmann). A Node-RED based application to make your TJbot see and recognize the world.
 - **[TJBot-Visual](https://github.com/Captain-Cheesecake/TJBot-Visual)** by [Gwilym Newton](https://github.com/Captain-Cheesecake). Connecting Conversation to Visual Recognition and make your TJbot see and recognize the world.
