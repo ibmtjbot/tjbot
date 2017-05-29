@@ -9,6 +9,10 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 [![Build a TJBot That Cares](https://img.youtube.com/vi/2GqEUcBU4SY/0.jpg)](https://www.youtube.com/watch?v=2GqEUcBU4SY)
 
+- **Conflict resolution TJBot for kids**
+
+[![Conflict resolution TJBot for kids](https://img.youtube.com/vi/fyXUOFYK_uc/0.jpg)](https://www.youtube.com/watch?v=fyXUOFYK_uc)
+
 - **[Twitter Wave](https://github.com/jweisz/twitter-wave)** by [Justin Weisz](https://github.com/jweisz). This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot. This recipe adds options for TJBot to wave and announce when the sentiment for a topic changes.
 
 # Weather Report
@@ -43,7 +47,11 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 - **[tjbot-striplight](https://github.com/jweisz/tjbot-striplight)** by [Justin Weisz](https://github.com/jweisz). This recipe adds support for a NeoPixel RGB LED strip light to TJBot.
 
+[![tjbot-striplight](http://i.imgur.com/bNuZcfO.jpg?1)](https://github.com/jweisz/tjbot-striplight)
+
 - **[twitter-striplight](https://github.com/jweisz/twitter-striplight)** by [Justin Weisz](https://github.com/jweisz). Twitter monitoring recipe for TJBot with strip light support
+
+[![twitter-striplight](http://i.imgur.com/X8jU884.jpg?1)](https://github.com/jweisz/twitter-striplight)
 
 - **Singing Fish**
 
