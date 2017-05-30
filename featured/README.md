@@ -70,6 +70,10 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 [![Run a million volt Tesla coil](https://img.youtube.com/vi/hETqF3yt8NI/0.jpg)](https://www.youtube.com/watch?v=hETqF3yt8NI)
 
+- **[Control TV with TJBot](http://www.spirited-engineering.com/?p=147)** by [Francesco Sabba, Luisa Bartoloni, Matteo Mazzanti and Virginia Amadori (from Università Politecnica delle Marche)](https://github.com/fra-sabba). TJbot is a "zapping" friend connected to internet and to your TV, allowing elderly people to navigate on the web like they are watching their TV.
+
+[![Control TV with TJBot](http://i.imgur.com/1P5KcIl.png?1)](https://github.com/fra-sabba/VisioneT)
+
 # Vision Recognition
 - **[tjbot-visual-recognition](https://github.com/boxcarton/tjbot-visual-recognition)** by [Joshua Zheng](https://github.com/boxcarton). #TJBot socializing with classic monsters.
 
