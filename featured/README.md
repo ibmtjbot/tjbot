@@ -25,9 +25,12 @@ If you would like your own recipe included here, please [send us email](mailto:t
 
 # Telling time
 
-- **[Tell the Time](https://github.com/damiancummins/tell_the_time)** by [Damian Cummins](https://github.com/damiancummins). Build a robot that can tell the time in different cities with Watson.
+- **[Tell the time](https://github.com/damiancummins/tell_the_time)** by [Damian Cummins](https://github.com/damiancummins). Build a robot that can tell the time in different cities with Watson.
 
 [![Tell the Time](https://i.imgur.com/CFgyjDm.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
+
+# News Report
+- **[News grabber](https://github.com/tanmayb123/tThomas---the-TJBot-News-Grabber-Chatbot)** by [Tanmay Bakshi](https://github.com/tanmayb123). Build a chatbot that can report the news. It uses Discovery, Conversation, Natural Language Understanding, Knowledge Studio, Speech to Text, and Text to Speech.
 
 # Extend TJBot With New Hardware
 
