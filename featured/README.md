@@ -30,7 +30,9 @@ If you would like your own recipe included here, please [send us email](mailto:t
 [![Tell the Time](https://i.imgur.com/CFgyjDm.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
 
 # News Report
-- **[News grabber](https://github.com/tanmayb123/tThomas---the-TJBot-News-Grabber-Chatbot)** by [Tanmay Bakshi](https://github.com/tanmayb123). Build a chatbot that can report the news. It uses Discovery, Conversation, Natural Language Understanding, Knowledge Studio, Speech to Text, and Text to Speech.
+- **[Thomas: A TJBot News Grabber](https://github.com/tanmayb123/tThomas---the-TJBot-News-Grabber-Chatbot)** by [Tanmay Bakshi](https://github.com/tanmayb123). Build a chatbot that can report the news. It uses Discovery, Conversation, Natural Language Understanding, Knowledge Studio, Speech to Text, and Text to Speech.
+
+[![News grabber](https://img.youtube.com/vi/1m8CF1pMpXg/0.jpg)](https://www.youtube.com/watch?v=1m8CF1pMpXg)
 
 # Extend TJBot With New Hardware
 
