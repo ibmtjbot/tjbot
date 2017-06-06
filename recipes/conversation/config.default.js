@@ -1,4 +1,11 @@
-// User-specific configuration
+/*
+User-specific configuration
+    ** IMPORTANT NOTE ********************
+    * Please ensure you do not interchange your username and password.
+    * Hint: Your username is the lengthy value ~ 36 digits including a hyphen
+    * Hint: Your password is the smaller value ~ 12 characters
+*/ 
+
 exports.conversationWorkspaceId = ''; // replace with the workspace identifier of your conversation
 
 // Create the credentials object for export
