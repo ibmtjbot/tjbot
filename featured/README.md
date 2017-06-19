@@ -4,6 +4,16 @@ Featured recipes are exciting recipes created by members of the TJBot community.
 
 If you would like your own recipe included here, please [send us email](mailto:tjbot@us.ibm.com) with a link to your repository and a demo video.
 
+# Playground
+- **[TJBot Swift Playground](http://ibm.biz/tjbot-playground)** 
+Follow the adventures of Tinker, the virtual TJBot, in his quest to transform into a real, live TJBot!  This is an interactive Swift Playground for iOS that allows you to program TJBot – both virtual and physical – in the Swift programming language. This playground does not require an actual TJBot to use, but if you would like to program your TJBot, it requires installation of the [TJBot Daemon](http://ibm.biz/tjbot-daemon) on your TJBot.
+
+[![TJBot Swift Playground](http://i.imgur.com/K7cVdu9.png?1)](http://ibm.biz/tjbot-playground)
+
+
+- **[TJBot Daemon](http://ibm.biz/tjbot-daemon)**. 
+Node.js application that listens for TJBot commands via Bluetooth Low Energy (BLE). This application was developed for use by the [TJBot Swift Playground](http://ibm.biz/tjbot-playground) to listen for commands via BLE, but it can be used for other applications as well.
+
 # Expressing Emotions
 - **[Build a TJBot That Cares](https://medium.com/ibm-watson-developer-cloud/build-a-chatbot-that-cares-part-1-d1c273e17a63#.vtxwvsydl)**  by [Josh Zheng](https://github.com/boxcarton). This recipe puts a voice interface onto TJBot, then gives it the ability to converse and understand your emotional tones.
 
