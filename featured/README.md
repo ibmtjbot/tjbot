@@ -72,7 +72,7 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 [![Fish](https://img.youtube.com/vi/I1ELmAUYZ1M/0.jpg)](https://www.youtube.com/watch?v=I1ELmAUYZ1M)
 
-# Controling Objects
+# Controling Objects/tools
 - **[Control a lamp with TJBot](http://www.spirited-engineering.com/?p=147)** by [Nguyen Van Duy](https://github.com/dnguyenv). This recipe guides you through how to make your TJBot listen to your commands and `turn on`, `turn off` a lamp (yes, a real lamp).
 
 [![Control a lamp with TJBot](https://img.youtube.com/vi/w4lEJGe1pNU/0.jpg)](https://www.youtube.com/watch?v=w4lEJGe1pNU)
@@ -84,6 +84,10 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 - Run a million volt Tesla coil by [John Cohn](https://twitter.com/johncohnvt?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 
 [![Run a million volt Tesla coil](https://img.youtube.com/vi/hETqF3yt8NI/0.jpg)](https://www.youtube.com/watch?v=hETqF3yt8NI)
+
+- **[TJ Calendar](https://github.com/DrewGregory/tjcalendar)** by [Drew Gregory](https://github.com/DrewGregory). A personal event planner based on your Google Calendar history
+
+[![TJ Calendar](https://img.youtube.com/vi/EviQg5-rP0c/0.jpg)](https://www.youtube.com/watch?v=EviQg5-rP0c)
 
 - **[Control TV with TJBot](http://www.spirited-engineering.com/?p=147)** by [Francesco Sabba, Luisa Bartoloni, Matteo Mazzanti and Virginia Amadori (from Università Politecnica delle Marche)](https://github.com/fra-sabba). TJbot is a "zapping" friend connected to internet and to your TV, allowing elderly people to navigate on the web like they are watching their TV.
 
