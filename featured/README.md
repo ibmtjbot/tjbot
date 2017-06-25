@@ -14,12 +14,6 @@ Follow the adventures of Tinker, the virtual TJBot, in his quest to transform in
 - **[TJBot Daemon](http://ibm.biz/tjbot-daemon)**. 
 Node.js application that listens for TJBot commands via Bluetooth Low Energy (BLE). This application was developed for use by the [TJBot Swift Playground](http://ibm.biz/tjbot-playground) to listen for commands via BLE, but it can be used for other applications as well.
 
-- **[TJDashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
-
-- **[PimpMyTJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). A chat interface for controlling TJBot.
-
-[![PimpMyTJBot](https://img.youtube.com/vi/i_r6BFsCIQE/0.jpg)](https://www.youtube.com/watch?v=i_r6BFsCIQE;t=2m51s)
-
 # Expressing Emotions
 - **[Build a TJBot That Cares](https://medium.com/ibm-watson-developer-cloud/build-a-chatbot-that-cares-part-1-d1c273e17a63#.vtxwvsydl)**  by [Josh Zheng](https://github.com/boxcarton). This recipe puts a voice interface onto TJBot, then gives it the ability to converse and understand your emotional tones.
 
@@ -133,11 +127,18 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 [![TJWave](https://img.youtube.com/vi/Wks9-9V7eMY/0.jpg)](https://www.youtube.com/watch?v=Wks9-9V7eMY)
 
-- **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](https://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
+- **[TJDashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
 
-- **[PimpMyTJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). Sending mqtt messages via the Watson IoT platform to Node-RED.
+- **[PimpMyTJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). A chat interface for controlling TJBot.
+
+[![PimpMyTJBot](https://img.youtube.com/vi/i_r6BFsCIQE/0.jpg)](https://www.youtube.com/watch?v=i_r6BFsCIQE;t=2m51s)
+
+- **[PimpMyTJBot - Part II](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). Sending mqtt messages via the Watson IoT platform to Node-RED.
 
 [![PimpMyTJBot](https://img.youtube.com/vi/4WnfalzKss4/0.jpg)](https://www.youtube.com/watch?v=4WnfalzKss4)
+
+- **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](https://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
+
 
 - **[TJDJ](https://github.com/victordibia/tjdj)**  by [Victor Dibia](https://github.com/victordibia). Fun speech-based app to get TJBot playing (and dancing to) song snippets using Watson Apis and the Spotify api.
 
