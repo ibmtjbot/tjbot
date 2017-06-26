@@ -60,9 +60,6 @@ var MAX_TWEETS = 100;
 var CONFIDENCE_THRESHOLD = 0.5;
 
 function monitorTwitter() {
-    // start the pulse to show we are thinking
-    tj.pulse('white', 1.5, 2.0);
-
     // monitor twitter
     twitter.stream('statuses/filter', {
         track: SENTIMENT_KEYWORD
@@ -114,10 +111,6 @@ function shineFromTweetSentiment() {
 
                     // make sure we really are confident
                     if (max.score >= CONFIDENCE_THRESHOLD) {
-                        // stop pulsing at this point, we are going to change color
-                        if (tj.isPulsing()) {
-                            tj.stopPulsing();
-                        }
                         shineForEmotion(max.tone_id);
                     }
                 }
