@@ -7,7 +7,7 @@ fi
 
 #----test hardware
 cd $TJBOT_DIR/bootstrap/tests
-echo "Installing support libraries for TJBot. This may take few mintues."
+echo "Installing support libraries for TJBot. This may take few minutes."
 
 npm install > install.log 2>&1
 
