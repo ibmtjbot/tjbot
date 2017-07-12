@@ -181,7 +181,7 @@ Use the `runTests.sh` script to run all of the hardware tests.
 
 ```
 cd ~/Desktop/tjbot/bootstrap
-sh runTests.sh
+./runTests.sh
 ```
 
 > This command assumes you have cloned the tjbot git repository to your Desktop. If you have cloned it to a different directory, be sure to update the path in the above command.
