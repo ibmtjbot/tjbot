@@ -129,6 +129,10 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[TJDashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
 
+- **[TJBot Node-RED Dashboard](https://github.com/johnwalicki/TJBot-Node-RED)** by [John Walicki](https://github.com/johnwalicki). Bring TJBot to life with these TJBot Node-RED flows.
+
+[![TJBot Node-RED Dashboard](http://i.imgur.com/hgIzEYP.png?1)](https://github.com/samuelvogelmann/visualtj)
+
 - **[PimpMyTJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). A chat interface for controlling TJBot.
 
 [![PimpMyTJBot](https://img.youtube.com/vi/i_r6BFsCIQE/0.jpg)](https://www.youtube.com/watch?v=i_r6BFsCIQE;t=2m51s)
@@ -138,7 +142,6 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 [![PimpMyTJBot](https://img.youtube.com/vi/4WnfalzKss4/0.jpg)](https://www.youtube.com/watch?v=4WnfalzKss4)
 
 - **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](https://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
-
 
 - **[TJDJ](https://github.com/victordibia/tjdj)**  by [Victor Dibia](https://github.com/victordibia). Fun speech-based app to get TJBot playing (and dancing to) song snippets using Watson Apis and the Spotify api.
 
