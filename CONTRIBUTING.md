@@ -1,6 +1,3 @@
-## Questions
-If you are having difficulties using the Watson APIs or have a question about the IBM Watson Services, please ask a question on [dW Answers] (https://developer.ibm.com/answers/questions/ask/?topics=watson) or [Stack Overflow] (https://stackoverflow.com/users/login?ssrc=anon_ask&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2fask%3ftags%3dibm-watson).
-
 ## Issues
 If you encounter an issue with the kit, you are welcome to submit an issue. Before that, please search for similar issues. It's possible somebody has encountered this issue already.
 
