@@ -81,8 +81,9 @@ console.log("You can also say, \"" + tj.configuration.robot.name + ", tell me a 
 // listen for utterances with our attentionWord and send the result to
 // the Conversation service
 tj.listen(function(msg) {
+
     // check to see if they are talking to TJBot
-    if (msg.startsWith(tj.configuration.robot.name)) {
+    if (msg.toLowerCase().startsWith(tj.configuration.robot.name.toLowerCase())) {
         // remove our name from the message
         var turn = msg.toLowerCase().replace(tj.configuration.robot.name.toLowerCase(), "");
 
