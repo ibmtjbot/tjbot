@@ -26,7 +26,7 @@ var SENTIMENT_KEYWORD = config.sentiment_keyword;
 var SENTIMENT_ANALYSIS_FREQUENCY_MSEC = config.sentiment_analysis_frequency_sec * 1000;
 
 // these are the hardware capabilities that TJ needs for this recipe
-var hardware = ['led'];
+var hardware = ['led']; //full capabilities list ['led', 'servo', 'microphone', 'speaker','camera']
 
 // set up TJBot's configuration
 var tjConfig = {
@@ -34,6 +34,44 @@ var tjConfig = {
         level: 'verbose'
     }
 };
+
+/*
+//Other configuration parameters you can set include
+var tjConfig = {
+    log: {
+        level: 'info' // valid levels are 'error', 'warn', 'info', 'verbose', 'debug', 'silly'
+    },
+    robot: {
+        gender: 'male', // see TJBot.prototype.genders
+        name: 'Watson'
+    },
+    listen: {
+        microphoneDeviceId: "plughw:1,0", // plugged-in USB card 1, device 0; see arecord -l for a list of recording devices
+        inactivityTimeout: -1, // -1 to never timeout or break the connection. Set this to a value in seconds e.g 120 to end connection after 120 seconds of silence
+        language: 'en-US' // see TJBot.prototype.languages.listen
+    },
+    wave: {
+        servoPin: 7 // corresponds to BCM 7 / physical PIN 26
+    },
+    speak: {
+        language: 'en-US', // see TJBot.prototype.languages.speak
+        voice: undefined, // use a specific voice; if undefined, a voice is chosen based on robot.gender and speak.language
+        speakerDeviceId: "plughw:0,0" // plugged-in USB card 1, device 0; see aplay -l for a list of playback devices
+    },
+    see: {
+        confidenceThreshold: {
+            object: 0.5,   // only list image tags with confidence > 0.5
+            text: 0.1     // only list text tags with confidence > 0.5
+        },
+        camera: {
+            height: 720,
+            width: 960,
+            verticalFlip: false, // flips the image vertically, may need to set to 'true' if the camera is installed upside-down
+            horizontalFlip: false // flips the image horizontally, should not need to be overridden
+        }
+    }
+};
+ */
 
 // instantiate our TJBot!
 var tj = new TJBot(hardware, tjConfig, credentials);
@@ -125,22 +163,22 @@ function shineForEmotion(emotion) {
     console.log("Current emotion around " + SENTIMENT_KEYWORD + " is " + emotion);
 
     switch (emotion) {
-    case 'anger':
-        tj.shine('red');
-        break;
-    case 'joy':
-        tj.shine('yellow');
-        break;
-    case 'fear':
-        tj.shine('magenta');
-        break;
-    case 'disgust':
-        tj.shine('green');
-        break;
-    case 'sadness':
-        tj.shine('blue');
-        break;
-    default:
-        break;
+        case 'anger':
+            tj.shine('red');
+            break;
+        case 'joy':
+            tj.shine('yellow');
+            break;
+        case 'fear':
+            tj.shine('magenta');
+            break;
+        case 'disgust':
+            tj.shine('green');
+            break;
+        case 'sadness':
+            tj.shine('blue');
+            break;
+        default:
+            break;
     }
 }
