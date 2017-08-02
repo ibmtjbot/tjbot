@@ -35,7 +35,13 @@ Now talk to your microphone to change the color of the LED. Say "turn the light 
 ## Customize
 We have hidden a disco party for you. Find the code for disco party in `stt.js` and uncomment the code (hint: there are two places that need to be uncommented). Now you can ask TJ to show you the disco lights by saying "Let's have a disco party"!
 
-Try implementing your own TJBot party and share it with us #TJBot! 
+Try implementing your own TJBot party and share it with us #TJBot!
+
+## Configuring the TJBot Library
+
+This recipe uses the [tjbot library](https://github.com/ibmtjbot/tjbotlib) to abstract basic functions.
+You can specify the hardware devices used in your tjbot recipe by modifying the tjbot library  `hardware` parameter. You can also modify important aspects of your recipe such as the language (listening and speaking), your microphone and speaker device id, camera capture settings, LED pin etc by updating the tjbot `configuration` parameter.  Please see the [tjbot library page](https://github.com/ibmtjbot/tjbotlib/#usage) for more information.
+
 
 ## Troubleshoot
 If the LED does not light up, you can try moving the power from 3.3 to 5 volts. If neither the 3.3v or 5v pins work, you will need a 1N4001 diode. The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
@@ -60,4 +66,3 @@ This project is licensed under Apache 2.0. Full license text is available in [LI
 
 # Contributing
 See [CONTRIBUTING.md](../../CONTRIBUTING.md).
-

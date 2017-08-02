@@ -34,6 +34,12 @@ Run!
 
 At this point, TJBot will begin listening to Twitter for tweets containing the specified keyword (specified in `exports.sentiment_keyword`). It may take some time to collect enough tweets to perform sentiment analysis, so please be patient.
 
+## Configuring the TJBot Library
+
+This recipe uses the [tjbot library](https://github.com/ibmtjbot/tjbotlib) to abstract basic functions.
+You can specify the hardware devices used in your tjbot recipe by modifying the tjbot library  `hardware` parameter. You can also modify important aspects of your recipe such as the language (listening and speaking), your microphone and speaker device id, camera capture settings, LED pin etc by updating the tjbot `configuration` parameter.  Please see the [tjbot library page](https://github.com/ibmtjbot/tjbotlib/#usage) for more information.
+
+
 ## Customize
 Change the keyword TJBot monitors by editing `config.js` and changing the line
 
@@ -47,7 +53,7 @@ You can also change the colors that TJBot shines. The table below shows the colo
 | Joy | Yellow |
 | Fear | Magenta |
 | Disgust | Green |
-| Sadness | Blue | 
+| Sadness | Blue |
 
 You can change these colors by editing the `shineForEmotion()` function.
 

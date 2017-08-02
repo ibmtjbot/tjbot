@@ -30,51 +30,16 @@ var tjConfig = {
     }
 };
 
-
 /*
-//Other configuration parameters you can set include
-var tjConfig = {
-    log: {
-        level: 'info' // valid levels are 'error', 'warn', 'info', 'verbose', 'debug', 'silly'
-    },
-    robot: {
-        gender: 'male', // see TJBot.prototype.genders
-        name: 'Watson'
-    },
-    listen: {
-        microphoneDeviceId: "plughw:1,0", // plugged-in USB card 1, device 0; see arecord -l for a list of recording devices
-        inactivityTimeout: -1, // -1 to never timeout or break the connection. Set this to a value in seconds e.g 120 to end connection after 120 seconds of silence
-        language: 'en-US' // see TJBot.prototype.languages.listen
-    },
-    wave: {
-        servoPin: 7 // corresponds to BCM 7 / physical PIN 26
-    },
-    speak: {
-        language: 'en-US', // see TJBot.prototype.languages.speak
-        voice: undefined, // use a specific voice; if undefined, a voice is chosen based on robot.gender and speak.language
-        speakerDeviceId: "plughw:0,0" // plugged-in USB card 1, device 0; see aplay -l for a list of playback devices
-    },
-    see: {
-        confidenceThreshold: {
-            object: 0.5,   // only list image tags with confidence > 0.5
-            text: 0.1     // only list text tags with confidence > 0.5
-        },
-        camera: {
-            height: 720,
-            width: 960,
-            verticalFlip: false, // flips the image vertically, may need to set to 'true' if the camera is installed upside-down
-            horizontalFlip: false // flips the image horizontally, should not need to be overridden
-        }
-    }
-};
+For more informaiton on how to configure the tjbot library (set language, microphone deviceid, speaker device id, etc)
+Please visit the tjbot library page - https://github.com/ibmtjbot/tjbotlib/#usage
  */
-
 
 // instantiate our TJBot!
 var tj = new TJBot(hardware, tjConfig, credentials);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']
-//var tjColors = tj.shineColors();
+var tjColors = tj.shineColors();
 
 console.log("I understand lots of colors.  You can tell me to shine my light a different color by saying 'turn the light red' or 'change the light to green' or 'turn the light off'.");
 
@@ -84,9 +49,9 @@ console.log("I understand lots of colors.  You can tell me to shine my light a d
 
 // hash map to easily test if TJ understands a color, e.g. {'red': 1, 'green': 1, 'blue': 1}
 var colors = {};
-// tjColors.forEach(function(color) {
-//     colors[color] = 1;
-// });
+tjColors.forEach(function(color) {
+    colors[color] = 1;
+});
 
 // listen for speech
 tj.listen(function(msg) {
@@ -96,20 +61,20 @@ tj.listen(function(msg) {
     var containsLight = msg.indexOf("the light") >= 0;
     var containsDisco = msg.indexOf("disco") >= 0;
     //
-    // if ((containsTurn || containsChange || containsSet) && containsLight) {
-    //     // was there a color uttered?
-    //     var words = msg.split(" ");
-    //     for (var i = 0; i < words.length; i++) {
-    //         var word = words[i];
-    //         if (colors[word] != undefined || word == "on" || word == "off") {
-    //             // yes!
-    //             tj.shine(word);
-    //             break;
-    //         }
-    //     }
-    // } else if (containsDisco) {
-    //     // discoParty();
-    // }
+    if ((containsTurn || containsChange || containsSet) && containsLight) {
+        // was there a color uttered?
+        var words = msg.split(" ");
+        for (var i = 0; i < words.length; i++) {
+            var word = words[i];
+            if (colors[word] != undefined || word == "on" || word == "off") {
+                // yes!
+                tj.shine(word);
+                break;
+            }
+        }
+    } else if (containsDisco) {
+        // discoParty();
+    }
 });
 
 // let's have a disco party!
