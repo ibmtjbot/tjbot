@@ -45,10 +45,6 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[A Chat interface for controlling TJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen).
 
-- **[TJBot with Tone Analyser and Twitter in Node-RED](https://github.com/markusvankempen/TJBotWIoTAndTwitter)** by [Markus van Kempen](https://github.com/markusvankempen). 
-
-- **[TJBot TJBot and the Weather Service in Node-RED](https://github.com/markusvankempen/TJBotWIoTAndWeather)** by [Markus van Kempen](https://github.com/markusvankempen). 
-
 # Weather Report
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 
