@@ -25,6 +25,28 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[Twitter Wave](https://github.com/jweisz/twitter-wave)** by [Justin Weisz](https://github.com/jweisz). This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot. This recipe adds options for TJBot to wave and announce when the sentiment for a topic changes.
 
+# Train your TJBot in Node-RED
+
+- **[Setting up your TJBot to use Node-RED](https://medium.com/@jeancarlbisson/setting-up-your-tjbot-to-use-node-red-df94ff94a114)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to wave in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-wave-in-node-red-62826d269ba5)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to shine LED in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-shine-led-in-node-red-918fcc6d844d)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to pulse in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-pulse-the-led-in-node-red-ca044b2ef63)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to listen in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-listen-in-node-red-ab9500768c52)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to speak in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-speak-in-node-red-a424d801d5d3)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to see in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-see-in-node-red-1821dd0513f6)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[TJBot Node-RED Dashboard](https://github.com/johnwalicki/TJBot-Node-RED)** by [John Walicki](https://github.com/johnwalicki).
+
+- **[A Chat interface for controlling TJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen).
+
+- **[Sending mqtt messages via the Watson IoT platform to Node-RED.](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). 
+
 # Weather Report
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 
@@ -132,18 +154,6 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 [![TJWave](https://img.youtube.com/vi/Wks9-9V7eMY/0.jpg)](https://www.youtube.com/watch?v=Wks9-9V7eMY)
 
 - **[TJDashboard](https://github.com/victordibia/tjdashboard)**  by [Victor Dibia](https://github.com/victordibia). Web interface to visualize underlying processes on TJBot.
-
-- **[TJBot Node-RED Dashboard](https://github.com/johnwalicki/TJBot-Node-RED)** by [John Walicki](https://github.com/johnwalicki). Bring TJBot to life with these TJBot Node-RED flows.
-
-[![TJBot Node-RED Dashboard](http://i.imgur.com/hgIzEYP.png?1)](https://github.com/samuelvogelmann/visualtj)
-
-- **[PimpMyTJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). A chat interface for controlling TJBot.
-
-[![PimpMyTJBot](https://img.youtube.com/vi/i_r6BFsCIQE/0.jpg)](https://www.youtube.com/watch?v=i_r6BFsCIQE;t=2m51s)
-
-- **[PimpMyTJBot - Part II](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen). Sending mqtt messages via the Watson IoT platform to Node-RED.
-
-[![PimpMyTJBot](https://img.youtube.com/vi/4WnfalzKss4/0.jpg)](https://www.youtube.com/watch?v=4WnfalzKss4)
 
 - **[SwiftyTJ](https://github.com/jweisz/swifty-tj)**  by [Justin Weisz](https://github.com/jweisz). This recipe enables TJBot’s LED to be controlled from a Swift program.
 
