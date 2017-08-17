@@ -57,6 +57,7 @@ echo ""
 echo "Please enter a name for your TJBot. This will be used for the hostname of"
 echo "your Raspberry Pi."
 read -p "TJBot name (current: $CURRENT_HOSTNAME): " name
+shopt -s nocasematch
 if [ -z "${name// }" ]; then
     name=$CURRENT_HOSTNAME
 fi
@@ -69,6 +70,7 @@ echo ""
 echo "In some networking environments, disabling ipv6 may help your Pi get on"
 echo "the network."
 read -p "Disable ipv6? (y/N): " choice
+shopt -s nocasematch
 case "$choice" in
  "y" )
     echo "Disabling ipv6"
@@ -82,6 +84,7 @@ echo ""
 echo "In some networking environments, using Google's nameservers may speed up"
 echo "DNS queries."
 read -p "Enable Google DNS? (y/N): " choice
+shopt -s nocasematch
 case "$choice" in
  "y" )
     echo "Adding Google DNS servers to /etc/resolv.conf"
@@ -95,6 +98,7 @@ esac
 #----setting local to US
 echo ""
 read -p "Force locale to US English (en-US)? (y/N): " choice
+shopt -s nocasematch
 case "$choice" in
  "y" )
     echo "Forcing locale to en-US. Please ignore any errors below."
@@ -110,6 +114,7 @@ echo ""
 echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating"
 echo "system software."
 read -p "Proceed with apt-get dist-upgrade? (Y/n): " choice
+shopt -s nocasematch
 case "$choice" in
  "n" )
     echo "Warning: you may encounter problems running TJBot recipes without performing"
@@ -130,6 +135,7 @@ echo ""
 echo "TJBot requires Node.js version 6. We detected Node.js version $node_version"
 echo "is already installed."
 read -p "Install Node 6.x? (Y/n): " choice
+shopt -s nocasematch
 case "$choice" in
  "y" )
     curl -sL https://deb.nodesource.com/setup_6.x | bash -
@@ -160,6 +166,7 @@ apt-get -y autoremove
 echo ""
 echo "If your Raspberry Pi has a camera installed, TJBot can use it to see."
 read -p "Enable camera? (y/N): " choice
+shopt -s nocasematch
 case "$choice" in
  "y" )
     if grep "start_x=1" /boot/config.txt
@@ -208,6 +215,7 @@ echo "be able to play sound and use the LED at the same time. If you plan to use
 echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
 echo "modules."
 read -p "Disable sound kernel modules? (Y/n): " choice
+shopt -s nocasematch
 case "$choice" in
  "y" )
     echo "Disabling the kernel modules for the built-in audio jack."
@@ -292,7 +300,7 @@ echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
 sleep $sleep_time
 echo "-------------------------------------------------------------------"
 echo ""
-read -p "Press enter to continue: " dummy
+read -p "Press enter to continue: "
 
 #——instructions for watson credentials
 echo "Notice about Watson services: Before running any recipes, you will need"
@@ -325,6 +333,7 @@ echo "sound configuration, we recommend rebooting first before running these"
 echo "tests as they may fail. You can run these tests at anytime by running"
 echo "the runTests.sh script in the tjbot/bootstrap folder."
 read -p "Would you like to run hardware tests at this time? (y/N): " choice
+shopt -s nocasematch
 case "$choice" in
     "y" )
         ./runTests.sh $TJBOT_DIR
@@ -335,6 +344,7 @@ esac
 #----reboot
 echo ""
 read -p "We recommend rebooting for all changes to take effect. Reboot? (Y/n): " choice
+shopt -s nocasematch
 case "$choice" in
     "y" )
         echo "Rebooting."
