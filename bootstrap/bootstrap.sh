@@ -317,7 +317,7 @@ these in the config.js files for each recipe you wish to run."
 echo "For more detailed guides on setting up service credentials, please see the
 README file of each recipe, or search instructables.com for \"tjbot\"."
 echo ""
-read -p "Press enter to continue: " dummy
+read -p "Press enter to continue: "
 
 #----tests
 echo ""
