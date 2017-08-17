@@ -23,11 +23,9 @@ echo "with its actions (e.g. performing an OS update, installing software"
 echo "packages, removing old packages, etc.)"
 echo "-----------------------------------------------------------------------"
 
-#----turn off case matching for input
-shopt -s nocasematch
-
 #----confirm bootstrap
 read -p "Would you like to use this Raspberry Pi for TJBot? Y/n: " choice
+shopt -s nocasematch
 case "$choice" in
  "n" )
     echo "OK, TJBot software will not be installed at this time."
