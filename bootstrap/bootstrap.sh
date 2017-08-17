@@ -42,6 +42,7 @@ if [ $RASPIAN_VERSION -ne 8 ] && [ $RASPIAN_VERSION -ne 9 ]; then
     echo "Raspian."
     echo ""
     read -p "Would you like to continue with setup? Y/n: " choice
+    shopt -s nocasematch
     case "$choice" in
         "n" )
             echo "OK, TJBot software will not be installed at this time."
