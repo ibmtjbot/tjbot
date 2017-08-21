@@ -74,9 +74,9 @@ sudo apt-get -y dist-upgrade
 
 8. Install Node.js.
 
-We have tested TJBot with Node.js version 6 for Raspian (Jesse) and Node.js version 7 for Raspian (Stretch).
+We have tested TJBot with Node.js version 6 for Raspian (Jessie) and Node.js version 7 for Raspian (Stretch).
 
-> Install Node.js 6 for Raspian (Jesse)
+> Install Node.js 6 for Raspian (Jessie)
 ```
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -90,7 +90,7 @@ sudo apt-get install -y nodejs
 
 > Note: TJBot will encounter problems with versions of Node.js older than 6.x.
 
-9. Install additional software packages.
+9. Install additional software packages (Jessie only).
 
 ```
 sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio

@@ -40,11 +40,11 @@ case "$choice" in
     *) ;;
 esac
 
-#----test raspbian version: 8 is jesse, 9 is stretch
+#----test raspbian version: 8 is jessie, 9 is stretch
 RASPIAN_VERSION_ID=`cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2`
 RASPIAN_VERSION=`cat /etc/os-release | grep VERSION | grep -v ID | cut -d '"' -f 2`
 if [ $RASPIAN_VERSION_ID -ne 8 ] && [ $RASPIAN_VERSION_ID -ne 9 ]; then
-    echo "Warning: it looks like your Raspberry Pi is not running Raspian (Jesse)"
+    echo "Warning: it looks like your Raspberry Pi is not running Raspian (Jessie)"
     echo "or Raspian (Stretch). TJBot has only been tested on these versions of"
     echo "Raspian."
     echo ""
@@ -138,7 +138,7 @@ esac
 NODE_VERSION=$(node --version 2>&1)
 NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | awk '{print substr($0,2,1)}')
 
-# Node.js version 6 for Jesse
+# Node.js version 6 for Jessie
 if [ $RASPIAN_VERSION_ID -eq 8 ]; then
     RECOMMENDED_NODE_LEVEL="6"
 # Node.js version 7 for Stretch
@@ -180,7 +180,7 @@ fi
 #----install additional packages
 echo ""
 if [ $RASPIAN_VERSION_ID -eq 8 ]; then
-    echo "Installing additional software packages for Jesse (alsa, libasound2-dev, git, pigpio)"
+    echo "Installing additional software packages for Jessie (alsa, libasound2-dev, git, pigpio)"
     apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
 #elif [ $RASPIAN_VERSION -eq 9 ]; then
 #    echo "Installing additional software packages for Stretch (libasound2-dev)"
