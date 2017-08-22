@@ -41,6 +41,22 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[Train TJBot to see in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-see-in-node-red-1821dd0513f6)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
 
+- **[Train TJBot to converse in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-converse-in-node-red-b46bf765fd4a)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to translate in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-translate-in-node-red-dabf272ad9eb)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to analyze emotions in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-analyze-emotion-in-node-red-47a8e78b2cb2)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to spell words in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-spell-words-in-node-red-9f0a9cc11a90)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to Identify Language in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-language-in-node-red-34dee98da592)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to identify colors in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-colors-in-node-red-f99d069e04cf)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to identify objects in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-objects-in-node-red-ab7420141e5f)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to analyze language tones in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-analyze-language-tones-in-node-red-2d4db3bee59b)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
 - **[TJBot Node-RED Dashboard](https://github.com/johnwalicki/TJBot-Node-RED)** by [John Walicki](https://github.com/johnwalicki).
 
 - **[A Chat interface for controlling TJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen).
@@ -144,6 +160,12 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 [![language2](https://img.youtube.com/vi/bB8NZjSgohc/0.jpg)](https://www.youtube.com/watch?v=5_bB8NZjSgohc)
 
 [![language3](https://img.youtube.com/vi/bESLbOJ_lbE/0.jpg)](https://www.youtube.com/watch?v=bESLbOJ_lbE)
+
+# Healthcare
+
+- **[DoctorWat](https://github.com/wilsonandusa/DoctorWat)**  by [WilsonWu](https://github.com/wilsonandusa). A desktop application for collecting user data that can reduce the information gap between doctors and patients.
+
+[![DoctorWat](https://img.youtube.com/vi/8t4sXKKVstY/0.jpg)](https://www.youtube.com/watch?v=8t4sXKKVstY)
 
 # Essentials
 
