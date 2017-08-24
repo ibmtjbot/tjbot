@@ -7,6 +7,12 @@ if [ $user -ne 0 ]; then
     exit
 fi
 
+if [ -t 1 ]; then
+    echo "terminal"
+else
+    echo "not a terminal"
+fi
+
 #----ascii art!
 echo " _   _ _           _     _                 _       _                   "
 echo "| | (_) |         | |   | |               | |     | |                  "
@@ -31,7 +37,7 @@ echo "packages, removing old packages, etc.)"
 echo "-----------------------------------------------------------------------"
 
 #----confirm bootstrap
-read -p "Would you like to use this Raspberry Pi for TJBot? [Y/n] " choice </dev/tty
+read -p "Would you like to use this Raspberry Pi for TJBot? [Y/n] " choice
 case "$choice" in
     "n" | "N")
         echo "OK, TJBot software will not be installed at this time."
@@ -48,7 +54,7 @@ if [ $RASPIAN_VERSION_ID -ne 8 ] && [ $RASPIAN_VERSION_ID -ne 9 ]; then
     echo "or Raspian (Stretch). TJBot has only been tested on these versions of"
     echo "Raspian."
     echo ""
-    read -p "Would you like to continue with setup? [Y/n] " choice </dev/tty
+    read -p "Would you like to continue with setup? [Y/n] " choice
     case "$choice" in
         "n" | "N")
             echo "OK, TJBot software will not be installed at this time."
@@ -63,7 +69,7 @@ CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
 echo ""
 echo "Please enter a name for your TJBot. This will be used for the hostname of"
 echo "your Raspberry Pi."
-read -p "TJBot name (current: $CURRENT_HOSTNAME): " name </dev/tty
+read -p "TJBot name (current: $CURRENT_HOSTNAME): " name
 name=$(echo "$name" | tr -d ' ')
 if [ -z $name ]; then
     name=$CURRENT_HOSTNAME
@@ -76,7 +82,7 @@ sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$name/g" /etc/hosts
 echo ""
 echo "In some networking environments, disabling ipv6 may help your Pi get on"
 echo "the network."
-read -p "Disable ipv6? [y/N] " choice </dev/tty
+read -p "Disable ipv6? [y/N] " choice
 case "$choice" in
     "y" | "Y")
         echo "Disabling ipv6"
@@ -90,7 +96,7 @@ esac
 echo ""
 echo "In some networking environments, using Google's nameservers may speed up"
 echo "DNS queries."
-read -p "Enable Google DNS? [y/N]: " choice </dev/tty
+read -p "Enable Google DNS? [y/N]: " choice
 case "$choice" in
     "y" | "Y")
         echo "Adding Google DNS servers to /etc/resolv.conf"
@@ -104,7 +110,7 @@ esac
 
 #----setting local to US
 echo ""
-read -p "Force locale to US English (en-US)? [y/N] " choice </dev/tty
+read -p "Force locale to US English (en-US)? [y/N] " choice
 case "$choice" in
     "y" | "Y")
         echo "Forcing locale to en-US. Please ignore any errors below."
@@ -119,7 +125,7 @@ esac
 echo ""
 echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating"
 echo "system software."
-read -p "Proceed with apt-get dist-upgrade? [Y/n] " choice </dev/tty
+read -p "Proceed with apt-get dist-upgrade? [Y/n] " choice
 case "$choice" in
     "n" | "N")
         echo "Warning: you may encounter problems running TJBot recipes without performing"
@@ -157,10 +163,10 @@ else
     echo "Node.js version $NODE_VERSION is currently installed. We recommend installing"
     echo "Node.js version $RECOMMENDED_NODE_LEVEL for Raspian $RASPIAN_VERSION."
 
-    read -p "Would you like to install a newer version of Node.js? [Y/n] " choice </dev/tty
+    read -p "Would you like to install a newer version of Node.js? [Y/n] " choice
     case "$choice" in
         "y" | "Y")
-            read -p "Which version of Node.js would you like to install? [6/7] " node_version </dev/tty
+            read -p "Which version of Node.js would you like to install? [6/7] " node_version
             case "$node_version" in
                 "6" | "7")
                     curl -sL https://deb.nodesource.com/setup_${node_version}.x | sudo bash -
@@ -195,7 +201,7 @@ apt-get -y autoremove
 #----enable camera on raspbery pi
 echo ""
 echo "If your Raspberry Pi has a camera installed, TJBot can use it to see."
-read -p "Enable camera? [y/N] " choice </dev/tty
+read -p "Enable camera? [y/N] " choice
 case "$choice" in
     "y" | "Y")
         if grep "start_x=1" /boot/config.txt
@@ -223,7 +229,7 @@ esac
 #----clone tjbot
 echo ""
 echo "We are ready to clone the TJBot project."
-read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_DIR </dev/tty
+read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_DIR
 if [ -z $TJBOT_DIR ]; then
     TJBOT_DIR='/home/pi/Desktop/tjbot'
 fi
@@ -243,7 +249,7 @@ echo "speaker via HDMI, USB, or Bluetooth, this is a safe operation and you will
 echo "be able to play sound and use the LED at the same time. If you plan to use"
 echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
 echo "modules."
-read -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
+read -p "Disable sound kernel modules? [Y/n] " choice
 case "$choice" in
     "y" | "Y")
         echo "Disabling the kernel modules for the built-in audio jack."
@@ -330,7 +336,7 @@ echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
 sleep $sleep_time
 echo "-------------------------------------------------------------------"
 echo ""
-read -p "Press enter to continue" nonce </dev/tty
+read -p "Press enter to continue" nonce
 
 #——instructions for watson credentials
 echo "Notice about Watson services: Before running any recipes, you will need"
@@ -353,7 +359,7 @@ these in the config.js files for each recipe you wish to run."
 echo "For more detailed guides on setting up service credentials, please see the
 README file of each recipe, or search instructables.com for \"tjbot\"."
 echo ""
-read -p "Press enter to continue" nonce </dev/tty
+read -p "Press enter to continue" nonce
 
 #----tests
 echo ""
@@ -362,7 +368,7 @@ echo "functioning properly. If you have made any changes to the camera or"
 echo "sound configuration, we recommend rebooting first before running these"
 echo "tests as they may fail. You can run these tests at anytime by running"
 echo "the runTests.sh script in the tjbot/bootstrap folder."
-read -p "Would you like to run hardware tests at this time? [y/N] " choice </dev/tty
+read -p "Would you like to run hardware tests at this time? [y/N] " choice
 case "$choice" in
     "y" | "Y")
         ./runTests.sh $TJBOT_DIR
@@ -372,7 +378,7 @@ esac
 
 #----reboot
 echo ""
-read -p "We recommend rebooting for all changes to take effect. Reboot? [Y/n] " choice </dev/tty
+read -p "We recommend rebooting for all changes to take effect. Reboot? [Y/n] " choice
 case "$choice" in
     "y" | "Y")
         echo "Rebooting."
