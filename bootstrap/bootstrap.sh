@@ -31,7 +31,7 @@ echo "packages, removing old packages, etc.)"
 echo "-----------------------------------------------------------------------"
 
 #----confirm bootstrap
-read -p "Would you like to use this Raspberry Pi for TJBot? [Y/n] " choice
+read -p "Would you like to use this Raspberry Pi for TJBot? [Y/n] " choice </dev/tty
 case "$choice" in
     "n" | "N")
         echo "OK, TJBot software will not be installed at this time."
