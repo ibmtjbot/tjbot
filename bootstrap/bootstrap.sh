@@ -159,7 +159,7 @@ else
 
     read -p "Would you like to install a newer version of Node.js? [Y/n] " choice </dev/tty
     case "$choice" in
-        "y" | "Y")
+        "" | "y" | "Y")
             read -p "Which version of Node.js would you like to install? [6/7] " node_version </dev/tty
             case "$node_version" in
                 "6" | "7")
@@ -245,7 +245,7 @@ echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
 echo "modules."
 read -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
 case "$choice" in
-    "y" | "Y")
+    "" | "y" | "Y")
         echo "Disabling the kernel modules for the built-in audio jack."
         cp $TJBOT_DIR/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
         ;;
