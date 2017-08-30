@@ -118,7 +118,8 @@ esac
 #----update raspberry
 echo ""
 echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating"
-echo "system software."
+echo "system software. If you have never done this before, it can take up to an"
+echo "hour or longer."
 read -p "Proceed with apt-get dist-upgrade? [Y/n] " choice </dev/tty
 case "$choice" in
     "n" | "N")
@@ -333,6 +334,7 @@ echo ""
 read -p "Press enter to continue" nonce </dev/tty
 
 #——instructions for watson credentials
+echo ""
 echo "Notice about Watson services: Before running any recipes, you will need"
 echo "to obtain credentials for the Watson services used by those recipes."
 echo "You can obtain these credentials as follows:"
@@ -362,6 +364,7 @@ echo "functioning properly. If you have made any changes to the camera or"
 echo "sound configuration, we recommend rebooting first before running these"
 echo "tests as they may fail. You can run these tests at anytime by running"
 echo "the runTests.sh script in the tjbot/bootstrap folder."
+echo ""
 read -p "Would you like to run hardware tests at this time? [y/N] " choice </dev/tty
 case "$choice" in
     "y" | "Y")
@@ -374,7 +377,7 @@ esac
 echo ""
 read -p "We recommend rebooting for all changes to take effect. Reboot? [Y/n] " choice </dev/tty
 case "$choice" in
-    "y" | "Y")
+    "" | "y" | "Y")
         echo "Rebooting."
         reboot
         ;;
