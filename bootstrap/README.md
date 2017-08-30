@@ -13,10 +13,10 @@ Perform the following operations to prepare your Raspberry Pi for becoming a TJB
 3. Run the following command.
 
 ```
-curl -sL http://ibm.biz/tjbot-bootstrap | bash -
+curl -sL http://ibm.biz/tjbot-bootstrap | sudo sh -
 ```
 
-> Note that this script will run certain commands as root using `sudo`, but the script itself should **not** be run as root.
+> Note that this script requires root access and must be run with `sudo`.
 
 ## Manual Setup
 
@@ -72,16 +72,25 @@ sudo apt-get -y dist-upgrade
 
 > During the upgrade, if you are asked about replacing the `lightdm.conf` file with the package maintainers version, say "Y".
 
-8. Install Node.js 6.x.
+8. Install Node.js.
 
+We have tested TJBot with Node.js version 6 for Raspian (Jessie) and Node.js version 7 for Raspian (Stretch).
+
+> Install Node.js 6 for Raspian (Jessie)
 ```
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-> TJBot will encounter problems with versions of Node.js older than 6.x. TJBot has not been tested with Node.js version 7 or higher.
+> Install Node.js 7 for Raspian (Stretch)
+```
+curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
 
-9. Install additional software packages.
+> Note: TJBot will encounter problems with versions of Node.js older than 6.x.
+
+9. Install additional software packages (Jessie only).
 
 ```
 sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
