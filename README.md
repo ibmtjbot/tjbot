@@ -64,7 +64,7 @@ If you would like your own recipe included in our [featured recipe](featured) li
 # About TJBot
 [TJBot](http://ibm.biz/mytjbot) was affectionately named after Thomas J. Watson, the first Chairman and CEO of IBM. TJBot was created by [Maryam Ashoori](https://github.com/maryamashoori) at IBM Research as an experiment to find the best practices in the design and implementation of cognitive objects. He was born on November 9, 2016 via [this blog post](https://www.ibm.com/blogs/research/2016/11/calling-makers-meet-tj-bot/).
 
-Feel free to [contact the team](mailto:tjbot@us.ibm.com) with any questions about this project.
+Feel free to [contact the team](mailto:tjbot@us.ibm.com) with any questions (except technical issues). For technical issues, please create an [issue](https://github.com/ibmtjbot/tjbot/issues) instead.
 
 # License
 This project uses the [Apache License Version 2.0](LICENSE) software license.
