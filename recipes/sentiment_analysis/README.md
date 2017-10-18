@@ -7,13 +7,11 @@ This recipe uses the [Watson Tone Analyzer](http://www.ibm.com/watson/developerc
 This recipe requires a TJBot with an LED.
 
 ## Build and Run
-First, make sure you have configured your Raspberry Pi for TJBot.
+First, make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).
 
-    $ cd tjbot/bootstrap && sudo sh bootstrap.sh
+Next, go to the `recipes/sentiment_analysis` folder and install the dependencies.
 
-Go to the `recipes/sentiment_analysis` folder and install the dependencies.
-
-    $ cd ../recipes/sentiment_analysis
+    $ cd tjbot/recipes/sentiment_analysis
     $ npm install
 
 Create an instance of the [Watson Tone Analyzer](http://www.ibm.com/watson/developercloud/tone-analyzer.html) service and note the authentication credentials.
@@ -47,7 +45,7 @@ You can also change the colors that TJBot shines. The table below shows the colo
 | Joy | Yellow |
 | Fear | Magenta |
 | Disgust | Green |
-| Sadness | Blue | 
+| Sadness | Blue |
 
 You can change these colors by editing the `shineForEmotion()` function.
 

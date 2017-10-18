@@ -7,13 +7,11 @@ This recipe uses the [Watson Conversation](https://www.ibm.com/watson/developerc
 This recipe requires a TJBot with a microphone and a speaker.
 
 ## Build and Run
-First, make sure you have configured your Raspberry Pi for TJBot.
+First, make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).
 
-    $ cd tjbot/bootstrap && sudo sh bootstrap.sh
+Next, go to the `recipes/conversation` folder and install the dependencies.
 
-Go to the `recipes/conversation` folder and install the dependencies.
-
-    $ cd ../recipes/conversation
+    $ cd tjbot/recipes/conversation
     $ npm install
 
 Create instances of the [Watson Conversation](https://www.ibm.com/watson/developercloud/conversation.html) and [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html) services and note the authentication credentials.
