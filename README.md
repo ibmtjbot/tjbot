@@ -53,7 +53,7 @@ We have provided three initial [recipes](recipes) for you:
 - Make Your Robot Respond to Emotions Using Watson [[instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis)]
 - Build a Talking Robot with Watson [[instructions](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
 
-After checking out our sample receipes, we encourage you to take a look at [featured recipes](featured) created by members of our community.
+After checking out our sample recipes, we encourage you to take a look at [featured recipes](featured) created by members of our community.
 
 # Contribute to TJBot
 TJBot is an open source project designed to make it fun and easy to interact with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html). We’d love to see what you can make with him. Here are some ideas to get you started.
