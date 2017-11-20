@@ -80,7 +80,7 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 [![News grabber](https://img.youtube.com/vi/1m8CF1pMpXg/0.jpg)](https://www.youtube.com/watch?v=1m8CF1pMpXg)
 
-- **[SportsBuddy](https://github.com/IBM/tjbot-sports-buddy/?cm_mc_uid=48040665981314930685608&cm_mc_sid_50200000=)** Use the SportsBuddy to chat about your favorite MLB team and receive news and standings using Twilio.
+- **[SportsBuddy](https://developer.ibm.com/code/patterns/sports-buddy-tjbot-watson-discovery/?cm_mmc=dw-_-social1710-_-twitterorganic-_-ibmcodeai&fst=Learn&social_post=1112633798&utm_campaign=crowdfire&utm_content=crowdfire&utm_medium=social&utm_source=twitter)** Use the SportsBuddy to chat about your favorite MLB team and receive news and standings using Twilio.
 
 [![SportsBuddy](https://img.youtube.com/vi/NJ87_rYfH0c/0.jpg)](https://www.youtube.com/watch?v=NJ87_rYfH0c)
 
