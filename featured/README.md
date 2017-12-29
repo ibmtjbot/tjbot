@@ -167,7 +167,11 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 [![DoctorWat](https://img.youtube.com/vi/8t4sXKKVstY/0.jpg)](https://www.youtube.com/watch?v=8t4sXKKVstY)
 
-# Essentials
+# Other
+
+- **[TJBot Heptathalon](https://github.com/mauer15317/tjbot-heptathalon)**  by [Ron Mauer](https://github.com/mauer15317). Leverages IBM Watson Cognitive Services including - Conversation, Text to Speech, Speech to Text, Language Translator, Discovery, Tone Analyzer and Visual Recognition.
+
+[![TJBot Heptathalon](https://img.youtube.com/vi/bLqGqhc3cRA/0.jpg)](https://www.youtube.com/watch?v=bLqGqhc3cRA)
 
 - **[TJWave](https://github.com/victordibia/tjwave)**  by [Victor Dibia](https://github.com/victordibia). Fun controller recipe for TJBot's servo arm.
 
