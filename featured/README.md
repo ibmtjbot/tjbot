@@ -61,7 +61,7 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[A Chat interface for controlling TJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen).
 
-# Weather Report
+# Reporting Weather, time, news, sports
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 
 [![TJ Weather](https://img.youtube.com/vi/Q7a6UK8U-DM/0.jpg)](https://www.youtube.com/watch?v=Q7a6UK8U-DM)
@@ -69,13 +69,10 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 [![weatherbot](https://i.imgur.com/ESSpkRq.png)](https://github.com/dalelane/weatherbot)
 
-# Telling time
-
 - **[Tell the time](https://github.com/damiancummins/tell_the_time)** by [Damian Cummins](https://github.com/damiancummins). Build a robot that can tell the time in different cities with Watson.
 
 [![Tell the Time](https://i.imgur.com/CFgyjDm.png)](https://www.instagram.com/p/BRx--orh67qHqLHFasKgQUpSSDI4h4d9sJnyok0/)
 
-# News Report
 - **[Thomas: A TJBot News Grabber](https://github.com/tanmayb123/tThomas---the-TJBot-News-Grabber-Chatbot)** by [Tanmay Bakshi](https://github.com/tanmayb123). Build a chatbot that can report the news. It uses Discovery, Conversation, Natural Language Understanding, Knowledge Studio, Speech to Text, and Text to Speech.
 
 [![News grabber](https://img.youtube.com/vi/1m8CF1pMpXg/0.jpg)](https://www.youtube.com/watch?v=1m8CF1pMpXg)
@@ -86,6 +83,15 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 # Extend TJBot With New Hardware
 
+- **[TJBot_Drives](https://github.com/pgcrumley/Projects/tree/master/TJBot_Drives)** TJBot Drives! Sure, TJBot can't walk but there are other ways to be mobile.
+
+[![TJBot_Drives](https://img.youtube.com/vi/AAlcMZAQDOI/0.jpg)](https://www.youtube.com/watch?v=AAlcMZAQDOI)
+
+Here are some more driving experiements from TJBot friends!
+[![BatBot](https://img.youtube.com/vi/s0HV3lmnF1Y/0.jpg)](https://www.youtube.com/watch?v=s0HV3lmnF1Y)
+
+[![Mbed](https://img.youtube.com/vi/OXspc_cF3c0/0.jpg)](https://www.youtube.com/watch?v=OXspc_cF3c0)
+
 - **[Distance-bot](http://www.spirited-engineering.com/?p=135)** by [Nguyen Van Duy](https://github.com/dnguyenv). Make your TJbot speak up based on distance with objects near by using hc-sr04 sensor and Watson service.
 
 [![Distance-bot Video](https://img.youtube.com/vi/kGMoz_fgO04/0.jpg)](https://www.youtube.com/watch?v=kGMoz_fgO04)
@@ -93,12 +99,6 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 - **TJBot with legs**
 
 [![TJBot with legs](https://img.youtube.com/vi/c2IVVRanTbk/0.jpg)](https://www.youtube.com/watch?v=c2IVVRanTbk)
-
-- **TJBot drive**
-
-[![BatBot](https://img.youtube.com/vi/s0HV3lmnF1Y/0.jpg)](https://www.youtube.com/watch?v=s0HV3lmnF1Y)
-
-[![Mbed](https://img.youtube.com/vi/OXspc_cF3c0/0.jpg)](https://www.youtube.com/watch?v=OXspc_cF3c0)
 
 - **[tjbot-striplight](https://github.com/jweisz/tjbot-striplight)** by [Justin Weisz](https://github.com/jweisz). This recipe adds support for a NeoPixel RGB LED strip light to TJBot.
 
