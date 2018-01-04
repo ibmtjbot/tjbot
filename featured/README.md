@@ -114,7 +114,8 @@ Here are some more driving experiements from TJBot friends!
 
 # Controling Devices/Tools with TJBot
 
-- **TJBot can control electrical devices** by [Paul G Crumley](https://github.com/pgcrumley)
+- **[TJBot can control electrical devices](https://github.com/pgcrumley/Controllers/tree/master/EtekcityOutlet)** by [Paul G Crumley](https://github.com/pgcrumley)
+
 [![TJBot can control electrical devices](https://img.youtube.com/vi/sVOzujiDN_Q/0.jpg)](https://www.youtube.com/watch?v=sVOzujiDN_Q)
 
 - **[Control a lamp with TJBot](http://www.spirited-engineering.com/?p=147)** by [Nguyen Van Duy](https://github.com/dnguyenv). This recipe guides you through how to make your TJBot listen to your commands and `turn on`, `turn off` a lamp (yes, a real lamp).
