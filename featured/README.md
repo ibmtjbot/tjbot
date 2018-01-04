@@ -25,42 +25,6 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[Twitter Wave](https://github.com/jweisz/twitter-wave)** by [Justin Weisz](https://github.com/jweisz). This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot. This recipe adds options for TJBot to wave and announce when the sentiment for a topic changes.
 
-# Train your TJBot in Node-RED
-
-- **[Setting up your TJBot to use Node-RED](https://medium.com/@jeancarlbisson/setting-up-your-tjbot-to-use-node-red-df94ff94a114)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to wave in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-wave-in-node-red-62826d269ba5)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to shine LED in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-shine-led-in-node-red-918fcc6d844d)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to pulse in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-pulse-the-led-in-node-red-ca044b2ef63)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to listen in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-listen-in-node-red-ab9500768c52)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to speak in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-speak-in-node-red-a424d801d5d3)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to see in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-see-in-node-red-1821dd0513f6)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to converse in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-converse-in-node-red-b46bf765fd4a)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to translate in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-translate-in-node-red-dabf272ad9eb)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to analyze emotions in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-analyze-emotion-in-node-red-47a8e78b2cb2)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to spell words in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-spell-words-in-node-red-9f0a9cc11a90)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to Identify Language in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-language-in-node-red-34dee98da592)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to identify colors in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-colors-in-node-red-f99d069e04cf)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to identify objects in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-objects-in-node-red-ab7420141e5f)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[Train TJBot to analyze language tones in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-analyze-language-tones-in-node-red-2d4db3bee59b)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
-
-- **[TJBot Node-RED Dashboard](https://github.com/johnwalicki/TJBot-Node-RED)** by [John Walicki](https://github.com/johnwalicki).
-
-- **[A Chat interface for controlling TJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen).
-
 # Reporting Weather, time, news, sports
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 
@@ -111,6 +75,42 @@ Here are some more driving experiements from TJBot friends!
 - **Singing Fish**
 
 [![Fish](https://img.youtube.com/vi/I1ELmAUYZ1M/0.jpg)](https://www.youtube.com/watch?v=I1ELmAUYZ1M)
+
+# Node-RED Essentials
+
+- **[Setting up your TJBot to use Node-RED](https://medium.com/@jeancarlbisson/setting-up-your-tjbot-to-use-node-red-df94ff94a114)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to wave in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-wave-in-node-red-62826d269ba5)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to shine LED in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-shine-led-in-node-red-918fcc6d844d)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to pulse in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-pulse-the-led-in-node-red-ca044b2ef63)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to listen in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-listen-in-node-red-ab9500768c52)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to speak in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-speak-in-node-red-a424d801d5d3)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to see in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-see-in-node-red-1821dd0513f6)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to converse in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-converse-in-node-red-b46bf765fd4a)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to translate in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-translate-in-node-red-dabf272ad9eb)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to analyze emotions in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-analyze-emotion-in-node-red-47a8e78b2cb2)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to spell words in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-spell-words-in-node-red-9f0a9cc11a90)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to Identify Language in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-language-in-node-red-34dee98da592)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to identify colors in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-colors-in-node-red-f99d069e04cf)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to identify objects in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-identify-objects-in-node-red-ab7420141e5f)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[Train TJBot to analyze language tones in Node-RED](https://medium.com/@jeancarlbisson/train-tjbot-to-analyze-language-tones-in-node-red-2d4db3bee59b)**  by [JeanCarl Bisson](https://medium.com/@jeancarlbisson).
+
+- **[TJBot Node-RED Dashboard](https://github.com/johnwalicki/TJBot-Node-RED)** by [John Walicki](https://github.com/johnwalicki).
+
+- **[A Chat interface for controlling TJBot](https://github.com/markusvankempen/PimpMyTJBot)** by [Markus van Kempen](https://github.com/markusvankempen).
 
 # Controling Objects/tools
 - **[Control a lamp with TJBot](http://www.spirited-engineering.com/?p=147)** by [Nguyen Van Duy](https://github.com/dnguyenv). This recipe guides you through how to make your TJBot listen to your commands and `turn on`, `turn off` a lamp (yes, a real lamp).
