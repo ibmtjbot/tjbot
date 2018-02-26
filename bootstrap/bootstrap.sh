@@ -368,7 +368,7 @@ echo ""
 read -p "Would you like to run hardware tests at this time? [y/N] " choice </dev/tty
 case "$choice" in
     "y" | "Y")
-        ./runTests.sh $TJBOT_DIR
+        $TJBOT_DIR/runTests.sh $TJBOT_DIR
         ;;
     *) ;;
 esac
