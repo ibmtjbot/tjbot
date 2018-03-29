@@ -159,7 +159,7 @@ Congratulations, your Raspberry Pi is now set up for TJBot!  You'll just need to
 Before running any recipes, you will need to obtain credentials for the Watson services used by those recipes. You can obtain these credentials as follows:
 
 1. Sign up for a free IBM Bluemix account at https://bluemix.net if you do not have one already.
-2. Log in to Bluemix and create an instance of the Watson services you plan to use. The Watson services are listed on the Bluemix dashboard, under "Catalog". The full list of Watson services used by TJBot are: Conversation, Language Translator, Speech to Text, Text to Speech, Tone Analyzer, and Visual Recognition.
+2. Log in to Bluemix and create an instance of the Watson services you plan to use. The Watson services are listed on the Bluemix dashboard, under "Catalog". The full list of Watson services used by TJBot are: Conversation (renamed to Assistant), Language Translator, Speech to Text, Text to Speech, Tone Analyzer, and Visual Recognition.
 3. For each Watson service, click the "Create" button on the bottom right of the page to create an instance of the service.
 4. Click "Service Credentials" in the left-hand sidebar. Next, click "View Credentials" under the Actions menu.
 5. Make note of the credentials for each Watson service. You will need to save these in the `config.js` files for each recipe you wish to run.
