@@ -44,7 +44,7 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 [![SportsBuddy](https://img.youtube.com/vi/NJ87_rYfH0c/0.jpg)](https://www.youtube.com/watch?v=NJ87_rYfH0c)
 
 # Voice Assistant
-**[Thomas](https://github.ibm.com/Guilherme-Goncalves/Thomas)** by [Guilherme Goncalves](https://github.ibm.com/Guilherme-Goncalves). Interact with tjbot in your own language, a voice based assistant fully customizable with a second screen.
+**[Thomas](https://github.ibm.com/Guilherme-Goncalves/Thomas)** by [Guilherme Goncalves](https://github.ibm.com/Guilherme-Goncalves). Interact with TJBot in your own language, a voice based assistant fully customizable with a second screen.
 
 [![Thomas](https://img.youtube.com/vi/jxWP9CqcVe0/0.jpg)](https://www.youtube.com/watch?v=jxWP9CqcVe0)
 
