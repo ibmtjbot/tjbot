@@ -1,4 +1,3 @@
-
 # Featured Recipes
 Featured recipes are exciting recipes created by members of the TJBot community.
 
@@ -9,7 +8,6 @@ If you would like your own recipe included here, please [send us email](mailto:t
 Follow the adventures of Tinker, the virtual TJBot, in his quest to transform into a real, live TJBot!  This is an interactive Swift Playground for iOS that allows you to program TJBot – both virtual and physical – in the Swift programming language. This playground does not require an actual TJBot to use, but if you would like to program your TJBot, it requires installation of the [TJBot Daemon](http://ibm.biz/tjbot-daemon) on your TJBot.
 
 [![TJBot Swift Playground](http://i.imgur.com/K7cVdu9.png?1)](http://ibm.biz/tjbot-playground)
-
 
 - **[TJBot Daemon](http://ibm.biz/tjbot-daemon)**. 
 Node.js application that listens for TJBot commands via Bluetooth Low Energy (BLE). This application was developed for use by the [TJBot Swift Playground](http://ibm.biz/tjbot-playground) to listen for commands via BLE, but it can be used for other applications as well.
@@ -25,7 +23,7 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 
 - **[Twitter Wave](https://github.com/jweisz/twitter-wave)** by [Justin Weisz](https://github.com/jweisz). This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot. This recipe adds options for TJBot to wave and announce when the sentiment for a topic changes.
 
-# Reporting Weather, time, news, sports
+# Reporting Weather, Time, News, Sports
 - **[TJ Weather](https://github.com/suprbh/tjweather)**  by [Supriya Bhat](https://github.com/suprbh). Use TJBot as a personal weather station.
 
 [![TJ Weather](https://img.youtube.com/vi/Q7a6UK8U-DM/0.jpg)](https://www.youtube.com/watch?v=Q7a6UK8U-DM)
@@ -44,6 +42,11 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 - **[SportsBuddy](https://developer.ibm.com/code/patterns/sports-buddy-tjbot-watson-discovery/?cm_mmc=dw-_-social1710-_-twitterorganic-_-ibmcodeai&fst=Learn&social_post=1112633798&utm_campaign=crowdfire&utm_content=crowdfire&utm_medium=social&utm_source=twitter)** Use the SportsBuddy to chat about your favorite MLB team and receive news and standings using Twilio.
 
 [![SportsBuddy](https://img.youtube.com/vi/NJ87_rYfH0c/0.jpg)](https://www.youtube.com/watch?v=NJ87_rYfH0c)
+
+# Voice Assistant
+**[Thomas](https://github.ibm.com/Guilherme-Goncalves/Thomas)** by [Guilherme Goncalves](https://github.ibm.com/Guilherme-Goncalves). Interact with tjbot in your own language, a voice based assistant fully customizable with a second screen.
+
+[![Thomas](https://img.youtube.com/vi/jxWP9CqcVe0/0.jpg)](https://www.youtube.com/watch?v=jxWP9CqcVe0)
 
 # Extend TJBot With New Hardware
 
