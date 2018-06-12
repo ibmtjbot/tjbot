@@ -55,6 +55,8 @@ tj.listen(function(msg) {
         
         // send to the assistant service
         tj.converse(WORKSPACEID, utterance, function(response) {
+            var spoken = false;
+            
             // check if an intent to control the bot was found
             if (response.object.intents != undefined) {
                 var intent = response.object.intents[0];
@@ -63,18 +65,22 @@ tj.listen(function(msg) {
                         case "lower-arm":
                             tj.speak(response.description);
                             tj.lowerArm();
+                            spoken = true;
                             break;
                         case "raise-arm":
                             tj.speak(response.description);
                             tj.raiseArm();
+                            spoken = true;
                             break;
                         case "wave":
                             tj.speak(response.description);
                             tj.wave();
+                            spoken = true;
                             break;
                         case "greeting":
                             tj.speak(response.description);
                             tj.wave();
+                            spoken = true;
                             break;
                         case "shine":
                             var misunderstood = false;
@@ -84,6 +90,7 @@ tj.listen(function(msg) {
                                     var color = entity.value;
                                     tj.speak(response.description);
                                     tj.shine(color);
+                                    spoken = true;
                                 } else {
                                     misunderstood = true;
                                 }
@@ -93,11 +100,13 @@ tj.listen(function(msg) {
                             
                             if (misunderstood == true) {
                                 tj.speak("I'm sorry, I didn't understand your color");
+                                spoken = true;
                             }
                             break;
                         case "see":
                             if (config.hasCamera == false) {
                                 tj.speak("I'm sorry, I don't have a camera so I can't see anything");
+                                spoken = true;
                             } else {
                                 tj.speak(response.description);
                                 tj.see().then(function(objects) {
@@ -114,14 +123,17 @@ tj.listen(function(msg) {
                                         tj.speak("I'm looking at " + objects);
                                     }
                                 });
+                                spoken = true;
                             }
                             break;
+                        }
                     }
                 }
-            } else {
-                // just speak the result
-                tj.speak(response.description);
-            }
+            
+                // if we didn't speak a response yet, speak it now
+                if (spoken == false) {
+                    tj.speak(response.description);
+                }
         });
     }
 });
