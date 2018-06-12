@@ -1,33 +1,42 @@
 /*
-User-specific configuration
-    ** IMPORTANT NOTE ********************
-    * Please ensure you do not interchange your username and password.
-    * Hint: Your username is the lengthy value ~ 36 digits including a hyphen
-    * Hint: Your password is the smaller value ~ 12 characters
-*/ 
+* User-specific configuration
+* IMPORTANT NOTES:
+*  Please ensure you do not interchange your username and password.
+*  Your username is the longer value: 36 digits, including hyphens
+*  Your password is the smaller value: 12 characters
+*/
 
-exports.conversationWorkspaceId = ''; // replace with the workspace identifier of your conversation
+exports.workspaceId = ''; // replace with the workspace identifier of your conversation
+
+// Set this to false if your TJBot does not have a camera.
+exports.hasCamera = true;
 
 // Create the credentials object for export
 exports.credentials = {};
 
-// Watson Conversation
-// https://www.ibm.com/watson/developercloud/conversation.html
-exports.credentials.conversation = {
+// Watson Assistant
+// https://www.ibm.com/watson/services/conversation/
+exports.credentials.assistant = {
 	password: '',
 	username: ''
 };
 
 // Watson Speech to Text
-// https://www.ibm.com/watson/developercloud/speech-to-text.html
+// https://www.ibm.com/watson/services/speech-to-text/
 exports.credentials.speech_to_text = {
 	password: '',
 	username: ''
 };
 
 // Watson Text to Speech
-// https://www.ibm.com/watson/developercloud/text-to-speech.html
+// https://www.ibm.com/watson/services/text-to-speech/
 exports.credentials.text_to_speech = {
 	password: '',
 	username: ''
+};
+
+// Watson Visual Recognition
+// https://www.ibm.com/watson/services/visual-recognition/
+exports.credentials.visual_recognition = {
+    api_key: ''
 };

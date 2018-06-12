@@ -1,5 +1,5 @@
 /**
- * Copyright 2016 IBM Corp. All Rights Reserved.
+ * Copyright 2016-2018 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,10 +21,13 @@ var config = require('./config');
 var credentials = config.credentials;
 
 // obtain user-specific config
-var WORKSPACEID = config.conversationWorkspaceId;
+var WORKSPACEID = config.workspaceId;
 
 // these are the hardware capabilities that TJ needs for this recipe
-var hardware = ['microphone', 'speaker'];
+var hardware = ['microphone', 'speaker', 'led', 'servo', 'camera'];
+if (config.hasCamera == false) {
+    hardware = ['microphone', 'speaker', 'led', 'servo'];
+}
 
 // set up TJBot's configuration
 var tjConfig = {
@@ -37,21 +40,88 @@ var tjConfig = {
 var tj = new TJBot(hardware, tjConfig, credentials);
 
 console.log("You can ask me to introduce myself or tell you a joke.");
-console.log("Try saying, \"" + tj.configuration.robot.name + ", please introduce yourself\" or \"" + tj.configuration.robot.name + ", who are you?\"");
+console.log("Try saying, \"" + tj.configuration.robot.name + ", please introduce yourself\" or \"" + tj.configuration.robot.name + ", what can you do?\"");
 console.log("You can also say, \"" + tj.configuration.robot.name + ", tell me a joke!\"");
 
 // listen for utterances with our attentionWord and send the result to
-// the Conversation service
+// the Assistant service
 tj.listen(function(msg) {
     // check to see if they are talking to TJBot
-    if (msg.startsWith(tj.configuration.robot.name)) {
+    if (msg.toLowerCase().startsWith(tj.configuration.robot.name.toLowerCase())) {
         // remove our name from the message
         var turn = msg.toLowerCase().replace(tj.configuration.robot.name.toLowerCase(), "");
-
-        // send to the conversation service
-        tj.converse(WORKSPACEID, turn, function(response) {
-            // speak the result
-            tj.speak(response.description);
+        
+        var utterance = msg.toLowerCase();
+        
+        // send to the assistant service
+        tj.converse(WORKSPACEID, utterance, function(response) {
+            // check if an intent to control the bot was found
+            if (response.object.intents != undefined) {
+                var intent = response.object.intents[0];
+                if (intent != undefined && intent.intent != undefined) {
+                    switch (intent.intent) {
+                        case "lower-arm":
+                            tj.speak(response.description);
+                            tj.lowerArm();
+                            break;
+                        case "raise-arm":
+                            tj.speak(response.description);
+                            tj.raiseArm();
+                            break;
+                        case "wave":
+                            tj.speak(response.description);
+                            tj.wave();
+                            break;
+                        case "greeting":
+                            tj.speak(response.description);
+                            tj.wave();
+                            break;
+                        case "shine":
+                            var misunderstood = false;
+                            if (response.object.entities != undefined) {
+                                var entity = response.object.entities[0];
+                                if (entity != undefined && entity.value != undefined) {
+                                    var color = entity.value;
+                                    tj.speak(response.description);
+                                    tj.shine(color);
+                                } else {
+                                    misunderstood = true;
+                                }
+                            } else {
+                                misunderstood = true;
+                            }
+                            
+                            if (misunderstood == true) {
+                                tj.speak("I'm sorry, I didn't understand your color");
+                            }
+                            break;
+                        case "see":
+                            if (config.hasCamera == false) {
+                                tj.speak("I'm sorry, I don't have a camera so I can't see anything");
+                            } else {
+                                tj.speak(response.description);
+                                tj.see().then(function(objects) {
+                                    if (objects.length == 0) {
+                                        tj.speak("I'm not sure I see anything");
+                                    } else if (objects.length == 1) {
+                                        var object = objects[0].class;
+                                        tj.speak("I see " + object);
+                                    } else if (objects.length == 2) {
+                                        var objects = objects[0].class + " and " + objects[1].class;
+                                        tj.speak("I'm looking at " + objects);
+                                    } else {
+                                        var objects = objects[0].class + ", " + objects[1].class + ", and " + objects[2].class + ", and a few other things too";
+                                        tj.speak("I'm looking at " + objects);
+                                    }
+                                });
+                            }
+                            break;
+                    }
+                }
+            } else {
+                // just speak the result
+                tj.speak(response.description);
+            }
         });
     }
 });
