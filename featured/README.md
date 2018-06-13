@@ -1,7 +1,7 @@
 # Featured Recipes
 Featured recipes are exciting recipes created by members of the TJBot community.
 
-If you would like your own recipe included here, please [send us email](mailto:tjbot@us.ibm.com) with a link to your repository and a demo video.
+If you would like your own recipe included in our featured recipe list, please open an issue with a link to your repository and a demo video.
 
 # Playground
 - **[TJBot Swift Playground](http://ibm.biz/tjbot-playground)** 
