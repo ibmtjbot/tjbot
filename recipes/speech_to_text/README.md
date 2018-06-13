@@ -1,7 +1,7 @@
 # Speech to Text
 > Control TJBot's LED with your voice!
 
-This recipe uses the [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html) service to let you control the color of TJBot's LED with your voice. For example, if you say "turn the light green," TJBot will change the color of the LED to green.
+This recipe uses the [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/) service to let you control the color of TJBot's LED with your voice. For example, if you say "turn the light green," TJBot will change the color of the LED to green.
 
 ## Hardware
 This recipe requires a TJBot with a microphone and an LED.
@@ -14,7 +14,7 @@ Next, go to the `recipes/speech_to_text` folder and install the dependencies.
     $ cd tjbot/recipes/speech_to_text
     $ npm install
 
-Create an instance of the [Watson Text to Speech](https://www.ibm.com/watson/developercloud/text-to-speech.html) service and note the authentication credentials.
+Create an instance of the [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/) service and note the authentication credentials.
 
 Make a copy the default configuration file and update it with the Watson service credentials.
 
@@ -51,7 +51,7 @@ After TJBot finishes rebooting, confirm no "snd" modules are running.
 If you have additional difficulties not covered in this guide, please refer to [Adafruit's NeoPixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview) to troubleshoot.
 
 # Watson Services
-- [Watson Speech to Text](https://www.ibm.com/watson/developercloud/speech-to-text.html)
+- [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/)
 
 # License
 This project is licensed under Apache 2.0. Full license text is available in [LICENSE](../../LICENSE).

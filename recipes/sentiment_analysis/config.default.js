@@ -1,11 +1,10 @@
 /*
-User-specific configuration
-    ** IMPORTANT NOTE ********************
-    * Please ensure you do not interchange your username and password.
-    * Hint: Your username is the lengthy value ~ 36 digits including a hyphen
-    * Hint: Your password is the smaller value ~ 12 characters
-*/ 
-
+* User-specific configuration
+* IMPORTANT NOTES:
+*  Please ensure you do not interchange your username and password.
+*  Your username is the longer value: 36 digits, including hyphens
+*  Your password is the smaller value: 12 characters
+*/
 
 exports.sentiment_keyword = "education";       // keyword to monitor in Twitter
 exports.sentiment_analysis_frequency_sec = 30; // analyze sentiment every N seconds
@@ -14,7 +13,7 @@ exports.sentiment_analysis_frequency_sec = 30; // analyze sentiment every N seco
 exports.credentials = {};
 
 // Watson Tone Analyzer
-// https://www.ibm.com/watson/developercloud/tone-analyzer.html
+// https://www.ibm.com/watson/services/tone-analyzer/
 exports.credentials.tone_analyzer = {
     password: '',
     username: ''

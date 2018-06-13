@@ -1,9 +1,9 @@
 # IBM TJBot
 <img src="images/tjbot.jpg" width="85%">
 
-[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to build things with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html) in a fun and easy way. [IBM TJBot](http://ibm.biz/mytjbot) is the first maker kit in the collection. You can 3D print or laser cut the robot body, then use one of our [recipes](recipes) to bring him to life!
+[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to build things with [Watson](https://www.ibm.com/watson/products-services/) in a fun and easy way. [IBM TJBot](http://ibm.biz/mytjbot) is the first maker kit in the collection. You can 3D print or laser cut the robot body, then use one of our [recipes](recipes) to bring him to life!
 
-In addition, you can unleash your own creativity and create new recipes that bring TJBot to life using any of the available [Watson services](https://www.ibm.com/watson/developercloud/services-catalog.html)!
+In addition, you can unleash your own creativity and create new recipes that bring TJBot to life using any of the available [Watson services](https://www.ibm.com/watson/products-services/)!
 
 **TJBot only works with a Raspberry Pi.**
 
@@ -45,7 +45,7 @@ Just run that command to download and install TJBot:
 curl -sL http://ibm.biz/tjbot-bootstrap | sudo sh -
 ```
 
-[Recipes](recipes) are step-by-step instructions to bring your TJBot to life with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html).
+[Recipes](recipes) are step-by-step instructions to bring your TJBot to life with [Watson](https://www.ibm.com/watson/products-services/).
 
 We have provided three initial [recipes](recipes) for you:
 
@@ -56,18 +56,12 @@ We have provided three initial [recipes](recipes) for you:
 After checking out our sample recipes, we encourage you to take a look at [featured recipes](featured) created by members of our community.
 
 # Contribute to TJBot
-TJBot is an open source project designed to make it fun and easy to interact with [Watson](https://www.ibm.com/watson/developercloud/services-catalog.html). We’d love to see what you can make with him. Here are some ideas to get you started.
+TJBot is an open source project designed to make it fun and easy to interact with [Watson](https://www.ibm.com/watson/products-services/). We’d love to see what you can make with him!
 
-- **Visual recognition**. Make TJBot recognize your face using the [Watson Visual Recognition](https://www.ibm.com/watson/developercloud/visual-recognition.html) service and the Raspberry Pi Camera.
-- **IoT**. Let TJBot control your smart home devices using the [Watson IoT platform](https://www.ibm.com/internet-of-things/platform/watson-iot-platform/).
-- **Connected robots**. Program multiple TJBots to chat with each other!
-
-If you would like your own recipe included in our [featured recipe](featured) list, please [send us email](mailto:tjbot@us.ibm.com) with a link to your repository and a demo video.
+If you would like your own recipe included in our [featured recipe](featured) list, please [open an issue](../../issues) with a link to your repository and a demo video.
 
 # About TJBot
 [TJBot](http://ibm.biz/mytjbot) was affectionately named after Thomas J. Watson, the first Chairman and CEO of IBM. TJBot was created by [Maryam Ashoori](https://github.com/maryamashoori) at IBM Research as an experiment to find the best practices in the design and implementation of cognitive objects. He was born on November 9, 2016 via [this blog post](https://www.ibm.com/blogs/research/2016/11/calling-makers-meet-tj-bot/).
-
-Feel free to [contact the team](mailto:tjbot@us.ibm.com) with any questions (except technical issues). For technical issues, please create an [issue](https://github.com/ibmtjbot/tjbot/issues) instead.
 
 # License
 This project uses the [Apache License Version 2.0](LICENSE) software license.
