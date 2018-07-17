@@ -171,7 +171,12 @@ Here are some more driving experiements from TJBot friends!
 
 # Healthcare
 
-- **[DoctorWat](https://github.com/wilsonandusa/DoctorWat)**  by [WilsonWu](https://github.com/wilsonandusa). A desktop application for collecting user data that can reduce the information gap between doctors and patients.
+- **[Personal Health Assistant](https://github.com/moosman1/A-Personal-Health-Assistant)**  by [Mohammad Osman](https://github.com/moosman1). A Personal Health Assistant
+pplication for collecting user data that can reduce the information gap between doctors and patients.
+
+[![Personal Health Assistant](https://img.youtube.com/vi/hGLJRvjnegM/0.jpg)](https://www.youtube.com/watch?v=hGLJRvjnegM)
+
+- **[DoctorWat](https://github.com/wilsonandusa/DoctorWat)**  by [WilsonWu](https://github.com/wilsonandusa). A desktop a
 
 [![DoctorWat](https://img.youtube.com/vi/8t4sXKKVstY/0.jpg)](https://www.youtube.com/watch?v=8t4sXKKVstY)
 
