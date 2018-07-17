@@ -44,6 +44,11 @@ Node.js application that listens for TJBot commands via Bluetooth Low Energy (BL
 [![SportsBuddy](https://img.youtube.com/vi/NJ87_rYfH0c/0.jpg)](https://www.youtube.com/watch?v=NJ87_rYfH0c)
 
 # Voice Assistant
+- **[Personal Health Assistant](https://github.com/moosman1/A-Personal-Health-Assistant)**  by [Mohammad Osman](https://github.com/moosman1). A Personal Health Assistant
+pplication for collecting user data that can reduce the information gap between doctors and patients.
+
+[![Personal Health Assistant](https://img.youtube.com/vi/hGLJRvjnegM/0.jpg)](https://www.youtube.com/watch?v=hGLJRvjnegM)
+
 **[Thomas](https://github.com/GuiJordao21/Thomas)** by [Guilherme Goncalves](https://github.com/GuiJordao21/). Interact with TJBot in your own language, a voice based assistant fully customizable with a second screen.
 
 [![Thomas](https://img.youtube.com/vi/jxWP9CqcVe0/0.jpg)](https://www.youtube.com/watch?v=jxWP9CqcVe0)
@@ -169,18 +174,11 @@ Here are some more driving experiements from TJBot friends!
 
 [![language3](https://img.youtube.com/vi/bESLbOJ_lbE/0.jpg)](https://www.youtube.com/watch?v=bESLbOJ_lbE)
 
-# Healthcare
-
-- **[Personal Health Assistant](https://github.com/moosman1/A-Personal-Health-Assistant)**  by [Mohammad Osman](https://github.com/moosman1). A Personal Health Assistant
-pplication for collecting user data that can reduce the information gap between doctors and patients.
-
-[![Personal Health Assistant](https://img.youtube.com/vi/hGLJRvjnegM/0.jpg)](https://www.youtube.com/watch?v=hGLJRvjnegM)
+# Other
 
 - **[DoctorWat](https://github.com/wilsonandusa/DoctorWat)**  by [WilsonWu](https://github.com/wilsonandusa). A desktop a
 
 [![DoctorWat](https://img.youtube.com/vi/8t4sXKKVstY/0.jpg)](https://www.youtube.com/watch?v=8t4sXKKVstY)
-
-# Other
 
 - **[TJBot Heptathalon](https://github.com/mauer15317/tjbot-heptathalon)**  by [Ron Mauer](https://github.com/mauer15317). Leverages IBM Watson Cognitive Services including - Conversation, Text to Speech, Speech to Text, Language Translator, Discovery, Tone Analyzer and Visual Recognition.
 
