@@ -86,17 +86,17 @@ case "$choice" in
     *) ;;
 esac
 
-#----setting DNS to Google
+#----setting DNS to Quad9
 echo ""
-echo "In some networking environments, using Google's nameservers may speed up"
-echo "DNS queries."
-read -p "Enable Google DNS? [y/N]: " choice </dev/tty
+echo "In some networking environments, using Quad9's nameservers may speed up"
+echo "DNS queries and provide extra security and privacy."
+read -p "Enable Quad9 DNS? [y/N]: " choice </dev/tty
 case "$choice" in
     "y" | "Y")
-        echo "Adding Google DNS servers to /etc/resolv.conf"
-        if ! grep -q "nameserver 8.8.8.8" /etc/resolv.conf; then
-            echo "nameserver 8.8.8.8" | tee -a /etc/resolv.conf
-            echo "nameserver 8.8.4.4" | tee -a /etc/resolv.conf
+        echo "Adding Quad9 DNS servers to /etc/resolv.conf"
+        if ! grep -q "nameserver 9.9.9.9" /etc/resolv.conf; then
+            echo "nameserver 9.9.9.9" | tee -a /etc/resolv.conf
+            echo "nameserver 149.112.112.112" | tee -a /etc/resolv.conf
         fi
         ;;
     *) ;;
@@ -142,12 +142,12 @@ NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | awk '{print substr($0,2,1)}
 # Node.js version 6 for Jessie
 if [ $RASPIAN_VERSION_ID -eq 8 ]; then
     RECOMMENDED_NODE_LEVEL="6"
-# Node.js version 7 for Stretch
+# Node.js version 9 for Stretch
 elif [ $RASPIAN_VERSION_ID -eq 9 ]; then
-    RECOMMENDED_NODE_LEVEL="7"
-# Node.js version 7 for anything else
+    RECOMMENDED_NODE_LEVEL="9"
+# Node.js version 9 for anything else
 else
-    RECOMMENDED_NODE_LEVEL="7"
+    RECOMMENDED_NODE_LEVEL="9"
 fi
 
 echo ""
@@ -161,9 +161,9 @@ else
     read -p "Would you like to install a newer version of Node.js? [Y/n] " choice </dev/tty
     case "$choice" in
         "" | "y" | "Y")
-            read -p "Which version of Node.js would you like to install? [6/7] " node_version </dev/tty
+            read -p "Which version of Node.js would you like to install? [6/7/8/9] " node_version </dev/tty
             case "$node_version" in
-                "6" | "7")
+                "6" | "7" | "8" | "9")
                     curl -sL https://deb.nodesource.com/setup_${node_version}.x | sudo bash -
                     apt-get install -y nodejs
                     ;;
