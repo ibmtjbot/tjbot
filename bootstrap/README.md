@@ -42,11 +42,11 @@ echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
 
 > It is safe to skip this step. We only recommend doing this step if necessary.
 
-5. _Optional_. Enable Google DNS. In some networking environments, using Google's nameservers may speed up DNS queries.
+5. _Optional_. Enable Quad9 DNS. In some networking environments, using Quad9's nameservers may speed up DNS queries and provide extra security and privacy..
 
 ```
-echo "nameserver 8.8.8.8" | sudo tee -a /etc/resolv.conf
-echo "nameserver 8.8.4.4" | sudo tee -a /etc/resolv.conf
+echo "nameserver 9.9.9.9" | sudo tee -a /etc/resolv.conf
+echo "nameserver 149.112.112.112" | sudo tee -a /etc/resolv.conf
 ```
 
 > It is safe to skip this step. We only recommend doing this step if necessary.
@@ -74,7 +74,7 @@ sudo apt-get -y dist-upgrade
 
 8. Install Node.js.
 
-We have tested TJBot with Node.js version 6 for Raspian (Jessie) and Node.js version 7 for Raspian (Stretch).
+We have tested TJBot with Node.js version 6 for Raspian (Jessie) and Node.js version 9 for Raspian (Stretch).
 
 > Install Node.js 6 for Raspian (Jessie)
 ```
@@ -82,9 +82,9 @@ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
-> Install Node.js 7 for Raspian (Stretch)
+> Install Node.js 9 for Raspian (Stretch)
 ```
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
