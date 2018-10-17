@@ -24,7 +24,7 @@ const TJBot = require('tjbot');
 // actually need real Watson credentials for this test
 const dummyWatsonCredentials = {
     visual_recognition: {
-        api_key: 'abc-def-ghi'
+        apikey: 'abc-def-ghi'
     }
 };
 
