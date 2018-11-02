@@ -12,6 +12,6 @@ exports.credentials = {};
 // Watson Speech to Text
 // https://www.ibm.com/watson/services/speech-to-text/
 exports.credentials.speech_to_text = {
-    password: '',
-    username: ''
+    apikey: '',
+    url: ''
 };
