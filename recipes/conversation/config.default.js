@@ -24,19 +24,19 @@ exports.credentials.assistant = {
 // Watson Speech to Text
 // https://www.ibm.com/watson/services/speech-to-text/
 exports.credentials.speech_to_text = {
-	password: '',
-	username: ''
+	apikey: '',
+	url: ''
 };
 
 // Watson Text to Speech
 // https://www.ibm.com/watson/services/text-to-speech/
 exports.credentials.text_to_speech = {
-	password: '',
-	username: ''
+	apikey: '',
+	url: ''
 };
 
 // Watson Visual Recognition
 // https://www.ibm.com/watson/services/visual-recognition/
 exports.credentials.visual_recognition = {
-    api_key: ''
+    apikey: ''
 };
