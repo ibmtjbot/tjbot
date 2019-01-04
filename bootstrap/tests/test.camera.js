@@ -35,6 +35,6 @@ tj.takePhoto('picture.jpg').then(function(data) {
     }
     console.log("picture taken successfully, removing the file");
     if (fs.existsSync('picture.jpg')) {
-        fs.unlink('picture.jpg');
+        fs.unlinkSync('picture.jpg');
     }
 });
