@@ -17,26 +17,35 @@ exports.credentials = {};
 // Watson Assistant
 // https://www.ibm.com/watson/services/conversation/
 exports.credentials.assistant = {
-	password: '',
-	username: ''
+	// IAM authentication key -- fill in your API key below
+	apikey: 'FILL IN YOUR API KEY HERE',
+	// service URL -- change this if the URL is different in your authentication credentials
+	url: 'https://gateway.watsonplatform.net/assistant/api/'
 };
 
 // Watson Speech to Text
 // https://www.ibm.com/watson/services/speech-to-text/
 exports.credentials.speech_to_text = {
-	password: '',
-	username: ''
+	// IAM authentication key -- fill in your API key below
+	apikey: 'FILL IN YOUR API KEY HERE',
+	// service URL -- change this if the URL is different in your authentication credentials
+	url: 'https://stream.watsonplatform.net/speech-to-text/api/'
 };
 
 // Watson Text to Speech
 // https://www.ibm.com/watson/services/text-to-speech/
 exports.credentials.text_to_speech = {
-	password: '',
-	username: ''
+	// IAM authentication key -- fill in your API key below
+	apikey: 'FILL IN YOUR API KEY HERE',
+	// service URL -- change this if the URL is different in your authentication credentials
+	url: 'https://stream.watsonplatform.net/text-to-speech/api/'
 };
 
 // Watson Visual Recognition
 // https://www.ibm.com/watson/services/visual-recognition/
 exports.credentials.visual_recognition = {
-    api_key: ''
+	// IAM authentication key -- fill in your API key below
+	apikey: 'FILL IN YOUR API KEY HERE',
+	// service URL -- change this if the URL is different in your authentication credentials
+	url: 'https://gateway.watsonplatform.net/visual-recognition/api'
 };

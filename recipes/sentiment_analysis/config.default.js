@@ -15,8 +15,10 @@ exports.credentials = {};
 // Watson Tone Analyzer
 // https://www.ibm.com/watson/services/tone-analyzer/
 exports.credentials.tone_analyzer = {
-    password: '',
-    username: ''
+    // IAM authentication key -- fill in your API key below
+	apikey: 'FILL IN YOUR API KEY HERE',
+	// service URL -- change this if the URL is different in your authentication credentials
+    url: 'https://gateway.watsonplatform.net/tone-analyzer/api/'
 };
 
 // Twitter
