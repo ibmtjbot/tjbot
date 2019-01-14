@@ -102,19 +102,25 @@ function shineFromTweetSentiment() {
         console.log("Analyzing tone of " + TWEETS.length + " tweets");
 
         tj.analyzeTone(text).then(function(tone) {
-            tone.document_tone.tone_categories.forEach(function(category) {
-                if (category.category_id == "emotion_tone") {
-                    // find the emotion with the highest confidence
-                    var max = category.tones.reduce(function(a, b) {
-                        return (a.score > b.score) ? a : b;
-                    });
-
-                    // make sure we really are confident
-                    if (max.score >= CONFIDENCE_THRESHOLD) {
-                        shineForEmotion(max.tone_id);
-                    }
-                }
+            // find the tone with the highest confidence
+            // only consider the emotional tones (anger, fear, joy, sadness)
+            // each tone looks like this:
+            // {
+            //   "score": 0.6165,
+            //   "tone_id": "sadness",
+            //   "tone_name": "Sadness"
+            // }
+            
+            var maxTone = tone.document_tone.tones.filter(function(t) {
+                return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_i == 'sadness';
+            }).reduce(function(a, b) {
+                return (a.score > b.score) ? a : b;
             });
+
+            // make sure we really are confident
+            if (maxTone.score >= CONFIDENCE_THRESHOLD) {
+                shineForEmotion(maxTone.tone_id);
+            }
         });
     } else {
         console.log("Not enough tweets collected to perform sentiment analysis");
@@ -128,14 +134,11 @@ function shineForEmotion(emotion) {
     case 'anger':
         tj.shine('red');
         break;
-    case 'joy':
-        tj.shine('yellow');
-        break;
     case 'fear':
         tj.shine('magenta');
         break;
-    case 'disgust':
-        tj.shine('green');
+    case 'joy':
+        tj.shine('yellow');
         break;
     case 'sadness':
         tj.shine('blue');
