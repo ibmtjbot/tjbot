@@ -111,15 +111,19 @@ function shineFromTweetSentiment() {
             //   "tone_name": "Sadness"
             // }
             
-            var maxTone = tone.document_tone.tones.filter(function(t) {
+            var emotionalTones = tone.document_tone.tones.filter(function(t) {
                 return t.tone_id == 'anger' || t.tone_id == 'fear' || t.tone_id == 'joy' || t.tone_i == 'sadness';
-            }).reduce(function(a, b) {
-                return (a.score > b.score) ? a : b;
             });
 
-            // make sure we really are confident
-            if (maxTone.score >= CONFIDENCE_THRESHOLD) {
-                shineForEmotion(maxTone.tone_id);
+            if (emotionalTones.length > 0) {
+                var maxTone = emotinoalTones.reduce(function(a, b) {
+                    return (a.score > b.score) ? a : b;
+                });
+
+                // make sure we really are confident
+                if (maxTone.score >= CONFIDENCE_THRESHOLD) {
+                    shineForEmotion(maxTone.tone_id);
+                }
             }
         });
     } else {
