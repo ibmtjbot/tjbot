@@ -116,7 +116,7 @@ function shineFromTweetSentiment() {
             });
 
             if (emotionalTones.length > 0) {
-                var maxTone = emotinoalTones.reduce(function(a, b) {
+                var maxTone = emotionalTones.reduce(function(a, b) {
                     return (a.score > b.score) ? a : b;
                 });
 
