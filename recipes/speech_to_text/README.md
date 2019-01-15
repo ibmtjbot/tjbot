@@ -16,7 +16,7 @@ Next, go to the `recipes/speech_to_text` folder and install the dependencies.
 
 Create an instance of the [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/) service and note the authentication credentials.
 
-Make a copy the default configuration file and update it with the Watson service credentials.
+Make a copy of the default configuration file and update it with the Watson service credentials.
 
     $ cp config.default.js config.js
     $ nano config.js
