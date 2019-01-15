@@ -344,7 +344,7 @@ not have one already."
 echo "2. Log in to Bluemix and create an instance of the Watson services you plan
 to use. The Watson services are listed on the Bluemix dashboard, under
 \"Catalog\". The full list of Watson services used by TJBot are:"
-echo "Conversation (renamed to Assistant), Language Translator, Speech to Text, Text to Speech,"
+echo "Assistant, Language Translator, Speech to Text, Text to Speech,"
 echo "Tone Analyzer, and Visual Recognition"
 echo "3. For each Watson service, click the \"Create\" button on the bottom right
 of the page to create an instance of the service."
@@ -368,7 +368,7 @@ echo ""
 read -p "Would you like to run hardware tests at this time? [y/N] " choice </dev/tty
 case "$choice" in
     "y" | "Y")
-        $TJBOT_DIR/runTests.sh $TJBOT_DIR
+        $TJBOT_DIR/bootstrap/runTests.sh $TJBOT_DIR
         ;;
     *) ;;
 esac

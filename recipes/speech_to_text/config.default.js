@@ -12,6 +12,12 @@ exports.credentials = {};
 // Watson Speech to Text
 // https://www.ibm.com/watson/services/speech-to-text/
 exports.credentials.speech_to_text = {
-    password: '',
-    username: ''
+    // username/password authentication -- if your service uses this method,
+    // uncomment these two lines and comment the 'apikey' line below
+    // username: '',
+    // password: '',
+    // IAM authentication -- fill in your API key below
+    apikey: 'FILL IN YOUR API KEY HERE',
+    // service URL -- change this if the URL is different in your authentication credentials
+    url: 'https://stream.watsonplatform.net/speech-to-text/api/'
 };

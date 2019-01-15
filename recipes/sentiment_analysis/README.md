@@ -44,10 +44,13 @@ You can also change the colors that TJBot shines. The table below shows the colo
 | Anger | Red |
 | Joy | Yellow |
 | Fear | Magenta |
-| Disgust | Green |
 | Sadness | Blue |
 
 You can change these colors by editing the `shineForEmotion()` function.
+
+Also note that the Tone Analyzer API returns three language tones: `analytical`, `confident`, and `tentative`. Try modifying the recipe to do something new depending on which language tone is dominant.
+
+> 💡 Hint: you may want to eliminate the `filter()` on `tone.document_tone.tones` to be able to examine the language tones.
 
 ## Troubleshoot
 If the LED does not light up, you can try moving the power from 3.3 to 5 volts. If neither the 3.3v or 5v pins work, you will need a 1N4001 diode. The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
