@@ -18,7 +18,7 @@ Create an instance of the [Watson Tone Analyzer](https://www.ibm.com/watson/serv
 
 Create a set of [Twitter developer credentials](https://apps.twitter.com/) and note the consumer key, consumer secret, access token key, and access token secret.
 
-Make a copy the default configuration file and update it with the Watson service credentials.
+Make a copy of the default configuration file and update it with the Watson service credentials.
 
     $ cp config.default.js config.js
     $ nano config.js
