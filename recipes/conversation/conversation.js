@@ -29,16 +29,8 @@ if (config.hasCamera == false) {
     hardware = ['microphone', 'speaker', 'led', 'servo'];
 }
 
-// set up TJBot's configuration
-var tjConfig = {
-    log: {
-        level: 'verbose'
-    },
-    // Changing the robot name will change the attention word
-    // robot: {
-    //    name: ‘tee jay bot’
-    // }
-};
+// obtain TJBot's configuration from config.js
+var tjConfig = config.tjConfig;
 
 // instantiate our TJBot!
 var tj = new TJBot(hardware, tjConfig, credentials);
