@@ -34,6 +34,7 @@ Watson conversation uses intents to label the purpose of a sentence. For example
 
 - Introduction. You can say phrases such as "Watson, please introduce yourself", "Watson, who are you", and "Watson, can you introduce yourself"
 - Joke. You can ask "Watson, please tell me a joke" or "Watson, I would like to hear a joke".
+
 For a complete list, check the content of workspace-sample.json
 
 An **attention word** is used so TJBot knows you are talking to him. The default attention word is 'Watson', but you can change it in config.js as follows. Update the configuration file to change the robot name in tjConfig section:
