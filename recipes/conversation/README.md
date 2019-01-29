@@ -33,6 +33,7 @@ Run!
 # Watson Services
 - [Watson Assistant](https://www.ibm.com/watson/services/conversation/)
 - [Watson Text to Speech](https://www.ibm.com/watson/services/text-to-speech/)
+- [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/)
 
 # License
 This project is licensed under Apache 2.0. Full license text is available in [LICENSE](../../LICENSE).
