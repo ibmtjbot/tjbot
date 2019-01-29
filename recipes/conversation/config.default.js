@@ -11,6 +11,17 @@ exports.workspaceId = ''; // replace with the workspace identifier of your conve
 // Set this to false if your TJBot does not have a camera.
 exports.hasCamera = true;
 
+// set up TJBot's configuration
+exports.tjConfig = {
+    log: {
+        level: 'verbose'
+    },
+    // Changing the robot name will change the attention word
+    // robot: {
+    //    name: 'tee jay bot'
+    // }
+};
+
 // Create the credentials object for export
 exports.credentials = {};
 
