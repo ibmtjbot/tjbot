@@ -36,7 +36,7 @@ Watson conversation uses intents to label the purpose of a sentence. For example
 - Joke. You can ask "Watson, please tell me a joke" or "Watson, I would like to hear a joke".
 For a complete list, check the content of workspace-sample.json
 
-An **attention word** is used so TJBot knows you are talking to him. The default attention word is 'Watson', but you can change it in conversation.js as follows. Update the configuration file to change the robot name in tjConfig section:
+An **attention word** is used so TJBot knows you are talking to him. The default attention word is 'Watson', but you can change it in config.js as follows. Update the configuration file to change the robot name in tjConfig section:
 
     // set up TJBot's configuration
     
@@ -44,6 +44,8 @@ An **attention word** is used so TJBot knows you are talking to him. The default
         log: {   level: 'verbose'    },
         robot: {   name: 'tee jay bot'  }
     };
+
+You can change the 'name' to whatever you would like to call your TJBot.
 
 # Watson Services
 - [Watson Assistant](https://www.ibm.com/watson/services/conversation/)
