@@ -1,7 +1,7 @@
 # Conversation
 > Chat with TJBot!
 
-This recipe uses the [Watson Assistant](https://www.ibm.com/watson/services/conversation/) and [Watson Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services to turn TJ into a chatting robot.
+This recipe uses the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Watson Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services to turn TJ into a chatting robot.
 
 ## Hardware
 This recipe requires a TJBot with a microphone and a speaker.
@@ -14,7 +14,7 @@ Next, go to the `recipes/conversation` folder and install the dependencies.
     $ cd tjbot/recipes/conversation
     $ npm install
 
-Create instances of the [Watson Assistant](https://www.ibm.com/watson/services/conversation/) and [Watson Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services and note the authentication credentials.
+Create instances of the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Watson Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Watson Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services and note the authentication credentials.
 
 Import the `workspace-sample.json` file into the Watson Assistant service and note the workspace ID.
 
