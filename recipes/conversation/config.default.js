@@ -18,7 +18,7 @@ exports.tjConfig = {
     },
     // Changing the robot name will change the attention word
     // robot: {
-    //    name: ‘tee jay bot’
+    //    name: 'tee jay bot'
     // }
 };
 
