@@ -33,7 +33,11 @@ if (config.hasCamera == false) {
 var tjConfig = {
     log: {
         level: 'verbose'
-    }
+    },
+    // Changing the robot name will change the attention word
+    // robot: {
+    //    name: ‘tee jay bot’
+    // }
 };
 
 // instantiate our TJBot!
