@@ -30,6 +30,21 @@ Run!
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
+Watson conversation uses intents to label the purpose of a sentence. For example when you ask TJBot "Please introduce yourself", the intent is to make an introduction. You can add your own new intents, but for now, we have started you off with a few intents:
+
+- Introduction. You can say phrases such as "Watson, please introduce yourself", "Watson, who are you", and "Watson, can you introduce yourself"
+- Joke. You can ask "Watson, please tell me a joke" or "Watson, I would like to hear a joke".
+For a complete list, check the content of workspace-sample.json
+
+An **attention word** is used so TJBot knows you are talking to him. The default attention word is 'Watson', but you can change it in conversation.js as follows. Update the configuration file to change the robot name in tjConfig section:
+
+    // set up TJBot's configuration
+    
+    exports.tjConfig = {
+        log: {   level: 'verbose'    },
+        robot: {   name: 'tee jay bot'  }
+    };
+
 # Watson Services
 - [Watson Assistant](https://www.ibm.com/watson/services/conversation/)
 - [Watson Text to Speech](https://www.ibm.com/watson/services/text-to-speech/)
