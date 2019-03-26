@@ -16,7 +16,7 @@ Next, go to the `recipes/sentiment_analysis` folder and install the dependencies
 
 Create an instance of the [Watson Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service and note the authentication credentials.
 
-Create a set of [Twitter developer credentials](https://apps.twitter.com/) and note the consumer key, consumer secret, access token key, and access token secret.
+Create a set of [Twitter developer credentials](https://developer.twitter.com/en/apps) and note the consumer key, consumer secret, access token key, and access token secret.
 
 Make a copy of the default configuration file and update it with the Watson service credentials.
 
