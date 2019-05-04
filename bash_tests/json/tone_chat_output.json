@@ -1,0 +1,53 @@
+{
+    "utterances_tone": [
+        {
+            "utterance_id": 0,
+            "utterance_text": "Hello, I'm having a problem with your product.",
+            "tones": [
+                {
+                    "score": 0.686361,
+                    "tone_id": "polite",
+                    "tone_name": "Polite"
+                }
+            ]
+        },
+        {
+            "utterance_id": 1,
+            "utterance_text": "OK, let me know what's going on, please.",
+            "tones": [
+                {
+                    "score": 0.92724,
+                    "tone_id": "polite",
+                    "tone_name": "Polite"
+                }
+            ]
+        },
+        {
+            "utterance_id": 2,
+            "utterance_text": "Well, nothing is working :(",
+            "tones": [
+                {
+                    "score": 0.997795,
+                    "tone_id": "sad",
+                    "tone_name": "Sad"
+                }
+            ]
+        },
+        {
+            "utterance_id": 3,
+            "utterance_text": "Sorry to hear that.",
+            "tones": [
+                {
+                    "score": 0.730982,
+                    "tone_id": "polite",
+                    "tone_name": "Polite"
+                },
+                {
+                    "score": 0.672499,
+                    "tone_id": "sympathetic",
+                    "tone_name": "Sympathetic"
+                }
+            ]
+        }
+    ]
+}
