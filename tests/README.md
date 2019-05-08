@@ -21,7 +21,7 @@ cd ~/TJBOT/bash_tests
 * type **./** followed by the name of script file then space then your api-key for the related service
 
 ```bash
-./tone_analyzer_4.sh pomy6gsgO4kmjtNa3eiuhg7haziujhyf0Ps8WxTrIom6
+./tone_analyzer_4.sh <insert Watson key here>
 ```
 
 example output:
