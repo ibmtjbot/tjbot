@@ -3,7 +3,7 @@
 # The following will translate two phrases, "Hello, world!" and "How are you?" from English to Spanish.
 
 # Please update url if you are using a differnet WATSON api version
-URL=""
+URL="https://gateway-lon.watsonplatform.net/language-translator/api/v3/translate"
 
 echo "Translate two phrases from English to Spanish"
 
@@ -14,5 +14,5 @@ else
 	curl -X POST -u "apikey:$1" \
 	--header "Content-Type: application/json" \
 	--data "{\"text\": [\"Hello, world! \", \"How are you?\"], \"model_id\":\"en-es\"}" \
-	"https://gateway-lon.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01"
+	"$URL?version=2018-05-01"
 fi
