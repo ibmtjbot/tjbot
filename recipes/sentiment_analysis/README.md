@@ -1,7 +1,7 @@
 # Sentiment Analysis
 > Make your robot respond to emotions
 
-This recipe uses the [Watson Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service to shine TJBot’s LED different colors based on the emotions present in Twitter for a given keyword. It also uses the [Twitter API](https://dev.twitter.com/overview/api) to fetch tweets.
+This recipe uses the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service to shine TJBot’s LED different colors based on the emotions present in Twitter for a given keyword. It also uses the [Twitter API](https://dev.twitter.com/overview/api) to fetch tweets.
 
 ## Hardware
 This recipe requires a TJBot with an LED.
@@ -14,11 +14,11 @@ Next, go to the `recipes/sentiment_analysis` folder and install the dependencies
     $ cd tjbot/recipes/sentiment_analysis
     $ npm install
 
-Create an instance of the [Watson Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service and note the authentication credentials.
+Create an instance of the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service and note the authentication credentials.
 
 Create a set of [Twitter developer credentials](https://developer.twitter.com/en/apps) and note the consumer key, consumer secret, access token key, and access token secret.
 
-Make a copy of the default configuration file and update it with the Watson service credentials.
+Make a copy of the default configuration file and update it with the your service credentials.
 
     $ cp config.default.js config.js
     $ nano config.js
@@ -67,8 +67,8 @@ After TJBot finishes rebooting, confirm no "snd" modules are running.
 
 If you have additional difficulties not covered in this guide, please refer to [Adafruit's NeoPixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview) to troubleshoot.
 
-# Watson Services
-- [Watson Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/)
+# AI Services
+- [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/)
 
 # License
 This project is licensed under Apache 2.0. Full license text is available in [LICENSE](../../LICENSE).
