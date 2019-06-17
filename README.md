@@ -1,9 +1,9 @@
 # IBM TJBot
 <img src="images/tjbot.jpg" width="85%">
 
-[IBM Watson Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to build things with [Watson](https://www.ibm.com/watson/products-services/) in a fun and easy way. [IBM TJBot](http://ibm.biz/mytjbot) is the first maker kit in the collection. You can 3D print or laser cut the robot body, then use one of our [recipes](recipes) to bring him to life!
+[Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to build things with IBM AI services in a fun and easy way. [IBM TJBot](http://ibm.biz/mytjbot) is the first maker kit in the collection. You can 3D print or laser cut the robot body, then use one of our [recipes](recipes) to bring him to life!
 
-In addition, you can unleash your own creativity and create new recipes that bring TJBot to life using any of the available [Watson services](https://www.ibm.com/watson/products-services/)!
+In addition, you can unleash your own creativity and create new recipes that bring TJBot to life using any of the available IBM AI services!
 
 **TJBot only works with a Raspberry Pi.**
 
@@ -45,7 +45,7 @@ Just run that command to download and install TJBot:
 curl -sL http://ibm.biz/tjbot-bootstrap | sudo sh -
 ```
 
-[Recipes](recipes) are step-by-step instructions to bring your TJBot to life with [Watson](https://www.ibm.com/watson/products-services/).
+[Recipes](recipes) are step-by-step instructions to bring your TJBot to life with IBM Watson and AI services
 
 We have provided three initial [recipes](recipes) for you:
 
