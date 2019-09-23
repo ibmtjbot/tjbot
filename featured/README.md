@@ -1,3 +1,14 @@
+# Featured Designs
+Featured designs are fabulous extensions of the original design files that are created by members of the TJBot community. If you designed or modified the look of your TJBot and would like to share your modificaations with the community, please open an issue with a link to your design files.
+
+# 3D Printed Mini-TJBot
+
+- **[TJOrnament](https://github.ibm.com/Jason-Scot/mini-tj/blob/master/TJ-Ornament.stl)** by [Jason Scott](https://github.ibm.com/Jason-Scot) at IBM GTS Innovation. You can 3D print this mini (~5cm) TJbot ornament/toy standing upright and without any supports.
+
+[![TJOrnament](http://i.imgur.com/sSOKGCn.png?1)](https://github.ibm.com/Jason-Scot/mini-tj/blob/master/TJ-Ornament.stl)
+
+
+
 # Featured Recipes
 Featured recipes are exciting recipes created by members of the TJBot community.
 
