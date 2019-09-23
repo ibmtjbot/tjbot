@@ -1,5 +1,5 @@
 # Featured Designs
-Featured designs are fabulous extensions of the original design files that are created by members of the TJBot community. If you designed or modified the look of your TJBot and would like to share your modificaations with the community, please open an issue with a link to your design files.
+Featured designs are fabulous modifications to the look or size of TJBot, created by members of the TJBot community. If you designed accessories for TJBot or modified the look of your bot and would like to share it with the community, please open an issue with a link to your design files.
 
 # 3D Printed Mini-TJBot
 
