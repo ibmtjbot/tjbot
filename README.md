@@ -17,7 +17,7 @@ You can make your own TJBot in a number of ways.
 ## Electronics
 There are a number of components you can add to TJBot to bring him to life. Not all of these are required for all recipes.
 
-- [Raspberry Pi 3 + SD card preloaded with NOOBS](http://www.mcmelectronics.com/product/RASPBERRY-PI-RPI-MODB-16GB-NOOBS-/83-17304). **This is a required component to make TJBot work!** 🤖
+- [Raspberry Pi 3 + SD card preloaded with NOOBS](https://www.amazon.com/Vilros-Raspberry-Complete-Starter-Clear/dp/B01CUMNIV8/ref=sr_1_15?crid=35701RIYP4VK2&keywords=raspberry+pi+3+noobs+sd+card&qid=1569425114&sprefix=Raspberry+Pi+3+Loo%2Caps%2C131&sr=8-15). **This is a required component to make TJBot work!** 🤖
 - [NeoPixel RGB LED (8mm)](https://www.adafruit.com/product/1734). Note that if you are using other kinds of LEDs, you may need to add a resistor; this LED doesn’t require one.
 - [Female-to-female jumper wires](https://www.amazon.com/dp/B00KOL5BCC/). TJBot will only need 3 of these wires, so you’ll have extra.
 - [Female-to-male jumper wires](https://www.amazon.com/dp/B00PBZMN7C/). TJBot will only need 3 of these wires, so you’ll have extra.
