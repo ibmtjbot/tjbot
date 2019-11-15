@@ -248,13 +248,13 @@ echo "plugged in a speaker via HDMI, USB, or Bluetooth, this is a safe "
 echo "operation and you will be able to play sound and use the LED at the "
 echo "same time. If you plan to use the built-in audio jack, we recommend "
 echo "NOT disabling the sound kernel modules."
-read -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
+read -p "Disable sound kernel modules? [y/N] " choice </dev/tty
 case "$choice" in
-    "" | "y" | "Y")
+    "y" | "Y")
         echo "Disabling the kernel modules for the built-in audio jack."
         cp $TJBOT_DIR/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
         ;;
-    "n" | "N")
+    "" | "n" | "N")
         if [ -f /etc/modprobe.d/tjbot-blacklist-snd.conf ]; then
             echo "Enabling the kernel modules for the built-in audio jack."
             rm /etc/modprobe.d/tjbot-blacklist-snd.conf
