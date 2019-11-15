@@ -346,7 +346,7 @@ echo ""
 echo "1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you do
 not have one already."
 echo "2. Log in to IBM Cloud and create an instance of the Watson services you plan
-to use. The Watson services are listed on the Bluemix dashboard, under
+to use. The Watson services are listed on the IBM Cloud dashboard, under
 \"Catalog\". The full list of Watson services used by TJBot are:"
 echo "Assistant, Language Translator, Speech to Text, Text to Speech,"
 echo "Tone Analyzer, and Visual Recognition"
