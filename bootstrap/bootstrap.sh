@@ -40,13 +40,13 @@ case "$choice" in
     *) ;;
 esac
 
-#----test raspbian version: 8 is jessie, 9 is stretch
+#----test raspbian version: if it's older than jessie, it may not work
 RASPIAN_VERSION_ID=`cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2`
-RASPIAN_VERSION=`cat /etc/os-release | grep VERSION | grep -v ID | cut -d '"' -f 2`
-if [ $RASPIAN_VERSION_ID -ne 8 ] && [ $RASPIAN_VERSION_ID -ne 9 ]; then
-    echo "Warning: it looks like your Raspberry Pi is not running Raspian (Jessie)"
-    echo "or Raspian (Stretch). TJBot has only been tested on these versions of"
-    echo "Raspian."
+RASPIAN_VERSION=`cat /etc/os-release | grep VERSION= | cut -d '"' -f 2`
+if [ $RASPIAN_VERSION_ID -lt 8 ]; then
+    echo "Warning: it looks like your Raspberry Pi is running an older version"
+    echo "of Raspian. TJBot has only been tested on Raspian 8 (Jessie) and"
+    echo "later."
     echo ""
     read -p "Would you like to continue with setup? [Y/n] " choice </dev/tty
     case "$choice" in
@@ -145,9 +145,12 @@ if [ $RASPIAN_VERSION_ID -eq 8 ]; then
 # Node.js version 9 for Stretch
 elif [ $RASPIAN_VERSION_ID -eq 9 ]; then
     RECOMMENDED_NODE_LEVEL="9"
-# Node.js version 9 for anything else
+# Node.js version 10 for Buster
+elif [ $RASPIAN_VERSION_ID -eq 10 ]; then
+    RECOMMENDED_NODE_LEVEL="10"
+# Node.js version 10 for anything else
 else
-    RECOMMENDED_NODE_LEVEL="9"
+    RECOMMENDED_NODE_LEVEL="10"
 fi
 
 echo ""
@@ -238,12 +241,13 @@ fi
 
 #----blacklist audio kernel modules
 echo ""
-echo "In order for the LED to work, we need to disable certain kernel modules to"
-echo "avoid a conflict with the built-in audio jack. If you have plugged in a"
-echo "speaker via HDMI, USB, or Bluetooth, this is a safe operation and you will"
-echo "be able to play sound and use the LED at the same time. If you plan to use"
-echo "the built-in audio jack, we recommend NOT disabling the sound kernel"
-echo "modules."
+echo "On Raspberry Pi 3 models, there is a known conflict between the LED "
+echo "and the built-in audio jack. In order for the LED to work, we need to"
+echo "disable certain kernel modules to avoid this conflict. If you have "
+echo "plugged in a speaker via HDMI, USB, or Bluetooth, this is a safe "
+echo "operation and you will be able to play sound and use the LED at the "
+echo "same time. If you plan to use the built-in audio jack, we recommend "
+echo "NOT disabling the sound kernel modules."
 read -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
 case "$choice" in
     "" | "y" | "Y")
@@ -339,9 +343,9 @@ echo "Notice about Watson services: Before running any recipes, you will need"
 echo "to obtain credentials for the Watson services used by those recipes."
 echo "You can obtain these credentials as follows:"
 echo ""
-echo "1. Sign up for a free IBM Bluemix account at https://bluemix.net if you do
+echo "1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you do
 not have one already."
-echo "2. Log in to Bluemix and create an instance of the Watson services you plan
+echo "2. Log in to IBM Cloud and create an instance of the Watson services you plan
 to use. The Watson services are listed on the Bluemix dashboard, under
 \"Catalog\". The full list of Watson services used by TJBot are:"
 echo "Assistant, Language Translator, Speech to Text, Text to Speech,"
