@@ -137,7 +137,7 @@ esac
 
 #----nodejs install
 NODE_VERSION=$(node --version 2>&1)
-NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | awk '{print substr($0,2,1)}')
+NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | cut -d 'v' -f 2)
 
 # Node.js version 6 for Jessie
 if [ $RASPIAN_VERSION_ID -eq 8 ]; then
