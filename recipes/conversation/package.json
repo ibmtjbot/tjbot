@@ -7,7 +7,7 @@
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "tjbot": "latest"
+    "tjbot": "file:../../../tjbotlib"
   },
   "main": "conversation.js",
   "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation",
@@ -22,5 +22,10 @@
   "scripts": {
     "start": "node conversation.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
   }
 }

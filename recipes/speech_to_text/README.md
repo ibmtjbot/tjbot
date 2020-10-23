@@ -14,13 +14,7 @@ Next, go to the `recipes/speech_to_text` folder and install the dependencies.
     $ cd tjbot/recipes/speech_to_text
     $ npm install
 
-Create an instance of the [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/) service and note the authentication credentials.
-
-Make a copy of the default configuration file and update it with your credentials.
-
-    $ cp config.default.js config.js
-    $ nano config.js
-    <enter your credentials in the specified places>
+Create an instance of the [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/) service and download the authentication credentials file. Ensure this file is named `ibm-credentials.env` and place it in the `tjbot/recipes/speech_to_text` folder.
 
 Run!
 

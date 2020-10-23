@@ -14,7 +14,7 @@ Next, go to the `recipes/sentiment_analysis` folder and install the dependencies
     $ cd tjbot/recipes/sentiment_analysis
     $ npm install
 
-Create an instance of the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service and note the authentication credentials.
+Create an instance of the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service and download the authentication credentials file. Ensure this file is named `ibm-credentials.env` and place it in the `tjbot/recipes/sentiment_analysis` folder.
 
 Create a set of [Twitter developer credentials](https://developer.twitter.com/en/apps) and note the consumer key, consumer secret, access token key, and access token secret.
 

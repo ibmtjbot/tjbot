@@ -7,8 +7,8 @@
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "tjbot": "latest",
-    "twitter": "^1.4.0"
+    "tjbot": "file:../../../tjbotlib",
+    "twitter": "^1.7.1"
   },
   "main": "sentiment.js",
   "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis",
@@ -23,5 +23,10 @@
   "scripts": {
     "start": "node sentiment.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
   }
 }

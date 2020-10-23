@@ -1,5 +1,5 @@
 /**
- * Copyright 2016-2018 IBM Corp. All Rights Reserved.
+ * Copyright 2016-2020 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,24 @@
  * limitations under the License.
  */
 
-var TJBot = require('tjbot');
-var config = require('./config');
-
-// obtain our credentials from config.js
-var credentials = config.credentials;
+import TJBot from 'tjbot';
 
 // these are the hardware capabilities that our TJ needs for this recipe
-var hardware = ['led', 'microphone'];
+const hardware = [TJBot.HARDWARE.LED, TJBot.HARDWARE.MICROPHONE];
 
 // set up TJBot's configuration
-var tjConfig = {
+const config = {
     log: {
-        level: 'verbose'
-    }
+        level: 'verbose',
+    },
 };
 
 // instantiate our TJBot!
-var tj = new TJBot(hardware, tjConfig, credentials);
+const tj = new TJBot(config);
+tj.initialize(hardware);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']
-var tjColors = tj.shineColors();
+const tjColors = tj.shineColors();
 
 console.log("I understand lots of colors.  You can tell me to shine my light a different color by saying 'turn the light red' or 'change the light to green' or 'turn the light off'.");
 
@@ -43,25 +40,25 @@ console.log("I understand lots of colors.  You can tell me to shine my light a d
 // console.log(tjColors.join(", "));
 
 // hash map to easily test if TJ understands a color, e.g. {'red': 1, 'green': 1, 'blue': 1}
-var colors = {};
-tjColors.forEach(function(color) {
+const colors = {};
+tjColors.forEach((color) => {
     colors[color] = 1;
 });
 
 // listen for speech
-tj.listen(function(msg) {
-    var containsTurn = msg.indexOf("turn") >= 0;
-    var containsChange = msg.indexOf("change") >= 0;
-    var containsSet = msg.indexOf("set") >= 0;
-    var containsLight = msg.indexOf("the light") >= 0;
-    var containsDisco = msg.indexOf("disco") >= 0;
+tj.listen((msg) => {
+    const containsTurn = msg.indexOf('turn') >= 0;
+    const containsChange = msg.indexOf('change') >= 0;
+    const containsSet = msg.indexOf('set') >= 0;
+    const containsLight = msg.indexOf('the light') >= 0;
+    const containsDisco = msg.indexOf('disco') >= 0;
 
     if ((containsTurn || containsChange || containsSet) && containsLight) {
         // was there a color uttered?
-        var words = msg.split(" ");
-        for (var i = 0; i < words.length; i++) {
-            var word = words[i];
-            if (colors[word] != undefined || word == "on" || word == "off") {
+        const words = msg.split(' ');
+        for (let i = 0; i < words.length; i += 1) {
+            const word = words[i];
+            if (colors[word] !== undefined || word === 'on' || word === 'off') {
                 // yes!
                 tj.shine(word);
                 break;
@@ -75,10 +72,10 @@ tj.listen(function(msg) {
 // let's have a disco party!
 /*
 function discoParty() {
-    for (i = 0; i < 30; i++) {
-        setTimeout(function() {
-            var randIdx = Math.floor(Math.random() * tjColors.length);
-            var randColor = tjColors[randIdx];
+    for (let i = 0; i < 30; i += 1) {
+        setTimeout(() => {
+            const randIdx = Math.floor(Math.random() * tjColors.length);
+            const randColor = tjColors[randIdx];
             tj.shine(randColor);
         }, i * 250);
     }
