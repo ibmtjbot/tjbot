@@ -17,7 +17,7 @@
 import TJBot from 'tjbot';
 import {
     assistantId,
-    hasCamera
+    hasCamera,
 } from './config';
 
 // these are the hardware capabilities that TJ needs for this recipe
