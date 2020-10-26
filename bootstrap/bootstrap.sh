@@ -136,47 +136,33 @@ case "$choice" in
 esac
 
 #----nodejs install
-NODE_VERSION=$(node --version 2>&1)
-NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | cut -d 'v' -f 2)
+echo ""
+RECOMMENDED_NODE_LEVEL="15"
+MIN_NODE_LEVEL="10"
+NEED_NODE_INSTALL=false
 
-# Node.js version 6 for Jessie
-if [ $RASPIAN_VERSION_ID -eq 8 ]; then
-    RECOMMENDED_NODE_LEVEL="6"
-# Node.js version 9 for Stretch
-elif [ $RASPIAN_VERSION_ID -eq 9 ]; then
-    RECOMMENDED_NODE_LEVEL="9"
-# Node.js version 10 for Buster
-elif [ $RASPIAN_VERSION_ID -eq 10 ]; then
-    RECOMMENDED_NODE_LEVEL="10"
-# Node.js version 10 for anything else
+if which node > /dev/null; then
+    NODE_VERSION=$(node --version 2>&1)
+    NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | cut -d 'v' -f 2)
+    if [ $NODE_LEVEL -lt $MIN_NODE_LEVEL ]; then
+        echo "Node.js v$NODE_VERSION.x is currently installed. We recommend installing"
+        echo "v$MIN_NODE_LEVEL.x or later."
+        NEED_NODE_INSTALL=true
+    fi
 else
-    RECOMMENDED_NODE_LEVEL="10"
+    echo "Node.js is not installed."
+    NEED_NODE_INSTALL=true
 fi
 
-echo ""
-if [ $NODE_LEVEL -ge $RECOMMENDED_NODE_LEVEL ]; then
-    echo "Node.js version $NODE_VERSION is installed, which is the recommended version for"
-    echo "Raspian $RASPIAN_VERSION. Congratulations!"
-else
-    echo "Node.js version $NODE_VERSION is currently installed. We recommend installing"
-    echo "Node.js version $RECOMMENDED_NODE_LEVEL for Raspian $RASPIAN_VERSION."
-
-    read -p "Would you like to install a newer version of Node.js? [Y/n] " choice </dev/tty
+if $NEED_NODE_INSTALL; then
+    read -p "Would you like to install Node.js v$RECOMMENDED_NODE_LEVEL.x? [Y/n] " choice </dev/tty
     case "$choice" in
         "" | "y" | "Y")
-            read -p "Which version of Node.js would you like to install? [6/7/8/9] " node_version </dev/tty
-            case "$node_version" in
-                "6" | "7" | "8" | "9")
-                    curl -sL https://deb.nodesource.com/setup_${node_version}.x | sudo bash -
-                    apt-get install -y nodejs
-                    ;;
-                *)
-                    echo "Invalid Node.js version specified, Node.js will not be upgraded at this time."
-                    ;;
-            esac
+            curl -sL https://deb.nodesource.com/setup_${RECOMMENDED_NODE_LEVEL}.x | sudo bash -
+            apt-get install -y nodejs
             ;;
         *)
-            echo "Warning: TJBot will encounter problems with versions of Node.js older than 6.x."
+            echo "Warning: TJBot may not operate without installing a current version of Node.js."
             ;;
     esac
 fi
@@ -248,13 +234,13 @@ echo "plugged in a speaker via HDMI, USB, or Bluetooth, this is a safe "
 echo "operation and you will be able to play sound and use the LED at the "
 echo "same time. If you plan to use the built-in audio jack, we recommend "
 echo "NOT disabling the sound kernel modules."
-read -p "Disable sound kernel modules? [y/N] " choice </dev/tty
+read -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
 case "$choice" in
-    "y" | "Y")
+    "" | "y" | "Y")
         echo "Disabling the kernel modules for the built-in audio jack."
         cp $TJBOT_DIR/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
         ;;
-    "" | "n" | "N")
+    "n" | "N")
         if [ -f /etc/modprobe.d/tjbot-blacklist-snd.conf ]; then
             echo "Enabling the kernel modules for the built-in audio jack."
             rm /etc/modprobe.d/tjbot-blacklist-snd.conf
@@ -339,8 +325,8 @@ read -p "Press enter to continue" nonce </dev/tty
 
 #——instructions for watson credentials
 echo ""
-echo "Notice about Watson services: Before running any recipes, you will need"
-echo "to obtain credentials for the Watson services used by those recipes."
+echo "Notice about IBM Watson services: Before running any recipes, you will need"
+echo "to obtain credentials for the IBM Watson services used by those recipes."
 echo "You can obtain these credentials as follows:"
 echo ""
 echo "1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you do
@@ -350,12 +336,11 @@ to use. The Watson services are listed on the IBM Cloud dashboard, under
 \"Catalog\". The full list of Watson services used by TJBot are:"
 echo "Assistant, Language Translator, Speech to Text, Text to Speech,"
 echo "Tone Analyzer, and Visual Recognition"
-echo "3. For each Watson service, click the \"Create\" button on the bottom right
+echo "3. For each service, click the \"Create\" button on the bottom right
 of the page to create an instance of the service."
-echo "4. Click \"Service Credentials\" in the left-hand sidebar. Next, click
-\"View Credentials\" under the Actions menu."
-echo "5. Make note of the credentials for each Watson service. You will need to save
-these in the config.js files for each recipe you wish to run."
+echo "4. Click the \"Download\" link in the \"Credentials\" section of the page."
+echo "5. Save the \"ibm-credentials.env\" file(s) in the folder of the recipe you wish to use."
+echo "If you have credentials from multiple services, combine their contents into a single file."
 echo "For more detailed guides on setting up service credentials, please see the
 README file of each recipe, or search instructables.com for \"tjbot\"."
 echo ""
