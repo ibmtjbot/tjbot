@@ -138,7 +138,7 @@ esac
 #----nodejs install
 echo ""
 RECOMMENDED_NODE_LEVEL="15"
-MIN_NODE_LEVEL="10"
+MIN_NODE_LEVEL="15"
 NEED_NODE_INSTALL=false
 
 if which node > /dev/null; then
