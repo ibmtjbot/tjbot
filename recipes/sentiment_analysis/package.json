@@ -7,7 +7,7 @@
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "tjbot": "^2.0.0",
+    "tjbot": "file:../../../tjbotlib",
     "twitter": "^1.7.1"
   },
   "main": "sentiment.js",
@@ -20,6 +20,7 @@
     "type": "git",
     "url": "git@github.com:ibmtjbot/tjbot.git"
   },
+  "type": "module",
   "scripts": {
     "start": "node sentiment.js",
     "test": "echo \"Error: no test specified\" && exit 1"

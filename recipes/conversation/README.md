@@ -4,7 +4,7 @@
 This recipe uses the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services to turn TJ into a chatting robot.
 
 ## Hardware
-This recipe requires a TJBot with a microphone and a speaker.
+This recipe requires a TJBot with a microphone, a speaker, and optionally a camera.
 
 ## Build and Run
 First, make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).
@@ -16,13 +16,20 @@ Next, go to the `recipes/conversation` folder and install the dependencies.
 
 Create instances of the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services and note the authentication credentials.
 
-Import the `workspace-sample.json` file into the Watson Assistant service and note the workspace ID.
-
 Make a copy the default configuration file and update it with your service credentials and the conversation workspace ID.
 
     $ cp config.default.js config.js
     $ nano config.js
     <enter your credentials and the conversation workspace ID in the specified places>
+
+Set up Watson Assistant using the following steps:
+
+1. Launch the Watson Assistant tool and create a new assistant.
+2. Click "Add dialog skill" and then "Import Skill."
+3. Upload the `tjbot-skill-sample.json` file.
+4. Go back to the Assistants screen and click the menu (with the three dots), and click "Settings."
+5. Click "API Details" in the left sidebar.
+6. Copy the "Assistant ID" and paste it into your `config.js` file
 
 Run!
 
@@ -37,16 +44,13 @@ Watson conversation uses intents to label the purpose of a sentence. For example
 
 For a complete list, check the content of workspace-sample.json
 
-An **attention word** is used so TJBot knows you are talking to him. The default attention word is 'Watson', but you can change it in config.js as follows. Update the configuration file to change the robot name in tjConfig section:
+An **attention word** is used so TJBot knows you are talking to it. The default attention word is 'tinker', but you can change it in `config.js` by changing `robotName`:
 
-    // set up TJBot's configuration
-    
-    exports.tjConfig = {
-        log: {   level: 'verbose'    },
-        robot: {   name: 'tee jay bot'  }
-    };
-
-You can change the 'name' to whatever you would like to call your TJBot.
+    export default {
+        assistantId: '', // add your assistant id from Watson Assistant
+        hasCamera: true, // set this to false if your TJBot doesn't have a camera
+        robotName: 'tinker', // set this to the name you wish to use to address your tjbot!
+    }
 
 # Watson Services
 - [Watson Assistant](https://www.ibm.com/watson/services/conversation/)

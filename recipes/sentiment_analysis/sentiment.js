@@ -16,38 +16,34 @@
 
 import TJBot from 'tjbot';
 import Twitter from 'twitter';
-import {
-    twitterCredentials,
-    sentimentKeyword,
-    sentimentAnalysisFrequencySec,
-} from './config';
+import config from './config.js';
 
 // covert sec to msec
-const sentimentAnalysisFrequencyMsec = sentimentAnalysisFrequencySec * 1000;
+const sentimentAnalysisFrequencyMsec = config.sentimentAnalysisFrequencySec * 1000;
 
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.HARDwARE.LED];
+const hardware = [TJBot.HARDWARE.LED];
 
 // set up TJBot's configuration
-const config = {
+const tjConfig = {
     log: {
-        level: 'verbose',
+        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     },
 };
 
 // instantiate our TJBot!
-const tj = new TJBot(config);
+const tj = new TJBot(tjConfig);
 tj.initialize(hardware);
 
 // create the twitter client
 const twitter = new Twitter({
-    consumer_key: twitterCredentials.consumerKey,
-    consumer_secret: twitterCredentials.twitter.consumerSecret,
-    access_token_key: twitterCredentials.twitter.accessTokenKey,
-    access_token_secret: twitterCredentials.twitter.accessTokenSecret,
+    consumer_key: config.twitterCredentials.consumerKey,
+    consumer_secret: config.twitterCredentials.consumerSecret,
+    access_token_key: config.twitterCredentials.accessTokenKey,
+    access_token_secret: config.twitterCredentials.accessTokenSecret,
 });
 
-console.log(`I am monitoring twitter for ${sentimentKeyword}. It may take a few moments to collect enough tweets to analyze.`);
+console.log(`I am monitoring twitter for ${config.sentimentKeyword}. It may take a few moments to collect enough tweets to analyze.`);
 
 // turn the LED off
 tj.shine('off');
@@ -58,7 +54,7 @@ const MAX_TWEETS = 100;
 const CONFIDENCE_THRESHOLD = 0.5;
 
 function shineForEmotion(emotion) {
-    console.log(`Current emotion around ${sentimentKeyword} is ${emotion}`);
+    console.log(`Current emotion around ${config.sentimentKeyword} is ${emotion}`);
 
     switch (emotion) {
     case 'anger':
@@ -113,7 +109,7 @@ async function shineFromTweetSentiment() {
 function monitorTwitter() {
     // monitor twitter
     twitter.stream('statuses/filter', {
-        track: sentimentKeyword,
+        track: config.sentimentKeyword,
     }, (stream) => {
         stream.on('data', (event) => {
             if (event && event.text) {

@@ -22,9 +22,10 @@ const hardware = [TJBot.HARDWARE.LED, TJBot.HARDWARE.MICROPHONE];
 // set up TJBot's configuration
 const config = {
     log: {
-        level: 'verbose',
+        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     },
 };
+
 
 // instantiate our TJBot!
 const tj = new TJBot(config);

@@ -1,7 +1,5 @@
-/*
-* User-specific configuration
-*/
-
-exports.assistantId = ''; // replace with your assistant id
-
-exports.hasCamera = true; // set this to false if your TJBot does not have a camera
+export default {
+    assistantId: '', // add your assistant id from Watson Assistant
+    hasCamera: true, // set this to false if your TJBot doesn't have a camera
+    robotName: 'Watson', // set this to the name you wish to use to address your tjbot!
+}
