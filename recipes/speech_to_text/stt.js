@@ -20,15 +20,14 @@ import TJBot from 'tjbot';
 const hardware = [TJBot.HARDWARE.LED, TJBot.HARDWARE.MICROPHONE];
 
 // set up TJBot's configuration
-const config = {
+const tjConfig = {
     log: {
         level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     },
 };
 
-
 // instantiate our TJBot!
-const tj = new TJBot(config);
+const tj = new TJBot(tjConfig);
 tj.initialize(hardware);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']
