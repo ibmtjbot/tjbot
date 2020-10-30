@@ -34,6 +34,7 @@ tj.initialize(hardware);
 const tjColors = tj.shineColors();
 
 console.log("I understand lots of colors.  You can tell me to shine my light a different color by saying 'turn the light red' or 'change the light to green' or 'turn the light off'.");
+console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 
 // uncomment to see the full list of colors TJ understands
 // console.log("Here are all the colors I understand:");
@@ -46,7 +47,14 @@ tjColors.forEach((color) => {
 });
 
 // listen for speech
-tj.listen((msg) => {
+while (true) {
+    const msg = await tj.listen();
+
+    if (msg === 'stop') {
+        console.log('Goodbye!');
+        process.exit(0);
+    }
+
     const containsTurn = msg.indexOf('turn') >= 0;
     const containsChange = msg.indexOf('change') >= 0;
     const containsSet = msg.indexOf('set') >= 0;
@@ -67,7 +75,7 @@ tj.listen((msg) => {
     } else if (containsDisco) {
         // discoParty();
     }
-});
+}
 
 // let's have a disco party!
 /*

@@ -40,10 +40,18 @@ tj.initialize(hardware);
 console.log('You can ask me to introduce myself or tell you a joke.');
 console.log(`Try saying, "${config.robotName}, please introduce yourself" or "${config.robotName}, what can you do?"`);
 console.log(`You can also say, "${config.robotName}, tell me a joke!"`);
+console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 
 // listen for utterances with our attentionWord and send the result to
 // the Assistant service
-async function handleMessage(msg) {
+while (true) {
+    const msg = await tj.listen();
+
+    if (msg.indexOf('stop') >= 0) {
+        console.log('Goodbye!');
+        process.exit(0);
+    }
+
     // check to see if they are talking to TJBot
     if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
         // remove our name from the message
@@ -139,5 +147,3 @@ async function handleMessage(msg) {
         }
     }
 }
-
-tj.listen(handleMessage);
