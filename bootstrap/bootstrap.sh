@@ -190,7 +190,7 @@ case "$choice" in
     "y" | "Y")
         if grep "start_x=1" /boot/config.txt
         then
-            echo "Camera is alredy enabled."
+            echo "Camera is already enabled."
         else
             echo "Enabling camera."
             if grep "start_x=0" /boot/config.txt
