@@ -59,7 +59,7 @@ console.log(`Using STT voice: ${sttLanguage}`);
 
 // listen for speech and translate
 while (true) {
-    const message = await tj.listenAsync();
+    const message = await tj.listen();
     const translated = await tj.translate(message, 'en', config.targetLanguage);
     console.log(translated.description);
     await tj.speak(translated.description);
