@@ -25,6 +25,11 @@ This recipe demonstrates how to use the [Speech to Text](https://www.ibm.com/wat
 
 <img src="../images/conversation.png" width="50%">
 
+### [Translator](translator)
+> Learn another language with TJBot!
+
+This recipe demonstrates how to use the [Language Translator](https://www.ibm.com/watson/services/language-translator), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services to build a robot translator.
+
 ## Featured Recipes
 Check out the [featured TJBot recipes](../featured) created by members of our community.
 

@@ -47,7 +47,7 @@ console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 while (true) {
     const msg = await tj.listen();
 
-    if (msg.indexOf('stop') >= 0) {
+    if (msg === 'stop') {
         console.log('Goodbye!');
         process.exit(0);
     }
