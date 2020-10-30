@@ -22,12 +22,10 @@ Run!
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
-Now talk to your microphone to change the color of the LED. Say "turn the light blue" to change the light to blue. You can try other colors as well, such as yellow, green, orange, purple, magenta, red, blue, aqua, and white. You can also say "turn the light on" or "turn the light off".
+Now, speak into TJBot's microphone to change the color of the LED. Say "turn the light blue" to change the light to blue or "turn the light purple" to change it to purle. You can try other colors as well, such as yellow, green, orange, purple, magenta, red, blue, aqua, and white. You can also say "turn the light on" or "turn the light off".
 
 ## Customize
 We have hidden a disco party for you. Find the code for disco party in `stt.js` and uncomment the code (hint: there are two places that need to be uncommented). Now you can ask TJ to show you the disco lights by saying "Let's have a disco party"!
-
-Try implementing your own TJBot party and share it with us #TJBot!
 
 ## Troubleshoot
 If the LED does not light up, you can try moving the power from 3.3 to 5 volts. If neither the 3.3v or 5v pins work, you will need a 1N4001 diode. The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.

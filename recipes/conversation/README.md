@@ -14,7 +14,7 @@ Next, go to the `recipes/conversation` folder and install the dependencies.
     $ cd tjbot/recipes/conversation
     $ npm install
 
-Create instances of the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services and note the authentication credentials.
+Create instances of the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services and download the authentication credentials file for each service. Combine each of these files into a single file named `ibm-credentials.env` and place it in the `tjbot/recipes/translator` folder. See `ibm-credentials.sample.env` for an example.
 
 Make a copy the default configuration file and update it with your service credentials and the conversation workspace ID.
 
