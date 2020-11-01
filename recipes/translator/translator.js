@@ -23,7 +23,7 @@ const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER];
 // set up TJBot's configuration
 const tjConfig = {
     log: {
-        level: 'silly', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
+        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     },
 };
 
@@ -35,7 +35,12 @@ tj.initialize(hardware);
 const allLanguages = await tj.translatableLanguages('en');
 const languages = [];
 
+// this is the language we are translating to
+const languageCode = tj.codeForLanguage(config.translateLanguage);
+
 // figure out which languages we can translate to
+// a) because we can speak in that language, and
+// b) because we can translate English to that language
 let sttLanguage = TJBot.LANGUAGES.ENGLISH_US;
 for (const [key, value] of Object.entries(TJBot.LANGUAGES.SPEAK)) {
     const code = value.substring(0, 2);
@@ -47,20 +52,31 @@ for (const [key, value] of Object.entries(TJBot.LANGUAGES.SPEAK)) {
 
     // if the prefix matches the target language (e.g. en-US matches en),
     // use this voice
-    if (code === config.targetLanguage) {
+    if (code === languageCode) {
         sttLanguage = value;
     }
 }
 
-console.log(`Greetings from your TJBot translator! Please speak to me in English, and I will translate your words into ${config.targetLanguage}.`);
-console.log(`I can also translate to these other languages: ${languages.join(', ')}`);
-console.log("Update your config.js to specify which one you wish to use!")
+// these are all of the languages to which we can translate
+const languageList = languages.map((l) => tj.languageForCode(l)).join(', ');
+
+// make sure we recognize the language desired
+if (languageCode === undefined) {
+    console.log(`Unknown language ${config.translateLanguage}, please specify one of these languages to translate to in config.js.`);
+    console.log(languageList);
+    process.exit(0);
+}
+
+console.log(`Greetings from your TJBot translator! Please speak to me in English, and I will translate your words into ${config.translateLanguage}.`);
+console.log(`I can also translate to these other languages: ${languageList}`);
+console.log("Update your config.js to try another language!")
 console.log(`Using STT voice: ${sttLanguage}`);
+console.log("Press ctrl-c to exit this recipe.");
 
 // listen for speech and translate
 while (true) {
     const message = await tj.listen();
-    const translated = await tj.translate(message, 'en', config.targetLanguage);
-    console.log(translated.description);
+    const translated = await tj.translate(message, 'en', languageCode);
+    console.log(`translation: ${translated.description}`);
     await tj.speak(translated.description);
 }
