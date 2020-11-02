@@ -76,7 +76,14 @@ console.log("Press ctrl-c to exit this recipe.");
 // listen for speech and translate
 while (true) {
     const message = await tj.listen();
-    const translated = await tj.translate(message, 'en', languageCode);
-    console.log(`translation: ${translated.description}`);
+    let translated = { description: message };
+
+    // just in case someone wants an echo bot...
+    if (languageCode !== 'en') {
+        translated = await tj.translate(message, 'en', languageCode);
+        console.log(`translation: ${translated.description}`);
+        
+    }
+    
     await tj.speak(translated.description);
 }
