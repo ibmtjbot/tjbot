@@ -117,7 +117,7 @@ while (true) {
                 }
                 break;
             case 'see':
-                if (hasCamera === false) {
+                if (config.hasCamera === false) {
                     await tj.speak("I'm sorry, I don't have a camera so I can't see anything");
                     spoken = true;
                 } else {

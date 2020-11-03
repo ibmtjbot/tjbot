@@ -67,6 +67,9 @@ if (languageCode === undefined) {
     process.exit(0);
 }
 
+// set TJBot's language
+tj.configuration.speak.language = sttLanguage;
+
 console.log(`Greetings from your TJBot translator! Please speak to me in English, and I will translate your words into ${config.translateLanguage}.`);
 console.log(`I can also translate to these other languages: ${languageList}`);
 console.log("Update your config.js to try another language!")
