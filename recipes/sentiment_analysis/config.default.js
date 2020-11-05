@@ -6,5 +6,5 @@ export default {
         consumerSecret: '',
         accessTokenKey: '',
         accessTokenSecret: '',
-    }
-}
+    },
+};
