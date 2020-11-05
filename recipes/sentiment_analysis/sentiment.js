@@ -16,7 +16,7 @@
 
 import TJBot from 'tjbot';
 import Twitter from 'twitter';
-import config from './config';
+import config from './config.js';
 
 // covert sec to msec
 const sentimentAnalysisFrequencyMsec = config.sentimentAnalysisFrequencySec * 1000;
