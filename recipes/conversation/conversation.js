@@ -26,7 +26,7 @@ if (config.hasCamera) {
 // set up TJBot's configuration
 const tjConfig = {
     log: {
-        level: 'verbose', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
+        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     },
     converse: {
         assistantId: config.assistantId,
