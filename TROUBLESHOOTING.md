@@ -34,21 +34,21 @@ By default, TJBot sends colors to the LED in "RGB" format. Some LEDs may expect 
 ### LED still shows the wrong color, rapidly flashes different colors, or flashes when audio is playing
 If the LED shows the wrong color, rapidly flashes different colors, or flashes when audio is playing, it may be due to interference with the built-in audio hardware. Depending on your configuration of Raspbian, the sound drivers may be more aggressive in taking away control of GPIO 18 from other processes. If your LED shows random colors instead of the expected color, use this trick to fix it.
 
-    sudo cp bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
-    sudo update-initramfs -u
-    sudo reboot
+    $ sudo cp bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
+    $ sudo update-initramfs -u
+    $ sudo reboot
 
 After TJBot finishes rebooting, confirm no "snd" modules are running.
 
-    lsmod
+    $ lsmod
 
 ### LED doesn't work on Raspberry Pi 4
 There is a known issue in the `rpi-ws281x-native` library on Raspberry Pi 4 that prevents the LED from shining. There is a software workaround which involves checking out code from a special branch. As of this writing, this branch has not been merged into the main `rpi-ws281x-native` library. Within the `tjbot/recipes/speech_to_text` directory, run the following commands:
 
-    npm install rpi-ws281x-native@latest
-    git clone --single-branch --branch raspi4support https://github.com/jimbotel/rpi_ws281x.git
-    cp -r rpi_ws281x/* node_modules/rpi-ws281x-native/src/rpi_ws281x
-    npm build node_modules/rpi-ws281x-native
+    $ npm install rpi-ws281x-native@latest
+    $ git clone --single-branch --branch raspi4support https://github.com/jimbotel/rpi_ws281x.git
+    $ cp -r rpi_ws281x/* node_modules/rpi-ws281x-native/src/rpi_ws281x
+    $ npm build node_modules/rpi-ws281x-native
 
 ### I'm still having troubles with the LED!
 If you have additional difficulties not covered in this guide, please refer to [Adafruit's NeoPixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview) to troubleshoot.
