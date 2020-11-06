@@ -12,7 +12,9 @@ Perform the following operations to prepare your Raspberry Pi for becoming a TJB
 
 3. Run the following command.
 
-    $ curl -sL http://ibm.biz/tjbot-bootstrap | sudo sh -
+```
+$ curl -sL http://ibm.biz/tjbot-bootstrap | sudo sh -
+```
 
 > Note that this script requires root access and must be run with `sudo`.
 
@@ -26,35 +28,45 @@ Perform the following operations to prepare your Raspberry Pi for becoming a TJB
 
 3. _Optional_. Set the hostname of your Raspberry Pi. The hostname is used to find your Raspberry Pi on the network.
 
-    $ hostname <enter your hostname here>
+```
+$ hostname <enter your hostname here>
+```
 
 > The default hostname is `raspberrypi`.
 
 4. _Optional_. Disable ipv6. In some networking environments, disabling ipv6 may help your Pi get on the network.
 
-    $ echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
+```
+$ echo " ipv6.disable=1" | sudo tee -a /boot/cmdline.txt
+```
 
 > It is safe to skip this step. We only recommend doing this step if necessary.
 
 5. _Optional_. Enable Quad9 DNS. In some networking environments, using Quad9's nameservers may speed up DNS queries and provide extra security and privacy..
 
-    $ echo "nameserver 9.9.9.9" | sudo tee -a /etc/resolv.conf
-    $ echo "nameserver 149.112.112.112" | sudo tee -a /etc/resolv.conf
+```
+$ echo "nameserver 9.9.9.9" | sudo tee -a /etc/resolv.conf
+$ echo "nameserver 149.112.112.112" | sudo tee -a /etc/resolv.conf
+```
 
 > It is safe to skip this step. We only recommend doing this step if necessary.
 
 6. _Optional_. Set the locale to US English (en-US). You can use `raspi-config` to set the locale of your Raspberry Pi, but if you would like to force it to US English, you can run these commands.
 
-    $ export LC_ALL="en_US.UTF-8"
-    $ echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
-    $ sudo locale-gen en_US.UTF-8
+```
+$ export LC_ALL="en_US.UTF-8"
+$ echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen
+$ sudo locale-gen en_US.UTF-8
+```
 
 > It is safe to skip this step. We only recommend doing this step if necessary.
 
 7. Update your Raspberry Pi's operating system software.
 
-    $ sudo apt-get update
-    $ sudo apt-get -y dist-upgrade
+```
+$ sudo apt-get update
+$ sudo apt-get -y dist-upgrade
+```
 
 > You’ll need to do `apt-get update` first because that updates the repository cache. Otherwise, `apt-get dist-upgrade` won't do anything because it doesn't know there is a distribution upgrade.
 
@@ -64,20 +76,24 @@ Perform the following operations to prepare your Raspberry Pi for becoming a TJB
 
 We recommend using Node.js v15.x or later.
 
-> Install Node.js 15 for Raspian
-
-    $ curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
-    $ sudo apt-get install -y nodejs
+```
+$ curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+```
 
 > Note: TJBot may not function with earlier version of Node.js due to its use of ES6 modules.
 
 9. Install additional software packages (Jessie only).
 
-    $ sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
+```
+$ sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
+```
 
 10. _Optional_. Remove outdated software packages.
 
-    $ sudo apt-get -y autoremove
+```
+$ sudo apt-get -y autoremove
+```
 
 > This step removes old, outdated software from your Raspberry Pi and will free up some storage space. It is safe to skip this step.
 
@@ -85,14 +101,16 @@ We recommend using Node.js v15.x or later.
 
 If your Raspberry Pi has a camera, you can enable it by running the `raspi-config` command and navigating through the menus.
 
-    $ sudo raspi-config
-    <choose option 5: Interfacing Options>
-    <choose option P1: Camera>
-    <select Yes and press Enter>
-    <select OK and press Enter>
-    <press tab to navigate to the Select button>
-    <press the right arrow key to navigate to the Exit button>
-    <press Enter>
+```
+$ sudo raspi-config
+<choose option 5: Interfacing Options>
+<choose option P1: Camera>
+<select Yes and press Enter>
+<select OK and press Enter>
+<press tab to navigate to the Select button>
+<press the right arrow key to navigate to the Exit button>
+<press Enter>
+```
 
 > If your Raspberry Pi doesn't have a camera, it is safe to skip this step.
 
@@ -100,8 +118,10 @@ If your Raspberry Pi has a camera, you can enable it by running the `raspi-confi
 
 The default location for the `tjbot` project is on your Desktop so it is easy to access. You may clone it to any directory you like.
 
-    $ cd ~/Desktop
-    $ git clone https://github.com/ibmtjbot/tjbot.git
+```
+$ cd ~/Desktop
+$ git clone https://github.com/ibmtjbot/tjbot.git
+```
 
 13. _Optional_. Disable the audio kernel modules.
 
@@ -109,13 +129,17 @@ In order for the LED to work, we need to disable certain kernel modules to avoid
 
 If you are interested in playing audio over USB, we recommend purchasing a [USB sound card](https://www.amazon.com/Virtual-Channel-Audio-Adapter-Notebook/dp/B00M3UWE3Q/)).
 
-    $ sudo cp ~/Desktop/tjbot/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
+```
+$ sudo cp ~/Desktop/tjbot/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
+```
 
 > This command assumes you have cloned the tjbot git repository to your Desktop. If you have cloned it to a different directory, be sure to update the path in the above command.
 
 If you would like to re-enable the kernel modules for built-in audio, you can do so with the following command.
 
-    $ sudo rm /etc/modprobe.d/tjbot-blacklist-snd.conf
+```
+$ sudo rm /etc/modprobe.d/tjbot-blacklist-snd.conf
+```
 
 > Note: you will need to reboot for these changes to take effect.
 
@@ -143,15 +167,19 @@ Hardware tests are provided to help you ensure your TJBot's hardware is function
 ### Prerequisite: install dependencies
 Before running any hardware tests, first install their dependencies. Run this command from within the `tjbot/bootstrap/tests` directory.
 
-    $ npm install
+```
+$ npm install
+```
 
 ### Running hardware tests
  From the `tjbot/bootstrap/tests` directory, you can run each of the hardware tests using `npm run-script`. Each test is interactive and will ask you whether or not TJBot performed a certain action. If you say "N", the test will fail.
 
-    $ npm run-script test-camera
-    $ npm run-script test-led
-    $ npm run-script test-mic
-    $ npm run-script test-servo
-    $ npm run-script test-speaker
+```
+$ npm run-script test-camera
+$ npm run-script test-led
+$ npm run-script test-mic
+$ npm run-script test-servo
+$ npm run-script test-speaker
+```
 
 > 💡 Note: The `test-mic` tests requires authentication credientials for the Tone Analyzer service. Add your `ibm-credentials.env` file to the `tests` directory before running this test.
