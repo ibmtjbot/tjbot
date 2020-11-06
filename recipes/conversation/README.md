@@ -33,7 +33,7 @@ Set up Watson Assistant using the following steps:
 
 Run!
 
-    sudo node conversation.js
+    $ sudo node conversation.js
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
@@ -51,6 +51,9 @@ An **attention word** is used so TJBot knows you are talking to it. The default 
         hasCamera: true, // set this to false if your TJBot doesn't have a camera
         robotName: 'tinker', // set this to the name you wish to use to address your tjbot!
     }
+
+## Troubleshoot
+If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
 # Watson Services
 - [Watson Assistant](https://www.ibm.com/watson/services/conversation/)

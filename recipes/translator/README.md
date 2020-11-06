@@ -18,7 +18,7 @@ Create instances of the [Language Translator](https://www.ibm.com/watson/service
 
 Run!
 
-    sudo node translator.js
+    $ sudo node translator.js
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
@@ -28,6 +28,9 @@ Now, speak into TJBot's microphone to have it translate your words to another la
 By default, TJBot will translate your words into Spanish. Try editing the code to make TJBot speak other languages!
 
 > 🎉 Extra Credit: add a special voice command to change the langauge. For example, telling TJBot to "translate to German" should make future translations be to German.
+
+## Troubleshoot
+If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
 # AI Services
 - [Language Translator](https://www.ibm.com/watson/services/language-translator)

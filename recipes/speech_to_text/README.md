@@ -18,7 +18,7 @@ Create an instance of the [Speech to Text](https://www.ibm.com/watson/services/s
 
 Run!
 
-    sudo node stt.js
+    $ sudo node stt.js
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
@@ -28,19 +28,7 @@ Now, speak into TJBot's microphone to change the color of the LED. Say "turn the
 We have hidden a disco party for you. Find the code for disco party in `stt.js` and uncomment the code (hint: there are two places that need to be uncommented). Now you can ask TJ to show you the disco lights by saying "Let's have a disco party"!
 
 ## Troubleshoot
-If the LED does not light up, you can try moving the power from 3.3 to 5 volts. If neither the 3.3v or 5v pins work, you will need a 1N4001 diode. The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
-
-If the LED shows the wrong color, or flashes different colors very rapidly, it may be due to interference with the built-in audio hardware. Depending on your configuration of Raspbian, the sound drivers may be more aggressive in taking away control of GPIO 18 from other processes. If your LED shows random colors instead of the expected color, use this trick to fix it.
-
-    sudo cp bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
-    sudo update-initramfs -u
-    sudo reboot
-
-After TJBot finishes rebooting, confirm no "snd" modules are running.
-
-    lsmod
-
-If you have additional difficulties not covered in this guide, please refer to [Adafruit's NeoPixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview) to troubleshoot.
+If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
 # AI Services
 - [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/)

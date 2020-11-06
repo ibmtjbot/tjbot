@@ -26,7 +26,7 @@ Make a copy of the default configuration file and update it with the your servic
 
 Run!
 
-    sudo node sentiment.js
+    $ sudo node sentiment.js
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
@@ -53,19 +53,7 @@ Also note that the Tone Analyzer API returns three language tones: `analytical`,
 > 💡 Hint: you may want to eliminate the `filter()` on `tone.document_tone.tones` to be able to examine the language tones.
 
 ## Troubleshoot
-If the LED does not light up, you can try moving the power from 3.3 to 5 volts. If neither the 3.3v or 5v pins work, you will need a 1N4001 diode. The diode is inserted between the power pin of the LED (the shorter of the two middle pins) and the 5v pin on the Raspberry Pi.
-
-If the LED shows the wrong color, or flashes different colors very rapidly, it may be due to interference with the built-in audio hardware. Depending on your configuration of Raspbian, the sound drivers may be more aggressive in taking away control of GPIO 18 from other processes. If your LED shows random colors instead of the expected color, use this trick to fix it.
-
-    sudo cp bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
-    sudo update-initramfs -u
-    sudo reboot
-
-After TJBot finishes rebooting, confirm no "snd" modules are running.
-
-    lsmod
-
-If you have additional difficulties not covered in this guide, please refer to [Adafruit's NeoPixel on Raspbeery Pi guide](https://learn.adafruit.com/neopixels-on-raspberry-pi/overview) to troubleshoot.
+If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
 # AI Services
 - [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/)
