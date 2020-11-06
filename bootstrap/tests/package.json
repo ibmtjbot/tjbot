@@ -1,13 +1,13 @@
 {
   "name": "tests",
   "description": "TJBot hardware tests",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "readline-sync": "^1.4.7",
+    "readline-sync": "^1.4.10",
     "tjbot": "latest"
   },
   "devDependencies": {},
@@ -22,10 +22,10 @@
     "url": "git+https://github.com/ibmtjbot/tjbot.git"
   },
   "scripts": {
-    "test-camera": "sudo node __tests__/test.camera.js",
-    "test-led": "sudo node __tests__/test.led.js",
-    "test-mic": "sudo node __tests__/test.mic.js",
-    "test-servo": "sudo node __tests__/test.servo.js",
-    "test-speaker": "sudo node __tests__/test.speaker.js"
+    "test-camera": "sudo node test.camera.js",
+    "test-led": "sudo node test.led.js",
+    "test-mic": "sudo node test.mic.js",
+    "test-servo": "sudo node test.servo.js",
+    "test-speaker": "sudo node test.speaker.js"
   }
 }

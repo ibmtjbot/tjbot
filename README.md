@@ -38,21 +38,23 @@ For reference, here is the wiring diagram to hook up the LED and servo to your R
 > For the servo, note that the red (middle) wire is 5v, the brown wire is ground, and the orange wire is data.
 
 # Bring TJBot to Life
-First, make sure you have configured your Raspberry Pi for TJBot.
-Just run that command to download and install TJBot:
+First, configure your Raspberry Pi for TJBot by running the bootstrap script.
 
     curl -sL http://ibm.biz/tjbot-bootstrap | sudo sh -
 
-[Recipes](recipes) are step-by-step instructions to bring your TJBot to life with IBM Watson and AI services
+Next, take a look at TJBot's [recipes](recipes), which are pre-configured behaviors that bring TJBot to life using IBM's Watson AI services.
 
-We have provided four initial [recipes](recipes) for you:
+TJBot comes with these [recipes](recipes) to demonstrate different capabilities.
 
 - Use Your Voice to Control a Light with Watson [[instructions](http://www.instructables.com/id/Use-Your-Voice-to-Control-a-Light-With-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text)]
 - Make Your Robot Respond to Emotions Using Watson [[instructions](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/sentiment_analysis)]
 - Build a Talking Robot with Watson [[instructions](http://www.instructables.com/id/Build-a-Talking-Robot-With-Watson-and-Raspberry-Pi/)] [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation)]
 - Build a Robot Translator [[github](https://github.com/ibmtjbot/tjbot/tree/master/recipes/translator)]
 
-After checking out our sample recipes, we encourage you to take a look at [featured recipes](featured) created by members of our community.
+After checking out these recipes, we encourage you to take a look at [featured recipes](featured) created by members of the #tjbot community!
+
+# Troubleshooting TJBot
+Please take a look at the [troubleshooting guide](TROUBLESHOOTING.md) if you are having difficulties with TJBot.
 
 # Contribute to TJBot
 TJBot is an open source project designed to make it fun and easy to interact with [Watson](https://www.ibm.com/watson/products-services/). We’d love to see what you can make with him!

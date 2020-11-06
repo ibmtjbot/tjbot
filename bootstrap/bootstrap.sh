@@ -325,42 +325,31 @@ read -p "Press enter to continue" nonce </dev/tty
 
 #——instructions for watson credentials
 echo ""
-echo "Notice about IBM Watson services: Before running any recipes, you will need"
-echo "to obtain credentials for the IBM Watson services used by those recipes."
-echo "You can obtain these credentials as follows:"
+echo "Notice about IBM Watson services: Before running any recipes, you will"
+echo "need to obtain credentials for the IBM Watson services used by those"
+echo "recipes. You can obtain these credentials as follows:"
 echo ""
-echo "1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you do
-not have one already."
-echo "2. Log in to IBM Cloud and create an instance of the Watson services you plan
-to use. The Watson services are listed on the IBM Cloud dashboard, under
-\"Catalog\". The full list of Watson services used by TJBot are:"
-echo "Assistant, Language Translator, Speech to Text, Text to Speech,"
-echo "Tone Analyzer, and Visual Recognition"
-echo "3. For each service, click the \"Create\" button on the bottom right
-of the page to create an instance of the service."
-echo "4. Click the \"Download\" link in the \"Credentials\" section of the page."
-echo "5. Save the \"ibm-credentials.env\" file(s) in the folder of the recipe you wish to use."
-echo "If you have credentials from multiple services, combine their contents into a single file."
-echo "For more detailed guides on setting up service credentials, please see the
-README file of each recipe, or search instructables.com for \"tjbot\"."
+echo "1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you"
+echo "do not have one already."
+echo "2. Log in to IBM Cloud and create an instance of the Watson services you"
+echo "plan to use. The Watson services are listed on the IBM Cloud dashboard,"
+echo "under \"Catalog\". The Watson services used by TJBot are Assistant,"
+echo "Language Translator, Speech to Text, Text to Speech, Tone Analyzer, and"
+echo "Visual Recognition."
+echo "3. For each service, click the \"Create\" button on the bottom right of"
+echo "the page to create an instance of the service."
+echo "4. Click the \"Download\" link in the \"Credentials\" section of the"
+echo "page."
+echo "5. Save the \"ibm-credentials.env\" file(s) in the folder of the recipe"
+echo "you wish to use."
+echo ""
+echo "Note: If you have credentials from multiple services, combine their"
+echo "contents into a single file."
+echo ""
+echo "For more detailed guides on setting up service credentials, please see"
+echo "the README file of each recipe."
 echo ""
 read -p "Press enter to continue" nonce </dev/tty
-
-#----tests
-echo ""
-echo "TJBot includes a set of hardware tests to ensure all of the hardware is"
-echo "functioning properly. If you have made any changes to the camera or"
-echo "sound configuration, we recommend rebooting first before running these"
-echo "tests as they may fail. You can run these tests at anytime by running"
-echo "the runTests.sh script in the tjbot/bootstrap folder."
-echo ""
-read -p "Would you like to run hardware tests at this time? [y/N] " choice </dev/tty
-case "$choice" in
-    "y" | "Y")
-        $TJBOT_DIR/bootstrap/runTests.sh $TJBOT_DIR
-        ;;
-    *) ;;
-esac
 
 #----reboot
 echo ""
