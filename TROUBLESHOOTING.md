@@ -2,7 +2,7 @@
 Having difficulties making a TJBot recipe work? Please see these frequently asked questions.
 
 ## Testing your TJBot's hardware
-As TJBot has a number of hardware components that may or may not be hooked up correctly, we provide an additional set of hardware tests. These tests are contained in the `tests` directory and may be run via `npm run-script`. See the [instructions for running the hardware tests](bootstrap/README.md) for more detail.
+As TJBot has a number of hardware components that may or may not be hooked up correctly, we provide an additional set of hardware tests. These tests are contained in the `tests` directory and may be run via `npm run-script`. See the [instructions for running the hardware tests](bootstrap/README.md#running-hardware-tests) for more detail.
 
 ## How to debug TJBot
 TJBot uses the `winston` library to log information about its internal operation. You can adjust the log level through the `log.level` configuration parameter as follows:
