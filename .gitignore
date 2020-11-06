@@ -115,7 +115,11 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# tjbot-specific
-config.js
-ibm-credentials.env
+# .DS_Store files
 .DS_Store
+
+# config.js files
+config.js
+
+# ibm-credentials.env files
+ibm-credentials.env
