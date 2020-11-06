@@ -22,6 +22,10 @@
     "url": "git+https://github.com/ibmtjbot/tjbot.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-camera": "sudo node __tests__/test.camera.js",
+    "test-led": "sudo node __tests__/test.led.js",
+    "test-mic": "sudo node __tests__/test.mic.js",
+    "test-servo": "sudo node __tests__/test.servo.js",
+    "test-speaker": "sudo node __tests__/test.speaker.js"
   }
 }
