@@ -40,8 +40,6 @@ This recipe is an enhancement of the Sentiment Analysis recipe included in TJBot
 ### [TJ Weather](https://github.com/suprbh/tjweather) by [Supriya Bhat](https://github.com/suprbh)
 Use TJBot as a personal weather station.
 
-[![TJ Weather](https://img.youtube.com/vi/Q7a6UK8U-DM/0.jpg)](https://www.youtube.com/watch?v=Q7a6UK8U-DM)
-
 ### [weatherbot](https://github.com/dalelane/weatherbot) by [Dale Lane](https://github.com/dalelane)
 Making #TJBot into a weatherbot. The angle of his arm shows you forecasted tempreture and his head lights up if it will rain!
 
