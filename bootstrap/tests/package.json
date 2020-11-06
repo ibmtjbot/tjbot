@@ -8,9 +8,13 @@
   },
   "dependencies": {
     "readline-sync": "^1.4.10",
-    "tjbot": "latest"
+    "tjbot": "file:../../../tjbotlib"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
   "homepage": "https://github.com/ibmtjbot/tjbot#readme",
   "keywords": [
     "TJBot"
