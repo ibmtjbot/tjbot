@@ -30,7 +30,7 @@ We have hidden a disco party for you. Find the code for disco party in `stt.js` 
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
-# AI Services
+# Watson Services
 - [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/)
 
 # License

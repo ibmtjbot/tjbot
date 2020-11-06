@@ -32,7 +32,7 @@ By default, TJBot will translate your words into Spanish. Try editing the code t
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
-# AI Services
+# Watson Services
 - [Language Translator](https://www.ibm.com/watson/services/language-translator)
 - [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/)
 - [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/)

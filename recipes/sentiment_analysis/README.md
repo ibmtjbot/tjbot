@@ -55,7 +55,7 @@ Also note that the Tone Analyzer API returns three language tones: `analytical`,
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
-# AI Services
+# Watson Services
 - [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/)
 
 # License
