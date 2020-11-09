@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /**
  * Copyright 2020 IBM Corp. All Rights Reserved.
  *

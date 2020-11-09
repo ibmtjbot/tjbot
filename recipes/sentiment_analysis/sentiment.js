@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 /**
  * Copyright 2016-2020 IBM Corp. All Rights Reserved.
  *
@@ -28,7 +29,7 @@ const hardware = [TJBot.HARDWARE.LED_NEOPIXEL];
 const tjConfig = {
     log: {
         level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    }
+    },
 };
 
 // uncomment to change the pins for the LED
