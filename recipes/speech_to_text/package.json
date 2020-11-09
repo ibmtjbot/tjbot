@@ -1,13 +1,10 @@
 {
   "name": "speech_to_text",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "TJBot speech to text recipe",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
-  },
-  "dependencies": {
-    "tjbot": "latest"
   },
   "main": "stt.js",
   "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text",
@@ -19,8 +16,17 @@
     "type": "git",
     "url": "git@github.com:ibmtjbot/tjbot.git"
   },
+  "type": "module",
   "scripts": {
     "start": "node stt.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "tjbot": "^2.0.0"
   }
 }

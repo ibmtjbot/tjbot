@@ -1,27 +1,36 @@
 {
   "name": "tests",
   "description": "TJBot hardware tests",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "readline-sync": "^1.4.7",
-    "tjbot": "latest"
+    "readline-sync": "^1.4.10",
+    "tjbot": "^2.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
   "homepage": "https://github.com/ibmtjbot/tjbot#readme",
   "keywords": [
     "TJBot"
   ],
   "license": "Apache-2.0",
   "main": "test.led.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ibmtjbot/tjbot.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test-camera": "sudo node test.camera.js",
+    "test-led": "sudo node test.led.js",
+    "test-mic": "sudo node test.mic.js",
+    "test-servo": "sudo node test.servo.js",
+    "test-speaker": "sudo node test.speaker.js"
   }
 }
