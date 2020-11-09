@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "readline-sync": "^1.4.10",
-    "tjbot": "file:../../../tjbotlib"
+    "tjbot": "file:../../tjbotlib"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
@@ -21,6 +21,7 @@
   ],
   "license": "Apache-2.0",
   "main": "test.led.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ibmtjbot/tjbot.git"

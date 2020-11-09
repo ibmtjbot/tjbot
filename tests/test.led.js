@@ -31,15 +31,17 @@ function confirm(behavior) {
 const tjbot = new TJBot({ log: { level: 'silly' } });
 let answer = rl.question('Are you testing a Neopixel LED (n) or Common Anode (c) LED, or both (b)? (N/c/b)? ');
 if (answer.toLowerCase() === 'n' || answer === '') {
+    console.log("testing Neopixel LED");
     tjbot.initialize([TJBot.HARDWARE.LED_NEOPIXEL]);
-} else if (answer.toLowerCase === 'c') {
+} else if (answer.toLowerCase() === 'c') {
+    console.log("testing Common Anode LED");
     tjbot.initialize([TJBot.HARDWARE.LED_COMMON_ANODE]);
-} else if (answer.toLowerCase === 'b') {
+} else if (answer.toLowerCase() === 'b') {
+    console.log("testing Neopixel and Common Anode LEDs");
     tjbot.initialize([TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.LED_COMMON_ANODE]);
 }
 
 // shine various colors
-let answer;
 const colors = ["red", "green", "blue", "orange", "purple"];
 
 colors.forEach((color) => {

@@ -20,7 +20,12 @@ import TJBot from 'tjbot';
 const tjbot = new TJBot({ log: { level: 'silly' } });
 tjbot.initialize([TJBot.HARDWARE.MICROPHONE]);
 
-console.log("TJBot is listening and will echo what you say on the console. Say 'stop' to stop the test.");
+console.log('Note: This test requires credentials for the Speech to Text service stored in the ibm-credentials.env file.');
+console.log('If you see an error about "Missing required parameters: apikey", it is because TJBot was unable');
+console.log('to find credentials for Speech to Text.');
+console.log();
+console.log('TJBot is listening and will echo what you say on the console. Say "stop" to stop the test.');
+
 while (true) {
     const msg = await tjbot.listen();
     console.log(msg);
