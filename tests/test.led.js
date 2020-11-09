@@ -29,7 +29,14 @@ function confirm(behavior) {
 }
 
 const tjbot = new TJBot({ log: { level: 'silly' } });
-tjbot.initialize([TJBot.HARDWARE.LED]);
+let answer = rl.question('Are you testing a Neopixel LED (n) or Common Anode (c) LED, or both (b)? (N/c/b)? ');
+if (answer.toLowerCase() === 'n' || answer === '') {
+    tjbot.initialize([TJBot.HARDWARE.LED_NEOPIXEL]);
+} else if (answer.toLowerCase === 'c') {
+    tjbot.initialize([TJBot.HARDWARE.LED_COMMON_ANODE]);
+} else if (answer.toLowerCase === 'b') {
+    tjbot.initialize([TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.LED_COMMON_ANODE]);
+}
 
 // shine various colors
 let answer;
