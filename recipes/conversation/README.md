@@ -4,7 +4,13 @@
 This recipe uses the [Watson Assistant](https://www.ibm.com/watson/services/conversation/), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services to turn TJ into a chatting robot.
 
 ## Hardware
-This recipe requires a TJBot with a microphone, a speaker, and optionally a camera.
+This recipe requires a TJBot with a microphone, a speaker, a Neopixel LED, and optionally a camera.
+
+> 💡 If you have a Common Anode LED, change `TJBot.HARDWARE.LED_NEOPIXEL` to `TJBot.HARDWARE.LED_COMMON_ANODE` in `conversation.js`
+
+> 📌 By default, TJBot expects Neopixel LEDs to be connected to GPIO PIN 18 and Common Anode LEDs to be connected to GPIO pins 19 (red), 13 (green), and 12 (blue). You may set which pins your LED is connected to by uncommenting the `tjConfig.shine = {...}` code block. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram.
+
+> 👋 By default, TJBot expects the servo to be connected to GPIO PIN 7. You may set which pin your servo is connected to by uncommenting the `tjConfig.wave = {...}` code block. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram.
 
 ## Build and Run
 First, make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).

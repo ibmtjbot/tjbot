@@ -18,7 +18,7 @@ import TJBot from 'tjbot';
 import config from './config.js';
 
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED, TJBot.HARDWARE.SERVO];
+const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
 if (config.hasCamera) {
     hardware.push(TJBot.HARDWARE.CAMERA);
 }
@@ -30,8 +30,25 @@ const tjConfig = {
     },
     converse: {
         assistantId: config.assistantId,
-    },
+    }
 };
+
+// uncomment to change the pins for the LED
+// tjConfig.shine = {
+//     neopixel: {
+//         gpioPin: 18
+//     },
+//     commonAnode: {
+//         redPin: 19,
+//         greenPin: 13,
+//         bluePin: 12
+//     }
+// };
+
+// uncomment to change the pin for the servo
+// tjConfig.wave = {
+//     servoPin: 7
+// };
 
 // instantiate our TJBot!
 const tj = new TJBot(tjConfig);

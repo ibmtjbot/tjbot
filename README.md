@@ -18,7 +18,7 @@ You can make your own TJBot in a number of ways.
 There are a number of components you can add to TJBot to bring him to life. Not all of these are required for all recipes.
 
 - [Raspberry Pi 3 + SD card preloaded with NOOBS](https://www.amazon.com/Vilros-Raspberry-Complete-Starter-Clear/dp/B01CUMNIV8/). **This is a required component to make TJBot work!** 🤖
-- [NeoPixel RGB LED (8mm)](https://www.adafruit.com/product/1734). Note that if you are using other kinds of LEDs, you may need to add a resistor; this LED doesn’t require one.
+- LED. We recommend the [NeoPixel RGB LED (8mm)](https://www.adafruit.com/product/1734), although TJBot supports Common Anode LEDs as well. Note that if you are not using a NeoPixel LED, you may also need to add resistors between it and the Raspberry Pi. Neopixel LEDs do not require resistors.
 - [Female-to-female jumper wires](https://www.amazon.com/dp/B00KOL5BCC/). TJBot will only need 3 of these wires, so you’ll have extra.
 - [Female-to-male jumper wires](https://www.amazon.com/dp/B00PBZMN7C/). TJBot will only need 3 of these wires, so you’ll have extra.
 - [USB Microphone](https://www.amazon.com/gp/product/B00IR8R7WQ/). Other brands of USB microphones should also work.
@@ -29,13 +29,21 @@ There are a number of components you can add to TJBot to bring him to life. Not 
 ## Assembly
 Once you have obtained your TJBot, please refer to [the assembly instructions](http://www.instructables.com/id/Build-TJ-Bot-Out-of-Cardboard/) to put it all together.
 
-For reference, here is the wiring diagram to hook up the LED and servo to your Raspberry Pi.
+For reference, here is the wiring diagram to hook up a Neopixel LED and servo to your Raspberry Pi.
 
 ![](images/wiring.png)
 
+TJBot expects LEDs and servos to be connected to a specific set of pins, including voltage (+3.3v or +5v), ground, and data. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram. The table below shows the default pins expected for different components, although these pin numbers can be overridden in TJBot's configuration.
+
+| Component | GPIO PIN(s) | Physical PIN(s) |
+|---|---|---|
+| Neopixel LED (data pin) | GPIO 18 | Physical 12 |
+| Common Anode LED (red/green/blue) | GPIOs 19/13/12 | Physical 35/33/32 |
+| Servo (data pin) | GPIO 7 | Physical 26 |
+
 > 💡 Be careful when connecting the LED! If it is connected the wrong way, you may end up burning it out. The LED has a flat notch on one side; use this to orient the LED and figure out which pin is which.
 
-> For the servo, note that the red (middle) wire is 5v, the brown wire is ground, and the orange wire is data.
+> 👋 For the servo, note that the red (middle) wire is +5v, the brown wire is ground, and the orange wire is data.
 
 # Bring TJBot to Life
 First, configure your Raspberry Pi for TJBot by running the bootstrap script.

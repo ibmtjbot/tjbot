@@ -4,7 +4,11 @@
 This recipe uses the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service to shine TJBot’s LED different colors based on the emotions present in Twitter for a given keyword. It also uses the [Twitter API](https://dev.twitter.com/overview/api) to fetch tweets.
 
 ## Hardware
-This recipe requires a TJBot with an LED.
+This recipe requires a TJBot with a Neopixel LED.
+
+> 💡 If you have a Common Anode LED, change `TJBot.HARDWARE.LED_NEOPIXEL` to `TJBot.HARDWARE.LED_COMMON_ANODE` in `sentiment.js`
+
+> 📌 By default, TJBot expects Neopixel LEDs to be connected to GPIO PIN 18 and Common Anode LEDs to be connected to GPIO pins 19 (red), 13 (green), and 12 (blue). You may set which pins your LED is connected to by uncommenting the `tjConfig.shine = {...}` code block. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram.
 
 ## Build and Run
 First, make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).

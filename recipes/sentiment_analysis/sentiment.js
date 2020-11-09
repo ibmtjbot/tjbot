@@ -22,14 +22,26 @@ import config from './config.js';
 const sentimentAnalysisFrequencyMsec = config.sentimentAnalysisFrequencySec * 1000;
 
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.HARDWARE.LED];
+const hardware = [TJBot.HARDWARE.LED_NEOPIXEL];
 
 // set up TJBot's configuration
 const tjConfig = {
     log: {
         level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    },
+    }
 };
+
+// uncomment to change the pins for the LED
+// tjConfig.shine = {
+//     neopixel: {
+//         gpioPin: 18
+//     },
+//     commonAnode: {
+//         redPin: 19,
+//         greenPin: 13,
+//         bluePin: 12
+//     }
+// };
 
 // instantiate our TJBot!
 const tj = new TJBot(tjConfig);
