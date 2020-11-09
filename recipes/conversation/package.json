@@ -6,9 +6,6 @@
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
-  "dependencies": {
-    "tjbot": "file:../../../tjbotlib"
-  },
   "main": "conversation.js",
   "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation",
   "keywords": [
@@ -28,5 +25,8 @@
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "tjbot": "^2.0.0"
   }
 }
