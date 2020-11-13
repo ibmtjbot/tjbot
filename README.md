@@ -33,17 +33,36 @@ For reference, here is the wiring diagram to hook up a Neopixel LED and servo to
 
 ![](images/wiring.png)
 
-TJBot expects LEDs and servos to be connected to a specific set of pins, including voltage (+3.3v or +5v), ground, and data. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram. The table below shows the default pins expected for different components, although these pin numbers can be overridden in TJBot's configuration.
+TJBot expects LEDs and servos to be connected to specific kinds of pins, including voltage (+3.3v or +5v), ground, and data. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram. The tables below shows the default pins expected for different components, although these pin numbers can be overridden in TJBot's configuration.
 
-| Component | GPIO PIN(s) | Physical PIN(s) |
+### Neopixel LED
+
+| PIN type | PIN Name | Physical PIN |
 |---|---|---|
-| Neopixel LED (data pin) | GPIO 18 | Physical 12 |
-| Common Anode LED (red/green/blue) | GPIOs 19/13/12 | Physical 35/33/32 |
-| Servo (data pin) | GPIO 7 | Physical 26 |
+| Data | GPIO 18 | Physical 12 |
+| Power | +3.3v | Physical 1 |
+| Ground | Ground | Physical 6 |
 
-> 💡 Be careful when connecting the LED! If it is connected the wrong way, you may end up burning it out. The LED has a flat notch on one side; use this to orient the LED and figure out which pin is which.
+> 💡 Be careful when connecting the LED! If it is connected the wrong way, you may end up burning it out. The Neopixel LED has a flat notch on one side; use this to orient the LED and figure out which pin is which.
 
-> 👋 For the servo, note that the red (middle) wire is +5v, the brown wire is ground, and the orange wire is data.
+### Common Anode LED
+
+| PIN type | PIN Name | Physical PIN |
+|---|---|---|
+| Red | GPIO 19 | Physical 35 |
+| Power | +3.3v | Physical 17 |
+| Green | GPIO 13 | Physical 33 |
+| Blue | GPIO 12 | Physical 32 |
+
+> 💡 Common Anode LEDs and Neopixel LEDs can both be connected to TJBot at the same time and will shine the same color. However, TJBot's head only has room for one LED!
+
+### Servo
+
+| PIN type | PIN Name | Physical PIN |
+|---|---|---|
+| Data (orange) | GPIO 7 | Physical 26 |
+| Power (red) | +5v | Physical 2 |
+| Ground (brown) | Ground | Physical 14 |
 
 # Bring TJBot to Life
 First, configure your Raspberry Pi for TJBot by running the bootstrap script.
