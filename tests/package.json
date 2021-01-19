@@ -1,14 +1,14 @@
 {
   "name": "tests",
   "description": "TJBot hardware tests",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
     "readline-sync": "^1.4.10",
-    "tjbot": "^2.0.0"
+    "tjbot": "^2.0.1"
   },
   "devDependencies": {
     "eslint": "^7.12.1",

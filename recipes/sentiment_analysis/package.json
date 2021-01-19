@@ -1,13 +1,13 @@
 {
   "name": "sentiment",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "TJBot sentiment analysis recipe",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
   "dependencies": {
-    "tjbot": "^2.0.0",
+    "tjbot": "^2.0.1",
     "twitter": "^1.7.1"
   },
   "main": "sentiment.js",

@@ -1,6 +1,6 @@
 {
   "name": "speech_to_text",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "TJBot speech to text recipe",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
@@ -27,6 +27,6 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
-    "tjbot": "^2.0.0"
+    "tjbot": "^2.0.1"
   }
 }
