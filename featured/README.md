@@ -175,6 +175,9 @@ TJbot is a "zapping" friend connected to internet and to your TV, allowing elder
 
 ## Visual Recognition
 
+### [Microsoft Azure visual services](https://github.com/andycitron/tjBotFragmentThatUsesAzureVisualServices) by [@andycitron](https://github.com/andycitron)
+Example shows how to use Microsoft Azure's visual services to make TJBot see.
+
 ### [tjbot-visual-recognition](https://github.com/boxcarton/tjbot-visual-recognition) by [Joshua Zheng](https://github.com/boxcarton)
 #TJBot socializing with classic monsters.
 
