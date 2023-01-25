@@ -95,6 +95,11 @@ async function shineFromTweetSentiment() {
         console.log(`Analyzing tone of ${TWEETS.length} tweets`);
 
         const tone = await tj.analyzeTone(text);
+        const tones = [];
+        Object.keys(tone.emotion.document.emotion).forEach(key => {
+            let value = tone.emotion.document.emotion[key];
+            tones.push({tone_id: key, score: value});
+        })
 
         // find the tone with the highest confidence
         // only consider the emotional tones (anger, fear, joy, sadness)
@@ -102,7 +107,6 @@ async function shineFromTweetSentiment() {
         // {
         //   "score": 0.6165,
         //   "tone_id": "sadness",
-        //   "tone_name": "Sadness"
         // }
         const emotionalTones = tone.document_tone.tones.filter((t) => t.tone_id === 'anger' || t.tone_id === 'fear' || t.tone_id === 'joy' || t.tone_i === 'sadness');
 

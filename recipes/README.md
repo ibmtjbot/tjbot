@@ -14,7 +14,7 @@ This receipe lets you control the [8mm NeoPixel RGB led](https://www.adafruit.co
 ### [Sentiment Analysis](sentiment_analysis)
 > Make TJBot respond to emotions [[instructables](http://www.instructables.com/id/Make-Your-Robot-Respond-to-Emotions-Using-Watson/)]
 
-This recipe shines TJBot's [8mm NeoPixel RGB LED](https://www.adafruit.com/products/1734) different colors based on the emotions present in Twitter for a given keyword. It uses [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) and the [Twitter API](https://dev.twitter.com/overview/api).
+This recipe shines TJBot's [8mm NeoPixel RGB LED](https://www.adafruit.com/products/1734) different colors based on the emotions present in Twitter for a given keyword. It uses [Natural Language Understanding](https://www.ibm.com/cloud/watson-natural-language-understanding) and the [Twitter API](https://dev.twitter.com/overview/api).
 
 <img src="../images/sentiment.png" width="50%">
 

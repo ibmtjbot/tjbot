@@ -1,7 +1,7 @@
 # Sentiment Analysis
 > Make your robot respond to emotions
 
-This recipe uses the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service to shine TJBot’s LED different colors based on the emotions present in Twitter for a given keyword. It also uses the [Twitter API](https://dev.twitter.com/overview/api) to fetch tweets.
+This recipe uses the [Natural Language Understanding](https://www.ibm.com/cloud/watson-natural-language-understanding) service to shine TJBot’s LED different colors based on the emotions present in Twitter for a given keyword. It also uses the [Twitter API](https://dev.twitter.com/overview/api) to fetch tweets.
 
 ## Hardware
 This recipe requires a TJBot with a Neopixel LED.
@@ -18,7 +18,7 @@ Next, go to the `recipes/sentiment_analysis` folder and install the dependencies
     $ cd tjbot/recipes/sentiment_analysis
     $ npm install
 
-Create an instance of the [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/) service and download the authentication credentials file. Ensure this file is named `ibm-credentials.env` and place it in the `tjbot/recipes/sentiment_analysis` folder.
+Create an instance of the [Natural Language Understanding](https://www.ibm.com/cloud/watson-natural-language-understanding) service and download the authentication credentials file. Ensure this file is named `ibm-credentials.env` and place it in the `tjbot/recipes/sentiment_analysis` folder.
 
 Create a set of [Twitter developer credentials](https://developer.twitter.com/en/apps) and note the consumer key, consumer secret, access token key, and access token secret.
 
@@ -52,15 +52,15 @@ You can also change the colors that TJBot shines. The table below shows the colo
 
 You can change these colors by editing the `shineForEmotion()` function.
 
-Also note that the Tone Analyzer API returns three language tones: `analytical`, `confident`, and `tentative`. Try modifying the recipe to do something new depending on which language tone is dominant.
+Also note that the Natural Language Understanding API returns five language emotion: `anger`, `disgust`, `fear`, `joy`, and `sadness`. Try modifying the recipe to do something new depending on which language emotion is dominant.
 
-> 💡 Hint: you may want to eliminate the `filter()` on `tone.document_tone.tones` to be able to examine the language tones.
+> 💡 Try this: you may want to eliminate the `filter()` on `tone.document_tone.tones` to be able to examine the language emotions.
 
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
 # Watson Services
-- [Tone Analyzer](https://www.ibm.com/watson/services/tone-analyzer/)
+- [Natural Language Understanding](https://www.ibm.com/cloud/watson-natural-language-understanding)
 
 # License
 This project is licensed under Apache 2.0. Full license text is available in [LICENSE](../../LICENSE).

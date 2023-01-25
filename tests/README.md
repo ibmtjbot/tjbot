@@ -19,4 +19,4 @@ $ npm run-script test-servo
 $ npm run-script test-speaker
 ```
 
-> 💡 Note: The `test-mic` tests requires authentication credientials for the Tone Analyzer service. Add your `ibm-credentials.env` file to the `tests` directory before running this test.
+> 💡 Note: The `test-mic` tests requires authentication credientials for the Natural Language Understanding service. Add your `ibm-credentials.env` file to the `tests` directory before running this test.

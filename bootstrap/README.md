@@ -151,7 +151,7 @@ Congratulations, your Raspberry Pi is now set up for TJBot!  You'll just need to
 Before running any recipes, you will need to obtain credentials for the Watson services used by those recipes. You can obtain these credentials as follows:
 
 1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you do not have one already.
-2. Log in to IBM Cloud and create an instance of the Watson services you plan to use. The Watson services are listed on the IBM Cloud dashboard, under "Catalog". The Watson services used by TJBot are Assistant, Language Translator, Speech to Text, Text to Speech, Tone Analyzer, and Visual Recognition.
+2. Log in to IBM Cloud and create an instance of the Watson services you plan to use. The Watson services are listed on the IBM Cloud dashboard, under "Catalog". The Watson services used by TJBot are Assistant, Language Translator, Speech to Text, Text to Speech, Natural Language Understanding, and Visual Recognition.
 3. For each service, click the "Create" button on the bottom right of the page to create an instance of the service.
 4. Click the "Download" link in the "Credentials" section of the page.
 5. Save the `ibm-credentials.env` file(s) in the folder of the recipe you wish to use.
