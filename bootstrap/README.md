@@ -74,19 +74,19 @@ $ sudo apt-get -y dist-upgrade
 
 8. Install Node.js.
 
-We recommend using Node.js v15.x or later.
+We recommend using Node.js v16.x or later.
 
 ```
-$ curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
+$ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 ```
 
 > Note: TJBot may not function with earlier version of Node.js due to its use of ES6 modules.
 
-9. Install additional software packages (Jessie only).
+9. Install additional software packages.
 
 ```
-$ sudo apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
+$ sudo apt-get install -y libasound2-dev 
 ```
 
 10. _Optional_. Remove outdated software packages.
