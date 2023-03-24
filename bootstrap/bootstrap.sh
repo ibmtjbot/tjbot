@@ -39,11 +39,23 @@ case "$choice" in
         ;;
     *) ;;
 esac
+echo
+
+CPUARCH=`lscpu |grep Arch |cut -d':' -f2 | awk '{$1=$1};1'`
+
+if [ $CPUARCH = 'armv6l' ];
+   then
+      echo "ARMv6 is not supported for TJBot due to software availability on this processor architecture. Please use another Raspberry Pi model"
+      exit 1
+else
+   echo "$CPUARCH processor architecture supported. Proceeding with setup"
+fi
+
 
 #----test raspbian version: if it's older than jessie, it may not work
-RASPIAN_VERSION_ID=`cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2`
-RASPIAN_VERSION=`cat /etc/os-release | grep VERSION= | cut -d '"' -f 2`
-if [ $RASPIAN_VERSION_ID -lt 8 ]; then
+RASPBIAN_VERSION_ID=`cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2`
+RASPBIAN_VERSION=`cat /etc/os-release | grep VERSION= | cut -d '"' -f 2`
+if [ $RASPBIAN_VERSION_ID -lt 8 ]; then
     echo "Warning: it looks like your Raspberry Pi is running an older version"
     echo "of Raspian. TJBot has only been tested on Raspian 8 (Jessie) and"
     echo "later."
@@ -136,9 +148,12 @@ case "$choice" in
 esac
 
 #----nodejs install
+apt-get -y install tidy >/dev/null
+
 echo ""
-RECOMMENDED_NODE_LEVEL="15"
-MIN_NODE_LEVEL="15"
+RECOMMENDED_NODE_LEVEL=`curl -sS https://nodejs.org/en/ |tidy -q 2>/dev/null |grep LTS |grep "Download " |cut -d' ' -f2 |cut -d'.' -f1`
+
+MIN_NODE_LEVEL="16"
 NEED_NODE_INSTALL=false
 
 if which node > /dev/null; then
@@ -169,13 +184,8 @@ fi
 
 #----install additional packages
 echo ""
-if [ $RASPIAN_VERSION_ID -eq 8 ]; then
-    echo "Installing additional software packages for Jessie (alsa, libasound2-dev, git, pigpio)"
-    apt-get install -y alsa-base alsa-utils libasound2-dev git pigpio
-#elif [ $RASPIAN_VERSION -eq 9 ]; then
-#    echo "Installing additional software packages for Stretch (libasound2-dev)"
-#    apt-get install -y libasound2-dev
-fi
+echo "Installing additional software packages (libasound2-dev)"
+apt-get install -y libasound2-dev
 
 #----remove outdated apt packages
 echo ""
