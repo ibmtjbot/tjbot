@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 /**
- * Copyright 2016-2020 IBM Corp. All Rights Reserved.
+ * Copyright 2016-2023 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,9 +20,6 @@ import config from './config.js';
 
 // these are the hardware capabilities that TJ needs for this recipe
 const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
-if (config.hasCamera) {
-    hardware.push(TJBot.HARDWARE.CAMERA);
-}
 
 // set up TJBot's configuration
 const tjConfig = {
@@ -132,26 +129,6 @@ while (true) {
                         await tj.speak("I'm sorry, I didn't understand your color");
                         spoken = true;
                     }
-                }
-                break;
-            case 'see':
-                if (config.hasCamera === false) {
-                    await tj.speak("I'm sorry, I don't have a camera so I can't see anything");
-                    spoken = true;
-                } else {
-                    await tj.speak(response.description);
-                    const objects = await tj.see();
-
-                    if (objects.length === 0) {
-                        await tj.speak("I'm not sure I see anything");
-                    } else if (objects.length === 1) {
-                        await tj.speak(`I see ${objects[0].class}`);
-                    } else if (objects.length === 2) {
-                        await tj.speak(`I'm looking at ${objects[0].class} and ${objects[1].class}`);
-                    } else {
-                        await tj.speak(`I'm looking at ${objects[0].class}, ${objects[1].class}, ${objects[2].class}, and a few other things too`);
-                    }
-                    spoken = true;
                 }
                 break;
             default:

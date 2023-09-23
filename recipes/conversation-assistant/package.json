@@ -1,6 +1,6 @@
 {
   "name": "conversation",
-  "description": "TJBot conversation recipe",
+  "description": "TJBot conversation recipe powered by IBM Watson Assistant",
   "version": "2.0.1",
   "author": "TJBot <tjbot@us.ibm.com>",
   "bugs": {
