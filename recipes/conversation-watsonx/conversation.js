@@ -20,7 +20,8 @@ import config from './config.js';
 
 import { GenAIModel } from '@ibm-generative-ai/node-sdk/langchain';
 import { PromptTemplate } from 'langchain/prompts';
-import { LLMChain } from 'langchain/chains';
+// import { LLMChain } from 'langchain/chains';
+import { ConversationChain } from 'langchain/chains';
 import { ConversationSummaryBufferMemory } from 'langchain/memory'
 
 
@@ -43,7 +44,7 @@ const model = new GenAIModel({
     modelId: 'ibm/granite-13b-chat-v1',
     parameters: {},
     configuration: {
-        apiKey: config.api_key,
+        apiKey: config.apiKey,
         endpoint: config.endpoint
     }
 });
@@ -59,19 +60,24 @@ const prompt = PromptTemplate.fromTemplate(
     If you don't know the answer to a question, you respond truthfully that you do not know.
     
     Conversation summary:
-    {summary}
+    {history}
 
     Conversation:
     Human: {input}
-    TJBot: `);
+    AI: `);
 
 // use conversational memory
 const memory = new ConversationSummaryBufferMemory({
     llm: model,
-    memory_key: "summary"});
+    memory_key: "history"});
 
-// create the LLM chain for conversation
-const chain = new LLMChain({ llm: model, prompt: prompt });
+// create the conversation chain for conversation
+const conversation = new ConversationChain({
+    llm: model,
+    prompt: prompt,
+    memory: memory,
+    verbose: true,
+});
 
 // ready!
 console.log('TJBot is ready for conversation!');
@@ -80,12 +86,19 @@ console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 while (true) {
     const msg = await tj.listen();
 
+    if (msg === undefined || msg === '') {
+        continue;
+    }
+
     if (msg === 'stop') {
         console.log('Goodbye!');
         process.exit(0);
     }
 
-    const { text } = await chain.call({ input: msg });
+    // strip out %HESITATION
+    msg = msg.replaceAll('%HESITATION', '');
+
+    const { text } = await conversation.predict({ input: msg });
 
     tj.speak(text);
 }

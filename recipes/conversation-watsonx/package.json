@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "@ibm-generative-ai/node-sdk": "^1.4.2",
-    "tjbot": "^2.0.1"
+    "tjbot": "file:../../../tjbotlib"
   }
 }
