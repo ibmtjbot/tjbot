@@ -184,8 +184,9 @@ fi
 
 #----install additional packages
 echo ""
-echo "Installing additional software packages (libasound2-dev)"
-apt-get install -y libasound2-dev
+echo "Installing additional software packages (libasound2-dev libportaudio0 libportaudio2 libportaudiocpp0 porta
+udio19-dev)"
+apt-get install -y libasound2-dev libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
 
 #----remove outdated apt packages
 echo ""
