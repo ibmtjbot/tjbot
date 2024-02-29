@@ -18,6 +18,13 @@
 import TJBot from 'tjbot';
 import config from './config.js';
 
+import { GenAIModel } from '@ibm-generative-ai/node-sdk/langchain';
+import { PromptTemplate } from 'langchain/prompts';
+// import { LLMChain } from 'langchain/chains';
+import { ConversationChain } from 'langchain/chains';
+import { ConversationSummaryBufferMemory } from 'langchain/memory'
+
+
 // these are the hardware capabilities that TJ needs for this recipe
 const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER];
 
@@ -32,27 +39,18 @@ const tjConfig = {
 const tj = new TJBot(tjConfig);
 tj.initialize(hardware);
 
-let tokenExpiration;
-let bearerToken;
-
-async function token() {
-    const bearer = await axios.post(
-    'https://iam.cloud.ibm.com/identity/token',
-    'grant_type=urn:ibmbee:params:oauth:grant-type:apikey&apikey=APIKEY',
-    {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
+// load watsonx.ai model
+const model = new GenAIModel({
+    modelId: 'ibm/granite-13b-chat-v1',
+    parameters: {},
+    configuration: {
+        apiKey: config.apiKey,
+        endpoint: config.endpoint
     }
-  );
-
-  const bearerToken = bearer.data.access_token;
-  tokenExpiration = bearer.data.expiration;
-  console.log("bearer token: ", bearerToken);
-}
+});
 
 // define the prompt template
-const prompt = 
+const prompt = PromptTemplate.fromTemplate(
     `You are TJBot, a friendly and helpful social robot made out of cardboard.
     You are having a conversation with a human.
     You provide friendly and helpful responses to everything the human says.
@@ -66,7 +64,20 @@ const prompt =
 
     Conversation:
     Human: {input}
-    AI: `;
+    AI: `);
+
+// use conversational memory
+const memory = new ConversationSummaryBufferMemory({
+    llm: model,
+    memory_key: "history"});
+
+// create the conversation chain for conversation
+const conversation = new ConversationChain({
+    llm: model,
+    prompt: prompt,
+    memory: memory,
+    verbose: true,
+});
 
 // ready!
 console.log('TJBot is ready for conversation!');
@@ -86,37 +97,6 @@ while (true) {
 
     // strip out %HESITATION
     msg = msg.replaceAll('%HESITATION', '');
-
-    // check to see if the bearer token has expired
-    // if expired, bearerToken = token();
-    // else continue;
-    
-      const response = await axios.post(
-        'https://us-south.ml.cloud.ibm.com/ml/v1-beta/generation/text',
-        {
-          model_id: 'ibm/granite-13b-instruct-v2',
-          input: 'Please translate the following sentence to Spanish: Hello how are you today?',
-          parameters: {
-            decoding_method: 'greedy',
-            max_new_tokens: 20,
-            min_new_tokens: 0,
-            stop_sequences: [],
-            repetition_penalty: 1
-          },
-          project_id: 'WATSONX_PROJECT_ID'
-        },
-        {
-          params: {
-            version: '2023-05-29'
-          },
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + bearerToken
-          }
-        })
-
-
 
     const { text } = await conversation.predict({ input: msg });
 
