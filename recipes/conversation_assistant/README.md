@@ -1,7 +1,7 @@
 # Conversation
 > Chat with TJBot!
 
-This recipe uses the [watsonx Assistant](https://www.ibm.com/watson/services/conversation/), [Speech to Text](https://www.ibm.com/watson/services/speech-to-text/), and [Text to Speech](https://www.ibm.com/watson/services/text-to-speech/) services to turn TJ into a chatting robot.
+This recipe uses the [watsonx Assistant](https://www.ibm.com/products/watsonx-assistant), [Speech to Text](https://www.ibm.com/products/speech-to-text), and [Text to Speech](https://www.ibm.com/products/text-to-speech) services to turn TJ into a chatting robot.
 
 ## Hardware
 This recipe requires a TJBot with a microphone, a speaker, a Neopixel LED, and optionally a camera.
@@ -45,7 +45,7 @@ Run!
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
-watsonx conversation uses actions to guide the conversation. For example when you ask TJBot "Please introduce yourself", the action taken is to make an introduction. You can add your own new actions, but for now, we have started you off with a few actions:
+watsonx Assistant uses actions to guide the conversation. For example when you ask TJBot "Please introduce yourself", the action taken is to make an introduction. You can add your own new actions, but for now, we have started you off with a few actions:
 
 - Introduction. You can say phrases such as "Watson, please introduce yourself", "Watson, who are you", and "Watson, can you introduce yourself"
 - Joke. You can ask "Watson, please tell me a joke" or "Watson, I would like to hear a joke".
@@ -56,7 +56,6 @@ An **attention word** is used so TJBot knows you are talking to it. The default 
 
     export default {
         assistantId: '', // add your environment id from watsonx Assistant
-        hasCamera: true, // set this to false if your TJBot doesn't have a camera
         robotName: 'Watson', // set this to the name you wish to use to address your tjbot!
     }
 

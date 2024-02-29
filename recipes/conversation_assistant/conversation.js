@@ -25,7 +25,10 @@ const assistant = new AssistantV2({
 });
 
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
+// const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
+const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER]
+
+let assistantSessionId;
 
 // set up TJBot's configuration
 const tjConfig = {
@@ -33,7 +36,7 @@ const tjConfig = {
         level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     },
     converse: {
-        assistantId: config.assistantId,
+        assistantId: config.environmentId,
     }
 };
 
@@ -55,26 +58,26 @@ const tjConfig = {
 // };
 
 async function converse(message) {
-    let assistantSessionId;
 
     // set up the session if needed
     if (!assistantSessionId) {
+        console.log("no session id detected");
         try {
-            console.log(`creating assistant session, sessionId: ${config.assistantId}`);
+            console.log(`creating assistant session, sessionId: ${config.environmentId}`);
             const body = await assistant.createSession({
-                assistantId: config.assistantId,
+                assistantId: config.environmentId,
             });
             console.log(`response from _assistant.createSession(): ${body.result}`);
             assistantSessionId = body.result.session_id;
         } catch (err) {
-            console.error(`error creating session for ${TJBot.SERVICES.ASSISTANT} service. please check that tj.configuration.converse.assistantId is defined.`);
+            console.error(`error creating session for Assistant service. please check that tj.configuration.converse.environmentId is defined.`);
             throw err;
         }
     }
 
     // define the conversational turn
     const turn = {
-        assistantId: config.assistantId,
+        assistantId: config.environmentId,
         sessionId: assistantSessionId,
         input: {
             'message_type': 'text',
