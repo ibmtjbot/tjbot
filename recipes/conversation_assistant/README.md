@@ -55,7 +55,7 @@ For a complete list, check the content of tjbot-action-sample.json
 An **attention word** is used so TJBot knows you are talking to it. The default attention word is 'Watson', but you can change it in `config.js` by changing `robotName`:
 
     export default {
-        assistantId: '', // add your environment id from watsonx Assistant
+        environmentId: '', // add your environment id from watsonx Assistant
         robotName: 'Watson', // set this to the name you wish to use to address your tjbot!
     }
 

@@ -25,8 +25,7 @@ const assistant = new AssistantV2({
 });
 
 // these are the hardware capabilities that TJ needs for this recipe
-// const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
-const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER]
+const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
 
 let assistantSessionId;
 
@@ -70,7 +69,7 @@ async function converse(message) {
             console.log(`response from _assistant.createSession(): ${body.result}`);
             assistantSessionId = body.result.session_id;
         } catch (err) {
-            console.error(`error creating session for Assistant service. please check that tj.configuration.converse.environmentId is defined.`);
+            console.error(`error creating session for Assistant service. Please check that the environmentId in config.js is defined.`);
             throw err;
         }
     }
