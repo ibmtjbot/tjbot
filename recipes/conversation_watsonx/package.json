@@ -27,7 +27,9 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
-    "@ibm-generative-ai/node-sdk": "^1.4.2",
-    "tjbot": "file:../../../tjbotlib"
+    "axios": "0.27.2",
+    "dotenv": "^16.4.5",
+    "https": "^1.0.0",
+    "tjbot": "2.0.2"
   }
 }

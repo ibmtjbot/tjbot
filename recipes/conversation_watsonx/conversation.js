@@ -14,31 +14,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import TJBot from 'tjbot';
 import config from './config.js';
+import axios from 'axios';
+import * as dotenv from 'dotenv';
+dotenv.config({ path: 'ibm-credentials.env' });
+
+const APIKEY = process.env.IBM_CLOUD_APIKEY;
 
 // these are the hardware capabilities that TJ needs for this recipe
 const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER];
 
+let bearerToken, conversationHistory = '';
+let tokenExpiration = 0;
+
 // set up TJBot's configuration
 const tjConfig = {
-    log: {
-        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    }
+  log: {
+    level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
+  }
 };
 
 // instantiate our TJBot!
 const tj = new TJBot(tjConfig);
 tj.initialize(hardware);
 
-let tokenExpiration;
-let bearerToken;
-
 async function token() {
-    const bearer = await axios.post(
+  const bearer = await axios.post(
     'https://iam.cloud.ibm.com/identity/token',
-    'grant_type=urn:ibmbee:params:oauth:grant-type:apikey&apikey=APIKEY',
+    'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + APIKEY,
     {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
@@ -46,14 +50,28 @@ async function token() {
     }
   );
 
-  const bearerToken = bearer.data.access_token;
-  tokenExpiration = bearer.data.expiration;
-  console.log("bearer token: ", bearerToken);
+  let token = bearer.data.access_token;
+  tokenExpiration = bearer.data.expires_in;
+  return token;
 }
 
-// define the prompt template
-const prompt = 
-    `You are TJBot, a friendly and helpful social robot made out of cardboard.
+// ready!
+console.log('TJBot is ready for conversation!');
+console.log("Say 'stop' or press ctrl-c to exit this recipe.");
+
+while (true) {
+  console.log("Listening");
+  // const msg = await tj.listen();
+  let msg = "Watson can you tell me a joke?"
+
+  // check to see if they are talking to TJBot
+  if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
+    // remove our name from the message
+    const utterance = msg.toLowerCase().replace(config.robotName.toLowerCase(), '').substr(1);
+
+    // define the prompt template
+    const prompt =
+      `You are TJBot, a friendly and helpful social robot made out of cardboard.
     You are having a conversation with a human.
     You provide friendly and helpful responses to everything the human says.
     You respond to their questions in a professional manner.
@@ -62,63 +80,54 @@ const prompt =
     If you don't know the answer to a question, you respond truthfully that you do not know.
     
     Conversation summary:
-    {history}
+    ${conversationHistory}
 
     Conversation:
-    Human: {input}
+    Human: ${msg}
     AI: `;
 
-// ready!
-console.log('TJBot is ready for conversation!');
-console.log("Say 'stop' or press ctrl-c to exit this recipe.");
-
-while (true) {
-    const msg = await tj.listen();
-
     if (msg === undefined || msg === '') {
-        continue;
+      continue;
     }
 
     if (msg === 'stop') {
-        console.log('Goodbye!');
-        process.exit(0);
+      console.log('Goodbye!');
+      process.exit(0);
     }
 
     // strip out %HESITATION
     msg = msg.replaceAll('%HESITATION', '');
 
-    // check to see if the bearer token has expired
-    // if expired, bearerToken = token();
-    // else continue;
-    
-      const response = await axios.post(
-        'https://us-south.ml.cloud.ibm.com/ml/v1-beta/generation/text',
-        {
-          model_id: 'ibm/granite-13b-instruct-v2',
-          input: 'Please translate the following sentence to Spanish: Hello how are you today?',
-          parameters: {
-            decoding_method: 'greedy',
-            max_new_tokens: 20,
-            min_new_tokens: 0,
-            stop_sequences: [],
-            repetition_penalty: 1
-          },
-          project_id: 'WATSONX_PROJECT_ID'
+    // if the token is expiring then generate a new one
+    if (tokenExpiration < 30 || !tokenExpiration) {
+      bearerToken = await token();
+    }
+
+    // call out to the LLM for a response using the prompt and user input
+    const response = await axios.post(
+      config.endpoint,
+      {
+        model_id: config.model_id,
+        input: msg,
+        parameters: config.parameters,
+        project_id: config.project_id
+      },
+      {
+        params: {
+          version: config.version
         },
-        {
-          params: {
-            version: '2023-05-29'
-          },
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': 'Bearer ' + bearerToken
-          }
-        })
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer ' + bearerToken
+        }
+      })
 
-
-
-    const { text } = await conversation.predict({ input: msg });
+    const text = response.data.results[0].generated_text;
+    console.log("Response: ", text);
 
     tj.speak(text);
+
+    conversationHistory += `Human: ${msg} \n AI: ${text}\n`;
+  }
 }
