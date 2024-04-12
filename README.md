@@ -2,7 +2,6 @@
 <img src="images/tjbot.jpg" width="85%">
 
 # Hi, I'm TJBot!
-
 I'm an open source project created by [Maryam Ashoori](https://github.com/maryamashoori) at [IBM Research](https://research.ibm.com/)  to help you use artificial intelligence services and make it fun and easy to interact with [Watson](https://www.ibm.com/watson/products-services/)! 
 
 > 💡 Check out my [TJBot Wiki](https://github.com/ibmtjbot/tjbot/wiki) for more information and detailed instructions on how to build me and bring me to life!
@@ -25,7 +24,7 @@ Recipes are pre-written instructions (written in computer code) that make me per
 > 🫶 After checking out my own recipes, check out the [recipes created by membmers of the #tjbot community](https://github.com/ibmtjbot/tjbot/wiki/Community-Recipes).
 
 ## Troubleshooting TJBot
-TJBot was designed for Raspberry Pi. It requires a minimum of a Raspberry Pi 3 Model B (2016), but it should work with newer models such as the Raspberry Pi 4 and 5.
+TJBot was designed for Raspberry Pi. It requires a minimum of a Raspberry Pi 3 Model B (2016), but it works great with newer models such as the Raspberry Pi 4 and 5.
 
 > 🚨 Having trouble getting TJBot working? Check out our [troubleshooting guide](https://github.com/ibmtjbot/tjbot/wiki/Troubleshooting).
 

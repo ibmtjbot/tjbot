@@ -1,5 +1,5 @@
 ## Issues
-If you encounter an issue with the kit, you are welcome to submit an issue. Before that, please search for similar issues. It's possible somebody has encountered this issue already.
+If you encounter a problem with TJBot, you are welcome to submit an issue. Before that, please search for similar issues. It's possible somebody has encountered this issue already.
 
 ## Pull Requests
 If you want to contribute to the repository, please fork the project and create a pull request. Your commit request needs to be in the following format:
