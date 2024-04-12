@@ -61,8 +61,7 @@ console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 
 while (true) {
   console.log("Listening");
-  // const msg = await tj.listen();
-  let msg = "Watson can you tell me a joke?"
+  const msg = await tj.listen();
 
   // check to see if they are talking to TJBot
   if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
