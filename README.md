@@ -1,33 +1,38 @@
-# IBM [TJBot](https://www.ibm.com/opensource/open/projects/tjbot/)
+# IBM TJBot
 <img src="images/tjbot.jpg" width="85%">
 
 # Hi, I'm TJBot!
 
 I'm an open source project created by [Maryam Ashoori](https://github.com/maryamashoori) at [IBM Research](https://research.ibm.com/)  to help you use artificial intelligence services and make it fun and easy to interact with [Watson](https://www.ibm.com/watson/products-services/)! 
 
-> 💡 Check out my [TJBot Wiki](https://github.com/ibmtjbot/tjbot/wiki) for more information and detailed instructions on how to build and bring me to life!
+> 💡 Check out my [TJBot Wiki](https://github.com/ibmtjbot/tjbot/wiki) for more information and detailed instructions on how to build me and bring me to life!
 
 ## Build Me
-I only work with a Raspberry Pi and you can build my body using a 3D print or laser cut.
-> 🤖 Check out the Wiki [Build TJBot](https://github.com/ibmtjbot/tjbot/wiki/Build-TJBot) section.
+I work with a Raspberry Pi and you can build my body using a 3D print or laser cut.
+
+> 🤖 Check out the instructions for [building me](https://github.com/ibmtjbot/tjbot/wiki/Build-TJBot).
 
 ## Bring Me to Life
-Recipes using IBM's Watson AI services allow me to see, hear, speak, and shine. I can also help you translate languages and even have fun with you by playing games.
+I use a combination of special hardware -- a light, a servo motor, and more -- along with IBM's Watson AI services to listen, speak, shine, and wave my arm. 
 
-After checking out my recipes, you can take a look at featured recipes created by members of the #tjbot community!
+> 💫 Check out the instructions for [bringing me to life](https://github.com/ibmtjbot/tjbot/wiki/Bring-TJBot-to-Life).
 
-> 💫 Check out the Wiki [Bring TJBot to Life](https://github.com/ibmtjbot/tjbot/wiki/Bring-TJBot-to-Life), [Recipes](https://github.com/ibmtjbot/tjbot/wiki/Recipes) and [Featured Recipes](https://github.com/ibmtjbot/tjbot/wiki/Featured-Recipes) sections.
+## Play with Me
+Recipes are pre-written instructions (written in computer code) that make me perform various actions. For example, I can listen to your voice and change the color of my LED! There are so many different ways we can play together and I look forward to seeing what we can do together!
+
+> 🧑‍🍳 Check out my [official recipes](https://github.com/ibmtjbot/tjbot/wiki/Official-Recipes) to get started. Then, take a look at receipes created by members of the #tjbot community!
+
+> 🫶 After checking out my own recipes, check out the [recipes created by membmers of the #tjbot community](https://github.com/ibmtjbot/tjbot/wiki/Community-Recipes).
 
 ## Troubleshooting TJBot
-TJBot has been optimized for the Raspberry Pi 3 B and B+ models. We are currently working hard to optimize TJBot for the newer models. 
+TJBot was designed for Raspberry Pi. It requires a minimum of a Raspberry Pi 3 Model B (2016), but it should work with newer models such as the Raspberry Pi 4 and 5.
 
-Please let us know if you run into any problems or need help with your TJBot.
-> 🚨 Before submitting an issue, please check the Wiki [Troubleshooting](https://github.com/ibmtjbot/tjbot/wiki/Troubleshooting) section.
+> 🚨 Having trouble getting TJBot working? Check out our [troubleshooting guide](https://github.com/ibmtjbot/tjbot/wiki/Troubleshooting).
 
 ## Contribute to TJBot
-We also encourage you to unleash your own creativity and create new recipes that add new features TJBots. We’d love to see what you can make with him!
+We encourage you to unleash your creativity and create new recipes that explore new ways of playing with TJBot. We’d love to see what you can make with it!
 
-> 💚 If you would like your own recipe to be added to our featured recipes take a look at the Wiki [Contribute](https://github.com/ibmtjbot/tjbot/wiki/Contribute) section.
+> 💚 If you would like your own recipe to be added to our list of [community recipes](https://github.com/ibmtjbot/tjbot/wiki/Community-Recipes), please [open an issue](issues) and provide a link to your code repository and a demo video.
 
 ## License
 This project uses the [Apache License Version 2.0](LICENSE) software license.
