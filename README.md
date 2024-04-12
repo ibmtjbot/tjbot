@@ -21,7 +21,7 @@ Recipes are pre-written instructions (written in computer code) that make me per
 
 > 🧑‍🍳 Check out my [official recipes](https://github.com/ibmtjbot/tjbot/wiki/Official-Recipes) to get started. Then, take a look at receipes created by members of the #tjbot community!
 
-> 🫶 After checking out my own recipes, check out the [recipes created by membmers of the #tjbot community](https://github.com/ibmtjbot/tjbot/wiki/Community-Recipes).
+> 🫶 After checking out my own recipes, check out the [recipes created by members of the #tjbot community](https://github.com/ibmtjbot/tjbot/wiki/Community-Recipes).
 
 ## Troubleshooting TJBot
 TJBot was designed for Raspberry Pi. It requires a minimum of a Raspberry Pi 3 Model B (2016), but it works great with newer models such as the Raspberry Pi 4 and 5.
