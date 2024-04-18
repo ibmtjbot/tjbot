@@ -2,31 +2,33 @@
   "name": "conversation_watsonxassistant",
   "description": "TJBot conversation recipe powered by IBM Watson Assistant",
   "version": "3.0.0",
-  "author": "TJBot <https://ibmtjbot.github.io>",
-  "bugs": {
-    "url": "https://github.com/ibmtjbot/tjbot/issues"
-  },
-  "main": "conversation.js",
-  "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation",
-  "keywords": [
-    "tjbot"
-  ],
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ibmtjbot/tjbot.git"
-  },
+  "description": "TJBot conversation recipe powered by IBM watsonx Assistant",
   "type": "module",
+  "main": "conversation.js",
   "scripts": {
     "start": "node conversation.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ibmtjbot/tjbot.git"
+  },
+  "keywords": [
+    "tjbot"
+  ],
+  "author": "TJBot <https://ibmtjbot.github.io>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
+  },
+  "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/conversation_assistant",
   "devDependencies": {
-    "eslint": "^8.51.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.28.1"
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
-    "tjbot": "file:../../../tjbotlib"
+    "ibm-watson": "^9.0.0",
+    "tjbot": "^2.0.2"
   }
 }
