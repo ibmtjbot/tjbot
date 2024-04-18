@@ -9,12 +9,12 @@ This recipe requires a TJBot with a microphone and a speaker.
 ## Build and Run
 First, make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).
 
-Next, go to the `recipes/conversation_watsonx` folder and install the dependencies.
+Next, go to the `recipes/conversation_watsonxai` folder and install the dependencies.
 
-    $ cd tjbot/recipes/conversation_watsonx
+    $ cd tjbot/recipes/conversation_watsonxai
     $ npm install
 
-Create instances of the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/watson-machine-learning), [Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text), and [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) services and download the authentication credentials file for each service except Watson Machine Learning. Combine each of these files into a single file named `ibm-credentials.env` and place it in the `tjbot/recipes/conversation_watsonx` folder. See `ibm-credentials.sample.env` for an example.
+Create instances of the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/watson-machine-learning), [Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text), and [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) services and download the authentication credentials file for each service except Watson Machine Learning. Combine each of these files into a single file named `ibm-credentials.env` and place it in the `tjbot/recipes/conversation_watsonxai` folder. See `ibm-credentials.sample.env` for an example.
 
 Setup watsonx
 
