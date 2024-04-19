@@ -1,4 +1,3 @@
-
 {
   "name": "conversation_watsonxai",
   "version": "3.0.0",
@@ -31,6 +30,6 @@
     "axios": "0.27.2",
     "dotenv": "^16.4.5",
     "https": "^1.0.0",
-    "tjbot": "2.0.2"
+    "tjbot": "file:../../../node-tjbotlib"
   }
 }

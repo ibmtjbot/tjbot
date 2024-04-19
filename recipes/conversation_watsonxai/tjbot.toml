@@ -1,0 +1,2 @@
+[Listen]
+device = 'plughw:0,0'
