@@ -1,2 +1,8 @@
+[Log]
+level = 'debug'
+
 [Listen]
 device = 'plughw:0,0'
+backgroundAudioSuppression = 0.6
+microphoneRate = 44100
+microphoneChannels = 2
