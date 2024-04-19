@@ -14,15 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import TJBot from 'tjbot';
 import config from './config.js';
 import axios from 'axios';
-
-// import * as dotenv from 'dotenv';
-// dotenv.config({ path: 'ibm-credentials.env' });
-
-// these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER];
+import reader from 'readline-sync';
 
 // keep track of the conversational history
 let conversationHistory = '';
@@ -30,10 +24,6 @@ let conversationHistory = '';
 // used for IBM Cloud authentication
 let bearerToken = '';
 let bearerTokenExpiration = 0;
-
-// instantiate our TJBot!
-const tj = new TJBot();
-tj.initialize(hardware);
 
 async function token() {
     console.log("🍪 requesting new IBM Cloud authentication token");
@@ -53,39 +43,26 @@ async function token() {
     };
 }
 
-// ready!
-console.log('TJBot is ready for conversation!');
-console.log("Say 'stop' or press ctrl-c to exit this recipe.");
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+
 
 while (true) {
-    console.log("👂 listening...");
-    let msg = await tj.listen();
-
-    // // // check to see if they are talking to TJBot
-    // // if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
-    //     // remove our name from the message
-    //     const utterance = msg.toLowerCase().replace(config.robotName.toLowerCase(), '').substr(1);
-
-        // define the prompt template
-    
-    if (msg === undefined || msg === '') {
-        continue;
-    }
-
-    if (msg.toLowerCase() === 'stop') {
-        console.log('Goodbye!');
-        process.exit(0);
-    }
-
-    // strip out %HESITATION
-    msg = msg.replaceAll('%HESITATION', '');
-
     // if the token is expiring then generate a new one
     if (bearerToken === '' || bearerTokenExpiration < 30) {
         token = await token();
         bearerToken = token.token;
         bearerTokenExpiration = token.expiration;
         console.log("🥠 fetched new IBM Cloud authentication token that expires in " + bearerTokenExpiration + " seconds");
+    }
+
+    const msg = await reader.question(`👩‍💻 > `);
+
+    if (msg.toLowerCase() === 'stop') {
+        console.log('Goodbye!');
+        process.exit(0);
     }
 
     // build the prompt
@@ -123,15 +100,10 @@ AI: `;
                 'Accept': 'application/json',
                 'Authorization': 'Bearer ' + bearerToken
             }
-        })
+        });
 
     const text = response.data.results[0].generated_text;
-    console.log("👩‍💻 > " + msg);
     console.log("🤖 > " + text);
-
-    console.log("🗯️ speaking...");
-    await tj.speak(text);
-    console.log("🗯️ speaking finished");
 
     // add to the conversation history
     conversationHistory += `Human: ${msg}\n AI: ${text}\n\n`;
