@@ -1,0 +1,23 @@
+[Log]
+level = 'debug'
+
+[Listen]
+device = 'plughw:2,0'
+backgroundAudioSuppression = 0.6
+microphoneRate = 44100
+microphoneChannels = 2
+
+[Speak]
+device = 'plughw:1,0'
+
+[Recipe]
+ibmCloudApiKey = '' # FILL IN WITH YOUR IBM CLOUD API KEY
+projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
+endpoint = 'https://us-south.ml.cloud.ibm.com/ml/v1-beta/generation/text'
+modelId = 'meta-llama/llama-3-70b-instruct'
+version = '2023-05-29'
+modelDecodingMethod = 'greedy'
+modelMaxNewTokens = 200
+modelMinNewTokens = 0
+modelStopSequences = ['.']
+modelRepetitionPenalty = 1
