@@ -15,14 +15,19 @@
  * limitations under the License.
  */
 import TJBot from 'tjbot';
-import config from './config.js';
-import axios from 'axios';
 
-// import * as dotenv from 'dotenv';
-// dotenv.config({ path: 'ibm-credentials.env' });
+import fs from 'fs';
+import axios from 'axios';
+import { resolve } from 'import-meta-resolve';
+import TOML from '@iarna/toml';
 
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER];
+const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
+
+// read recipe-specific config
+const configPath = resolve('./tjbot.toml', import.meta.url);
+const configData = fs.readFileSync(new URL(configPath), 'utf8');
+let config = TOML.parse(configData)['Recipe'];
 
 // keep track of the conversational history
 let conversationHistory = '';
@@ -39,7 +44,7 @@ async function token() {
     console.log("🍪 requesting new IBM Cloud authentication token");
     const bearer = await axios.post(
         'https://iam.cloud.ibm.com/identity/token',
-        'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + config.ibm_cloud_apikey,
+        'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + config.ibmCloudApiKey,
         {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -59,7 +64,10 @@ console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 
 while (true) {
     console.log("👂 listening...");
+
+    tj.shine('green');
     let msg = await tj.listen();
+    tj.shine('red');
 
     // // // check to see if they are talking to TJBot
     // // if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
@@ -109,10 +117,16 @@ AI: `;
     const response = await axios.post(
         config.endpoint,
         {
-            model_id: config.model_id,
+            model_id: config.modelId,
             input: prompt,
-            parameters: config.parameters,
-            project_id: config.project_id
+            parameters: {
+                decoding_method: config.modelDecodingMethod,
+                max_new_tokens: config.modelMaxNewTokens,
+                min_new_tokens: config.modelMinNewTokens,
+                stop_sequences: config.modelStopSequences,
+                repetition_penalty: config.modelRepetitionPenalty
+            },
+            project_id: config.projectId
         },
         {
             params: {

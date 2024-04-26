@@ -2,7 +2,23 @@
 level = 'debug'
 
 [Listen]
-device = 'plughw:0,0'
+device = 'plughw:2,0'
 backgroundAudioSuppression = 0.6
 microphoneRate = 44100
 microphoneChannels = 2
+
+[Speak]
+device = 'plughw:1,0'
+
+[Recipe]
+robotName = 'Watson' # set this to the name you wish to use to address your tjbot!
+ibmCloudApiKey = 'p_8yl_M3DsEdHEgWTt4XbSQcWVlZ4n-kTO-QjDY1SHgI'
+endpoint = 'https://us-south.ml.cloud.ibm.com/ml/v1-beta/generation/text'
+projectId = '1e643578-9140-4471-b151-1fa623e549bd'
+modelId = 'meta-llama/llama-3-70b-instruct'
+version = '2023-05-29'
+modelDecodingMethod = 'greedy'
+modelMaxNewTokens = 200
+modelMinNewTokens = 0
+modelStopSequences = ['.']
+modelRepetitionPenalty = 1

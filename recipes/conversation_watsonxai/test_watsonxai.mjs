@@ -14,9 +14,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import config from './config.js';
+
+import fs from 'fs';
 import axios from 'axios';
+import { resolve } from 'import-meta-resolve';
+import TOML from '@iarna/toml';
 import reader from 'readline-sync';
+
+// read recipe-specific config
+const configPath = resolve('./tjbot.toml', import.meta.url);
+const configData = fs.readFileSync(new URL(configPath), 'utf8');
+let config = TOML.parse(configData)['Recipe'];
 
 // keep track of the conversational history
 let conversationHistory = '';
@@ -29,7 +37,7 @@ async function token() {
     console.log("🍪 requesting new IBM Cloud authentication token");
     const bearer = await axios.post(
         'https://iam.cloud.ibm.com/identity/token',
-        'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + config.ibm_cloud_apikey,
+        'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + config.ibmCloudApiKey,
         {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -42,12 +50,6 @@ async function token() {
         expiration: bearer.data.expires_in
     };
 }
-
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-
 
 while (true) {
     // if the token is expiring then generate a new one
@@ -66,7 +68,7 @@ while (true) {
     }
 
     // build the prompt
-    const prompt = `You are TJBot, a friendly and helpful social robot made out of cardboard.
+    const prompt = `You are T J Bot, a friendly and helpful social robot made out of cardboard.
 You are having a conversation with a human.
 You provide friendly and helpful responses to everything the human says.
 You respond to their questions in a professional manner.
@@ -86,10 +88,16 @@ AI: `;
     const response = await axios.post(
         config.endpoint,
         {
-            model_id: config.model_id,
+            model_id: config.modelId,
             input: prompt,
-            parameters: config.parameters,
-            project_id: config.project_id
+            parameters: {
+                decoding_method: config.modelDecodingMethod,
+                max_new_tokens: config.modelMaxNewTokens,
+                min_new_tokens: config.modelMinNewTokens,
+                stop_sequences: config.modelStopSequences,
+                repetition_penalty: config.modelRepetitionPenalty
+            },
+            project_id: config.projectId
         },
         {
             params: {
