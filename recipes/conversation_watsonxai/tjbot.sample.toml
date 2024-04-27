@@ -1,11 +1,9 @@
 [Log]
-level = 'debug'
+level = 'info' # change this to 'debug' if you want to see more detail in the logs
 
 [Listen]
 device = 'plughw:2,0'
 backgroundAudioSuppression = 0.6
-microphoneRate = 44100
-microphoneChannels = 2
 
 [Speak]
 device = 'plughw:1,0'
