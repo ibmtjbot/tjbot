@@ -21,13 +21,23 @@ import axios from 'axios';
 import { resolve } from 'import-meta-resolve';
 import TOML from '@iarna/toml';
 
-// these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
-
 // read recipe-specific config
 const configPath = resolve('./tjbot.toml', import.meta.url);
 const configData = fs.readFileSync(new URL(configPath), 'utf8');
 let config = TOML.parse(configData)['Recipe'];
+
+// these are the hardware capabilities that TJ needs for this recipe
+const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
+let hasLED = false;
+
+if (config.Recipe.useNeoPixelLED) {
+    hardware.append(TJBot.Hardware.LED_NEOPIXEL);
+    hasLED = true;
+}
+if (config.Recipe.useCommonAnodeLED) {
+    hardware.append(TJBot.Hardware.LED_COMMON_ANODE);
+    hasLED = true;
+}
 
 // keep track of the conversational history
 let conversationHistory = '';
@@ -65,9 +75,13 @@ console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 while (true) {
     console.log("👂 listening...");
 
-    tj.shine('green');
+    if (hasLED) {
+        tj.shine('green');
+    }
     let msg = await tj.listen();
-    tj.shine('red');
+    if (hasLED) {
+        tj.pulse('orange');
+    }
 
     // // // check to see if they are talking to TJBot
     // // if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
@@ -144,6 +158,9 @@ AI: `;
     console.log("🤖 > " + text);
 
     console.log("🗯️ speaking...");
+    if (hasLED) {
+        tj.pulse('yellow');
+    }
     await tj.speak(text);
     console.log("🗯️ speaking finished");
 
