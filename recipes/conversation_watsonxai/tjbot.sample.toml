@@ -1,13 +1,6 @@
 [Log]
 level = 'info' # change this to 'debug' if you want to see more detail in the logs
 
-[Listen]
-device = 'plughw:2,0'
-backgroundAudioSuppression = 0.6
-
-[Speak]
-device = 'plughw:1,0'
-
 [Recipe]
 ibmCloudApiKey = '' # FILL IN WITH YOUR IBM CLOUD API KEY
 projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
