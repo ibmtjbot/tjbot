@@ -17,8 +17,10 @@
 
 import TJBot from 'tjbot';
 
-const tjbot = new TJBot({ log: { level: 'silly' } });
-tjbot.initialize([TJBot.HARDWARE.MICROPHONE]);
+const tjbot = new TJBot();
+tjbot.config.Log.level = 'silly';
+
+tjbot.initialize([TJBot.Hardware.MICROPHONE]);
 
 console.log('Note: This test requires credentials for the Speech to Text service stored in the ibm-credentials.env file.');
 console.log('If you see an error about "Missing required parameters: apikey", it is because TJBot was unable');

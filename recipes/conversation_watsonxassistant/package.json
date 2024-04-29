@@ -1,7 +1,7 @@
 {
-  "name": "conversation_assistant",
+  "name": "conversation_watsonxassistant",
+  "description": "TJBot conversation recipe powered by IBM Watson Assistant",
   "version": "3.0.0",
-  "description": "TJBot conversation recipe powered by IBM watsonx Assistant",
   "type": "module",
   "main": "conversation.js",
   "scripts": {

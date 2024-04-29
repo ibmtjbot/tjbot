@@ -18,5 +18,3 @@ $ npm run-script test-mic
 $ npm run-script test-servo
 $ npm run-script test-speaker
 ```
-
-> 💡 Note: The `test-mic` tests requires authentication credientials for the Tone Analyzer service. Add your `ibm-credentials.env` file to the `tests` directory before running this test.

@@ -28,17 +28,20 @@ function confirm(behavior) {
     }
 }
 
-const tjbot = new TJBot({ log: { level: 'silly' } });
-let answer = rl.question('Are you testing a Neopixel LED (n) or Common Anode (c) LED, or both (b)? (N/c/b)? ');
+const tjbot = new TJBot();
+tjbot.config.Log.level = 'silly';
+
+let answer = rl.question('Are you testing a NeoPixel LED (n) or Common Anode (c) LED, or both (b)? (N/c/b)? ');
+
 if (answer.toLowerCase() === 'n' || answer === '') {
-    console.log("testing Neopixel LED");
-    tjbot.initialize([TJBot.HARDWARE.LED_NEOPIXEL]);
+    console.log("testing NeoPixel LED");
+    tjbot.initialize([TJBot.Hardware.LED_NEOPIXEL]);
 } else if (answer.toLowerCase() === 'c') {
     console.log("testing Common Anode LED");
-    tjbot.initialize([TJBot.HARDWARE.LED_COMMON_ANODE]);
+    tjbot.initialize([TJBot.Hardware.LED_COMMON_ANODE]);
 } else if (answer.toLowerCase() === 'b') {
-    console.log("testing Neopixel and Common Anode LEDs");
-    tjbot.initialize([TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.LED_COMMON_ANODE]);
+    console.log("testing NeoPixel and Common Anode LEDs");
+    tjbot.initialize([TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.LED_COMMON_ANODE]);
 }
 
 // shine various colors

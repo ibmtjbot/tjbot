@@ -1,0 +1,18 @@
+[Log]
+level = 'info' # change this to 'debug' if you want to see more detail in the logs
+
+[Recipe]
+ibmCloudApiKey = '' # FILL IN WITH YOUR IBM CLOUD API KEY
+projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
+endpoint = 'https://us-south.ml.cloud.ibm.com/ml/v1-beta/generation/text'
+useNeoPixelLED = false     # set to true if using a NeoPixel LED
+useCommonAnodeLED = false  # set to true if using a Common Anode LED
+
+# advanced configuration: you can change the LLM model & parmaeters here
+modelId = 'meta-llama/llama-3-70b-instruct'
+version = '2023-05-29'
+modelDecodingMethod = 'greedy'
+modelMaxNewTokens = 200
+modelMinNewTokens = 0
+modelStopSequences = ['.']
+modelRepetitionPenalty = 1

@@ -28,8 +28,10 @@ function confirm(behavior) {
     }
 }
 
-const tjbot = new TJBot({ log: { level: 'silly' } });
-tjbot.initialize([TJBot.HARDWARE.SERVO]);
+const tjbot = new TJBot();
+tjbot.config.Log.level = 'silly';
+
+tjbot.initialize([TJBot.Hardware.SERVO]);
 
 console.log("Moving TJBot's arm back");
 tjbot.armBack();
