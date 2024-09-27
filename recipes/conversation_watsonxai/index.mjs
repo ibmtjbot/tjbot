@@ -21,6 +21,8 @@ import axios from 'axios';
 import { resolve } from 'import-meta-resolve';
 import TOML from '@iarna/toml';
 
+import WatsonXAI from '@ibm-cloud/watsonx-ai';
+
 // read recipe-specific config
 const configPath = resolve('./tjbot.toml', import.meta.url);
 const configData = fs.readFileSync(new URL(configPath), 'utf8');
@@ -39,34 +41,18 @@ if (config.Recipe.useCommonAnodeLED) {
     hasLED = true;
 }
 
+// create an instance of the watsonx.ai service
+const wxai = WatsonXAI.newInstance({
+    serviceUrl: config.Recipe.serviceUrl,
+    version: config.Recipe.serviceVersion,
+});
+
 // keep track of the conversational history
 let conversationHistory = '';
-
-// used for IBM Cloud authentication
-let bearerToken = '';
-let bearerTokenExpiration = 0;
 
 // instantiate our TJBot!
 const tj = new TJBot();
 tj.initialize(hardware);
-
-async function token() {
-    console.log("🍪 requesting new IBM Cloud authentication token");
-    const bearer = await axios.post(
-        'https://iam.cloud.ibm.com/identity/token',
-        'grant_type=urn:ibm:params:oauth:grant-type:apikey&apikey=' + config.ibmCloudApiKey,
-        {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        }
-    );
-
-    return {
-        token: bearer.data.access_token,
-        expiration: bearer.data.expires_in
-    };
-}
 
 // ready!
 console.log('TJBot is ready for conversation!');
@@ -102,16 +88,9 @@ while (true) {
     // strip out %HESITATION
     msg = msg.replaceAll('%HESITATION', '');
 
-    // if the token is expiring then generate a new one
-    if (bearerToken === '' || bearerTokenExpiration < 30) {
-        token = await token();
-        bearerToken = token.token;
-        bearerTokenExpiration = token.expiration;
-        console.log("🥠 fetched new IBM Cloud authentication token that expires in " + bearerTokenExpiration + " seconds");
-    }
-
     // build the prompt
-    const prompt = `You are TJBot, a friendly and helpful social robot made out of cardboard.
+    const prompt = `
+You are TJBot, a friendly and helpful social robot made out of cardboard.
 You are having a conversation with a human.
 You provide friendly and helpful responses to everything the human says.
 You respond to their questions in a professional manner.
@@ -127,43 +106,37 @@ Conversation:
 Human: ${msg}
 AI: `;
 
-    // call out to the LLM for a response using the prompt and user input
-    const response = await axios.post(
-        config.endpoint,
-        {
-            model_id: config.modelId,
-            input: prompt,
-            parameters: {
-                decoding_method: config.modelDecodingMethod,
-                max_new_tokens: config.modelMaxNewTokens,
-                min_new_tokens: config.modelMinNewTokens,
-                stop_sequences: config.modelStopSequences,
-                repetition_penalty: config.modelRepetitionPenalty
-            },
-            project_id: config.projectId
-        },
-        {
-            params: {
-                version: config.version
-            },
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Authorization': 'Bearer ' + bearerToken
-            }
-        })
+    const params = {
+        input: prompt,
+        modelId: config.Recipe.modelId,
+        projectId: config.Recipe.projectId,
+        parameters: {
+            decoding_method: config.Recipe.modelDecodingMethod,
+            max_new_tokens: config.Recipe.modelMaxNewTokens,
+            min_new_tokens: config.Recipe.modelMinNewTokens,
+            stop_sequences: config.Recipe.modelStopSequences,
+            repetition_penalty: config.Recipe.modelRepetitionPenalty,
+        }
+    };
 
-    const text = response.data.results[0].generated_text;
-    console.log("👩‍💻 > " + msg);
-    console.log("🤖 > " + text);
+    try {
+        const response = await wxai.generateText(params);
+        const text = response.result.results[0].generated_text;
+        
+        console.log("👩‍💻 > " + msg);
+        console.log("🤖 > " + text);
 
-    console.log("🗯️ speaking...");
-    if (hasLED) {
-        tj.pulse('yellow');
+        console.log("🗯️ speaking...");
+        if (hasLED) {
+            tj.pulse('yellow');
+        }
+        await tj.speak(text);
+        console.log("🗯️ speaking finished");
+
+        // add to the conversation history
+        conversationHistory += `Human: ${msg}\n AI: ${text}\n\n`;
+
+    } catch (err) {
+        console.warn("⚠️ > " + err);
     }
-    await tj.speak(text);
-    console.log("🗯️ speaking finished");
-
-    // add to the conversation history
-    conversationHistory += `Human: ${msg}\n AI: ${text}\n\n`;
 }

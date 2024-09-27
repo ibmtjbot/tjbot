@@ -1,7 +1,7 @@
 {
   "name": "conversation_watsonxai",
   "version": "3.0.0",
-  "description": "TJBot conversation recipe powered by IBM watsonx.ai",
+  "description": "Chat with TJBot using watsonx.ai!",
   "type": "module",
   "main": "index.mjs",
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
+    "@ibm-cloud/watsonx-ai": "^1.0.2",
     "axios": "0.27.2",
     "dotenv": "^16.4.5",
     "https": "^1.0.0",
