@@ -15,18 +15,15 @@
  * limitations under the License.
  */
 import TJBot from 'tjbot';
-
 import fs from 'fs';
-import axios from 'axios';
 import { resolve } from 'import-meta-resolve';
 import TOML from '@iarna/toml';
-
-import WatsonXAI from '@ibm-cloud/watsonx-ai';
+import { WatsonXAI } from '@ibm-cloud/watsonx-ai';
 
 // read recipe-specific config
 const configPath = resolve('./tjbot.toml', import.meta.url);
 const configData = fs.readFileSync(new URL(configPath), 'utf8');
-let config = TOML.parse(configData)['Recipe'];
+let config = TOML.parse(configData);
 
 // these are the hardware capabilities that TJ needs for this recipe
 const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
