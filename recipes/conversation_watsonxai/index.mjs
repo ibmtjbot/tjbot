@@ -26,15 +26,16 @@ const configData = fs.readFileSync(new URL(configPath), 'utf8');
 let config = TOML.parse(configData);
 
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
+// const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
+const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER];
 let hasLED = false;
 
 if (config.Recipe.useNeoPixelLED) {
-    hardware.append(TJBot.Hardware.LED_NEOPIXEL);
+    hardware.push(TJBot.HARDWARE.LED_NEOPIXEL);
     hasLED = true;
 }
 if (config.Recipe.useCommonAnodeLED) {
-    hardware.append(TJBot.Hardware.LED_COMMON_ANODE);
+    hardware.push(TJBot.HARDWARE.LED_COMMON_ANODE);
     hasLED = true;
 }
 
@@ -47,8 +48,25 @@ const wxai = WatsonXAI.newInstance({
 // keep track of the conversational history
 let conversationHistory = '';
 
+const tjConfig = {
+    log: {
+        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
+    }
+};
+
+tjConfig.shine = {
+    neopixel: {
+        gpioPin: 18
+    },
+    commonAnode: {
+        redPin: 1,
+        greenPin: 6,
+        bluePin: 12
+    }
+};
+
 // instantiate our TJBot!
-const tj = new TJBot();
+const tj = new TJBot(tjConfig);
 tj.initialize(hardware);
 
 // ready!
@@ -62,6 +80,9 @@ while (true) {
         tj.shine('green');
     }
     let msg = await tj.listen();
+    console.log("msg: ", msg);
+
+    console.log("made it here");
     if (hasLED) {
         tj.pulse('orange');
     }

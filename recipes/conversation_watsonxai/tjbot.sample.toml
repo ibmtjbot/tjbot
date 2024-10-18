@@ -16,3 +16,13 @@ modelMaxNewTokens = 200
 modelMinNewTokens = 0
 modelStopSequences = ['.']
 modelRepetitionPenalty = 1
+
+[Speak]
+voice = 'en-US_MichaelV3Voice'
+device = 'plughw:0,0' # plugged-in USB card 0, device 0
+
+[Listen]
+device = 'plughw:2,0'
+backgroundAudioSuppression = 0.6
+microphoneRate = 44100
+microphoneChannels = 2
