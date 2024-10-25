@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
-  "main": "stt.js",
+  "main": "index.mjs",
   "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text",
   "keywords": [
     "tjbot"

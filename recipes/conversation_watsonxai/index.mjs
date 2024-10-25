@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 /**
- * Copyright 2023-2024 IBM Corp. All Rights Reserved.
+ * Copyright 2024 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,16 +26,15 @@ const configData = fs.readFileSync(new URL(configPath), 'utf8');
 let config = TOML.parse(configData);
 
 // these are the hardware capabilities that TJ needs for this recipe
-// const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
-const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER];
+const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL];
 let hasLED = false;
 
 if (config.Recipe.useNeoPixelLED) {
-    hardware.push(TJBot.HARDWARE.LED_NEOPIXEL);
+    hardware.push(TJBot.Hardware.LED_NEOPIXEL);
     hasLED = true;
 }
 if (config.Recipe.useCommonAnodeLED) {
-    hardware.push(TJBot.HARDWARE.LED_COMMON_ANODE);
+    hardware.push(TJBot.Hardware.LED_COMMON_ANODE);
     hasLED = true;
 }
 
@@ -50,7 +49,7 @@ let conversationHistory = '';
 
 const tjConfig = {
     log: {
-        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
+        level: config.Log.level, // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     }
 };
 
@@ -80,19 +79,10 @@ while (true) {
         tj.shine('green');
     }
     let msg = await tj.listen();
-    console.log("msg: ", msg);
 
-    console.log("made it here");
     if (hasLED) {
         tj.pulse('orange');
     }
-
-    // // // check to see if they are talking to TJBot
-    // // if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
-    //     // remove our name from the message
-    //     const utterance = msg.toLowerCase().replace(config.robotName.toLowerCase(), '').substr(1);
-
-        // define the prompt template
     
     if (msg === undefined || msg === '') {
         continue;

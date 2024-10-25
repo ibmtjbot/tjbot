@@ -14,16 +14,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import TJBot from 'tjbot';
+import fs from 'fs';
+import { resolve } from 'import-meta-resolve';
+import TOML from '@iarna/toml';
+
+// read recipe-specific config
+const configPath = resolve('./tjbot.toml', import.meta.url);
+const configData = fs.readFileSync(new URL(configPath), 'utf8');
+let config = TOML.parse(configData);
 
 // these are the hardware capabilities that our TJ needs for this recipe
-const hardware = [TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.MICROPHONE];
+const hardware = [TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.MICROPHONE];
 
 // set up TJBot's configuration
 const tjConfig = {
     log: {
-        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
+        level: config.Log.level, // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     }
 };
 

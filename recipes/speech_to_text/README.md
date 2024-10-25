@@ -6,7 +6,7 @@ This recipe uses the [Speech to Text](https://www.ibm.com/watson/services/speech
 ## Hardware
 This recipe requires a TJBot with a microphone and a Neopixel LED.
 
-> 💡 If you have a Common Anode LED, change `TJBot.HARDWARE.LED_NEOPIXEL` to `TJBot.HARDWARE.LED_COMMON_ANODE` in `stt.js`
+> 💡 If you have a Common Anode LED, change `TJBot.Hardware.LED_NEOPIXEL` to `TJBot.Hardware.LED_COMMON_ANODE` in `index.mjs`
 
 > 📌 By default, TJBot expects Neopixel LEDs to be connected to GPIO PIN 18 and Common Anode LEDs to be connected to GPIO pins 19 (red), 13 (green), and 12 (blue). You may set which pins your LED is connected to by uncommenting the `tjConfig.shine = {...}` code block. See [https://pinout.xyz](https://pinout.xyz) for a complete pin diagram.
 

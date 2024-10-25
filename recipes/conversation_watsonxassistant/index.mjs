@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 /**
- * Copyright 2016-2023 IBM Corp. All Rights Reserved.
+ * Copyright 2024 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,28 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import TJBot from 'tjbot';
-import config from './config.js';
+import fs from 'fs';
+import { resolve } from 'import-meta-resolve';
+import TOML from '@iarna/toml';
 import AssistantV2 from 'ibm-watson/assistant/v2.js';
 
 const assistant = new AssistantV2({
     serviceName: 'assistant',
-    version: '2023-06-15',
+    version: '2024-08-25',
 });
 
+// read recipe-specific config
+const configPath = resolve('./tjbot.toml', import.meta.url);
+const configData = fs.readFileSync(new URL(configPath), 'utf8');
+let config = TOML.parse(configData);
+
 // these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.HARDWARE.MICROPHONE, TJBot.HARDWARE.SPEAKER, TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.SERVO];
+const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.SERVO];
 
 let assistantSessionId;
 
-// set up TJBot's configuration
 const tjConfig = {
     log: {
-        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    },
-    converse: {
-        assistantId: config.environmentId,
+        level: config.Log.level, // change to 'verbose' or 'silly' for more detail about what TJBot is doing
     }
 };
 
@@ -62,21 +64,21 @@ async function converse(message) {
     if (!assistantSessionId) {
         console.log("no session id detected");
         try {
-            console.log(`creating assistant session, sessionId: ${config.environmentId}`);
+            console.log(`creating assistant session`);
             const body = await assistant.createSession({
-                assistantId: config.environmentId,
+                assistantId: config.Recipe.environmentId
             });
             console.log(`response from _assistant.createSession(): ${body.result}`);
             assistantSessionId = body.result.session_id;
         } catch (err) {
-            console.error(`error creating session for Assistant service. Please check that the environmentId in config.js is defined.`);
+            console.error(`error creating session for Assistant service. Please check that the environmentId in tjbot.toml is defined.`);
             throw err;
         }
     }
 
     // define the conversational turn
     const turn = {
-        assistantId: config.environmentId,
+        assistantId: config.Recipe.environmentId,
         sessionId: assistantSessionId,
         input: {
             'message_type': 'text',
@@ -121,8 +123,8 @@ const tj = new TJBot(tjConfig);
 tj.initialize(hardware);
 
 console.log('You can ask me to introduce myself or tell you a joke.');
-console.log(`Try saying, "${config.robotName}, please introduce yourself" or "${config.robotName}, what can you do?"`);
-console.log(`You can also say, "${config.robotName}, tell me a joke!"`);
+console.log(`Try saying, "${config.Recipe.robotName}, please introduce yourself" or "${config.Recipe.robotName}, what can you do?"`);
+console.log(`You can also say, "${config.Recipe.robotName}, tell me a joke!"`);
 console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 
 // listen for utterances with our attentionWord and send the result to
@@ -136,9 +138,9 @@ if (msg === 'stop') {
 }
 
 // check to see if they are talking to TJBot
-if (msg.toLowerCase().startsWith(config.robotName.toLowerCase())) {
+if (msg.toLowerCase().startsWith(config.Recipe.robotName.toLowerCase())) {
     // remove our name from the message
-    const utterance = msg.toLowerCase().replace(config.robotName.toLowerCase(), '').substr(1);
+    const utterance = msg.toLowerCase().replace(config.Recipe.robotName.toLowerCase(), '').substr(1);
 
     // send to the assistant service
     const response = await converse(utterance);
