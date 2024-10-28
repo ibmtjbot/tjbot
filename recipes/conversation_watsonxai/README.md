@@ -27,19 +27,7 @@ The first step is to create an API key to connect to the watsonx.ai service in t
 2. Click the blue "Create" button.
 3. Type a name for your API key and click "Create" (we recommend "TJBot"!)
 4. Copy the API key. Important: Once you close the dialog, you will not be able to retrieve this API key in the future; instead, you will need to revoke the key and generate a new one.
-
-Next, make a copy of TJBot's sample configuration file.
-
-```sh
-$ cp tjbot.sample.toml tjbot.toml
-$ nano tjbot.toml
-```
-
-In the `[Recipe]` section, fill in the `ibmCloudApiKey` configuration parameter.
-
-```toml
-ibmCloudApiKey = '' # FILL IN WITH YOUR IBM CLOUD API KEY
-```
+5. Paste this API key into your `ibm-credentials.env` file for `WATSONX_AI_APIKEY`.
 
 ### Create an instance of watsonx.ai
 The next step is to create a new instance of the watsonx.ai service.
@@ -53,6 +41,13 @@ The next step is to create a new instance of the watsonx.ai service.
 7. Click "Associate service" and select the "Watson Machine Learning" service.
 8. Click "Associate" at the bottom right.
 9. For your endpoint URL, visit the [API documentation](https://cloud.ibm.com/apidocs/machine-learning) and select a URL under `Endpoint URLs` that corresponds to the region in which you created your service.
+
+Next, make a copy of TJBot's sample configuration file.
+
+```sh
+$ cp tjbot.sample.toml tjbot.toml
+$ nano tjbot.toml
+```
 
 Edit your TJBot configuration file.
 
@@ -87,23 +82,6 @@ Now you can have a chat with TJBot!
 ## Customize
 
 Try updating the [parameters](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&audience=wdp) in your `tjbot.toml` file to experiment with different configurations. 
-
-An **attention word** is used so TJBot knows you are talking to it. The default attention word is 'Watson', but you can change it in `config.js` by changing `robotName`:
-
-    export default {
-        robotName: 'Watson', // set this to the name you wish to use to address your tjbot!
-        endpoint: '', // add your endoing from the Watson Machine Learning documentation
-        project_id: '', // add your watsonx project ID here
-        model_id: 'ibm/granite-13b-chat',
-        version: '2023-05-29',
-        parameters: {
-            decoding_method: 'greedy',
-            max_new_tokens: 20,
-            min_new_tokens: 0,
-            stop_sequences: [],
-            repetition_penalty: 1
-        }
-    };
 
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).

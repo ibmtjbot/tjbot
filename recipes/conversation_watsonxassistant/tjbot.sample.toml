@@ -2,7 +2,7 @@
 level = 'info' # change this to 'debug' if you want to see more detail in the logs
 
 [Recipe]
-robotName = ''
+robotName = 'tinker'
 environmentId = '' # fill in with your watsonx Assistant environment ID
 serviceVersion = '2024-05-31'
 useNeoPixelLED = false     # set to true if using a NeoPixel LED

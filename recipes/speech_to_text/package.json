@@ -27,6 +27,6 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
-    "tjbot": "file:../../../tjbotlib"
+    "tjbot": "^2.0.1"
   }
 }
