@@ -27,27 +27,8 @@ let config = TOML.parse(configData);
 // these are the hardware capabilities that our TJ needs for this recipe
 const hardware = [TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.MICROPHONE];
 
-// set up TJBot's configuration
-const tjConfig = {
-    log: {
-        level: config.Log.level, // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    }
-};
-
-// uncomment to change the pins for the LED
-// tjConfig.shine = {
-//     neopixel: {
-//         gpioPin: 18
-//     },
-//     commonAnode: {
-//         redPin: 19,
-//         greenPin: 13,
-//         bluePin: 12
-//     }
-// };
-
 // instantiate our TJBot!
-const tj = new TJBot(tjConfig);
+const tj = new TJBot();
 tj.initialize(hardware);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']

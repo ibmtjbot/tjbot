@@ -74,7 +74,7 @@ useCommonAnodeLED = false # set to true if using a Common Anode LED
 Run the recipe using `npm`:
 
 ```sh
-$ npm start
+$ sudo npm start
 ```
 
 Now you can have a chat with TJBot!

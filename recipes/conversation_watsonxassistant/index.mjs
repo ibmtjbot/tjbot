@@ -35,29 +35,6 @@ const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardw
 
 let assistantSessionId;
 
-const tjConfig = {
-    log: {
-        level: config.Log.level, // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    }
-};
-
-// uncomment to change the pins for the LED
-// tjConfig.shine = {
-//     neopixel: {
-//         gpioPin: 18
-//     },
-//     commonAnode: {
-//         redPin: 19,
-//         greenPin: 13,
-//         bluePin: 12
-//     }
-// };
-
-// uncomment to change the pin for the servo
-// tjConfig.wave = {
-//     servoPin: 7
-// };
-
 async function converse(message) {
 
     // set up the session if needed
@@ -119,7 +96,7 @@ async function converse(message) {
 }
 
 // instantiate our TJBot!
-const tj = new TJBot(tjConfig);
+const tj = new TJBot();
 tj.initialize(hardware);
 
 console.log('You can ask me to introduce myself or tell you a joke.');

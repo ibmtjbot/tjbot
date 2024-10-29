@@ -43,11 +43,11 @@ In the `[Recipe]` section of your `tjbot.toml` file, fill in the `environmentId`
 
 Run!
 
-    $ sudo node index.mjs
+    $ sudo npm start
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 
-Watson conversation uses actions to route the flow of a conversation. For example when you ask TJBot "Please introduce yourself", the action is to make an introduction. You can add your own new actions, but for now, we have started you off with a few actions:
+watsonx Assistant uses actions to route the flow of a conversation. For example when you ask TJBot "Please introduce yourself", the action is to make an introduction. You can add your own new actions, but for now, we have started you off with a few actions:
 
 - Introduction. You can say phrases such as "Tinker, please introduce yourself", "Tinker, who are you", and "Tinker, can you introduce yourself"
 - Joke. You can ask "Tinker, please tell me a joke" or "Tinker, I would like to hear a joke".

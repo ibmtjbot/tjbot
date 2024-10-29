@@ -47,25 +47,8 @@ const wxai = WatsonXAI.newInstance({
 // keep track of the conversational history
 let conversationHistory = '';
 
-const tjConfig = {
-    log: {
-        level: config.Log.level, // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    }
-};
-
-tjConfig.shine = {
-    neopixel: {
-        gpioPin: 18
-    },
-    commonAnode: {
-        redPin: 1,
-        greenPin: 6,
-        bluePin: 12
-    }
-};
-
 // instantiate our TJBot!
-const tj = new TJBot(tjConfig);
+const tj = new TJBot();
 tj.initialize(hardware);
 
 // ready!

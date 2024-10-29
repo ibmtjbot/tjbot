@@ -1,9 +1,9 @@
-[Log]
-level = 'info' # change this to 'debug' if you want to see more detail in the logs
-
 [Recipe]
 useNeoPixelLED = false     # set to true if using a NeoPixel LED
 useCommonAnodeLED = false  # set to true if using a Common Anode LED
+
+[Log]
+level = 'info' # change this to 'debug' if you want to see more detail in the logs
 
 [Speak]
 voice = 'en-US_MichaelV3Voice'
@@ -14,3 +14,8 @@ device = 'plughw:2,0'
 backgroundAudioSuppression = 0.6
 microphoneRate = 44100
 microphoneChannels = 2
+
+# uncomment to change the pins for the LEDs
+# [Shine]
+# neopixel = 'gpioPin:18'
+# commonAnode = 'redPin:1, greenPin:6, bluePin:12'

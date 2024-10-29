@@ -22,7 +22,7 @@ Create an instance of the [Speech to Text](https://www.ibm.com/products/speech-t
 
 Run!
 
-    $ sudo node index.mjs
+    $ sudo npm start
 
 > Note the `sudo` command. Root user access is required to run TJBot recipes.
 

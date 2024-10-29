@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "readline-sync": "^1.4.10",
-    "tjbot": "file:../../node-tjbotlib"
+    "tjbot": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^8.51.0",
