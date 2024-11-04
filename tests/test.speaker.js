@@ -29,8 +29,10 @@ function confirm(behavior) {
 }
 
 const sound = '/usr/share/sounds/alsa/Front_Center.wav';
-const tjbot = new TJBot({ log: { level: 'silly' } });
-tjbot.initialize([TJBot.HARDWARE.SPEAKER]);
+const tjbot = new TJBot();
+tjbot.config.Log.level = 'silly';
+
+tjbot.initialize([TJBot.Hardware.SPEAKER]);
 await tjbot.play(sound);
 
 confirm('play the "Front Center" sound');

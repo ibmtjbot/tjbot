@@ -123,3 +123,6 @@ config.js
 
 # ibm-credentials.env files
 ibm-credentials.env
+
+# tjbot.toml files
+tjbot.toml

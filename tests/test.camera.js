@@ -30,8 +30,10 @@ function confirm(behavior) {
     }
 }
 
-const tjbot = new TJBot({ log: { level: 'silly' } });
-tjbot.initialize([TJBot.HARDWARE.CAMERA]);
+const tjbot = new TJBot();
+tjbot.config.Log.level = 'silly';
+
+tjbot.initialize([TJBot.Hardware.CAMERA]);
 
 // take a picture -- use the internal method to avoid the 
 // _assertCapability() check, which will fail because we don't

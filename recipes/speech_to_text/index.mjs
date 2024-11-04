@@ -14,33 +14,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 import TJBot from 'tjbot';
+import fs from 'fs';
+import { resolve } from 'import-meta-resolve';
+import TOML from '@iarna/toml';
+
+// read recipe-specific config
+const configPath = resolve('./tjbot.toml', import.meta.url);
+const configData = fs.readFileSync(new URL(configPath), 'utf8');
+let config = TOML.parse(configData);
 
 // these are the hardware capabilities that our TJ needs for this recipe
-const hardware = [TJBot.HARDWARE.LED_NEOPIXEL, TJBot.HARDWARE.MICROPHONE];
-
-// set up TJBot's configuration
-const tjConfig = {
-    log: {
-        level: 'info', // change to 'verbose' or 'silly' for more detail about what TJBot is doing
-    }
-};
-
-// uncomment to change the pins for the LED
-// tjConfig.shine = {
-//     neopixel: {
-//         gpioPin: 18
-//     },
-//     commonAnode: {
-//         redPin: 19,
-//         greenPin: 13,
-//         bluePin: 12
-//     }
-// };
+const hardware = [TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.MICROPHONE];
 
 // instantiate our TJBot!
-const tj = new TJBot(tjConfig);
+const tj = new TJBot();
+// use this constructor if you modified the pins for the LEDs or servo in the TOML file
+// const tj = new TJBot(config);
+
 tj.initialize(hardware);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']

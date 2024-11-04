@@ -1,0 +1,30 @@
+[Recipe]
+robotName = 'tinker'
+environmentId = '' # fill in with your watsonx Assistant environment ID
+serviceVersion = '2024-05-31'
+useNeoPixelLED = false     # set to true if using a NeoPixel LED
+useCommonAnodeLED = false  # set to true if using a Common Anode LED
+
+[Log]
+level = 'info' # change this to 'debug' if you want to see more detail in the logs
+
+[Speak]
+voice = 'en-US_MichaelV3Voice'
+device = 'plughw:0,0' # plugged-in USB card 0, device 0
+
+[Listen]
+device = 'plughw:2,0'
+backgroundAudioSuppression = 0.6
+microphoneRate = 44100
+microphoneChannels = 2
+
+# uncomment to change the pin for the servo
+# [Wave]
+# servoPin = 7
+
+# uncomment to change the pins for the LEDs
+# [Shine]
+# NeoPixel.gpioPin = 18
+# CommonAnode.redPin = 1
+# CommonAnode.greenPin = 6
+# CommonAnode.bluePin = 12

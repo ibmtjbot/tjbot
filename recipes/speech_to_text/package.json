@@ -6,7 +6,7 @@
   "bugs": {
     "url": "https://github.com/ibmtjbot/tjbot/issues"
   },
-  "main": "stt.js",
+  "main": "index.mjs",
   "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text",
   "keywords": [
     "tjbot"
@@ -18,7 +18,7 @@
   },
   "type": "module",
   "scripts": {
-    "start": "node stt.js",
+    "start": "node index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -27,6 +27,8 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
-    "tjbot": "file:../../../tjbotlib"
+    "@iarna/toml": "^2.2.5",
+    "import-meta-resolve": "^4.1.0",
+    "tjbot": "^3.0.0"
   }
 }
