@@ -18,11 +18,13 @@ backgroundAudioSuppression = 0.6
 microphoneRate = 44100
 microphoneChannels = 2
 
-# uncomment to change the pins for the LEDs
-# [Shine]
-# neopixel = 'gpioPin:18'
-# commonAnode = 'redPin:1, greenPin:6, bluePin:12'
-
 # uncomment to change the pin for the servo
 # [Wave]
 # servoPin = 7
+
+# uncomment to change the pins for the LEDs
+# [Shine]
+# NeoPixel.gpioPin = 18
+# CommonAnode.redPin = 1
+# CommonAnode.greenPin = 6
+# CommonAnode.bluePin = 12

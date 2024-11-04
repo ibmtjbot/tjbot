@@ -97,6 +97,9 @@ async function converse(message) {
 
 // instantiate our TJBot!
 const tj = new TJBot();
+// use this constructor if you modified the pins for the LEDs or servo in the TOML file
+// const tj = new TJBot(config);
+
 tj.initialize(hardware);
 
 console.log('You can ask me to introduce myself or tell you a joke.');

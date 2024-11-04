@@ -27,6 +27,8 @@
     "eslint-plugin-import": "^2.22.1"
   },
   "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "import-meta-resolve": "^4.1.0",
     "tjbot": "^3.0.0"
   }
 }

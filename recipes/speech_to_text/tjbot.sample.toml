@@ -17,5 +17,7 @@ microphoneChannels = 2
 
 # uncomment to change the pins for the LEDs
 # [Shine]
-# neopixel = 'gpioPin:18'
-# commonAnode = 'redPin:1, greenPin:6, bluePin:12'
+# NeoPixel.gpioPin = 18
+# CommonAnode.redPin = 1
+# CommonAnode.greenPin = 6
+# CommonAnode.bluePin = 12

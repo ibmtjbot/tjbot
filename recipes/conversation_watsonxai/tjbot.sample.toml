@@ -26,8 +26,3 @@ device = 'plughw:2,0'
 backgroundAudioSuppression = 0.6
 microphoneRate = 44100
 microphoneChannels = 2
-
-# uncomment to change the pins for the LEDs
-# [Shine]
-# neopixel = 'gpioPin:18'
-# commonAnode = 'redPin:1, greenPin:6, bluePin:12'

@@ -29,6 +29,9 @@ const hardware = [TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.MICROPHONE];
 
 // instantiate our TJBot!
 const tj = new TJBot();
+// use this constructor if you modified the pins for the LEDs or servo in the TOML file
+// const tj = new TJBot(config);
+
 tj.initialize(hardware);
 
 // full list of colors that TJ recognizes, e.g. ['red', 'green', 'blue']
