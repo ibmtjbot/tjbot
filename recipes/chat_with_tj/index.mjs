@@ -18,8 +18,8 @@ import { WatsonXAI } from '@ibm-cloud/watsonx-ai';
 
 async function main() {
     // read recipe-specific config
-    const config = TJBot.loadConfigFromTOML('./tjbot.toml');
-
+    const config = TJBot.loadUserConfig();
+    
     // these are the hardware capabilities that TJ needs for this recipe
     const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER];
     let hasLED = false;

@@ -32,7 +32,7 @@ Create an API key to connect to watsonx.ai in the IBM Cloud.
 ### Create a watsonx.ai Project
 Create a watsonx.ai project.
 
-1. Launch [watsonx.ai](https://dataplatform.cloud.ibm.com/wx/home?context=wx&apps=cos&nocache=true&onboarding=true&quick_start_target=watsonx)
+1. Launch [watsonx.ai](https://dataplatform.cloud.ibm.com/wx/home?context=wx)
 2. Sign up or login.
 3. Click the "+" sign in the "Projects" section. Follow the steps to create a new project.
 4. Open the project and click the "Manage" tab.
