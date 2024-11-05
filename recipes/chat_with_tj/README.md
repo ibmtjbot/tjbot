@@ -1,7 +1,7 @@
-# Conversation using watsonx
-> :robot: :microphone: Build a talking robot with watsonx.ai and Llama 3 🦙
+# Chat with TJ
+> :robot: :microphone: Build a talking robot with watsonx.ai!
 
-This recipe uses [watsonx.ai](https://www.ibm.com/products/watsonx-ai), [Watson Machine Learning](https://www.ibm.com/products/watson-studio), [Speech to Text](https://www.ibm.com/products/speech-to-text) and [Text to Speech](https://www.ibm.com/products/text-to-speech) services to turn TJBot into an adept conversational partner.
+This recipe uses IBM [watsonx.ai](https://www.ibm.com/products/watsonx-ai), [Speech to Text](https://www.ibm.com/products/speech-to-text) and [Text to Speech](https://www.ibm.com/products/text-to-speech) services to turn TJBot into a conversational partner.
 
 ## Hardware
 This recipe requires a TJBot with a microphone, a speaker, and (optionally) an LED.
@@ -10,27 +10,27 @@ This recipe requires a TJBot with a microphone, a speaker, and (optionally) an L
 > 🤖 Prerequisite: Make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).
 
 ### Install dependencies
-Open a Terminal, navigate to the `tjbot/recipes/conversation_watsonxai` directory, and install the dependencies.
+Open a Terminal, navigate to the `tjbot/recipes/chat_with_tj` directory, and install the dependencies.
 
 ```sh
-$ cd tjbot/recipes/conversation_watsonxai
+$ cd tjbot/recipes/chat_with_tj
 $ npm install
 ```
 
 ### Create instances of IBM Cloud AI services
-Create instances of the [Watson Machine Learning](https://cloud.ibm.com/catalog/services/watson-machine-learning), [Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text), and [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) services. Download the authentication credentials file for each service, except Watson Machine Learning. Combine each of these files into a single file named `ibm-credentials.env` and place it in the `tjbot/recipes/conversation_watsonxai` folder. See `ibm-credentials.sample.env` for an example.
+Create instances of the [Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text), and [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) services. Download the authentication credentials file for each service and combine them into a single file named `ibm-credentials.env`. Place this file in the `tjbot/recipes/chat_with_tj` folder. See `ibm-credentials.sample.env` for an example.
 
 ### Create an IBM Cloud API Key
-The first step is to create an API key to connect to the watsonx.ai service in the IBM Cloud.
+Create an API key to connect to watsonx.ai in the IBM Cloud.
 
-1. Navigate to the [IBM Cloud IAM API Keys](https://cloud.ibm.com/iam/apikeys) page.
+1. Visit the [IBM Cloud IAM API Keys](https://cloud.ibm.com/iam/apikeys) page.
 2. Click the blue "Create" button.
-3. Type a name for your API key and click "Create" (we recommend "TJBot"!)
-4. Copy the API key. Important: Once you close the dialog, you will not be able to retrieve this API key in the future; instead, you will need to revoke the key and generate a new one.
-5. Paste this API key into your `ibm-credentials.env` file for `WATSONX_AI_APIKEY`.
+3. Type in a name for your API key and click "Create" (we recommend "TJBot"!)
+4. Copy the API key. **Important**: Once you close the dialog, you will not be able to retrieve this API key in the future; instead, you will need to revoke the key and generate a new one.
+5. Open the `ibm-credentials.env` file and paste the API key next to `WATSONX_AI_APIKEY=`.
 
-### Create an instance of watsonx.ai
-The next step is to create a new instance of the watsonx.ai service.
+### Create a watsonx.ai Project
+Create a watsonx.ai project.
 
 1. Launch [watsonx.ai](https://dataplatform.cloud.ibm.com/wx/home?context=wx&apps=cos&nocache=true&onboarding=true&quick_start_target=watsonx)
 2. Sign up or login.
@@ -42,24 +42,18 @@ The next step is to create a new instance of the watsonx.ai service.
 8. Click "Associate" at the bottom right.
 9. For your endpoint URL, visit the [API documentation](https://cloud.ibm.com/apidocs/machine-learning) and select a URL under `Endpoint URLs` that corresponds to the region in which you created your service.
 
-Next, make a copy of TJBot's sample configuration file.
+### Update TJBot's Configuration
+Make a copy of TJBot's sample configuration file.
 
 ```sh
 $ cp tjbot.sample.toml tjbot.toml
-$ nano tjbot.toml
 ```
 
-Edit your TJBot configuration file.
-
-```sh
-$ nano tjbot.toml
-```
-
-In the `[Recipe]` section, fill in the `projectId` and `endpoint` configuration parameters.
+Open `tjbot.toml` in a text editor. In the `[Recipe]` section, fill in the `projectId` and `endpoint` configuration parameters from watsonx.ai.
 
 ```toml
 projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
-endpoint = '' # FILL IN WITH YOUR WATSONX.AI ENDPOINT URL
+endpoint = ''  # FILL IN WITH YOUR WATSONX.AI ENDPOINT URL
 ```
 
 ### (Optional) Configure your LED
@@ -77,7 +71,7 @@ Run the recipe using `npm`:
 $ sudo npm start
 ```
 
-Now you can have a chat with TJBot!
+Now you can chat with TJBot!
 
 ## Customize
 
@@ -86,9 +80,8 @@ Try updating the [parameters](https://dataplatform.cloud.ibm.com/docs/content/ws
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).
 
-# Watson Services
+# IBM Cloud Services
 - [watsonx.ai](https://www.ibm.com/products/watsonx-ai)
-- [Watson Machine Learning](https://www.ibm.com/products/watson-studio)
 - [Text to Speech](https://www.ibm.com/products/text-to-speech)
 - [Speech to Text](https://www.ibm.com/products/speech-to-text)
 

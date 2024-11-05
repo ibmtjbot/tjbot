@@ -1,5 +1,5 @@
 {
-  "name": "conversation_watsonxai",
+  "name": "chat_with_tj",
   "version": "3.0.0",
   "description": "Chat with TJBot using watsonx.ai!",
   "type": "module",

@@ -5,9 +5,6 @@ serviceVersion = '2024-05-31'
 useNeoPixelLED = false     # set to true if using a NeoPixel LED
 useCommonAnodeLED = false  # set to true if using a Common Anode LED
 
-[Log]
-level = 'info' # change this to 'debug' if you want to see more detail in the logs
-
 # advanced configuration: you can change the LLM model & parameters here
 modelId = 'meta-llama/llama-3-70b-instruct'
 version = '2023-05-29'
@@ -16,6 +13,9 @@ modelMaxNewTokens = 200
 modelMinNewTokens = 0
 modelStopSequences = ['.']
 modelRepetitionPenalty = 1
+
+[Log]
+level = 'info' # change this to 'debug' if you want to see more detail in the logs
 
 [Speak]
 voice = 'en-US_MichaelV3Voice'
