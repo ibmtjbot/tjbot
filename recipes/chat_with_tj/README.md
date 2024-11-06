@@ -36,11 +36,11 @@ Create a watsonx.ai project.
 2. Sign up or login.
 3. Click the "+" sign in the "Projects" section. Follow the steps to create a new project.
 4. Open the project and click the "Manage" tab.
-5. From the "General" section copy your project ID. Save this for later.
+5. From the "General" section copy your `projectId`. Save this for later.
 6. Next click "Services & integrations".
 7. Click "Associate service" and select the "Watson Machine Learning" service.
 8. Click "Associate" at the bottom right.
-9. For your endpoint URL, visit the [API documentation](https://cloud.ibm.com/apidocs/machine-learning) and select a URL under `Endpoint URLs` that corresponds to the region in which you created your service.
+9. Find your `serviceUrl` by visiting the [API documentation](https://cloud.ibm.com/apidocs/machine-learning) and locating the section titled "Endpoint URLs." Copy the URL that corresponds to the region in which you created your Watson Machine Learning service, you will need it in the next step.
 
 ### Update TJBot's Configuration
 Make a copy of TJBot's sample configuration file.
@@ -49,11 +49,11 @@ Make a copy of TJBot's sample configuration file.
 $ cp tjbot.sample.toml tjbot.toml
 ```
 
-Open `tjbot.toml` in a text editor. In the `[Recipe]` section, fill in the `projectId` and `endpoint` configuration parameters from watsonx.ai.
+Open `tjbot.toml` in a text editor. In the `[Recipe]` section, fill in the `projectId` and `serviceUrl` configuration parameters from watsonx.ai.
 
 ```toml
 projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
-endpoint = ''  # FILL IN WITH YOUR WATSONX.AI ENDPOINT URL
+serviceUrl = 'https://us-south.ml.cloud.ibm.com' # CHANGE THIS IF YOUR SERVICEURL IS IN A DIFFERENT REGION
 ```
 
 ### (Optional) Configure your LED
@@ -75,7 +75,27 @@ Now you can chat with TJBot!
 
 ## Customize
 
-Try updating the [parameters](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&audience=wdp) in your `tjbot.toml` file to experiment with different configurations. 
+### Shine while speaking
+Have an LED hooked up to your TJBot? Update your `tjbot.toml` file to indicate which kind of LED you have by setting one (or both) of these values to `true`:
+
+```toml
+useNeoPixelLED = false     # set to true if using a NeoPixel LED
+useCommonAnodeLED = false  # set to true if using a Common Anode LED
+```
+
+Then, TJBot will shine green when listening, orange when processing your speech, and yellow when speaking!
+
+### Try a different LLM
+Want to try a different large language model? Check out the [full list of large language models](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-api-model-ids.html?context=wx&audience=wdp) supported by watsonx.ai. and then change the `modelId` parameter in your `tjbot.toml` file.
+
+```toml
+modelId = 'meta-llama/llama-3-70b-instruct'
+```
+
+You can also try changing different [model parameters](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&audience=wdp), such as the `modelDecodingMethod` and the `modelTemperature` to change how TJBot responds to you.
+
+### Change TJBot's voice
+Find a new voice for TJBot! Check out the [list of Speech to Text voices](https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices) and updatte the `voice` parameter in your `tjbot.toml` file. Try different voices such as Lisa (`en-US_LisaV3Voice`), Kate (`en-GB_KateV3Voice`), or Emma (`en-US_EmmaExpressive`)!
 
 ## Troubleshoot
 If you are having difficulties in making this recipe work, please see the [troubleshooting guide](../../TROUBLESHOOTING.md).

@@ -99,8 +99,10 @@ AI: `;
             projectId: config.Recipe.projectId,
             parameters: {
                 decoding_method: config.Recipe.modelDecodingMethod,
-                max_new_tokens: config.Recipe.modelMaxNewTokens,
+                temperature: config.Recipe.modelTemperature,
+                random_seed: config.Recipe.modelRandomSeed,
                 min_new_tokens: config.Recipe.modelMinNewTokens,
+                max_new_tokens: config.Recipe.modelMaxNewTokens,
                 stop_sequences: config.Recipe.modelStopSequences,
                 repetition_penalty: config.Recipe.modelRepetitionPenalty,
             },
