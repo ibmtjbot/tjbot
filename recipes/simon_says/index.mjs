@@ -1,4 +1,3 @@
-/* eslint-disable import/extensions */
 /**
  * Copyright 2024 IBM Corp. All Rights Reserved.
  *
@@ -15,40 +14,23 @@
  * limitations under the License.
  */
 import TJBot from 'tjbot';
-import fs from 'fs';
-import { resolve } from 'import-meta-resolve';
-import TOML from '@iarna/toml';
 import AssistantV2 from 'ibm-watson/assistant/v2.js';
 
-const assistant = new AssistantV2({
-    serviceName: 'assistant',
-    version: '2024-08-25',
-});
-
-// read recipe-specific config
-const configPath = resolve('./tjbot.toml', import.meta.url);
-const configData = fs.readFileSync(new URL(configPath), 'utf8');
-let config = TOML.parse(configData);
-
-// these are the hardware capabilities that TJ needs for this recipe
-const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER, TJBot.Hardware.LED_NEOPIXEL, TJBot.Hardware.SERVO];
-
-let assistantSessionId;
+// keep track of the session id for watsonx Assistant
+let assistantSessionId = undefined;
 
 async function converse(message) {
-
     // set up the session if needed
     if (!assistantSessionId) {
-        console.log("no session id detected");
         try {
-            console.log(`creating assistant session`);
+            console.log('creating new watsonx Assistant session...');
             const body = await assistant.createSession({
                 assistantId: config.Recipe.environmentId
             });
-            console.log(`response from _assistant.createSession(): ${body.result}`);
+            console.log('success!');
             assistantSessionId = body.result.session_id;
         } catch (err) {
-            console.error(`error creating session for Assistant service. Please check that the environmentId in tjbot.toml is defined.`);
+            console.error('An error occured while creating a session for watsonx Assistant. Please check that the environmentId in tjbot.toml is defined.');
             throw err;
         }
     }
@@ -90,97 +72,142 @@ async function converse(message) {
         console.log(`received response from assistant: ${JSON.stringify(responseText)}`);
         return assistantResponse;
     } catch (err) {
-        console.error(`Assistant service returned an error.`, err);
+        console.error(`the watsonx Assistant service returned an error: ${err}`);
         throw err;
     }
 }
 
-// instantiate our TJBot!
-const tj = new TJBot();
-// use this constructor if you modified the pins for the LEDs or servo in the TOML file
-// const tj = new TJBot(config);
+async function main() {
+    // read recipe-specific config
+    const config = TJBot.loadUserConfig();
 
-tj.initialize(hardware);
+    // these are the hardware capabilities that TJ needs for this recipe
+    const hardware = [
+        TJBot.Hardware.MICROPHONE,
+        TJBot.Hardware.SPEAKER,
+        TJBot.Hardware.SERVO
+    ];
 
-console.log('You can ask me to introduce myself or tell you a joke.');
-console.log(`Try saying, "${config.Recipe.robotName}, please introduce yourself" or "${config.Recipe.robotName}, what can you do?"`);
-console.log(`You can also say, "${config.Recipe.robotName}, tell me a joke!"`);
-console.log("Say 'stop' or press ctrl-c to exit this recipe.");
+    let hasLED = false;
+    if (config.Recipe.useNeoPixelLED) {
+        hardware.push(TJBot.Hardware.LED_NEOPIXEL);
+        hasLED = true;
+    }
+    if (config.Recipe.useCommonAnodeLED) {
+        hardware.push(TJBot.Hardware.LED_COMMON_ANODE);
+        hasLED = true;
+    }
 
-// listen for utterances with our attentionWord and send the result to
-// the Assistant service
-while (true) {
-const msg = await tj.listen();
+    // this recipe requires an LED
+    if (!hasLED) {
+        throw Error('this recipe requires an LED. please configure your TJBot with an LED and update your tjbot.toml file accordingly.');
+    }
 
-if (msg === 'stop') {
-    console.log('Goodbye!');
-    process.exit(0);
-}
+    // create an instance of the watsonx Assistant service
+    const assistant = new AssistantV2({
+        serviceName: 'assistant',
+        version: '2024-08-25',
+    });
 
-// check to see if they are talking to TJBot
-if (msg.toLowerCase().startsWith(config.Recipe.robotName.toLowerCase())) {
-    // remove our name from the message
-    const utterance = msg.toLowerCase().replace(config.Recipe.robotName.toLowerCase(), '').substr(1);
+    // instantiate our TJBot!
+    const tj = new TJBot();
+    tj.initialize(hardware);
 
-    // send to the assistant service
-    const response = await converse(utterance);
-    let spoken = false;
+    const instructions = ```
+    Let's play Simon Says!
+    ```;
 
-    // check if a variable to control the bot was found
-    if (response.action !== undefined) {
-        console.log(`found action: ${response.action}`);
-        switch (response.action) {
-            case 'lower-arm':
-                await tj.speak(response.description);
-                tj.lowerArm();
-                spoken = true;
-                break;
-            case 'raise-arm':
-                await tj.speak(response.description);
-                tj.raiseArm();
-                spoken = true;
-                break;
-            case 'wave':
-                await tj.speak(response.description);
-                tj.wave();
-                spoken = true;
-                break;
-            case 'greeting':
-                await tj.speak(response.description);
-                tj.wave();
-                spoken = true;
-                break;
-            case 'shine':
-                {
-                    let misunderstood = false;
+    // ready!
+    console.log('TJBot is ready for Simon Says!');
+    console.log("Say 'stop' or press ctrl-c to exit this recipe.");
 
-                    // colors to detect from the user utterance
-                    const regex = /(aqua|red|green|white|blue|orange|yellow|violet|pink|on|off)/g;
+    // speak the instructions
+    await tj.speak(instructions);
 
-                    if (utterance.match(regex)) {
-                        const color = utterance.match(regex)[0];
-                        console.log("Color found! ", color);
+    // now we play the game :)
+    while (true) {
+        const msg = await tj.listen();
+
+        if (msg === 'stop') {
+            console.log('Goodbye!');
+            process.exit(0);
+        }
+
+        // check to see if they are talking to TJBot
+        if (msg.toLowerCase().startsWith(config.Recipe.robotName.toLowerCase())) {
+            // remove our name from the message
+            const utterance = msg.toLowerCase().replace(config.Recipe.robotName.toLowerCase(), '').substr(1);
+
+            // send to the assistant service
+            const response = await converse(utterance);
+            let spoken = false;
+
+            // check if a variable to control the bot was found
+            if (response.action !== undefined) {
+                console.log(`found action: ${response.action}`);
+                switch (response.action) {
+                    case 'lower-arm':
                         await tj.speak(response.description);
-                        tj.shine(color);
+                        tj.lowerArm();
                         spoken = true;
-                    } else {
-                        misunderstood = true;
-                    }
+                        break;
+                    case 'raise-arm':
+                        await tj.speak(response.description);
+                        tj.raiseArm();
+                        spoken = true;
+                        break;
+                    case 'wave':
+                        await tj.speak(response.description);
+                        tj.wave();
+                        spoken = true;
+                        break;
+                    case 'greeting':
+                        await tj.speak(response.description);
+                        tj.wave();
+                        spoken = true;
+                        break;
+                    case 'shine':
+                        {
+                            let misunderstood = false;
 
-                    if (misunderstood === true) {
-                        await tj.speak("I'm sorry, I didn't understand your color");
-                        spoken = true;
-                    }
+                            // colors to detect from the user utterance
+                            const regex = /(aqua|red|green|white|blue|orange|yellow|violet|pink|on|off)/g;
+
+                            if (utterance.match(regex)) {
+                                const color = utterance.match(regex)[0];
+                                console.log("Color found! ", color);
+                                await tj.speak(response.description);
+                                tj.shine(color);
+                                spoken = true;
+                            } else {
+                                misunderstood = true;
+                            }
+
+                            if (misunderstood === true) {
+                                await tj.speak("I'm sorry, I didn't understand your color");
+                                spoken = true;
+                            }
+                        }
+                        break;
+                    default:
+                        break;
                 }
-                break;
-            default:
-                break;
+            }
+
+            // if we didn't speak a response yet, speak it now
+            if (spoken === false) {
+                tj.speak(response.description);
+            }
         }
     }
+}
 
-    // if we didn't speak a response yet, speak it now
-    if (spoken === false) {
-        tj.speak(response.description);
+// this is a little magic to avoid calling await at the top level,
+// which node frowns upon
+(async () => {
+    try {
+        await main();
+    } catch (e) {
+        console.log(e);
     }
-}
-}
+})();
