@@ -21,9 +21,12 @@ async function main() {
     const config = TJBot.loadUserConfig();
     
     // these are the hardware capabilities that TJ needs for this recipe
-    const hardware = [TJBot.Hardware.MICROPHONE, TJBot.Hardware.SPEAKER];
+    const hardware = [
+        TJBot.Hardware.MICROPHONE, 
+        TJBot.Hardware.SPEAKER
+    ];
+    
     let hasLED = false;
-
     if (config.Recipe.useNeoPixelLED) {
         hardware.push(TJBot.Hardware.LED_NEOPIXEL);
         hasLED = true;
@@ -130,6 +133,8 @@ AI: `;
     }
 }
 
+// this is a little magic to avoid calling await at the top level,
+// which node frowns upon
 (async () => {
     try {
         await main();
