@@ -18,28 +18,28 @@ import { WatsonXAI } from '@ibm-cloud/watsonx-ai';
 
 async function main() {
     // read recipe-specific config
-    const config = TJBot.loadUserConfig();
-    
+    const config = TJBot.loadRecipeConfig();
+
     // these are the hardware capabilities that TJ needs for this recipe
     const hardware = [
-        TJBot.Hardware.MICROPHONE, 
-        TJBot.Hardware.SPEAKER
+        TJBot.Hardware.MICROPHONE,
+        TJBot.Hardware.SPEAKER,
     ];
-    
+
     let hasLED = false;
-    if (config.Recipe.useNeoPixelLED) {
+    if (config.useNeoPixelLED) {
         hardware.push(TJBot.Hardware.LED_NEOPIXEL);
         hasLED = true;
     }
-    if (config.Recipe.useCommonAnodeLED) {
+    if (config.useCommonAnodeLED) {
         hardware.push(TJBot.Hardware.LED_COMMON_ANODE);
         hasLED = true;
     }
 
     // create an instance of the watsonx.ai service
     const wxai = WatsonXAI.newInstance({
-        serviceUrl: config.Recipe.serviceUrl,
-        version: config.Recipe.serviceVersion,
+        serviceUrl: config.serviceUrl,
+        version: config.serviceVersion,
     });
 
     // keep track of the conversational history
@@ -98,16 +98,16 @@ AI: `;
 
         const params = {
             input: prompt,
-            modelId: config.Recipe.modelId,
-            projectId: config.Recipe.projectId,
+            modelId: config.modelId,
+            projectId: config.projectId,
             parameters: {
-                decoding_method: config.Recipe.modelDecodingMethod,
-                temperature: config.Recipe.modelTemperature,
-                random_seed: config.Recipe.modelRandomSeed,
-                min_new_tokens: config.Recipe.modelMinNewTokens,
-                max_new_tokens: config.Recipe.modelMaxNewTokens,
-                stop_sequences: config.Recipe.modelStopSequences,
-                repetition_penalty: config.Recipe.modelRepetitionPenalty,
+                decoding_method: config.modelDecodingMethod,
+                temperature: config.modelTemperature,
+                random_seed: config.modelRandomSeed,
+                min_new_tokens: config.modelMinNewTokens,
+                max_new_tokens: config.modelMaxNewTokens,
+                stop_sequences: config.modelStopSequences,
+                repetition_penalty: config.modelRepetitionPenalty,
             },
         };
 
