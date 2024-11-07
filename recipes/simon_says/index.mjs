@@ -17,6 +17,7 @@ import TJBot from 'tjbot';
 import AssistantV2 from 'ibm-watson/assistant/v2.js';
 
 // keep track of the session id for watsonx Assistant
+let environmentId = undefined;
 let assistantSessionId = undefined;
 
 async function converse(message) {
@@ -25,19 +26,19 @@ async function converse(message) {
         try {
             console.log('creating new watsonx Assistant session...');
             const body = await assistant.createSession({
-                assistantId: config.Recipe.environmentId
+                assistantId: environmentId
             });
             console.log('success!');
             assistantSessionId = body.result.session_id;
         } catch (err) {
-            console.error('An error occured while creating a session for watsonx Assistant. Please check that the environmentId in tjbot.toml is defined.');
+            console.error('an error occured while creating a session for watsonx Assistant. Please check that the environmentId in tjbot.toml is defined.');
             throw err;
         }
     }
 
     // define the conversational turn
     const turn = {
-        assistantId: config.Recipe.environmentId,
+        assistantId: environmentId,
         sessionId: assistantSessionId,
         input: {
             'message_type': 'text',
@@ -51,7 +52,7 @@ async function converse(message) {
     // send to Assistant service
     try {
         const body = await assistant.message(turn);
-        console.log(`response from _assistant.message(): ${JSON.stringify(body)}`);
+        console.log(`response from assistant.message(): ${JSON.stringify(body)}`);
         const { result } = body;
 
         // this might not be necessary but in the past, conversational replies
@@ -77,9 +78,59 @@ async function converse(message) {
     }
 }
 
+async function followAction(action) {
+    // figure out what action they asked us to do
+    // check if a variable to control the bot was found
+    var followed = false;
+    if (action !== undefined) {
+        switch (action) {
+            case 'lower-arm':
+                await tj.speak(response.description);
+                tj.lowerArm();
+                followed = true;
+                break;
+            case 'raise-arm':
+                await tj.speak(response.description);
+                tj.raiseArm();
+                followed = true;
+                break;
+            case 'wave':
+                await tj.speak(response.description);
+                tj.wave();
+                followed = true;
+                break;
+            case 'greeting':
+                await tj.speak(response.description);
+                tj.wave();
+                followed = true;
+                break;
+            case 'shine':
+                {
+                    // colors to detect from the user utterance
+                    const regex = /(aqua|red|green|white|blue|orange|yellow|violet|pink|on|off)/g;
+
+                    if (utterance.match(regex)) {
+                        const color = utterance.match(regex)[0];
+                        console.log("color found! ", color);
+                        await tj.speak(response.description);
+                        tj.shine(color);
+                        followed = true;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (!followed) {
+        await tj.speak("oh no, I wasn't able to understand your instruction! let's try again.");
+    }
+}
+
 async function main() {
     // read recipe-specific config
-    const config = TJBot.loadUserConfig();
+    const config = TJBot.loadRecipeConfig();
 
     // these are the hardware capabilities that TJ needs for this recipe
     const hardware = [
@@ -89,11 +140,11 @@ async function main() {
     ];
 
     let hasLED = false;
-    if (config.Recipe.useNeoPixelLED) {
+    if (config.useNeoPixelLED) {
         hardware.push(TJBot.Hardware.LED_NEOPIXEL);
         hasLED = true;
     }
-    if (config.Recipe.useCommonAnodeLED) {
+    if (config.useCommonAnodeLED) {
         hardware.push(TJBot.Hardware.LED_COMMON_ANODE);
         hasLED = true;
     }
@@ -114,7 +165,10 @@ async function main() {
     tj.initialize(hardware);
 
     const instructions = ```
-    Let's play Simon Says!
+    Let's play Simon Says! Tell me what to do and I will do my best to follow.
+    I can shine my light different colors, move my arm up and down, and repeat 
+    things that you say. Don't forget to say "Simon Says"! When you want to stop 
+    playing, just say "Stop".
     ```;
 
     // ready!
@@ -126,77 +180,32 @@ async function main() {
 
     // now we play the game :)
     while (true) {
-        const msg = await tj.listen();
+        const msg = await tj.listen().toLowerCase();
 
         if (msg === 'stop') {
             console.log('Goodbye!');
             process.exit(0);
         }
 
-        // check to see if they are talking to TJBot
-        if (msg.toLowerCase().startsWith(config.Recipe.robotName.toLowerCase())) {
-            // remove our name from the message
-            const utterance = msg.toLowerCase().replace(config.Recipe.robotName.toLowerCase(), '').substr(1);
+        // send to the assistant service
+        const response = await converse(msg);
 
-            // send to the assistant service
-            const response = await converse(utterance);
-            let spoken = false;
+        // check to see if they said "Simon Says"
+        if (msg.startsWith('simon says')) {
+            // they said "simon says" so lets try to folow it
+            await followAction(response.action);
+        } else {
+            // they didn't say "simon says", but we might still follow the instruction
+            const rand = Math.random();
+            if (rand > config.followLikelihood) {
+                // follow it
+                await followAction(response.action);
 
-            // check if a variable to control the bot was found
-            if (response.action !== undefined) {
-                console.log(`found action: ${response.action}`);
-                switch (response.action) {
-                    case 'lower-arm':
-                        await tj.speak(response.description);
-                        tj.lowerArm();
-                        spoken = true;
-                        break;
-                    case 'raise-arm':
-                        await tj.speak(response.description);
-                        tj.raiseArm();
-                        spoken = true;
-                        break;
-                    case 'wave':
-                        await tj.speak(response.description);
-                        tj.wave();
-                        spoken = true;
-                        break;
-                    case 'greeting':
-                        await tj.speak(response.description);
-                        tj.wave();
-                        spoken = true;
-                        break;
-                    case 'shine':
-                        {
-                            let misunderstood = false;
-
-                            // colors to detect from the user utterance
-                            const regex = /(aqua|red|green|white|blue|orange|yellow|violet|pink|on|off)/g;
-
-                            if (utterance.match(regex)) {
-                                const color = utterance.match(regex)[0];
-                                console.log("Color found! ", color);
-                                await tj.speak(response.description);
-                                tj.shine(color);
-                                spoken = true;
-                            } else {
-                                misunderstood = true;
-                            }
-
-                            if (misunderstood === true) {
-                                await tj.speak("I'm sorry, I didn't understand your color");
-                                spoken = true;
-                            }
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            // if we didn't speak a response yet, speak it now
-            if (spoken === false) {
-                tj.speak(response.description);
+                // and then end the game
+                await tj.speak("oh no, you didn't say simon says! good game!")
+            } else {
+                // don't follow it, they didn't say simon says!
+                await tj.speak("you didn't say simon says! let's keep going.");
             }
         }
     }

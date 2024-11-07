@@ -2,38 +2,32 @@
   "name": "chat_with_tj",
   "version": "3.0.0",
   "description": "Chat with TJBot using watsonx.ai!",
+  "keywords": [
+    "tjbot"
+  ],
+  "homepage": "https://github.com/ibmtjbot/tjbot#readme",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ibmtjbot/tjbot.git"
+  },
+  "license": "Apache-2.0",
+  "author": "TJBot <https://ibmtjbot.github.io>",
   "type": "module",
   "main": "index.mjs",
   "scripts": {
     "start": "node index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/ibmtjbot/tjbot.git"
-  },
-  "keywords": [
-    "tjbot"
-  ],
-  "author": "TJBot <https://ibmtjbot.github.io>",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/ibmtjbot/tjbot/issues"
-  },
-  "homepage": "https://github.com/ibmtjbot/tjbot#readme",
-  "devDependencies": {
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
-  },
   "dependencies": {
-    "@iarna/toml": "^2.2.5",
-    "@ibm-cloud/watsonx-ai": "^1.1.0",
-    "axios": "0.27.2",
-    "dotenv": "^16.4.5",
-    "https": "^1.0.0",
-    "import-meta-resolve": "^4.0.0",
-    "readline-sync": "^1.4.10",
+    "@ibm-cloud/watsonx-ai": "^1.1.2",
     "tjbot": "file:../../../node-tjbotlib"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0"
   }
 }

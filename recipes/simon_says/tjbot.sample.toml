@@ -1,9 +1,9 @@
 [Recipe]
-robotName = 'tinker'
 environmentId = '' # fill in with your watsonx Assistant environment ID
 serviceVersion = '2024-05-31'
 useNeoPixelLED = false     # set to true if using a NeoPixel LED
 useCommonAnodeLED = false  # set to true if using a Common Anode LED
+followLikelihood = 0.2     # the likelihood that TJBot will follow an instruction when "simon says" wasn't said (range: [0.0, 1.0])
 
 [Log]
 level = 'info' # change this to 'debug' if you want to see more detail in the logs
