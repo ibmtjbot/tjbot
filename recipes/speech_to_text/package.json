@@ -1,34 +1,32 @@
 {
   "name": "speech_to_text",
   "version": "3.0.0",
-  "description": "TJBot speech to text recipe",
-  "author": "TJBot <https://ibmtjbot.github.io>",
-  "bugs": {
-    "url": "https://github.com/ibmtjbot/tjbot/issues"
-  },
-  "main": "index.mjs",
-  "homepage": "https://github.com/ibmtjbot/tjbot/tree/master/recipes/speech_to_text",
+  "description": "Change the color of TJBot's LED with your voice!",
   "keywords": [
     "tjbot"
   ],
-  "license": "Apache-2.0",
+  "homepage": "https://github.com/ibmtjbot/tjbot#readme",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:ibmtjbot/tjbot.git"
   },
+  "license": "Apache-2.0",
+  "author": "TJBot <https://ibmtjbot.github.io>",
   "type": "module",
+  "main": "index.mjs",
   "scripts": {
     "start": "node index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1"
-  },
   "dependencies": {
-    "@iarna/toml": "^2.2.5",
-    "import-meta-resolve": "^4.1.0",
-    "tjbot": "^3.0.0"
+    "tjbot": "file:../../../node-tjbotlib"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0"
   }
 }

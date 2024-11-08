@@ -21,15 +21,16 @@ modelRepetitionPenalty = 1.0
 [Log]
 level = 'info' # change this to 'verbose' or 'debug' to see more detail in the logs
 
-[Speak]
-voice = 'en-US_MichaelV3Voice'
-
-# use `aplay -l` to list audio output devices
-device = 'plughw:0,0' # plugged-in USB card 0, device 0
-
 [Listen]
 # use `arecord -l` to list audio input devices
 device = 'plughw:2,0' # plugged-in USB card 2, device 0
 backgroundAudioSuppression = 0.6
 microphoneRate = 44100
 microphoneChannels = 2
+
+[Speak]
+# use `aplay -l` to list audio output devices
+device = 'plughw:0,0' # plugged-in USB card 0, device 0
+
+# see https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices for available voices
+voice = 'en-US_MichaelV3Voice'

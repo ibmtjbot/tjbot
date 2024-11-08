@@ -8,23 +8,13 @@ followLikelihood = 0.2     # the likelihood that TJBot will follow an instructio
 [Log]
 level = 'info' # change this to 'debug' if you want to see more detail in the logs
 
+[Listen]
+# use `arecord -l` to list audio input devices
+device = 'plughw:2,0' # plugged-in USB card 2, device 0
+
 [Speak]
-voice = 'en-US_MichaelV3Voice'
+# use `aplay -l` to list audio output devices
 device = 'plughw:0,0' # plugged-in USB card 0, device 0
 
-[Listen]
-device = 'plughw:2,0'
-backgroundAudioSuppression = 0.6
-microphoneRate = 44100
-microphoneChannels = 2
-
-# uncomment to change the pin for the servo
-# [Wave]
-# servoPin = 7
-
-# uncomment to change the pins for the LEDs
-# [Shine]
-# NeoPixel.gpioPin = 18
-# CommonAnode.redPin = 1
-# CommonAnode.greenPin = 6
-# CommonAnode.bluePin = 12
+# see https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices for available voices
+voice = 'en-US_MichaelV3Voice'
