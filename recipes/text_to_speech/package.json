@@ -1,0 +1,32 @@
+{
+  "name": "text_to_speech",
+  "version": "3.0.0",
+  "description": "Make your TJBot speak!",
+  "keywords": [
+    "tjbot"
+  ],
+  "homepage": "https://github.com/ibmtjbot/tjbot#readme",
+  "bugs": {
+    "url": "https://github.com/ibmtjbot/tjbot/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ibmtjbot/tjbot.git"
+  },
+  "license": "Apache-2.0",
+  "author": "TJBot <https://ibmtjbot.github.io>",
+  "type": "module",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "tjbot": "file:../../../node-tjbotlib"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0"
+  }
+}
