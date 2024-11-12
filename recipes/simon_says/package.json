@@ -1,7 +1,7 @@
 {
-  "name": "speech_to_text",
+  "name": "simon_says",
   "version": "3.0.0",
-  "description": "Change the color of TJBot's LED with your voice!",
+  "description": "TJBot plays Simon Says, powered by IBM watsonx Assistant",
   "keywords": [
     "tjbot"
   ],
@@ -22,6 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "ibm-watson": "^9.1.0",
     "tjbot": "file:../../../node-tjbotlib"
   },
   "devDependencies": {

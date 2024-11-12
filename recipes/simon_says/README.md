@@ -1,10 +1,10 @@
-# Conversation
-> Chat with TJBot!
+# Simon Says
+> Play Simon Says with TJBot!
 
 This recipe uses the [watsonx Assistant](https://www.ibm.com/products/watsonx-assistant), [Speech to Text](https://www.ibm.com/products/speech-to-text), and [Text to Speech](https://www.ibm.com/products/text-to-speech/) services to turn TJ into a chatting robot.
 
 ## Hardware
-This recipe requires a TJBot with a microphone, a speaker, a Neopixel LED, and optionally a camera.
+This recipe requires a TJBot with a microphone, a speaker, an LED, and a servo.
 
 > 💡 If you have a Common Anode LED, change `TJBot.Hardware.LED_NEOPIXEL` to `TJBot.Hardware.LED_COMMON_ANODE` in `conversation.js`
 

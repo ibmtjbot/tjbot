@@ -4,7 +4,7 @@
 This recipe uses the [Speech to Text](https://www.ibm.com/products/speech-to-text) service to let you control the color of TJBot's LED with your voice. For example, if you say "turn the light green," TJBot will change the color of the LED to green.
 
 ## Hardware
-This recipe requires a TJBot with a microphone and a Neopixel LED.
+This recipe requires a TJBot with a microphone and an LED.
 
 > 💡 If you have a Common Anode LED, change `TJBot.Hardware.LED_NEOPIXEL` to `TJBot.Hardware.LED_COMMON_ANODE` in `index.mjs`
 

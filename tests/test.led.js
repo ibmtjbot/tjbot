@@ -29,7 +29,7 @@ function confirm(behavior) {
 }
 
 const tjbot = new TJBot();
-tjbot.config.Log.level = 'silly';
+tjbot.setLogLevel('silly');
 
 let answer = rl.question('Are you testing a NeoPixel LED (n) or Common Anode (c) LED, or both (b)? (N/c/b)? ');
 

@@ -1,7 +1,7 @@
 {
-  "name": "speech_to_text",
+  "name": "chat_with_tj",
   "version": "3.0.0",
-  "description": "Change the color of TJBot's LED with your voice!",
+  "description": "Chat with TJBot using watsonx.ai!",
   "keywords": [
     "tjbot"
   ],
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:ibmtjbot/tjbot.git"
+    "url": "git+ssh://git@github.com/ibmtjbot/tjbot.git"
   },
   "license": "Apache-2.0",
   "author": "TJBot <https://ibmtjbot.github.io>",
@@ -22,6 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@ibm-cloud/watsonx-ai": "^1.1.2",
     "tjbot": "file:../../../node-tjbotlib"
   },
   "devDependencies": {

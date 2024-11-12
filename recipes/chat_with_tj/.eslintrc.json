@@ -14,6 +14,10 @@
         "indent": ["error", 4],
         "max-len": "off",
         "no-console": "off",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "no-continue": "off",
+        "no-constant-condition": "off",
+        "no-await-in-loop": "off",
+        "import/extensions": "off"
     }
 }
