@@ -18,7 +18,7 @@
   "type": "module",
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.mjs",
+    "start": "sudo node index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
