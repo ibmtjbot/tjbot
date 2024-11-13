@@ -1,5 +1,5 @@
 /**
- * Copyright 2016-2024 IBM Corp. All Rights Reserved.
+ * Copyright 2024 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import TJBot from 'tjbot';
-import readline from 'readline';
+import readlineSync from 'readline-sync';
 
 async function main() {
     // Read recipe-specific config
@@ -31,35 +31,23 @@ async function main() {
 
     console.log('TJBot is ready to speak!');
     console.log("Type 'stop' or press ctrl-c to exit this recipe.\n");
+    console.log();
+    console.log('Type your message in the prompt below to have TJBot speak it!');
+    
+    // prompt the user for input and respond
+    while (true) {
+        const message = readlineSync.question('💬: ');
+        
+        // If the user types 'stop', exit the loop and close the interface
+        if (message.toLowerCase() === 'stop') {
+            console.log('🤖: Goodbye!');
+            await tj.speak('Goodbye!');
+            break;
+        }
 
-    // Create the readline interface
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-
-    // Function to prompt the user for input and respond
-    const askQuestion = () => {
-        rl.question('What would you like TJBot to say? ', (answer) => {
-            // If the user types 'stop', exit the loop and close the interface
-            if (answer.toLowerCase() === 'stop') {
-                tj.speak('Goodbye!');
-                rl.close();
-                process.exit(0);
-            }
-
-            // TJBot speaks the user's input
-            console.log('You said:', answer);
-            tj.speak(answer);
-            
-            // Wait 2 seconds before asking again
-            setTimeout(() => {
-                askQuestion();
-            }, 2000);
-        });
-    };
-
-    askQuestion();
+        console.log(`🤖: ${message}`);
+        await tj.speak(message);
+    }
 }
 
 // this is a little magic to avoid calling await at the top level,
