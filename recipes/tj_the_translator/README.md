@@ -49,13 +49,12 @@ Make a copy of TJBot's sample configuration file.
 $ cp tjbot.sample.toml tjbot.toml
 ```
 
-Open `tjbot.toml` in a text editor. In the `[Recipe]` section, fill in the `projectId` and `serviceUrl` configuration parameters from watsonx.ai.
-
-Enter the language you would like to translate TO in the `[Recipe]` section for the `language` variable.
+Open `tjbot.toml` in a text editor. In the `[Recipe]` section, fill in the `projectId` and `serviceUrl` configuration parameters from watsonx.ai. Enter the language you would like to translate TO in the `[Recipe]` section for the `language` variable.
 
 ```toml
 projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
 serviceUrl = 'https://us-south.ml.cloud.ibm.com' # CHANGE THIS IF YOUR SERVICEURL IS IN A DIFFERENT REGION
+language = '' # FILL IN WITH THE LANGUAGE YOU WANT TO TRANSLATE TO
 ```
 
 ### (Optional) Configure your LED
