@@ -4,6 +4,7 @@ serviceUrl = 'https://us-south.ml.cloud.ibm.com' # CHANGE THIS IF YOUR SERVICEUR
 serviceVersion = '2024-05-31'
 useNeoPixelLED = false     # set to true if using a NeoPixel LED
 useCommonAnodeLED = false  # set to true if using a Common Anode LED
+language = '' # FILL IN WITH THE LANGUAGE YOU WANT TO TRANSLATE TO
 
 # advanced configuration: you can change the LLM model & parameters here
 # see https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&audience=wdp
@@ -17,7 +18,6 @@ modelMinNewTokens = 0
 modelMaxNewTokens = 200
 modelStopSequences = ['.']
 modelRepetitionPenalty = 1.0
-language = '' # FILL IN WITH THE LANGUAGE YOU WANT TO TRANSLATE TO
 
 [Log]
 level = 'info' # change this to 'verbose' or 'debug' to see more detail in the logs
