@@ -1,7 +1,7 @@
-# Chat with TJ
-> :robot: :microphone: Build a talking robot with watsonx.ai!
+# TJ the Translator
+> 💬: 🗺️: Use TJBot to translate languages!
 
-This recipe uses IBM [watsonx.ai](https://www.ibm.com/products/watsonx-ai), [Speech to Text](https://www.ibm.com/products/speech-to-text) and [Text to Speech](https://www.ibm.com/products/text-to-speech) services to turn TJBot into a conversational partner.
+This recipe uses IBM [watsonx.ai](https://www.ibm.com/products/watsonx-ai), [Speech to Text](https://www.ibm.com/products/speech-to-text) and [Text to Speech](https://www.ibm.com/products/text-to-speech) services to turn TJBot into a language translator.
 
 ## Hardware
 This recipe requires a TJBot with a microphone, a speaker, and (optionally) an LED.
@@ -10,15 +10,15 @@ This recipe requires a TJBot with a microphone, a speaker, and (optionally) an L
 > 🤖 Prerequisite: Make sure you have configured your Raspberry Pi for TJBot by following the [bootstrap instructions](https://github.com/ibmtjbot/tjbot/tree/master/bootstrap).
 
 ### Install dependencies
-Open a Terminal, navigate to the `tjbot/recipes/chat_with_tj` directory, and install the dependencies.
+Open a Terminal, navigate to the `tjbot/recipes/tj_the_translator` directory, and install the dependencies.
 
 ```sh
-$ cd tjbot/recipes/chat_with_tj
+$ cd tjbot/recipes/tj_the_translator
 $ npm install
 ```
 
 ### Create instances of IBM Cloud AI services
-Create instances of the [Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text), and [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) services. Download the authentication credentials file for each service and combine them into a single file named `ibm-credentials.env`. Place this file in the `tjbot/recipes/chat_with_tj` folder. See `ibm-credentials.sample.env` for an example.
+Create instances of the [Speech to Text](https://cloud.ibm.com/catalog/services/speech-to-text), and [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) services. Download the authentication credentials file for each service and combine them into a single file named `ibm-credentials.env`. Place this file in the `tjbot/recipes/tj_the_translator` folder. See `ibm-credentials.sample.env` for an example.
 
 ### Create an IBM Cloud API Key
 Create an API key to connect to watsonx.ai in the IBM Cloud.
