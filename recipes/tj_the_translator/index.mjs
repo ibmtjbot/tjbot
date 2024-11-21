@@ -42,9 +42,6 @@ async function main() {
         version: config.serviceVersion,
     });
 
-    // keep track of the conversational history
-    let conversationHistory = '';
-
     // instantiate our TJBot!
     const tj = new TJBot();
     tj.initialize(hardware);
@@ -52,9 +49,11 @@ async function main() {
     // ready!
     console.log('TJBot is ready for conversation!');
     console.log("Say 'stop' or press ctrl-c to exit this recipe.");
-    await tj.speak(`Hello! Please tell me the phrase that you would like to translate to ${config.language}.`);
+    await tj.speak(`Hello! I'm T J Bot. What language would you like to translate to?`);
+    let language = await tj.listen();
 
     while (true) {
+        await tj.speak(`Please tell me the phrase that you would like to translate to ${language}.`);
         console.log('👂 listening...');
 
         if (hasLED) {
@@ -86,16 +85,12 @@ You are acting as a translator with a human.
 You provide friendly and helpful responses to everything the human says.
 You never use inappropriate language like swear words or hate speech.
 You aim to be delightful and energetic in your responses.
-Listen to the phrase that the human says and then translate it to ${config.language}.
-Do not respond with anything other than the translation.
+Take the input phrase and then translate it to ${language}.
+Your only output should be the final translated text.
 
-Conversation summary:
-${conversationHistory}
-
-Conversation:
-
-Human: ${msg}
-AI: `;
+Input: ${msg}.
+Output: 
+ `;
 
         const params = {
             input: prompt,
@@ -125,9 +120,6 @@ AI: `;
             }
             await tj.speak(text);
             console.log('🗯️ speaking finished');
-
-            // add to the conversation history
-            conversationHistory += `Human: ${msg}\n AI: ${text}\n\n`;
         } catch (err) {
             console.warn(`⚠️ > ${err}`);
         }
