@@ -51,9 +51,9 @@ async function main() {
     console.log("Say 'stop' or press ctrl-c to exit this recipe.");
     await tj.speak(`Hello! I'm T J Bot. What language would you like to translate to?`);
     let language = await tj.listen();
+    await tj.speak(`Ok. I will be ready to translate your phrase to ${language} when my light turns green.`);
 
     while (true) {
-        await tj.speak(`Please tell me the phrase that you would like to translate to ${language}.`);
         console.log('👂 listening...');
 
         if (hasLED) {
