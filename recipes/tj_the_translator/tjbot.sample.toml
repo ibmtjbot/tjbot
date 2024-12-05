@@ -1,0 +1,36 @@
+[Recipe]
+projectId = '' # FILL IN WITH YOUR WATSONX.AI PROJECT ID
+serviceUrl = 'https://us-south.ml.cloud.ibm.com' # CHANGE THIS IF YOUR SERVICEURL IS IN A DIFFERENT REGION
+serviceVersion = '2024-05-31'
+useNeoPixelLED = false     # set to true if using a NeoPixel LED
+useCommonAnodeLED = false  # set to true if using a Common Anode LED
+
+# advanced configuration: you can change the LLM model & parameters here
+# see https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-parameters.html?context=wx&audience=wdp
+# for more information on model parameters
+modelId = 'ibm/granite-13b-chat-v2'
+version = '2023-05-29'
+modelDecodingMethod = 'greedy' # options are 'greedy' or 'sample'
+modelTemperature = 0.7
+modelRandomSeed = 42
+modelMinNewTokens = 0
+modelMaxNewTokens = 200
+modelStopSequences = ['.']
+modelRepetitionPenalty = 1.0
+
+[Log]
+level = 'info' # change this to 'verbose' or 'debug' to see more detail in the logs
+
+[Listen]
+# use `arecord -l` to list audio input devices
+device = 'plughw:2,0' # plugged-in USB card 2, device 0
+backgroundAudioSuppression = 0.6
+microphoneRate = 44100
+microphoneChannels = 2
+
+[Speak]
+# use `aplay -l` to list audio output devices
+device = 'plughw:0,0' # plugged-in USB card 0, device 0
+
+# see https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices for available voices
+voice = 'en-US_MichaelV3Voice'
