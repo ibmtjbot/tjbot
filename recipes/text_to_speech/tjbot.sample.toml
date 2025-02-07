@@ -1,0 +1,9 @@
+[Log]
+level = 'info' # change this to 'debug' if you want to see more detail in the logs
+
+[Speak]
+# use `aplay -l` to list audio output devices
+device = 'plughw:0,0' # plugged-in USB card 0, device 0
+
+# see https://cloud.ibm.com/docs/text-to-speech?topic=text-to-speech-voices for available voices
+voice = 'en-US_MichaelV3Voice'
