@@ -19,15 +19,18 @@
   "main": "index.mjs",
   "scripts": {
     "start": "sudo node index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-deps": "npx npm-check-updates",
+    "upgrade-deps": "npx npm-check-updates -u"
   },
   "dependencies": {
-    "@ibm-cloud/watsonx-ai": "^1.1.2",
+    "@ibm-cloud/watsonx-ai": "^1.6.10",
     "tjbot": "file:../../../node-tjbotlib"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.31.0"
+    "@eslint/js": "^9.33.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-import": "^2.32.0",
+    "globals": "^16.3.0"
   }
 }
