@@ -1,5 +1,5 @@
 # Speech to Text
-> Control TJBot's LED with your voice!
+> :speech_balloon: Control TJBot's LED with your voice!
 
 This recipe uses the [Speech to Text](https://www.ibm.com/products/speech-to-text) service to let you control the color of TJBot's LED with your voice. For example, if you say "turn the light green," TJBot will change the color of the LED to green.
 
