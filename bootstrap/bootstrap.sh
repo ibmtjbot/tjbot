@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
 #----make sure this is run as root
-user=`id -u`
-if [ $user -ne 0 ]; then
+user=$(id -u)
+if [ "$user" -ne 0 ]; then
     echo "This script requires root permissions. Please run this script with sudo."
     exit
 fi
@@ -31,7 +31,7 @@ echo "packages, removing old packages, etc.)"
 echo "-----------------------------------------------------------------------"
 
 #----confirm bootstrap
-read -p "Would you like to use this Raspberry Pi for TJBot? [Y/n] " choice </dev/tty
+read -r -p "Would you like to use this Raspberry Pi for TJBot? [Y/n] " choice </dev/tty
 case "$choice" in
     "n" | "N")
         echo "OK, TJBot software will not be installed at this time."
@@ -41,26 +41,24 @@ case "$choice" in
 esac
 echo
 
-CPUARCH=`lscpu |grep Arch |cut -d':' -f2 | awk '{$1=$1};1'`
-
-if [ $CPUARCH = 'armv6l' ];
+#----don't install on an armv6l, it's not supported
+CPUARCH=$(lscpu | grep Arch | cut -d':' -f2 | awk '{$1=$1};1')
+if [ "$CPUARCH" = 'armv6l' ];
    then
-      echo "ARMv6 is not supported for TJBot due to software availability on this processor architecture. Please use another Raspberry Pi model"
+      echo "ARMv6 is not supported for TJBot due to software availability on this processor architecture. Please use another Raspberry Pi model."
       exit 1
 else
-   echo "$CPUARCH processor architecture supported. Proceeding with setup"
+   echo "$CPUARCH processor architecture supported. Proceeding with setup."
 fi
 
-
-#----test raspbian version: if it's older than jessie, it may not work
-RASPBIAN_VERSION_ID=`cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2`
-RASPBIAN_VERSION=`cat /etc/os-release | grep VERSION= | cut -d '"' -f 2`
-if [ $RASPBIAN_VERSION_ID -lt 8 ]; then
+#----raspian versions older than jessie (8) won't work
+RASPBIAN_VERSION_ID=$(cat /etc/os-release | grep VERSION_ID | cut -d '"' -f 2)
+if [ "$RASPBIAN_VERSION_ID" -lt 8 ]; then
     echo "Warning: it looks like your Raspberry Pi is running an older version"
     echo "of Raspian. TJBot has only been tested on Raspian 8 (Jessie) and"
     echo "later."
     echo ""
-    read -p "Would you like to continue with setup? [Y/n] " choice </dev/tty
+    read -r -p "Would you like to continue with setup? [Y/n] " choice </dev/tty
     case "$choice" in
         "n" | "N")
             echo "OK, TJBot software will not be installed at this time."
@@ -70,25 +68,25 @@ if [ $RASPBIAN_VERSION_ID -lt 8 ]; then
     esac
 fi
 
-#----setting TJBot name
-CURRENT_HOSTNAME=`cat /etc/hostname | tr -d " \t\n\r"`
+#----set TJBot hostname
+CURRENT_HOSTNAME=$(cat /etc/hostname | tr -d " \t\n\r")
 echo ""
 echo "Please enter a name for your TJBot. This will be used for the hostname of"
 echo "your Raspberry Pi."
-read -p "TJBot name (current: $CURRENT_HOSTNAME): " name </dev/tty
+read -r -p "TJBot hostname (currently $CURRENT_HOSTNAME): " name </dev/tty
 name=$(echo "$name" | tr -d ' ')
-if [ -z $name ]; then
+if [ -z "$name" ]; then
     name=$CURRENT_HOSTNAME
 fi
 echo "Setting DNS hostname to $name"
 echo "$name" | tee /etc/hostname >/dev/null 2>&1
 sed -i "s/127.0.1.1.*$CURRENT_HOSTNAME/127.0.1.1\t$name/g" /etc/hosts
 
-#----disabling ipv6
+#----disable ipv6
 echo ""
-echo "In some networking environments, disabling ipv6 may help your Pi get on"
-echo "the network."
-read -p "Disable ipv6? [y/N] " choice </dev/tty
+echo "In some networking environments, disabling ipv6 may help your Raspberry Pi connect to"
+echo "your network."
+read -r -p "Disable ipv6? [y/N] " choice </dev/tty
 case "$choice" in
     "y" | "Y")
         echo "Disabling ipv6"
@@ -98,11 +96,11 @@ case "$choice" in
     *) ;;
 esac
 
-#----setting DNS to Quad9
+#----set DNS to Quad9
 echo ""
 echo "In some networking environments, using Quad9's nameservers may speed up"
 echo "DNS queries and provide extra security and privacy."
-read -p "Enable Quad9 DNS? [y/N]: " choice </dev/tty
+read -r -p "Enable Quad9 DNS? [y/N]: " choice </dev/tty
 case "$choice" in
     "y" | "Y")
         echo "Adding Quad9 DNS servers to /etc/resolv.conf"
@@ -114,12 +112,12 @@ case "$choice" in
     *) ;;
 esac
 
-#----setting local to US
+#----set locale to US
 echo ""
-read -p "Force locale to US English (en-US)? [y/N] " choice </dev/tty
+read -r -p "Set locale to US English (en-US)? [y/N] " choice </dev/tty
 case "$choice" in
     "y" | "Y")
-        echo "Forcing locale to en-US. Please ignore any errors below."
+        echo "Updating locale to en-US. Please ignore any errors below."
         export LC_ALL="en_US.UTF-8"
         echo "en_US.UTF-8 UTF-8" | tee -a /etc/locale.gen
         locale-gen en_US.UTF-8
@@ -127,12 +125,12 @@ case "$choice" in
     *) ;;
 esac
 
-#----update raspberry
+#----update raspberry software
 echo ""
 echo "TJBot requires an up-to-date installation of your Raspberry Pi's operating"
 echo "system software. If you have never done this before, it can take up to an"
 echo "hour or longer."
-read -p "Proceed with apt-get dist-upgrade? [Y/n] " choice </dev/tty
+read -r -p "Proceed with apt-get dist-upgrade? [Y/n] " choice </dev/tty
 case "$choice" in
     "n" | "N")
         echo "Warning: you may encounter problems running TJBot recipes without performing"
@@ -147,34 +145,29 @@ case "$choice" in
         ;;
 esac
 
-#----nodejs install
-apt-get -y install tidy >/dev/null
-
+#----install nodejs
 echo ""
-RECOMMENDED_NODE_LEVEL=`curl -sS https://nodejs.org/en/ |tidy -q 2>/dev/null |grep LTS |grep "Download " |cut -d' ' -f2 |cut -d'.' -f1`
 
-MIN_NODE_LEVEL="16"
-NEED_NODE_INSTALL=false
+MIN_NODE_LEVEL="22"
 
 if which node > /dev/null; then
     NODE_VERSION=$(node --version 2>&1)
     NODE_LEVEL=$(node --version 2>&1 | cut -d '.' -f 1 | cut -d 'v' -f 2)
-    if [ $NODE_LEVEL -lt $MIN_NODE_LEVEL ]; then
-        echo "Node.js v$NODE_VERSION.x is currently installed. We recommend installing"
-        echo "v$MIN_NODE_LEVEL.x or later."
-        NEED_NODE_INSTALL=true
+    if [ "$NODE_LEVEL" -lt $MIN_NODE_LEVEL ]; then
+        echo "Warning: Node.js v$NODE_VERSION.x is currently installed, but TJBot requires"
+        echo "Node.js v$MIN_NODE_LEVEL.x or later. Please update your Node.js version."
     fi
 else
-    echo "Node.js is not installed."
-    NEED_NODE_INSTALL=true
-fi
-
-if $NEED_NODE_INSTALL; then
-    read -p "Would you like to install Node.js v$RECOMMENDED_NODE_LEVEL.x? [Y/n] " choice </dev/tty
+    echo "Node.js is not installed. It is required for TJBot to funciton."
+    read -r -p "Would you like to install Node.js via nvm or mise? [default: nvm]: " choice </dev/tty
     case "$choice" in
-        "" | "y" | "Y")
-            curl -sL https://deb.nodesource.com/setup_${RECOMMENDED_NODE_LEVEL}.x | sudo bash -
-            apt-get install -y nodejs
+        "" | "nvm")
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+            nvm install node
+            ;;
+        "mise")
+            curl https://mise.run | sh
+            mise use --global node@latest
             ;;
         *)
             echo "Warning: TJBot may not operate without installing a current version of Node.js."
@@ -184,8 +177,8 @@ fi
 
 #----install additional packages
 echo ""
-echo "Installing additional software packages (libasound2-dev libportaudio0 libportaudio2 libportaudiocpp0 porta
-udio19-dev)"
+echo "Installing additional software packages [apt-get install libasound2-dev libportaudio0 libportaudio2 libportaudiocpp0 porta
+udio19-dev]"
 apt-get install -y libasound2-dev libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-dev
 
 #----remove outdated apt packages
@@ -196,7 +189,7 @@ apt-get -y autoremove
 #----enable camera on raspbery pi
 echo ""
 echo "If your Raspberry Pi has a camera installed, TJBot can use it to see."
-read -p "Enable camera? [y/N] " choice </dev/tty
+read -r -p "Enable camera? [y/N] " choice </dev/tty
 case "$choice" in
     "y" | "Y")
         if grep "start_x=1" /boot/config.txt
@@ -224,14 +217,14 @@ esac
 #----clone tjbot
 echo ""
 echo "We are ready to clone the TJBot project."
-read -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_DIR </dev/tty
-if [ -z $TJBOT_DIR ]; then
+read -r -p "Where should we clone it to? (default: /home/pi/Desktop/tjbot): " TJBOT_DIR </dev/tty
+if [ -z "$TJBOT_DIR" ]; then
     TJBOT_DIR='/home/pi/Desktop/tjbot'
 fi
 
-if [ ! -d $TJBOT_DIR ]; then
+if [ ! -d "$TJBOT_DIR" ]; then
     echo "Cloning TJBot project to $TJBOT_DIR"
-    sudo -u $SUDO_USER git clone https://github.com/ibmtjbot/tjbot.git $TJBOT_DIR
+    sudo -u "$SUDO_USER" git clone https://github.com/ibmtjbot/tjbot.git "$TJBOT_DIR"
 else
     echo "TJBot project already exists in $TJBOT_DIR, leaving it alone"
 fi
@@ -245,11 +238,11 @@ echo "plugged in a speaker via HDMI, USB, or Bluetooth, this is a safe "
 echo "operation and you will be able to play sound and use the LED at the "
 echo "same time. If you plan to use the built-in audio jack, we recommend "
 echo "NOT disabling the sound kernel modules."
-read -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
+read -r -p "Disable sound kernel modules? [Y/n] " choice </dev/tty
 case "$choice" in
     "" | "y" | "Y")
         echo "Disabling the kernel modules for the built-in audio jack."
-        cp $TJBOT_DIR/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
+        cp "$TJBOT_DIR"/bootstrap/tjbot-blacklist-snd.conf /etc/modprobe.d/
         ;;
     "n" | "N")
         if [ -f /etc/modprobe.d/tjbot-blacklist-snd.conf ]; then
@@ -332,39 +325,18 @@ echo "Setup complete. Your Raspberry Pi is now set up as a TJBot! ;)"
 sleep $sleep_time
 echo "-------------------------------------------------------------------"
 echo ""
-read -p "Press enter to continue" nonce </dev/tty
+read -r -p "Press enter to continue" </dev/tty
 
-#——instructions for watson credentials
+#——instructions for ibm cloud credentials
 echo ""
-echo "Notice about IBM Watson services: Before running any recipes, you will"
-echo "need to obtain credentials for the IBM Watson services used by those"
-echo "recipes. You can obtain these credentials as follows:"
-echo ""
-echo "1. Sign up for a free IBM Cloud account at https://cloud.ibm.com if you"
-echo "do not have one already."
-echo "2. Log in to IBM Cloud and create an instance of the Watson services you"
-echo "plan to use. The Watson services are listed on the IBM Cloud dashboard,"
-echo "under \"Catalog\". The Watson services used by TJBot are Assistant,"
-echo "Language Translator, Speech to Text, Text to Speech, Tone Analyzer, and"
-echo "Visual Recognition."
-echo "3. For each service, click the \"Create\" button on the bottom right of"
-echo "the page to create an instance of the service."
-echo "4. Click the \"Download\" link in the \"Credentials\" section of the"
-echo "page."
-echo "5. Save the \"ibm-credentials.env\" file(s) in the folder of the recipe"
-echo "you wish to use."
-echo ""
-echo "Note: If you have credentials from multiple services, combine their"
-echo "contents into a single file."
-echo ""
-echo "For more detailed guides on setting up service credentials, please see"
-echo "the README file of each recipe."
-echo ""
-read -p "Press enter to continue" nonce </dev/tty
+echo "Notice about IBM Cloud services: Before running any recipes, you will"
+echo "need to obtain credentials for the IBM Cloud services used by those"
+echo "recipes. Check each recipe's README.md file for further instructions."
+read -r -p "Press enter to continue" </dev/tty
 
 #----reboot
 echo ""
-read -p "We recommend rebooting for all changes to take effect. Reboot? [Y/n] " choice </dev/tty
+read -r -p "We recommend rebooting for all changes to take effect. Reboot? [Y/n] " choice </dev/tty
 case "$choice" in
     "" | "y" | "Y")
         echo "Rebooting."
