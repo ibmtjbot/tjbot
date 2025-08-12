@@ -12,6 +12,34 @@ level = 'info' # change this to 'debug' if you want to see more detail in the lo
 # use `arecord -l` to list audio input devices
 device = 'plughw:2,0' # plugged-in USB card 2, device 0
 
+[Shine.NeoPixel]
+# On Raspberry Pi 5 models, we use the Serial Peripheral Interface (SPI)
+# to communicate with the NeoPixel LED. For GPIO10 (physical pin 19), this
+# interface is exposed in the filesystem as /dev/spidev0.0. If your LED
+# is connected to a different PIN, you may need to change the SPI interface.
+spiInterface = "/dev/spidev0.0"
+
+# On all other Raspberry Pi models, NeoPixels must be connected to one of these
+# GPIO pins to work: GPIO10, GPIO12, GPIO18, GPIO21.
+#
+# GPIO18 is the standard pin, but sound must be disabled to use GPIO18.
+#
+# To disable sound, edit /boot/config.txt and change:
+#   dtparam=audio=on
+# to:
+#   dtparam=audio=off
+# and then reboot.
+#
+# See https://pinout.xyz for a complete listing of RPi pins.
+# See https://learn.adafruit.com/neopixels-on-raspberry-pi/raspberry-pi-wiring
+# for more information about using NeoPixels with RPi.
+gpioPin = 18 # GPIO18 / Physical pin 12
+
+[Shine.CommonAnode]
+redPin = 19   # GPIO19 / Physical pin 35
+greenPin = 13 # GPIO13 / Physical pin 33
+bluePin = 12  # GPIO12 / Physical pin 32
+
 [Speak]
 # use `aplay -l` to list audio output devices
 device = 'plughw:0,0' # plugged-in USB card 0, device 0
