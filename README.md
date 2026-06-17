@@ -1,4 +1,7 @@
 # IBM TJBot
+> [!IMPORTANT]
+> **TJBot is no longer supported by IBM**. For an updated, community-supported edition, please see [TJBot: Community Edition](https://github.com/tjbot-ce/tjbot).
+
 <img src="images/tjbot.jpg" width="85%">
 
 [Maker Kits](http://ibm.biz/mytjbot) are a collection of DIY open source templates to build things with IBM AI services in a fun and easy way. [IBM TJBot](http://ibm.biz/mytjbot) is the first maker kit in the collection. You can 3D print or laser cut the robot body, then use one of our [recipes](recipes) to bring him to life!
